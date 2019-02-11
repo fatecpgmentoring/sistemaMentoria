@@ -96,3 +96,8 @@
         </div>
     </body>
 </html>
+
+    {{-- Isso deve ser colocado na pagina Master --}}
+    {{-- <div id="vue-app">
+        @yield('content')
+    </div> --}}
