@@ -1,0 +1,35 @@
+.body 
+{
+  margin: 0 !important;
+}
+.right-move 
+{
+  margin-left: auto;
+/*  margin-right: -30px; */
+}
+.link-l
+{
+  padding: 7px 8px 7px 8px !important;
+  text-transform: uppercase !important;
+
+}
+/*.text-right
+{
+  
+}*/
+.color-theme
+{
+  background: rgb(0, 176, 176) !important;
+}
+.color-subtheme
+{
+  background: rgba(0, 202, 200, 1)!important;
+}
+/*.center-auto
+{
+  margin-left: auto;
+}*/
+#main-footer
+{
+  margin-top: 100px;
+}
