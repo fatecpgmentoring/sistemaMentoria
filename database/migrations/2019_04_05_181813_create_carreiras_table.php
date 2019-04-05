@@ -14,7 +14,16 @@ class CreateCarreirasTable extends Migration
     public function up()
     {
         Schema::create('carreiras', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_carreira');
+            $table->string('nm_carreira');
+            $table->boolean('ds_active_carreira')->default(1);
+            $table->string('ds_log');
+            $table->unsignedInteger('id_carreira_profissao');
+            $table->foreign('id_carreira_profissao')
+                    ->references('id_profissao')
+                    ->on('profissoes')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }

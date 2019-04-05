@@ -13,8 +13,16 @@ class CreateMensagemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mensagems', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('mensagens', function (Blueprint $table) {
+            $table->increments('id_mensagem');
+            $table->text('ds_mensagem');
+            $table->unsignedInteger('fk_mensagem_conexao');
+            $table->boolean('ds_mensagem_vista')->default(0);
+            $table->foreign('fk_mensagem_conxao')
+                    ->references('id_conexao')
+                    ->on('conexoes')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }
