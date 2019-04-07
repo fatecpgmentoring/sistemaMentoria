@@ -25,12 +25,12 @@ class CreateConexaosTable extends Migration
             $table->double('vl_nota', 2, 2)->default(0.0);
             $table->foreign('id_c_mentorado')
                     ->references('id_mentorado')
-                    ->on('mentorado')
+                    ->on('mentorados')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->foreign('id_c_mentor')
                     ->references('id_mentor')
-                    ->on('mentor')
+                    ->on('mentores')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();

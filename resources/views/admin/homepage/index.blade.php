@@ -10,6 +10,7 @@
     <div id="vue-app">
         @yield('content')
     </div>
+    
     @include('admin.includes.footer')
 </body>
 </html>

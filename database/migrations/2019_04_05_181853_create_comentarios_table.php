@@ -16,9 +16,6 @@ class CreateComentariosTable extends Migration
         Schema::create('comentarios', function (Blueprint $table) {
             $table->increments('id_comentario');
             $table->text('ds_comentario');
-            $table->unsignedInteger('fk_comentario_mentor');
-            $table->unsignedInteger('fk_comentario_mentorado');
-            $table->unsignedInteger('fk_comentario_conexao');
             $table->unsignedInteger('fk_comentario_mentor')
                     ->references('id_mentor')
                     ->on('mentores')
