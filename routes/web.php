@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('site.homepage.index');
 });
 
+Route::get('/login', function () {
+    return view('site.login');
+});
+
 Route::group(['middleware' => CheckOnline::class], function () {
 
 });
