@@ -138,8 +138,7 @@ hr {
 }
 
 .img-fluid,.img-thumbnail {
-/*  max-width: 100%; */
-    max-width: 76px;
+    max-width: 100%;
     height: auto
 }
 
@@ -11962,13 +11961,13 @@ a.text-dark:focus,a.text-dark:hover {
 .sprite-user1 {
     width: 10px;
     height: 10px;
-    background-position: -45px -10px
+ /*    background-position: -45px -10px */
 }
 
 .sprite-key1 {
     width: 10px;
     height: 14px;
-    background-position: -70px -9px
+/*   background-position: -70px -9px */
 }
 
 .sprite-user {
@@ -12548,7 +12547,8 @@ p {
 
 #main-nav .top-line {
     width: 100%;
-    background: #bd00d1;
+    background: #00cb94;
+   /* background: #bd00d1; */
     padding: 5px 0
 }
 
@@ -12608,7 +12608,8 @@ p {
     font-size: 11px;
     font-weight: 300;
     text-transform: initial;
-    color: #7400d4
+    color: #00cb94;
+    /*color: #7400d4;*/
 }
 
 #main-nav .top-line .form-login .wrap-input ::-webkit-input-placeholder {
@@ -12649,13 +12650,15 @@ p {
     margin-left: 5px;
     padding: 0 1rem;
   /*  background: #e001f8; */
-    background: #0856d3;
+  /*  background: #0856d3; */
+    background: #00cb94;
     cursor: pointer
 }
 
 #main-nav .top-line .form-login button:hover {
   /*  background: #7400d4; */
-    background: #3e83f2;
+  /*  background: #3e83f2; */
+    background: #00cb91;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s
@@ -12837,7 +12840,8 @@ p {
 #main-nav .top-line .register-link {
     position: relative;
 /*   background: #7400d4; */
-    background: #034cc1;
+/*   background: #034cc1; */
+    background: #00cb94;
     -webkit-border-radius: 4px;
     border-radius: 4px;
     display: inline-block;
@@ -12868,7 +12872,8 @@ p {
     -o-transition: .3s;
     transition: .3s;
   /*  background: #e001f8; */
-    background: #679bef;
+  /*  background: #679bef; */
+    background: #00cb94;
 }
 
 #main-nav .main-part {
@@ -12887,9 +12892,8 @@ p {
 #main-nav .main-part .logo-box .logo {
     position: absolute;
     z-index: 1000;
- /* top: -37px; 
-    top: -41px; */
-    top: 0px;
+  /*  top: -37px; */
+    top: -41px;
     left: 15px;
     right: 15px
 }
@@ -12921,9 +12925,9 @@ p {
     -o-transition: .3s;
     transition: .3s;
   /*  background: #7400d4; */
-    background: #287BCF;
-    -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
-    box-shadow: 0 7px 7px 1px rgba(117,0,212,.3)
+    background: #00cb94;
+  /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
+    box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
 }
 
 @media (max-width:992px) {
@@ -13001,11 +13005,9 @@ p {
     }
 
     #main-nav .main-part .logo-box .logo-mobile {
-    /*  position: static;  */
-        position: relative;
+        position: static;
         width: 200px;
-        display: block;
-        top: -10px;
+        display: block
     }
 
     #main-nav .main-part .navbar-collapse {
@@ -13328,7 +13330,7 @@ p {
 
 #breadcrumb {
     min-height: 210px;
-    background: url(../images/bg-header2.png) 80% no-repeat fixed;
+    background: url(../images/books-coffee-map-table.jpg) 80% no-repeat fixed;
     overflow: hidden;
     position: relative;
     padding: 15px 0 70px;
@@ -13360,11 +13362,14 @@ p {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8
+   /* color: #e001f8; */
+    color: #00cb94;
 }
 
 #breadcrumb ul li a:hover,#breadcrumb ul li:hover {
-    color: #bd00d1
+  /*  color: #bd00d1; */
+    color: #00ce99;
+
 }
 
 #breadcrumb ul li {
@@ -13377,13 +13382,15 @@ p {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8
+   /* color: #e001f8;*/
+    color: #00cb94;
 }
 
 #breadcrumb ul li:not(:last-child):after {
     content: "\f105";
     font-family: FontAwesome;
-    color: #e001f8;
+   /* color: #e001f8; */
+    color: #00cb94;
     margin-left: 10px
 }
 
@@ -13753,7 +13760,7 @@ form.default .form-check-input:checked:before {
 
 #main-header {
     min-height: 700px;
-    background: url(/images/books-coffee-map-table.jpg) no-repeat fixed;
+    background: url(../images/books-coffee-map-table.jpg) no-repeat fixed;
     -webkit-background-size: cover;
     background-size: cover;
     background-position-x: 66%;
@@ -15308,13 +15315,15 @@ form.default .form-check-input:checked:before {
 }
 
 #login .wrap form button[type=submit] {
-    background: #e001f8;
+    background: #00cb94;
+    /*background: #e001f8;*/
     text-transform: uppercase;
     min-width: 250px
 }
 
 #login .wrap form button[type=submit]:hover {
-    background: #b201c5
+    background: #00cb62;
+    /*background: #b201c5*/
 }
 
 #login .wrap .mgt {
