@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mentor;
 
-use App\Mentor;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MentorController extends Controller
+class ProfissaoControllerMentor extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MentorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mentor  $mentor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Mentor $mentor)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class MentorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mentor  $mentor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mentor $mentor)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class MentorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mentor  $mentor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mentor $mentor)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class MentorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mentor  $mentor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mentor $mentor)
+    public function destroy($id)
     {
         //
     }
