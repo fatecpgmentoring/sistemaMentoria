@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MensagemControllerAdmin extends Controller
+class AssuntoMentorMentoradoAdmin extends Controller
 {
     /**
      * Display a listing of the resource.

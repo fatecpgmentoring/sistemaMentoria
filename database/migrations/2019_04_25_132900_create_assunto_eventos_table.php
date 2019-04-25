@@ -17,6 +17,16 @@ class CreateAssuntoEventosTable extends Migration
             $table->increments('id_assunto_eventos');
             $table->unsignedInteger('id_ae_evento');
             $table->unsignedInteger('id_ae_assunto');
+            $table->foreign('id_ae_evento')
+                    ->references('id_evento')
+                    ->on('tb_eventos')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+            $table->foreign('id_ae_assunto')
+                    ->references('id_assunto')
+                    ->on('tb_assuntos')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }
