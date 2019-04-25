@@ -28,10 +28,10 @@ Route::group(['middleware' => CheckOnline::class], function () {
 
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => CheckAdmin::class], function () {
+Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], function () {
     Route::get('/', function()
     {
-        return view('admin.homepage.index');
+        return view('admin.home');
     });
 });
 
