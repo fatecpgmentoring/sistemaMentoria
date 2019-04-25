@@ -13,20 +13,11 @@ class CreateComentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentarios', function (Blueprint $table) {
+        Schema::create('tb_comentarios', function (Blueprint $table) {
             $table->increments('id_comentario');
             $table->text('ds_comentario');
-            $table->unsignedInteger('fk_comentario_mentor')
-                    ->references('id_mentor')
-                    ->on('mentores')
-                    ->onUpdate('cascade')
-                    ->onDelete('restrict');
-            $table->unsignedInteger('fk_comentario_mentorado')
-                    ->references('id_mentorado')
-                    ->on('mentorados')
-                    ->onUpdate('cascade')
-                    ->onDelete('restrict');
-            $table->unsignedInteger('fk_comentario_conexao')
+            $table->unsignedInteger('id_comentario_conexao');
+            $table->foreign('id_comentario_conexao')
                     ->references('id_conexao')
                     ->on('conexoes')
                     ->onUpdate('cascade')

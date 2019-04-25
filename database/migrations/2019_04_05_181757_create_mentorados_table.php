@@ -13,7 +13,7 @@ class CreateMentoradosTable extends Migration
      */
     public function up()
     {
-        Schema::create('mentorados', function (Blueprint $table) {
+        Schema::create('tb_mentorados', function (Blueprint $table) {
             $table->increments('id_mentorado');
             $table->string('nm_mentorado', 100);
             $table->timestamps();

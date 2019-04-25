@@ -13,13 +13,18 @@ class CreateAssuntoMentoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('assunto_mentores', function (Blueprint $table) {
+        Schema::create('tb_assunto_mentores', function (Blueprint $table) {
             $table->increments('id_assunto_mentor');
             $table->unsignedInteger('id_am_mentor');
             $table->unsignedInteger('id_am_assunto');
             $table->foreign('id_am_mentor')
                     ->references('id_mentor')
                     ->on('mentores')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+            $table->foreign('id_am_assunto')
+                    ->references('id_assunto')
+                    ->on('assuntos')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();

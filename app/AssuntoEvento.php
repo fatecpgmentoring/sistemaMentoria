@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AssuntoMentore extends Model
+class AssuntoEvento extends Model
 {
     //
 }

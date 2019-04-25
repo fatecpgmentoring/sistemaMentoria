@@ -13,7 +13,7 @@ class CreateMentoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('mentores', function (Blueprint $table) {
+        Schema::create('tb_mentores', function (Blueprint $table) {
             $table->increments('id_mentor');
             $table->string('nm_mentor', 100);
             $table->integer('nv_conhecimento')->default(1);

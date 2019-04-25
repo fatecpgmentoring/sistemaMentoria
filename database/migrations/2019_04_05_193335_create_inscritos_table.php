@@ -13,7 +13,7 @@ class CreateInscritosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inscritos', function (Blueprint $table) {
+        Schema::create('tb_inscritos', function (Blueprint $table) {
             $table->increments('id_inscrito');
             $table->string('nm_inscrito');
             $table->string('cd_cpf');
@@ -24,7 +24,8 @@ class CreateInscritosTable extends Migration
             $table->string('nm_estado');
             $table->date('dt_nascimento');
             $table->tinyInteger('ds_status_pagamento')->default(0);
-            $table->unsignedInteger('fk_inscrito_evento')
+            $table->unsignedInteger('id_inscrito_evento');
+            $table->foreign('id_inscrito_evento')
                     ->references('id_evento')
                     ->on('eventos')
                     ->onUpdate('cascade')

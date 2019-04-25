@@ -13,7 +13,7 @@ class CreateConexaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('conexoes', function (Blueprint $table) {
+        Schema::create('tb_conexoes', function (Blueprint $table) {
             $table->increments('id_conexao');
             $table->unsignedInteger('id_c_mentorado');
             $table->unsignedInteger('id_c_mentor');

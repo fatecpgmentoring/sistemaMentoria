@@ -13,11 +13,10 @@ class CreateAssuntosTable extends Migration
      */
     public function up()
     {
-        Schema::create('assuntos', function (Blueprint $table) {
+        Schema::create('tb_assuntos', function (Blueprint $table) {
             $table->increments('id_assunto');
             $table->string('nm_assunto');
             $table->boolean('ds_active_assunto')->default(1);
-            $table->string('ds_log');
             $table->unsignedInteger('id_assunto_carreira');
             $table->foreign('id_assunto_carreira')
                     ->references('id_carreira')

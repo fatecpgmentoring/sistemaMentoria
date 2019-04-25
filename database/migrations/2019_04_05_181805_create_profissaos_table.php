@@ -13,11 +13,10 @@ class CreateProfissaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('profissoes', function (Blueprint $table) {
+        Schema::create('tb_profissoes', function (Blueprint $table) {
             $table->increments('id_profissao');
             $table->string('nm_profissao');
             $table->boolean('ds_active_profissao')->default(1);
-            $table->string('ds_log');
             $table->timestamps();
         });
     }
