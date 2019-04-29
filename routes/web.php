@@ -31,20 +31,20 @@ Route::group(['middleware' => CheckOnline::class], function () {
 Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], function () {
     Route::get('/', function()
     {
-        return view('admin.home');
+        return view('admin.home.index');
     });
 });
 
 Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], function () {
     Route::get('/', function()
     {
-        return view('site.painel-mentor.index');
+        return view('painel-mentor.index');
     });
 });
 
 Route::group(['prefix' => 'mentorado', 'middleware' => CheckMentorado::class], function () {
     Route::get('/', function()
     {
-        return view('site.painel-mentorado.index');
+        return view('painel-mentorado.index');
     });
 });
