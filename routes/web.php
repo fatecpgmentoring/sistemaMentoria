@@ -56,7 +56,7 @@ Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], functio
 });
 
 Route::group(['prefix' => 'mentorado', 'middleware' => CheckMentorado::class], function () {
-    Route::get('/', function()
+    Route::get('/mentorado', function()
     {
         return view('painel-mentorado.index');
     });
