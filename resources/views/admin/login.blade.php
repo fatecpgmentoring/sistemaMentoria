@@ -1,4 +1,4 @@
-@extends ('layouts.plane')
+@extends ('admin.layouts.plane')
 @section ('body')
 <div class="container">
         <div class="row">
@@ -25,7 +25,7 @@
                         </form>
                     
                 @endsection
-                @include('widgets.panel', array('as'=>'login', 'header'=>true))
+                @include('admin.widgets.panel', array('as'=>'login', 'header'=>true))
             </div>
         </div>
     </div>
