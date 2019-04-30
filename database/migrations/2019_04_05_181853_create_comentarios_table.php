@@ -19,7 +19,7 @@ class CreateComentariosTable extends Migration
             $table->unsignedInteger('id_comentario_conexao');
             $table->foreign('id_comentario_conexao')
                     ->references('id_conexao')
-                    ->on('conexoes')
+                    ->on('tb_conexoes')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
             $table->timestamps();

@@ -31,21 +31,23 @@ Route::group(['middleware' => CheckOnline::class], function () {
 Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], function () {
     Route::get('/', function()
     {
-        return view('admin.home.index');
+        return view('admin.home');
+    })->name('admin.home');
+    Route::get('/perfil', 'Admin/AdminController@show')->name('admin.profile');
+    Route::post('/logout', 'Admin/AdminController@show')->name('admin.logout');
+    Route::get('/config', 'Admin/AdminController@show')->name('admin.config');
+    Route::group(['prefix' => 'profissao'], function () {
+        Route::get('/', 'Admin/ProfissaoControllerAdmin@index')->name('admin.profissao.index');
+        Route::get('/create', 'Admin/ProfissaoControllerAdmin@create')->name('admin.profissao.create');
     });
-
-    Route::get('charts', function(){ return view('admin.mcharts'); })->name('charts'); 
-    Route::get('tables', function(){ return view('admin.table'); })->name('tables'); 
-    Route::get('forms', function(){ return view('admin.form'); })->name('forms'); 
-    Route::get('panels', function(){ return view('admin.panel'); })->name('panels'); 
-    Route::get('buttons', function(){ return view('admin.buttons'); })->name('buttons');
-    Route::get('notifications', function(){ return view('admin.notifications'); })->name('notifications'); 
-    Route::get('typography', function(){ return view('admin.typography'); })->name('typography'); 
-    Route::get('icons', function(){ return view('admin.icons'); })->name('icons'); 
-    Route::get('grid', function(){ return view('admin.grid'); })->name('grid'); 
-    Route::get('blank', function(){ return view('admin.blank'); })->name('blank'); 
-    Route::get('login', function(){ return view('admin.login'); })->name('login'); 
-    Route::get('documentation', function(){ return view('admin.documentation'); })->name('documentation'); 
+    Route::group(['prefix' => 'carreira'], function () {
+        Route::get('/', 'Admin/CarreiraControllerAdmin@index')->name('admin.carreira.index');
+        Route::get('/create', 'Admin/CarreiraControllerAdmin@create')->name('admin.carreira.create');
+    });
+    Route::group(['prefix' => 'assunto'], function () {
+        Route::get('/', 'Admin/AssuntoControllerAdmin@index')->name('admin.assunto.index');
+        Route::get('/create', 'Admin/AssuntoControllerAdmin@create')->name('admin.assunto.create');
+    });
 });
 
 Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], function () {

@@ -19,12 +19,12 @@ class CreateAssuntoMentoresTable extends Migration
             $table->unsignedInteger('id_am_assunto');
             $table->foreign('id_am_mentor')
                     ->references('id_mentor')
-                    ->on('mentores')
+                    ->on('tb_mentores')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->foreign('id_am_assunto')
                     ->references('id_assunto')
-                    ->on('assuntos')
+                    ->on('tb_assuntos')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();

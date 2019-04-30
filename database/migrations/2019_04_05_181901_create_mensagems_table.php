@@ -20,7 +20,7 @@ class CreateMensagemsTable extends Migration
             $table->boolean('ds_mensagem_vista')->default(0);
             $table->foreign('id_mensagem_conexao')
                     ->references('id_conexao')
-                    ->on('conexoes')
+                    ->on('tb_conexoes')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();

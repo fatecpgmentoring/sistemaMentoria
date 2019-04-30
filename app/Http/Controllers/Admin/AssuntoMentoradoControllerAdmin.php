@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\AssuntoMetorado;
+use Illuminate\Database\QueryException;
 
 class AssuntoMentoradoControllerAdmin extends Controller
 {
@@ -14,7 +16,9 @@ class AssuntoMentoradoControllerAdmin extends Controller
      */
     public function index()
     {
-        //
+        $assuntos = AssuntoMentorado::join('tb_assuntos', 'id_assunto', '=', 'id_ams_assunto')
+                                    ->join('tb_mentorados', 'id_mentorado', '=', 'id_ams_mentorado')->get();
+        return view('', compact('assuntos'));
     }
 
     /**
@@ -24,7 +28,7 @@ class AssuntoMentoradoControllerAdmin extends Controller
      */
     public function create()
     {
-        //
+        return view('');
     }
 
     /**
@@ -35,7 +39,19 @@ class AssuntoMentoradoControllerAdmin extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $assuntos = new AssuntoMetorado([
+            'id_ams_assunto' => $request->post('assunto'),
+            'id_ams_mentorado' => $request->post('mentorado')
+        ]);
+
+        try
+        {
+            $assuntos->save();
+        }
+        catch(QueryException $ex)
+        {
+            dd($ex);
+        }
     }
 
     /**
@@ -46,30 +62,11 @@ class AssuntoMentoradoControllerAdmin extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $assuntos = AssuntoMentorado::join('tb_assuntos', 'id_assunto', '=', 'id_ams_assunto')
+                                    ->join('tb_mentorados', 'id_mentorado', '=', 'id_ams_mentorado')
+                                    ->where('id_assunto_mentorado', '=', $id)
+                                    ->get();
+        return view('', compact('assuntos'));
     }
 
     /**
@@ -80,6 +77,15 @@ class AssuntoMentoradoControllerAdmin extends Controller
      */
     public function destroy($id)
     {
-        //
+        $assuntos = AssuntoMentorado::find($id);
+
+        try
+        {
+            $assuntos->delete();
+        }
+        catch(QueryException $ex)
+        {
+            dd($ex);
+        }
     }
 }
