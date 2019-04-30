@@ -32,6 +32,21 @@ Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], funct
     Route::get('/', function()
     {
         return view('admin.home');
+    })->name('admin.home');
+    Route::get('/perfil', 'Admin/AdminController@show')->name('admin.profile');
+    Route::post('/logout', 'Admin/AdminController@show')->name('admin.logout');
+    Route::get('/config', 'Admin/AdminController@show')->name('admin.config');
+    Route::group(['prefix' => 'profissao'], function () {
+        Route::get('/', 'Admin/ProfissaoControllerAdmin@index')->name('admin.profissao.index');
+        Route::get('/create', 'Admin/ProfissaoControllerAdmin@create')->name('admin.profissao.create');
+    });
+    Route::group(['prefix' => 'carreira'], function () {
+        Route::get('/', 'Admin/CarreiraControllerAdmin@index')->name('admin.carreira.index');
+        Route::get('/create', 'Admin/CarreiraControllerAdmin@create')->name('admin.carreira.create');
+    });
+    Route::group(['prefix' => 'assunto'], function () {
+        Route::get('/', 'Admin/AssuntoControllerAdmin@index')->name('admin.assunto.index');
+        Route::get('/create', 'Admin/AssuntoControllerAdmin@create')->name('admin.assunto.create');
     });
 });
 

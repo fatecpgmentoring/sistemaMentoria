@@ -20,7 +20,7 @@ class CreateCarreirasTable extends Migration
             $table->unsignedInteger('id_carreira_profissao');
             $table->foreign('id_carreira_profissao')
                     ->references('id_profissao')
-                    ->on('profissoes')
+                    ->on('tb_profissoes')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();

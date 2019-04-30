@@ -27,7 +27,7 @@ class CreateInscritosTable extends Migration
             $table->unsignedInteger('id_inscrito_evento');
             $table->foreign('id_inscrito_evento')
                     ->references('id_evento')
-                    ->on('eventos')
+                    ->on('tb_eventos')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
             $table->timestamps();

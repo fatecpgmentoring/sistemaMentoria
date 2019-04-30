@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\AssuntoMentor;
 
-class AssuntoMentorMentoradoAdmin extends Controller
+class AssuntoMentorAdmin extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,10 @@ class AssuntoMentorMentoradoAdmin extends Controller
      */
     public function index()
     {
-        //
+        $assuntos = AssuntoMentor::join('tb_assuntos', 'id_assunto', 'id_am_assunto')
+                                 ->join('tb_mentores', 'id_mentor', 'id_am_mentor')
+                                 ->get();
+        return view('', compact('assuntos'));
     }
 
     /**

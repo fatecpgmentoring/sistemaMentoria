@@ -19,7 +19,7 @@ class CreateMentoradosTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE mentorados AUTO_INCREMENT = 10000;");
+        DB::statement("ALTER TABLE tb_mentorados AUTO_INCREMENT = 10000;");
 
     }
 

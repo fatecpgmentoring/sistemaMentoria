@@ -20,7 +20,7 @@ class CreateAssuntosTable extends Migration
             $table->unsignedInteger('id_assunto_carreira');
             $table->foreign('id_assunto_carreira')
                     ->references('id_carreira')
-                    ->on('carreiras')
+                    ->on('tb_carreiras')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->timestamps();
