@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- HEADER --> 
-@include('site.homepage.sections.header')
+@include('painel-mentorado.includes.header')
 
 <!-- CONSULTANTS -->
 @include('site.homepage.sections.consultants')
