@@ -64,9 +64,9 @@ Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/
     });
 });
 
-////
+////teste
 
-  Route::get('/teste', function()
+ /* Route::get('/teste', function()
     {
         return view('painel-mentorado.includes.testedepasta');
-    });
+    });  */
