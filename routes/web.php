@@ -50,12 +50,12 @@ Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], funct
     });
 });
 
-Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], function () {
-    Route::get('/mentor', function()
-    {
-        return view('painel-mentor.index');
-    });
-});
+//Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], function () {
+//    Route::get('/mentor', function()
+//    {
+//        return view('painel-mentor.index');
+ //   });
+//});
 
 //Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
   //  Route::get('/mem', function()
@@ -72,5 +72,7 @@ Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], functio
         return view('painel-mentorado.index');
     }); 
 
-
-         
+//Route::get('/mentor', function()
+  //  {
+    //    return view('painel-mentor.index');
+    //});

@@ -17658,3 +17658,74 @@ form.default .form-check-input:checked:before {
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxx CSS André 01/05/2019 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
+#aside-nav-wrap #aside-nav .nav-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap
+}
+
+#aside-navwrap #aside-nav .nav-list li {
+    display: block;
+    margin-bottom: 1px
+}
+
+#aside-nav-wrap #aside-nav .nav-list li .wrap-item {
+    background: #222d32;
+    padding: 25px 15px 15px 100px
+}
+
+#aside-navwrap #aside-nav .nav-list li .wrap-item h5 {
+    text-align: left;
+    font-family: Montserrat,sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: initial;
+    color: #fff
+}
+
+#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px
+}
+
+#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    color: #fff;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li a {
+    text-align: left;
+    font-family: COCOGOOSE;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: initial;
+    color: #8a989e
+}
+
+#aside-navwrap #aside-nav .nav-list li .wrap-item ul li a:hover {
+    color: #fff
+}
+
+@media (max-width:992px) {
+    #aside-nav-wrap #aside-nav .icon-list li {
+        margin-bottom: 42px
+    }
+
+    #aside-nav #aside-nav .nav-list li .wrap-item {
+        padding: 25px 15px 15px 80px
+    }
+}
