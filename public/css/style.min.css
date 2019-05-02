@@ -197,13 +197,13 @@ sup {
     top: -.5em
 }
 
-a {
-    color: #007bff;
-    background-color: transparent
+a  {
+    color:white;
+    background-color: transparent;
 }
 
 a:hover {
-    color: #0056b3
+    color:yellow;
 }
 
 a:not([href]):not([tabindex]),a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
@@ -4201,6 +4201,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     display: -webkit-flex;
     display: -ms-flexbox;
     -webkit-flex-wrap: wrap
+    background-color:rgb(0,177,177);
 }
 
 .custom-range {
@@ -4390,7 +4391,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     .custom-control-label::before,.custom-file-label,.custom-select {
         -webkit-transition: none;
         -o-transition: none;
-        transition: none
+        transition: none;
     }
 }
 
@@ -4398,7 +4399,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding-left: 0
+    padding-left: 0;
 }
 
 .nav-link,.navbar {
@@ -4406,17 +4407,18 @@ a.btn.disabled,fieldset:disabled a.btn {
 }
 
 .nav-link {
-    display: block
+    display: block;
+    
 }
 
 .nav-link:focus,.nav-link:hover {
-    text-decoration: none
+    text-decoration: none;
 }
 
 .nav-link.disabled {
     color: #6c757d;
     pointer-events: none;
-    cursor: default
+    cursor: default;
 }
 
 .navbar-toggler:not(:disabled):not(.disabled),.page-link:not(:disabled):not(.disabled) {
@@ -4512,7 +4514,9 @@ a.btn.disabled,fieldset:disabled a.btn {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    background-color:rgb(0,177,177);
+    
 }
 
 .navbar>.container,.navbar>.container-fluid {
@@ -4530,7 +4534,8 @@ a.btn.disabled,fieldset:disabled a.btn {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    
 }
 
 .navbar-brand {
@@ -4752,6 +4757,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     .navbar-expand-lg,.navbar-expand-lg .navbar-nav {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal
+
     }
 
     .navbar-expand-lg {
@@ -6960,7 +6966,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #007bff!important
+    background-color: #007bff
 }
 
 a.bg-primary:focus,a.bg-primary:hover,button.bg-primary:focus,button.bg-primary:hover {
@@ -10743,7 +10749,7 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
 }
 
 .text-primary {
-    color: #007bff!important
+    color: #007bff
 }
 
 a.text-primary:focus,a.text-primary:hover {
@@ -12072,7 +12078,7 @@ a.text-dark:focus,a.text-dark:hover {
     background-position: -458px -201px
 }
 
-a,a:hover {
+a:hover {
     text-decoration: none
 }
 
@@ -17648,3 +17654,7 @@ form.default .form-check-input:checked:before {
 #atendimento .chat-talk-box .table tbody tr td .user-atendente {
     background: #00cb94
 }
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxx CSS André 01/05/2019 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+

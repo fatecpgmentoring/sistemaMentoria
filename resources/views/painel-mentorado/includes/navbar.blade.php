@@ -10,11 +10,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
   <style>
-	.navbar { 
+	.navbar-mentorado { 
 		background-color:rgb(0,177,177);
 }		
 
-	.nav-link {
+	.nav-link-mentorado {
 		color:white;
 }
 

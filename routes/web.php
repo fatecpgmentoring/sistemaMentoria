@@ -57,16 +57,20 @@ Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], functio
     });
 });
 
-Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
-    Route::get('/mem', function()
+//Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
+  //  Route::get('/mem', function()
+    //{
+      //  //return view('painel-mentorado.index');
+        //return view('painel-mentorado.includes.testedepasta');
+    //});
+//}); 
+
+////teste --Nois do front nao sabe usar middleware
+
+  Route::get('/mentorado', function()
     {
         return view('painel-mentorado.index');
-    });
-});
+    }); 
 
-////teste
 
- /* Route::get('/teste', function()
-    {
-        return view('painel-mentorado.includes.testedepasta');
-    });  */
+         

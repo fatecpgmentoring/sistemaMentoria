@@ -1,1 +1,3 @@
-<p>sidebar</p>
+<aside>
+	<p>sidebar</p>
+</aside>
