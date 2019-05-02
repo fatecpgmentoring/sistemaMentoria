@@ -1,15 +1,16 @@
 <!-- Fav -->
-<link rel="icon" type="image/png" href="/images/icone-azul.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="/images/icone-azul.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/logos/icone-azul.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/logos/icone-azul.png" sizes="16x16" />
 
 <!-- CSS -->
-<link rel="stylesheet" href="/css/style.min.css" type="text/css">
-<link rel="stylesheet" href="/css/vendor.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/style.min.css" type="text/css">
+<link rel="stylesheet" href="/css/vendor.css" type="text/css">  
 
 <!-- META TAGS -->
 <meta name="description" content="@yield('meta-desc', '')" />

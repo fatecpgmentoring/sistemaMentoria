@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 <header>
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#"><img src="" alt="Logo" style="width:40px;"></a>
+  <a class="navbar-brand" href="#"><img src="/images/logos/icone-azul.png" alt="Logo" style="width:65px; height:65px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" style="color:red; background-color:red;"></span>
   </button>
