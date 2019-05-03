@@ -16289,13 +16289,7 @@ form.default .form-check-input:checked:before {
     }
 }
 
-#main-panel-wrap,#main-panel-wrap #aside-nav .icon-list li .wrap {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal
-}
+
 
 #main-panel-wrap {
     background: #e9e8e8;
@@ -16308,160 +16302,7 @@ form.default .form-check-input:checked:before {
     position: relative
 }
 
-#main-panel-wrap #aside-nav {
-    background: #131a1d;
-    overflow: hidden;
-    width: 0;
-    min-height: -webkit-calc(100vh - 150px);
-    min-height: calc(100vh - 150px);
-    overflow-y: auto;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    z-index: 100
-}
 
-#main-panel-wrap #aside-nav::-webkit-scrollbar {
-    width: 5px
-}
-
-#main-panel-wrap #aside-nav::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px #222d32;
-    box-shadow: inset 0 0 5px #222d32;
-    -webkit-border-radius: 5px;
-    border-radius: 5px
-}
-
-#main-panel-wrap #aside-nav::-webkit-scrollbar-thumb {
-    background: #7400d4;
-    -webkit-border-radius: 8px;
-    border-radius: 8px
-}
-
-#main-panel-wrap #aside-nav::-webkit-scrollbar-thumb:hover {
-    background: #7400d4
-}
-
-#main-panel-wrap #aside-nav.active {
-    width: 281px
-}
-
-#main-panel-wrap #aside-nav .icon-list {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    z-index: 100
-}
-
-#main-panel-wrap #aside-nav .icon-list li {
-    margin-bottom: 35px;
-    cursor: pointer
-}
-
-#main-panel-wrap #aside-nav .icon-list li .wrap {
-    -webkit-box-shadow: 1px 2px 15px 2px rgba(0,0,0,.1);
-    box-shadow: 1px 2px 15px 2px rgba(0,0,0,.1);
-    border: 1px solid #cecdcd;
-    background: #fff;
-    -webkit-border-top-right-radius: 30px;
-    border-top-right-radius: 30px;
-    -webkit-border-bottom-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    height: 60px;
-    width: 60px;
-    padding: 10px;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center
-}
-
-#main-panel-wrap #aside-nav .icon-list li:hover .wrap {
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    width: 70px
-}
-
-#main-panel-wrap #aside-nav .nav-list {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: column wrap;
-    -ms-flex-flow: column wrap;
-    flex-flow: column wrap
-}
-
-#main-panel-wrap #aside-nav .nav-list li {
-    display: block;
-    margin-bottom: 1px
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item {
-    background: #222d32;
-    padding: 25px 15px 15px 100px
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item h5 {
-    text-align: left;
-    font-family: Montserrat,sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: initial;
-    color: #fff
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item ul li {
-    position: relative;
-    padding-left: 15px;
-    margin-bottom: 5px
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item ul li:before {
-    content: "\f105";
-    font-family: FontAwesome;
-    color: #fff;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%)
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item ul li a {
-    text-align: left;
-    font-family: COCOGOOSE;
-    font-size: 14px;
-    font-weight: 300;
-    text-transform: initial;
-    color: #8a989e
-}
-
-#main-panel-wrap #aside-nav .nav-list li .wrap-item ul li a:hover {
-    color: #fff
-}
-
-@media (max-width:992px) {
-    #main-panel-wrap #aside-nav .icon-list li {
-        margin-bottom: 42px
-    }
-
-    #main-panel-wrap #aside-nav .nav-list li .wrap-item {
-        padding: 25px 15px 15px 80px
-    }
-}
 
 #main-panel-wrap.active #main-box {
     width: -webkit-calc(100% - 281px);
@@ -16478,38 +16319,6 @@ form.default .form-check-input:checked:before {
     transition: .3s
 }
 
-@media (max-width:768px) {
-    #main-panel-wrap #main-box {
-        padding-top: 25px;
-        padding-left: 90px
-    }
-}
-
-@media (max-width:685px) {
-    #main-panel-wrap.active #main-box {
-        width: 100%
-    }
-
-    #main-panel-wrap #aside-nav .icon-list {
-        left: -10px;
-        top: 20px;
-        bottom: 0;
-        position: fixed
-    }
-
-    #main-panel-wrap #aside-nav .icon-list li:not(:first-child) {
-        display: none
-    }
-
-    #main-panel-wrap #aside-nav.active {
-        position: absolute;
-        top: 0;
-        bottom: 0
-    }
-
-    #main-panel-wrap #aside-nav.active #main-box {
-        padding-left: 0
-    }
 
     #main-panel-wrap .nav-list li .wrap-item {
         padding: 25px 15px 15px 70px!important
@@ -17658,7 +17467,133 @@ form.default .form-check-input:checked:before {
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxx CSS André 01/05/2019 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
-#aside-nav-wrap #aside-nav .nav-list {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aside-nav .icon-list li .wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal
+}
+
+
+#aside-nav {
+    background: black;
+    overflow: hidden;
+    width: 0;
+    min-height: -webkit-calc(100vh - 150px);
+    min-height: calc(100vh - 150px);
+    overflow-y: auto;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    z-index: 100
+}
+
+#aside-nav::-webkit-scrollbar {
+    width: 5px
+}
+
+#aside-nav::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px #222d32;
+    box-shadow: inset 0 0 5px #222d32;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+
+#aside-nav::-webkit-scrollbar-thumb {
+    background: #7400d4;
+    -webkit-border-radius: 8px;
+    border-radius: 8px
+}
+
+#aside-nav::-webkit-scrollbar-thumb:hover {
+    background: #7400d4
+}
+
+#aside-nav.active {
+    width: 281px
+}
+
+#aside-nav .icon-list {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 100
+}
+
+#aside-nav .icon-list li {
+    margin-bottom: 35px;
+    cursor: pointer
+}
+
+#aside-nav .icon-list li .wrap {
+    -webkit-box-shadow: 1px 2px 15px 2px rgba(0,0,0,.1);
+    box-shadow: 1px 2px 15px 2px rgba(0,0,0,.1);
+    border: 1px solid #cecdcd;
+    background: #fff;
+    -webkit-border-top-right-radius: 30px;
+    border-top-right-radius: 30px;
+    -webkit-border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+#aside-nav .icon-list li:hover .wrap {
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    width: 70px
+}
+
+#aside-nav .nav-list {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -17670,17 +17605,17 @@ form.default .form-check-input:checked:before {
     flex-flow: column wrap
 }
 
-#aside-navwrap #aside-nav .nav-list li {
+#aside-nav .nav-list li {
     display: block;
     margin-bottom: 1px
 }
 
-#aside-nav-wrap #aside-nav .nav-list li .wrap-item {
+#aside-nav .nav-list li .wrap-item {
     background: #222d32;
     padding: 25px 15px 15px 100px
 }
 
-#aside-navwrap #aside-nav .nav-list li .wrap-item h5 {
+#aside-nav .nav-list li .wrap-item h5 {
     text-align: left;
     font-family: Montserrat,sans-serif;
     font-size: 15px;
@@ -17689,43 +17624,76 @@ form.default .form-check-input:checked:before {
     color: #fff
 }
 
-#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li {
-    position: relative;
+#aside-nav .nav-list li .wrap-item ul li {
+    /*position: relative;*/
     padding-left: 15px;
     margin-bottom: 5px
 }
 
-#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li:before {
+#aside-nav .nav-list li .wrap-item ul li:before {
     content: "\f105";
     font-family: FontAwesome;
-    color: #fff;
+    color: red;
     left: 0;
-    position: absolute;
+    /*position: relative;*/
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%)
 }
 
-#aside-nav-wrap #aside-nav .nav-list li .wrap-item ul li a {
+#aside-nav .nav-list li .wrap-item ul li a {
     text-align: left;
     font-family: COCOGOOSE;
     font-size: 14px;
     font-weight: 300;
     text-transform: initial;
-    color: #8a989e
+    color: yellow;
 }
 
-#aside-navwrap #aside-nav .nav-list li .wrap-item ul li a:hover {
-    color: #fff
+#aside-nav .nav-list li .wrap-item ul li a:hover {
+    color: lime;
 }
 
 @media (max-width:992px) {
-    #aside-nav-wrap #aside-nav .icon-list li {
+#aside-nav .icon-list li {
         margin-bottom: 42px
     }
 
-    #aside-nav #aside-nav .nav-list li .wrap-item {
+#aside-nav .nav-list li .wrap-item {
         padding: 25px 15px 15px 80px
     }
 }
+
+@media (max-width:768px) {
+    #main-panel-wrap #main-box {
+        padding-top: 25px;
+        padding-left: 90px
+    }
+}
+
+@media (max-width:685px) {
+    #main-panel-wrap.active #main-box {
+        width: 100%
+    }
+
+    #aside-nav .icon-list {
+        left: 0px;
+        top: 20px;
+        bottom: 0;
+        /*position: relative;*/
+    }
+
+    #aside-nav .icon-list li:not(:first-child) {
+        display: none
+    }
+
+    #aside-nav.active {
+        /*position: relative;*/
+        top: 0;
+        bottom: 0
+    }
+
+    #aside-nav.active #main-box {
+        padding-left: 0
+    }
