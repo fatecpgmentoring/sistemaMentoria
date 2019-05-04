@@ -16,8 +16,8 @@ class CreateComentariosTable extends Migration
         Schema::create('tb_comentarios', function (Blueprint $table) {
             $table->increments('id_comentario');
             $table->text('ds_comentario');
-            $table->unsignedInteger('id_comentario_conexao');
-            $table->foreign('id_comentario_conexao')
+            $table->unsignedInteger('conexao_id_conexao');
+            $table->foreign('conexao_id_conexao')
                     ->references('id_conexao')
                     ->on('tb_conexoes')
                     ->onUpdate('cascade')

@@ -15,14 +15,14 @@ class CreateAssuntoMentoradosTable extends Migration
     {
         Schema::create('tb_assunto_mentorados', function (Blueprint $table) {
             $table->increments('id_assunto_mentorado');
-            $table->unsignedInteger('id_ams_mentorado');
-            $table->unsignedInteger('id_ams_assunto');
-            $table->foreign('id_ams_mentorado')
+            $table->unsignedInteger('mentorado_id_mentorado');
+            $table->unsignedInteger('assunto_id_assunto');
+            $table->foreign('mentorado_id_mentorado')
                     ->references('id_mentorado')
                     ->on('tb_mentorados')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
-            $table->foreign('id_ams_assunto')
+            $table->foreign('assunto_id_assunto')
                     ->references('id_assunto')
                     ->on('tb_assuntos')
                     ->onDelete('restrict')

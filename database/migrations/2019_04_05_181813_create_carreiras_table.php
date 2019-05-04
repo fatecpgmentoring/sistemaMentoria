@@ -17,8 +17,9 @@ class CreateCarreirasTable extends Migration
             $table->increments('id_carreira');
             $table->string('nm_carreira');
             $table->boolean('ds_active_carreira')->default(1);
-            $table->unsignedInteger('id_carreira_profissao');
-            $table->foreign('id_carreira_profissao')
+            $table->string('carreira_log');
+            $table->unsignedInteger('profissao_id_profissao');
+            $table->foreign('profissao_id_profissao')
                     ->references('id_profissao')
                     ->on('tb_profissoes')
                     ->onDelete('restrict')

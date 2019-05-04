@@ -16,9 +16,9 @@ class CreateMensagemsTable extends Migration
         Schema::create('tb_mensagens', function (Blueprint $table) {
             $table->increments('id_mensagem');
             $table->text('ds_mensagem');
-            $table->unsignedInteger('id_mensagem_conexao');
+            $table->unsignedInteger('conexao_id_conexao');
             $table->boolean('ds_mensagem_vista')->default(0);
-            $table->foreign('id_mensagem_conexao')
+            $table->foreign('conexao_id_conexao')
                     ->references('id_conexao')
                     ->on('tb_conexoes')
                     ->onDelete('restrict')

@@ -24,8 +24,8 @@ class CreateInscritosTable extends Migration
             $table->string('nm_estado');
             $table->date('dt_nascimento');
             $table->tinyInteger('ds_status_pagamento')->default(0);
-            $table->unsignedInteger('id_inscrito_evento');
-            $table->foreign('id_inscrito_evento')
+            $table->unsignedInteger('evento_id_evento');
+            $table->foreign('evento_id_evento')
                     ->references('id_evento')
                     ->on('tb_eventos')
                     ->onUpdate('cascade')

@@ -17,6 +17,7 @@ class CreateProfissaosTable extends Migration
             $table->increments('id_profissao');
             $table->string('nm_profissao');
             $table->boolean('ds_active_profissao')->default(1);
+            $table->string('profissao_log');
             $table->timestamps();
         });
     }

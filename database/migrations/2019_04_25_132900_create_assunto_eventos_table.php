@@ -15,14 +15,14 @@ class CreateAssuntoEventosTable extends Migration
     {
         Schema::create('tb_assunto_eventos', function (Blueprint $table) {
             $table->increments('id_assunto_eventos');
-            $table->unsignedInteger('id_ae_evento');
-            $table->unsignedInteger('id_ae_assunto');
-            $table->foreign('id_ae_evento')
+            $table->unsignedInteger('evento_id_evento');
+            $table->unsignedInteger('assunto_id_assunto');
+            $table->foreign('evento_id_evento')
                     ->references('id_evento')
                     ->on('tb_eventos')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
-            $table->foreign('id_ae_assunto')
+            $table->foreign('assunto_id_assunto')
                     ->references('id_assunto')
                     ->on('tb_assuntos')
                     ->onDelete('restrict')

@@ -17,8 +17,9 @@ class CreateAssuntosTable extends Migration
             $table->increments('id_assunto');
             $table->string('nm_assunto');
             $table->boolean('ds_active_assunto')->default(1);
-            $table->unsignedInteger('id_assunto_carreira');
-            $table->foreign('id_assunto_carreira')
+            $table->string('assunto_log');
+            $table->unsignedInteger('carreira_id_carreira');
+            $table->foreign('carreira_id_carreira')
                     ->references('id_carreira')
                     ->on('tb_carreiras')
                     ->onDelete('restrict')
