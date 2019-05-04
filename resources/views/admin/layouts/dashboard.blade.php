@@ -137,30 +137,15 @@
                             <a href="{{ route ('admin.home') }}"><i class="fa fa-dashboard fa-fw"></i> Paginal Inicial Administrativa</a>
                         </li>
                         <li >
-                            <a href="#"><i class="fa fa-book fa-fw"></i>Profissões<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('profissao/create') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.profissao.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
-                                </li>
-                                <li {{ (Request::is('profissao') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.profissao.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ route('admin.profissao.index') }}" {{ (Request::is('profissao') ? 'class="active"' : '') }}><i class="fa fa-book fa-fw"></i>Profissões</a>
                         </li>
                         <li >
-                            <a href="#"><i class="fa fa-book fa-fw"></i>Carreiras<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('carreira/create') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.carreira.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
-                                </li>
-                                <li {{ (Request::is('carreira') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.carreira.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ route('admin.carreira.index') }}" {{ (Request::is('carreira') ? 'class="active"' : '') }}><i class="fa fa-book fa-fw"></i>Carreiras</a>
                         </li>
                         <li >
+                            <a href="{{ route('admin.assunto.index') }}" {{ (Request::is('assunto') ? 'class="active"' : '') }} ><i class="fa fa-book fa-fw"></i>Assuntos</a>
+                        </li>
+                        {{-- <li>
                             <a href="#"><i class="fa fa-book fa-fw"></i>Assuntos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li {{ (Request::is('assunto/create') ? 'class="active"' : '') }}>
@@ -171,15 +156,11 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        {{-- <ul class="nav nav-third-level"> --}}
+                        </li> --}}
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
 			 <div class="row">
                 <div class="col-lg-12">

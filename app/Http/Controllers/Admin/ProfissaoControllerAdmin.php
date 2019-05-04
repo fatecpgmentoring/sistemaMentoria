@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Profissao;
 
 class ProfissaoControllerAdmin extends Controller
 {
@@ -14,17 +15,9 @@ class ProfissaoControllerAdmin extends Controller
      */
     public function index()
     {
-        //
-    }
+        $profissoes = Profissao::all();
+        return view('admin.partes.profissao.index', compact('profissoes'));
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

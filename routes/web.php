@@ -33,20 +33,20 @@ Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], funct
     {
         return view('admin.home');
     })->name('admin.home');
-    Route::get('/perfil', 'Admin/AdminController@show')->name('admin.profile');
-    Route::post('/logout', 'Admin/AdminController@show')->name('admin.logout');
-    Route::get('/config', 'Admin/AdminController@show')->name('admin.config');
+    Route::get('/perfil', 'Admin\AdminController@show')->name('admin.profile');
+    Route::post('/logout', 'Admin\AdminController@show')->name('admin.logout');
+    Route::get('/config', 'Admin\AdminController@show')->name('admin.config');
     Route::group(['prefix' => 'profissao'], function () {
-        Route::get('/', 'Admin/ProfissaoControllerAdmin@index')->name('admin.profissao.index');
-        Route::get('/create', 'Admin/ProfissaoControllerAdmin@create')->name('admin.profissao.create');
+        Route::get('/', 'Admin\ProfissaoControllerAdmin@index')->name('admin.profissao.index');
+        Route::post('/store', 'Admin\ProfissaoCOntrollerAdmin@store')->name('admin.profissao.store');
     });
     Route::group(['prefix' => 'carreira'], function () {
-        Route::get('/', 'Admin/CarreiraControllerAdmin@index')->name('admin.carreira.index');
-        Route::get('/create', 'Admin/CarreiraControllerAdmin@create')->name('admin.carreira.create');
+        Route::get('/', 'Admin\CarreiraControllerAdmin@index')->name('admin.carreira.index');
+        Route::get('/create', 'Admin\CarreiraControllerAdmin@create')->name('admin.carreira.create');
     });
     Route::group(['prefix' => 'assunto'], function () {
-        Route::get('/', 'Admin/AssuntoControllerAdmin@index')->name('admin.assunto.index');
-        Route::get('/create', 'Admin/AssuntoControllerAdmin@create')->name('admin.assunto.create');
+        Route::get('/', 'Admin\AssuntoControllerAdmin@index')->name('admin.assunto.index');
+        Route::get('/create', 'Admin\AssuntoControllerAdmin@create')->name('admin.assunto.create');
     });
 });
 
@@ -63,14 +63,14 @@ Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], funct
       //  //return view('painel-mentorado.index');
         //return view('painel-mentorado.includes.testedepasta');
     //});
-//}); 
+//});
 
 ////teste --Nois do front nao sabe usar middleware
 
   Route::get('/mentorado', function()
     {
         return view('painel-mentorado.index');
-    }); 
+    });
 
 //Route::get('/mentor', function()
   //  {
