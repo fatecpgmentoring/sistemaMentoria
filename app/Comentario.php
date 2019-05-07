@@ -10,9 +10,20 @@ class Comentario extends Model
     protected $primaryKey = 'id_comentario';
     protected $fillable = [
         'ds_comentario',
-        'id_comentario_conexao'
+        'mentor_id_mentor',
+        'mentorado_id_mentorado'
     ];
 
     public static $regras = [];
     public static $mensagens = [];
+
+    public function mentor()
+    {
+        return $this->belongsTo('App\Mentor', 'mentor_id_mentor', 'id_mentor');
+    }
+
+    public function mentorado()
+    {
+        return $this->belongsTo('App\Mentorado', 'mentorado_id_mentorado', 'id_mentorado');
+    }
 }

@@ -18,8 +18,13 @@ class Inscritos extends Model
         'nm_estado',
         'dt_nascimento',
         'ds_status_pagamento',
-        'fk_inscrito_evento'
+        'evento_id_evento'
     ];
+
+    public function evento()
+    {
+        return $this->belongsTo('App\Evento', 'evento_id_evento', 'id_evento');
+    }
 
     public static $regras = [];
     public static $mensagens = [];

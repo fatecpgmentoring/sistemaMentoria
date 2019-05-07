@@ -18,6 +18,7 @@ class CreateMensagemsTable extends Migration
             $table->text('ds_mensagem');
             $table->unsignedInteger('conexao_id_conexao');
             $table->boolean('ds_mensagem_vista')->default(0);
+            $table->boolean('id_flag');
             $table->foreign('conexao_id_conexao')
                     ->references('id_conexao')
                     ->on('tb_conexoes')

@@ -16,10 +16,16 @@ class CreateComentariosTable extends Migration
         Schema::create('tb_comentarios', function (Blueprint $table) {
             $table->increments('id_comentario');
             $table->text('ds_comentario');
-            $table->unsignedInteger('conexao_id_conexao');
-            $table->foreign('conexao_id_conexao')
-                    ->references('id_conexao')
-                    ->on('tb_conexoes')
+            $table->unsignedInteger('mentor_id_mentor');
+            $table->unsignedInteger('mentorado_id_mentorado');
+            $table->foreign('mentor_id_mentor')
+                    ->references('id_mentor')
+                    ->on('tb_mentores')
+                    ->onUpdate('cascade')
+                    ->onDelete('restrict');
+            $table->foreign('mentorado_id_mentorado')
+                    ->references('id_mentorado')
+                    ->on('tb_mentorados')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
             $table->timestamps();

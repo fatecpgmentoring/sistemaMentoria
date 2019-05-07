@@ -14,4 +14,14 @@ class Mentorado extends Model
 
     public static $regras = [];
     public static $mensagens = [];
+
+    public function assuntos()
+    {
+        return $this->belongsToMany(Assunto::class, 'tb_assunto_mentorados');
+    }
+
+    public function conexoes()
+    {
+        return $this->hasMany('App\Conexao', 'mentorado_id_mentorado');
+    }
 }

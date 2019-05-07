@@ -27,8 +27,5 @@ class Carreira extends Model
         return $this->belongsTo('App\Profissao', 'profissao_id_profissao', 'id_profissao');
     }
 
-    // public function alunos()
-    // {
-    //     return $this->belongsToMany(Aluno::class, 'tb_disciplina_alunos');
-    // }
+
 }
