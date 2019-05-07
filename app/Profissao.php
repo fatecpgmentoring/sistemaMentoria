@@ -15,4 +15,9 @@ class Profissao extends Model
 
     public static $regras = [];
     public static $mensagens = [];
+
+    public function carreiras()
+    {
+       return $this->hasMany('App\Carreira', 'carreira_id_carreira');
+    }
 }
