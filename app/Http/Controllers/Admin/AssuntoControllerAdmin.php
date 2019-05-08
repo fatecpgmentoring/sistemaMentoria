@@ -7,6 +7,7 @@ use App\Assunto;
 use Illuminate\Facedes\Support\Auth;
 use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
+use App\Carreira;
 
 class AssuntoControllerAdmin extends Controller
 {
@@ -14,6 +15,12 @@ class AssuntoControllerAdmin extends Controller
     {
         $assuntos = Assunto::all();
         return view('admin.partes.assunto.index', compact('assuntos'));
+    }
+
+    public function create()
+    {
+        $carreiras = Carreira::all();
+        return view('admin.partes.assunto.create', compact('carreiras'));
     }
 
     public function store(Request $request)

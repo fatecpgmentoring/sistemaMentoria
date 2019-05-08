@@ -14,6 +14,12 @@ class CarreiraControllerAdmin extends Controller
         return view('admin.partes.carreira.index', compact('carreiras'));
     }
 
+    public function create()
+    {
+        $profissoes = Profissao::all();
+        return view('admin.partes.carreira.create', compact('profissoes'));
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, Carreira::$regras, Carreira::$mensagens);

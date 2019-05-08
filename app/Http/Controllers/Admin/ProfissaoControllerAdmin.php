@@ -20,6 +20,11 @@ class ProfissaoControllerAdmin extends Controller
 
     }
 
+    public function create()
+    {
+        return view('admin.partes.profissao.create');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, Profissao::$regras, Profissao::$mensagens);
