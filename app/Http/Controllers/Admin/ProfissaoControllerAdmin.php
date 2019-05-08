@@ -20,59 +20,79 @@ class ProfissaoControllerAdmin extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Profissao::$regras, Profissao::$mensagens);
+        $profissao = new Profissao([
+            'nm_profissao' => $request->post('profissao'),
+            'ds_active_profissao' => 1
+        ]);
+
+        try
+        {
+            $profissao->save();
+            return redirect('admin/profissao/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar profissao')->withInput();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $profissao = Profissao::find($id);
+        return response()->json($profissao);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $profissao = Profissao::find($id);
+        return response()->json($profissao);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Profissao::$regras, Profissao::$mensagens);
+        $profissao = Profissao::find($id);
+        $profissao->nm_assunto = $request->post('profissao');
+        try
+        {
+            $profissao->update();
+            return redirect('admin/profissao/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar profissao')->withInput();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function activeOrDesactive($id)
+    {
+        $profissao = Profissao::find($id);
+        $profissao->ds_active_assunto = $profissao->ds_active_assunto ? 0 : 1;
+        try
+        {
+            $profissao->update();
+            return json_encode(['success' => 'save']);
+        }
+        catch(QueryException $ex)
+        {
+            return json_encode(['error' => $ex]);
+        }
+    }
+
     public function destroy($id)
     {
-        //
+        $profissao = Profissao::find($id);
+        try
+        {
+            $profissao->delete();
+            return redirect('admin/profissao/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao deletar profissao');
+        }
     }
 }

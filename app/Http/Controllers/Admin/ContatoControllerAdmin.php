@@ -11,12 +11,12 @@ class ContatoControllerAdmin extends Controller
     public function index()
     {
         $contatos = Contato::all();
-        return view('admin.contato.index', compact('contatos'));
+        return view('admin.partes.contato.index', compact('contatos'));
     }
 
     public function create()
     {
-        return view('admin.contato.create');
+        return view('admin.partes.contato.create');
     }
 
     public function store(Request $request)
@@ -42,13 +42,13 @@ class ContatoControllerAdmin extends Controller
     public function show($id)
     {
         $contato = Contato::find($id);
-        return view('admin.contato.show', compact('contato'));
+        return view('admin.partes.contato.show', compact('contato'));
     }
 
     public function edit($id)
     {
         $contato = Contato::find($id);
-        return view('admin.contato.edit', compact('contato'));
+        return view('admin.partes.contato.edit', compact('contato'));
     }
 
     public function update(Request $request, $id)

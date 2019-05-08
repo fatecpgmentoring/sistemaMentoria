@@ -16,7 +16,7 @@ class ComentarioControllerAdmin extends Controller
     public function index()
     {
         $comentarios = Comentario::all();
-        return view('admin.comentario.index', compact('comentarios'));
+        return view('admin.partes.comentario.index', compact('comentarios'));
     }
 
     /**
@@ -28,6 +28,6 @@ class ComentarioControllerAdmin extends Controller
     public function show($id)
     {
         $comentario = Comentario::find($id);
-        return view('admin.comentario.show', compact('comentario'));
+        return view('admin.partes.comentario.show', compact('comentario'));
     }
 }

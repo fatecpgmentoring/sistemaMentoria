@@ -8,33 +8,12 @@ use App\Carreira;
 
 class CarreiraControllerAdmin extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $carreiras = Carreira::all();
-        return view('admin.carreira.index', compact('carreiras'));
+        return view('admin.partes.carreira.index', compact('carreiras'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('admin.carreira.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, Carreira::$regras, Carreira::$mensagens);
@@ -58,13 +37,13 @@ class CarreiraControllerAdmin extends Controller
     public function show($id)
     {
         $carreira = Carreira::find($id);
-        return view('admin.carreira.show', compact('carreira'));
+        return response()->json($carreira);
     }
 
     public function edit($id)
     {
         $carreira = Carreira::find($id);
-        return view('admin.carreira.edit', compact('carreira'));
+        return response()->json($carreira);
     }
 
     public function update(Request $request, $id)
@@ -83,9 +62,8 @@ class CarreiraControllerAdmin extends Controller
         }
     }
 
-    public function activeOrDesactive(Request $request, $id)
+    public function activeOrDesactive($id)
     {
-        $this->validate($request, Carreira::$regras, Carreira::$mensagens);
         $carreira = Carreira::find($id);
         $carreira->ds_active_carreira = $carreira->ds_active_carreira ? 0 : 1;
         try

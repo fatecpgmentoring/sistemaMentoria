@@ -11,12 +11,12 @@ class EventoControllerAdmin extends Controller
     public function index()
     {
         $eventos = Evento::all();
-        return view('admin.evento.index', compact('eventos'));
+        return view('admin.partes.evento.index', compact('eventos'));
     }
 
     public function create()
     {
-        return view('admin.evento.create');
+        return view('admin.partes.evento.create');
     }
 
     public function store(Request $request)
@@ -49,13 +49,13 @@ class EventoControllerAdmin extends Controller
     public function show($id)
     {
         $evento = Evento::find($id);
-        return view('admin.evento.show', compact('evento'));
+        return view('admin.partes.evento.show', compact('evento'));
     }
 
     public function edit($id)
     {
         $evento = Evento::find($id);
-        return view('admin.evento.edit', compact('evento'));
+        return view('admin.partes.evento.edit', compact('evento'));
     }
 
     public function update(Request $request, $id)

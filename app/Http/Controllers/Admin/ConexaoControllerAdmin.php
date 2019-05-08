@@ -16,7 +16,7 @@ class ConexaoControllerAdmin extends Controller
     public function index()
     {
         $conexoes = Conexao::all();
-        return view('admin.conexao.index', compact('conexoes'));
+        return view('admin.partes.conexao.index', compact('conexoes'));
     }
 
     /**
@@ -28,6 +28,6 @@ class ConexaoControllerAdmin extends Controller
     public function show($id)
     {
         $conexao = Conexao::find($id);
-        return view('admin.conexao.show', compact('conexao'));
+        return view('admin.partes.conexao.show', compact('conexao'));
     }
 }

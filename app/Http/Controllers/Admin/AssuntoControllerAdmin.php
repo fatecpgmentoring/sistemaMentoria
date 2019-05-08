@@ -13,12 +13,7 @@ class AssuntoControllerAdmin extends Controller
     public function index()
     {
         $assuntos = Assunto::all();
-        return view('admin.assunto.index', compact('assuntos'));
-    }
-
-    public function create()
-    {
-        return view('admin.assunto.create');
+        return view('admin.partes.assunto.index', compact('assuntos'));
     }
 
     public function store(Request $request)
@@ -44,13 +39,13 @@ class AssuntoControllerAdmin extends Controller
     public function show($id)
     {
         $assunto = Assunto::find($id);
-        return view('admin.assunto.show', compact('assunto'));
+        return response()->json($assunto);
     }
 
     public function edit($id)
     {
         $assunto = Assunto::find($id);
-        return view('admin.assunto.edit', compact('assunto'));
+        return response()->json($assunto);
     }
 
     public function update(Request $request, $id)
