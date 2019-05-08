@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mentorado;
 
-class MentoradoControlerAdmin extends Controller
+class MentoradoControllerAdmin extends Controller
 {
     public function index()
     {
