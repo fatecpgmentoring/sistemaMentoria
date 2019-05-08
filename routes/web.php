@@ -28,17 +28,22 @@ Route::group(['middleware' => CheckOnline::class], function () {
 
 });
 
-Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => CheckAdmin::class*/], function () {
     Route::get('/', function()
     {
         return view('admin.home');
     })->name('admin.home');
-    Route::get('/perfil', 'Admin\AdminController@show')->name('admin.profile');
-    Route::post('/logout', 'Admin\AdminController@show')->name('admin.logout');
-    Route::get('/config', 'Admin\AdminController@show')->name('admin.config');
+    Route::get('/perfil', 'AdminController@show')->name('admin.profile');
+    Route::post('/logout', 'AdminController@show')->name('admin.logout');
+    Route::get('/config', 'AdminController@show')->name('admin.config');
     Route::group(['prefix' => 'profissao'], function () {
-        Route::get('/', 'Admin\ProfissaoControllerAdmin@index')->name('admin.profissao.index');
-        Route::post('/store', 'Admin\ProfissaoCOntrollerAdmin@store')->name('admin.profissao.store');
+        Route::get('/', 'ProfissaoControllerAdmin@index')->name('admin.profissao.index');
+        Route::get('/show/{id}', 'ProfissaoControllerAdmin@show')->name('admin.profissao.show');
+        Route::get('/edit/{id}', 'ProfissaoControllerAdmin@edit')->name('admin.profissao.edit');
+        Route::post('/store', 'ProfissaoControllerAdmin@store')->name('admin.profissao.store');
+        Route::put('/update', 'ProfissaoControllerAdmin@update')->name('admin.profissao.update');
+        Route::delete('/destroy/{id}', 'ProfissaoControllerAdmin@destroy')->name('admin.profissao.destroy');
+        Route::get('/status', 'ProfissaoControllerAdmin@activeOrDesactive')->name('admin.profissao.status');
     });
     Route::group(['prefix' => 'carreira'], function () {
         Route::get('/', 'Admin\CarreiraControllerAdmin@index')->name('admin.carreira.index');
@@ -50,29 +55,16 @@ Route::group(['prefix' => 'admin'/*, 'middleware' => CheckAdmin::class*/], funct
     });
 });
 
-//Route::group(['prefix' => 'mentor', 'middleware' => CheckMentor::class], function () {
-//    Route::get('/mentor', function()
-//    {
-//        return view('painel-mentor.index');
- //   });
-//});
+Route::group(['prefix' => 'mentor'/*, 'middleware' => CheckMentor::class*/], function () {
+   Route::get('/', function()
+   {
+       return view('painel-mentorado.index');
+   });
+});
 
-//Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
-  //  Route::get('/mem', function()
-    //{
-      //  //return view('painel-mentorado.index');
-        //return view('painel-mentorado.includes.testedepasta');
-    //});
-//});
-
-////teste --Nois do front nao sabe usar middleware
-
-  Route::get('/mentorado', function()
+Route::group(['prefix' => 'mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
+   Route::get('/', function()
     {
         return view('painel-mentorado.index');
     });
-
-//Route::get('/mentor', function()
-  //  {
-    //    return view('painel-mentor.index');
-    //});
+});
