@@ -13,12 +13,12 @@ class AssuntoControllerAdmin extends Controller
     public function index()
     {
         $assuntos = Assunto::all();
-        return view('', compact('assuntos'));
+        return view('admin.assunto.index', compact('assuntos'));
     }
 
     public function create()
     {
-        return view('');
+        return view('admin.assunto.create');
     }
 
     public function store(Request $request)
@@ -26,31 +26,31 @@ class AssuntoControllerAdmin extends Controller
         $this->validate($request, Assunto::$regras, Assunto::$mensagens);
         $assunto = new Assunto([
             'nm_assunto' => $request->post('assunto'),
-            'id_assunto_carreira' => $request->post('carreira'),
+            'carreira_id_carreira' => $request->post('carreira'),
             'ds_active_assunto' => 1
         ]);
 
         try
         {
             $assunto->save();
-            return redirect('')->with('success', '');
+            return redirect('admin/assunto/')->with('success', 'save');
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao alterar assunto');
+            return back()->withErrors('Erro ao alterar assunto')->withInput();
         }
     }
 
     public function show($id)
     {
         $assunto = Assunto::find($id);
-        return view('', compact('assunto'));
+        return view('admin.assunto.show', compact('assunto'));
     }
 
     public function edit($id)
     {
         $assunto = Assunto::find($id);
-        return view('', compact('assunto'));
+        return view('admin.assunto.edit', compact('assunto'));
     }
 
     public function update(Request $request, $id)
@@ -61,11 +61,11 @@ class AssuntoControllerAdmin extends Controller
         try
         {
             $assunto->update();
-            return redirect('')->with('success', '');
+            return redirect('admin/assunto/')->with('success', 'save');
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao alterar assunto');
+            return back()->withErrors('Erro ao alterar assunto')->withInput();
         }
     }
 
@@ -77,11 +77,11 @@ class AssuntoControllerAdmin extends Controller
         try
         {
             $assunto->update();
-            return redirect('')->with('success', '');
+            return json_encode(['success' => 'save']);
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao ', $assunto->ds_active_assunto ? 'desativar' : 'ativar'. ' assunto');
+            return json_encode(['error' => $ex]);
         }
     }
 
@@ -91,7 +91,7 @@ class AssuntoControllerAdmin extends Controller
         try
         {
             $assunto->delete();
-            return redirect('')->with('success', '');
+            return redirect('admin/assunto/')->with('success', 'save');
         }
         catch(QueryException $ex)
         {

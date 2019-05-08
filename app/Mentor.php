@@ -31,4 +31,9 @@ class Mentor extends Model
     {
         return $this->hasMany('App\Conexao', 'mentor_id_mentor');
     }
+
+    public function contatos()
+    {
+        return $this->hasMany('App\Contato', 'mentor_id_mentor');
+    }
 }

@@ -4,82 +4,80 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Contato;
 
 class ContatoControllerAdmin extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $contatos = Contato::all();
+        return view('admin.contato.index', compact('contatos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.contato.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Contato::$regras, Contato::$mensagens);
+        $contato = new Contato([
+            'tipo_contato' => $request->post('tipo'),
+            'ds_contato' => $request->post('contato'),
+            'carreira_id_carreira' => $request->post('mentor')
+        ]);
+
+        try
+        {
+            $contato->save();
+            return redirect('admin/contato/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar contato')->withInput();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $contato = Contato::find($id);
+        return view('admin.contato.show', compact('contato'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $contato = Contato::find($id);
+        return view('admin.contato.edit', compact('contato'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Contato::$regras, Contato::$mensagens);
+        $contato = Contato::find($id);
+        $contato->ds_contato = $request->post('contato');
+        try
+        {
+            $contato->update();
+            return redirect('admin/contato/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar contato')->withInput();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $contato = Contato::find($id);
+        try
+        {
+            $contato->delete();
+            return redirect('admin/contato/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao deletar contato');
+        }
     }
 }

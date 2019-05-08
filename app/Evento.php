@@ -11,7 +11,6 @@ class Evento extends Model
     protected $fillable = [
         'nm_titulo',
         'ds_local',
-        'ds_assuntos',
         'ds_evento',
         'dt_inicio',
         'dt_fim',

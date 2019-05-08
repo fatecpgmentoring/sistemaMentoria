@@ -17,7 +17,6 @@ class CreateEventosTable extends Migration
             $table->increments('id_evento');
             $table->string('nm_titulo');
             $table->string('ds_local');
-            $table->string('ds_assuntos');
             $table->text('ds_evento');
             $table->date('dt_inicio');
             $table->date('dt_fim');

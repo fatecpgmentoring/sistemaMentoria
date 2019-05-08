@@ -4,82 +4,89 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Evento;
 
 class EventoControllerAdmin extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $eventos = Evento::all();
+        return view('admin.evento.index', compact('eventos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.evento.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Evento::$regras, Evento::$mensagens);
+        $evento = new Evento([
+            'nm_titulo' => $request->post('titulo'),
+            'ds_local'  => $request->post('local'),
+            'ds_evento'  => $request->post('evento'),
+            'dt_inicio'  => $request->post('inicio'),
+            'dt_fim'  => $request->post('fim'),
+            'hr_inicio'  => $request->post('inicio_hr'),
+            'hr_fim'  => $request->post('fim_hr'),
+            'qnt_max_inscritos'  => $request->post('max_inscritos'),
+            'qnt_inscritos' => 0,
+            'vl_inscricao' => $request->post('valor'),
+        ]);
+
+        try
+        {
+            $evento->save();
+            return redirect('admin/evento/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar evento')->withInput();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $evento = Evento::find($id);
+        return view('admin.evento.show', compact('evento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $evento = Evento::find($id);
+        return view('admin.evento.edit', compact('evento'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Evento::$regras, Evento::$mensagens);
+        $evento = Evento::find($id);
+        $evento->nm_titulo = $request->post('titulo');
+        $evento->ds_evento  = $request->post('evento');
+        $evento->qnt_max_inscritos  = $evento->qnt_max_inscritos < $request->post('max_inscritos') ? $request->post('max_inscritos') : $evento->qnt_max_inscritos;
+        try
+        {
+            $evento->update();
+            return redirect('admin/evento/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao alterar evento')->withInput();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $evento = Evento::find($id);
+        try
+        {
+            $evento->delete();
+            return redirect('admin/evento/')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao deletar evento');
+        }
     }
 }
