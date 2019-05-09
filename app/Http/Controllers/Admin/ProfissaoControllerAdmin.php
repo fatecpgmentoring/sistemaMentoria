@@ -30,7 +30,8 @@ class ProfissaoControllerAdmin extends Controller
         $this->validate($request, Profissao::$regras, Profissao::$mensagens);
         $profissao = new Profissao([
             'nm_profissao' => $request->post('profissao'),
-            'ds_active_profissao' => 1
+            'ds_active_profissao' => 1,
+            'profissao_log' => 'Cadastrado pelo admin'
         ]);
 
         try

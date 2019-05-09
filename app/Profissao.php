@@ -12,7 +12,6 @@ class Profissao extends Model
         'nm_profissao',
         'ds_active_profissao',
         'profissao_log'
-
     ];
 
     public static $regras = [];
@@ -20,6 +19,6 @@ class Profissao extends Model
 
     public function carreiras()
     {
-       return $this->hasMany('App\Carreira', 'carreira_id_carreira');
+       return $this->hasMany('App\Carreira', 'profissao_id_profissao');
     }
 }

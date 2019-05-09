@@ -20,7 +20,7 @@ class Carreira extends Model
 
     public function assuntos()
     {
-       return $this->hasMany('App\Assunto', 'assunto_id_assunto');
+       return $this->hasMany('App\Assunto', 'carreira_id_carreira');
     }
 
     public function profissao()

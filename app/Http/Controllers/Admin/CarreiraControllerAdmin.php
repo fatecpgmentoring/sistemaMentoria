@@ -27,7 +27,8 @@ class CarreiraControllerAdmin extends Controller
         $carreira = new Carreira([
             'nm_carreira' => $request->post('carreira'),
             'profissao_id_profissao' => $request->post('profissao'),
-            'ds_active_carreira' => 1
+            'ds_active_carreira' => 1,
+            'carreira_log' => 'Criado pelo administrador'
         ]);
 
         try

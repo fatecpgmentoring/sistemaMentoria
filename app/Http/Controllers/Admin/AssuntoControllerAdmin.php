@@ -29,7 +29,8 @@ class AssuntoControllerAdmin extends Controller
         $assunto = new Assunto([
             'nm_assunto' => $request->post('assunto'),
             'carreira_id_carreira' => $request->post('carreira'),
-            'ds_active_assunto' => 1
+            'ds_active_assunto' => 1,
+            'assunto_log' => 'Criado pelo admin'
         ]);
 
         try
