@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Assunto')
+@section('page_heading','Listar Assunto')
 @section('section')
 
 <table class="table">

@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Eventos')
+@section('page_heading','Cadastrar Evento')
 @section('section')
 
 <form action="{{route('admin.profissao.store')}}" method="POST">

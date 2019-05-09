@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Assunto')
+@section('page_heading','Editar Assunto')
 @section('section')
 
 <form action="{{route('admin.assunto.update', $assunto->id_assunto)}}" method="POST">

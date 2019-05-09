@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Profissões')
+@section('page_heading','Editar Profissão')
 @section('section')
 <form action="{{route('admin.profissao.update', $profissao->id_profissao)}}" method="POST">
     @csrf

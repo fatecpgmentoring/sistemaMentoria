@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Profissão')
+@section('page_heading','Visualizar Profissão')
 @section('section')
 
 <form>

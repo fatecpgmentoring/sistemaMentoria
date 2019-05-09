@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Carreira')
+@section('page_heading','Editar Carreiras')
 @section('section')
 
 <form action="{{route('admin.carreira.update', $carreira->id_carreira)}}" method="POST">

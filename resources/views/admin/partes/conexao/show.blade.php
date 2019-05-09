@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Conexões')
+@section('page_heading','Visualizar Conexão')
 @section('section')
 
 

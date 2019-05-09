@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Inscritos')
+@section('page_heading','Listar Inscritos')
 @section('section')
 
 

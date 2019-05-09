@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Mentores')
+@section('page_heading','Editar Mentor')
 @section('section')
 
 

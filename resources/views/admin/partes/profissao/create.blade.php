@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Profissões')
+@section('page_heading','Cadastrar Profissão')
 @section('section')
 <form action="{{route('admin.profissao.store')}}" method="POST">
     @csrf

@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Contatos')
+@section('page_heading','Listar Contatos')
 @section('section')
 
 
