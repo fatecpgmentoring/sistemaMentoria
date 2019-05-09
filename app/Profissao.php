@@ -10,7 +10,9 @@ class Profissao extends Model
     protected $primaryKey = 'id_profissao';
     protected $fillable = [
         'nm_profissao',
-        'ds_active_profissao'
+        'ds_active_profissao',
+        'profissao_log'
+
     ];
 
     public static $regras = [];

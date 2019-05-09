@@ -11,7 +11,8 @@ class Assunto extends Model
     protected $fillable = [
         'nm_assunto',
         'ds_active_assunto',
-        'carreira_id_carreira'
+        'carreira_id_carreira',
+        'assunto_log'
     ];
 
     public static $regras = [];

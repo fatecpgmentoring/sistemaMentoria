@@ -11,7 +11,8 @@ class Carreira extends Model
     protected $fillable = [
         'nm_carreira',
         'ds_active_carreira',
-        'profissao_id_profissao'
+        'profissao_id_profissao',
+        'carreira_log'
     ];
 
     public static $regras = [];

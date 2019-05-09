@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Blank')
+@section('page_heading','Comentarios')
 @section('section')
 
 

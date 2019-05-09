@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
     })->name('admin.home');
     Route::group(['prefix' => 'profissao'], function () {
         Route::get('/', 'ProfissaoControllerAdmin@index')->name('admin.profissao.index');
+        Route::get('/create', 'ProfissaoControllerAdmin@create')->name('admin.profissao.create');
         Route::get('/show/{id}', 'ProfissaoControllerAdmin@show')->name('admin.profissao.show');
         Route::get('/edit/{id}', 'ProfissaoControllerAdmin@edit')->name('admin.profissao.edit');
         Route::post('/store', 'ProfissaoControllerAdmin@store')->name('admin.profissao.store');
@@ -44,6 +45,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
     });
     Route::group(['prefix' => 'carreira'], function () {
         Route::get('/', 'CarreiraControllerAdmin@index')->name('admin.carreira.index');
+        Route::get('/create', 'CarreiraControllerAdmin@create')->name('admin.carreira.create');
         Route::get('/show/{id}', 'CarreiraControllerAdmin@show')->name('admin.carreira.show');
         Route::get('/edit/{id}', 'CarreiraControllerAdmin@edit')->name('admin.carreira.edit');
         Route::post('/store', 'CarreiraControllerAdmin@store')->name('admin.carreira.store');
@@ -53,6 +55,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
     });
     Route::group(['prefix' => 'assunto'], function () {
         Route::get('/', 'AssuntoControllerAdmin@index')->name('admin.assunto.index');
+        Route::get('/create', 'AssuntoControllerAdmin@create')->name('admin.assunto.create');
         Route::get('/show/{id}', 'AssuntoControllerAdmin@show')->name('admin.assunto.show');
         Route::get('/edit/{id}', 'AssuntoControllerAdmin@edit')->name('admin.assunto.edit');
         Route::post('/store', 'AssuntoControllerAdmin@store')->name('admin.assunto.store');
@@ -63,6 +66,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 
     Route::group(['prefix' => 'mentor'], function () {
         Route::get('/', 'MentorControllerAdmin@index')->name('admin.mentor.index');
+        Route::get('/create', 'MentorControllerAdmin@create')->name('admin.mentor.create');
         Route::get('/show/{id}', 'MentorControllerAdmin@show')->name('admin.mentor.show');
         Route::get('/edit/{id}', 'MentorControllerAdmin@edit')->name('admin.mentor.edit');
         Route::post('/store', 'MentorControllerAdmin@store')->name('admin.mentor.store');
@@ -72,6 +76,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 
     Route::group(['prefix' => 'mentorado'], function () {
         Route::get('/', 'MentoradoControllerAdmin@index')->name('admin.mentorado.index');
+        Route::get('/create', 'MentoradoControllerAdmin@create')->name('admin.mentorado.create');
         Route::get('/show/{id}', 'MentoradoControllerAdmin@show')->name('admin.mentorado.show');
         Route::get('/edit/{id}', 'MentoradoControllerAdmin@edit')->name('admin.mentorado.edit');
         Route::post('/store', 'MentoradoControllerAdmin@store')->name('admin.mentorado.store');
@@ -81,6 +86,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 
     Route::group(['prefix' => 'usuario'], function () {
         Route::get('/', 'UsuarioControllerAdmin@index')->name('admin.usuario.index');
+        Route::get('/create', 'UsuarioControllerAdmin@create')->name('admin.usuario.create');
         Route::get('/show/{id}', 'UsuarioControllerAdmin@show')->name('admin.usuario.show');
         Route::get('/edit/{id}', 'UsuarioControllerAdmin@edit')->name('admin.usuario.edit');
         Route::post('/store', 'UsuarioControllerAdmin@store')->name('admin.usuario.store');
@@ -90,6 +96,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 
     Route::group(['prefix' => 'evento'], function () {
         Route::get('/', 'EventoControllerAdmin@index')->name('admin.evento.index');
+        Route::get('/create', 'EventoControllerAdmin@create')->name('admin.evento.create');
         Route::get('/show/{id}', 'EventoControllerAdmin@show')->name('admin.evento.show');
         Route::get('/edit/{id}', 'EventoControllerAdmin@edit')->name('admin.evento.edit');
         Route::post('/store', 'EventoControllerAdmin@store')->name('admin.evento.store');

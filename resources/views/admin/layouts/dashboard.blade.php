@@ -105,12 +105,12 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="{{ route('admin.profile') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="{{ url('/admin') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="{{ route('admin.config') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="{{ url('/admin') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('admin.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{{ url('/admin') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -136,27 +136,71 @@
                         <li {{ (Request::is('admin') ? 'class="active"' : '') }}>
                             <a href="{{ route ('admin.home') }}"><i class="fa fa-dashboard fa-fw"></i> Paginal Inicial Administrativa</a>
                         </li>
-                        <li >
-                            <a href="{{ route('admin.profissao.index') }}" {{ (Request::is('profissao') ? 'class="active"' : '') }}><i class="fa fa-book fa-fw"></i>Profissões</a>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Profissões<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/profissao/create') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.profissao.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
+                                </li>
+                                <li {{ (Request::is('/profissao') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.profissao.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li >
-                            <a href="{{ route('admin.carreira.index') }}" {{ (Request::is('carreira') ? 'class="active"' : '') }}><i class="fa fa-book fa-fw"></i>Carreiras</a>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Carreiras<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/carreira/create') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.carreira.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
+                                </li>
+                                <li {{ (Request::is('/admin/carreira') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.carreira.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li >
-                            <a href="{{ route('admin.assunto.index') }}" {{ (Request::is('assunto') ? 'class="active"' : '') }} ><i class="fa fa-book fa-fw"></i>Assuntos</a>
-                        </li>
-                        {{-- <li>
+                        <li>
                             <a href="#"><i class="fa fa-book fa-fw"></i>Assuntos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('assunto/create') ? 'class="active"' : '') }}>
+                                <li {{ (Request::is('admin/assunto/create') ? 'class="active"' : '') }}>
                                     <a href="{{ route('admin.assunto.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
                                 </li>
-                                <li {{ (Request::is('assunto') ? 'class="active"' : '') }}>
+                                <li {{ (Request::is('admin/assunto') ? 'class="active"' : '') }}>
                                     <a href="{{ route('admin.assunto.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li> --}}
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Comentarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/comentario') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.comentario.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Conexões<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/conexao') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.conexao.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Contatos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/contatos') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.conexao.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i>Inscritos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/inscrito') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.inscrito.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

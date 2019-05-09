@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard')
-@section('page_heading','Carreiras')
+@section('page_heading','Profissões')
 @section('section')
 <form action="{{route('admin.profissao.update', $profissao->id_profissao)}}" method="POST">
     @csrf
@@ -9,7 +9,7 @@
         <input type="text" class="form-control" value="{{$profissao->nm_profissao}}" name="profissao" id="profissao">
     </div>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Enviar</button>
+        <button class="btn btn-success" type="submit">Alterar</button>
     </div>
 </form>
 
