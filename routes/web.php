@@ -28,6 +28,11 @@ Route::group(['middleware' => CheckOnline::class], function () {
 
 });
 
+Route::get('/icons', function()
+{
+    return view('admin.icons');
+});
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => CheckAdmin::class*/], function () {
     Route::get('/', function()
     {

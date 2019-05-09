@@ -7,7 +7,6 @@
             <th>#</th>
             <th>Carreira</th>
             <th>Profissão</th>
-            <th>Assuntos</th>
             <th>Criado por</th>
             <th>Criado em</th>
             <th>Ações</th>
@@ -16,17 +15,10 @@
             @foreach ($carreiras as $carreira)
                 <tr>
                     <td>{{$carreira->id_carreira}}</td>
-                    <td>{{$carreira->nm_carreira}}</td>
-                    <td>{{$carreira->profissao->nm_profissao}}</td>
-                    <td>
-                        <ul>
-                            @foreach ($carreira->assuntos as $assunto)
-                                <li>{{$assunto->nm_assunto}}</li>
-                            @endforeach
-                        </ul>
-                    </td>
+                    <td><a href="{{route('admin.carreira.show', $carreira->id_carreira)}}">{{$carreira->nm_carreira}}</a></td>
+                    <td><a href="{{route('admin.profissao.show', $carreira->profissao->id_profissao)}}">{{$carreira->profissao->nm_profissao}}</a></td>
                     <td>{{$carreira->carreira_log}}</td>
-                    <td>{{$carreira->created_at}}</td>
+                    <td>{{date('d/m/Y H:i:s', strtotime($carreira->created_at))}}</td>
                     <td>
                         <div class="btn-group">
                             <button class="btn btn-warning">{{$carreira->ds_active_carreira ? 'Desativar' : 'Ativar'}}</button>

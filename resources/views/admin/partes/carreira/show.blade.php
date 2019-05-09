@@ -4,18 +4,22 @@
 
 <form>
     <div class="form-group">
-        <label class="label-control" for="carreira">Descrição:</label>
-        <input type="text" class="form-control" value="{{$carreira->nm_carreira}}">
+        <label class="label-control" for="carreira">Carreira:</label>
+        <ul>
+            <li>{{$carreira->nm_carreira}}</li>
+        </ul>
     </div>
     <div class="form-group">
-        <label class="label-control" for="profissao">Carreira:</label>
-        <input type="text" class="form-control" value="{{$carreira->profissao->nm_profissao}}">
+        <label class="label-control" for="profissao">Profissão:</label>
+        <ul>
+            <li><a href="{{route('admin.profissao.show', $carreira->profissao->id_profissao)}}">{{$carreira->profissao->nm_profissao}}</a></li>
+        </ul>
     </div>
     <div class="form-group">
         <label class="label-control" for="carreira">Assuntos:</label>
         <ul>
             @foreach ($carreira->assuntos as $assunto)
-                <li>{{$assunto->nm_assunto}}</li>
+                <li><a href="{{route('admin.assunto.show', $assunto->id_assunto)}}">{{$assunto->nm_assunto}}</a></li>
             @endforeach
         </ul>
     </div>

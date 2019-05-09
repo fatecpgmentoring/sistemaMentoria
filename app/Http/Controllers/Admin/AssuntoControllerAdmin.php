@@ -47,13 +47,13 @@ class AssuntoControllerAdmin extends Controller
     public function show($id)
     {
         $assunto = Assunto::find($id);
-        return response()->json($assunto);
+        return view('admin.partes.assunto.show', compact('assunto'));
     }
 
     public function edit($id)
     {
         $assunto = Assunto::find($id);
-        return response()->json($assunto);
+        return view('admin.partes.assunto.edit', compact('assunto'));
     }
 
     public function update(Request $request, $id)

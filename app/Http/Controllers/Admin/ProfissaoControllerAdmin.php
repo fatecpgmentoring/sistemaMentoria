@@ -48,13 +48,13 @@ class ProfissaoControllerAdmin extends Controller
     public function show($id)
     {
         $profissao = Profissao::find($id);
-        return response()->json($profissao);
+        return view('admin.partes.profissao.show', compact('profissao'));
     }
 
     public function edit($id)
     {
         $profissao = Profissao::find($id);
-        return response()->json($profissao);
+        return view('admin.partes.profissao.show', compact('profissao'));
     }
 
     public function update(Request $request, $id)

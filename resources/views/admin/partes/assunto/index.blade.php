@@ -15,11 +15,11 @@
         <tbody>
             @foreach ($assuntos as $assunto)
                 <tr><td>{{$assunto->id_assunto}}</td>
-                <td>{{$assunto->nm_assunto}}</td>
-                <td>{{$assunto->carreira->nm_carreira}}</td>
-                <td>{{$assunto->carreira->profissao->nm_profissao}}</td>
+                <td><a href="{{route('admin.assunto.show', $assunto->id_assunto)}}">{{$assunto->nm_assunto}}</a></td>
+                <td><a href="{{route('admin.carreira.show', $assunto->carreira->id_carreira)}}">{{$assunto->carreira->nm_carreira}}</a></td>
+                <td><a href="{{route('admin.profissao.show', $assunto->carreira->profissao->id_profissao)}}">{{$assunto->carreira->profissao->nm_profissao}}</a></td>
                 <td>{{$assunto->assunto_log}}</td>
-                <td>{{$assunto->created_at}}</td>
+                <td>{{date('d/m/Y H:i:s', strtotime($assunto->created_at))}}</td>
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-warning">{{$assunto->ds_active_assunto ? 'Desativar' : 'Ativar'}}</button>

@@ -6,8 +6,6 @@
     <thead>
         <th>#</th>
         <th>Profissao</th>
-        <th>Carreiras</th>
-        <th>Assuntos</th>
         <th>Criado por</th>
         <th>Criado em</th>
         <th>Ações</th>
@@ -15,25 +13,9 @@
     <tbody>
         @foreach ($profissoes as $profissao)
             <tr><td>{{$profissao->id_profissao}}</td>
-            <td>{{$profissao->nm_profissao}}</td>
-            <td>
-                <ul>
-                    @foreach ($profissao->carreiras as $carreira)
-                        <li>{{$carreira->nm_carreira}}</li>
-                    @endforeach
-                </ul>
-            </td>
-            <td>
-                    <ul>
-                        @foreach ($profissao->carreiras as $carreira)
-                            @foreach ($carreira->assuntos as $assunto)
-                                <li>{{$assunto->nm_assunto}}</li>
-                            @endforeach
-                        @endforeach
-                    </ul>
-                </td>
+            <td><a href="{{route('admin.profissao.show', $profissao->id_profissao)}}">{{$profissao->nm_profissao}}</a></td>
             <td>{{$profissao->profissao_log}}</td>
-            <td>{{$profissao->created_at}}</td>
+            <td>{{date('d/m/Y H:i:s', strtotime($profissao->created_at))}}</td>
             <td>
                 <div class="btn-group">
                     <button class="btn btn-warning">{{$profissao->ds_active_profissao ? 'Desativar' : 'Ativar'}}</button>
