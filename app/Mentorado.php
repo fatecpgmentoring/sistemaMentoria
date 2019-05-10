@@ -13,7 +13,7 @@ class Mentorado extends Model
     ];
 
     public static $regras=[
-        'email' => 'bail|required|email|min:10|max:100',
+        'email' => 'bail|required|email|min:10|max:100|unique:tb_usuarios,email',
         'senha' => 'bail|required|min:8|max:100|confirmed',
         'mentorado' => 'bail|required|min:3|max:100'
     ];
@@ -22,6 +22,7 @@ class Mentorado extends Model
         'email.email' => 'E-mail invalido',
         'email.min' => 'E-mail muito pequeno',
         'email.max' => 'E-mail muito grande',
+        'email.unique' => 'E-mail já utilizado',
         'senha.required' => 'Senha obrigatoria',
         'senha.min' => 'Senha muito pequena',
         'senha.max' => 'Senha muito grande',

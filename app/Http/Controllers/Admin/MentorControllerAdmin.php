@@ -11,7 +11,7 @@ class MentorControllerAdmin extends Controller
 {
     public function index()
     {
-        $mentores = Mentor::all();
+        $mentores = Mentor::join('tb_usuarios', 'id_vinculo', '=', 'id_mentor')->get();
         return view('admin.partes.mentor.index', compact('mentores'));
     }
 
@@ -26,12 +26,13 @@ class MentorControllerAdmin extends Controller
         $mentor = new Mentor([
             'nm_mentor' => $request->post('mentor'),
             'nv_conhecimento' => $request->post('conhecimento'),
-            'vl_nota' => $request->post('nota'),
+            'vl_nota' => 5,
         ]);
 
         try
         {
             $mentor->save();
+            UsuarioControllerAdmin::store($request->post('email'), $request->post('senha'), 2, $mentor->id_mentor, 1);
             return redirect('admin/mentor/')->with('success', 'save');
         }
         catch(QueryException $ex)

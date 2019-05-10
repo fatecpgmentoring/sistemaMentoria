@@ -183,9 +183,6 @@
                         <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('admin/usuario/create') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.usuario.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
-                                </li>
                                 <li {{ (Request::is('admin/usuario') ? 'class="active"' : '') }}>
                                     <a href="{{ route('admin.usuario.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
                                 </li>

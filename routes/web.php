@@ -91,7 +91,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 
     Route::group(['prefix' => 'usuario'], function () {
         Route::get('/', 'UsuarioControllerAdmin@index')->name('admin.usuario.index');
-        Route::get('/create', 'UsuarioControllerAdmin@create')->name('admin.usuario.create');
         Route::get('/show/{id}', 'UsuarioControllerAdmin@show')->name('admin.usuario.show');
         Route::get('/status/{id}', 'UsuarioControllerAdmin@status')->name('admin.usuario.status');
         Route::get('/edit/{id}', 'UsuarioControllerAdmin@edit')->name('admin.usuario.edit');
@@ -150,5 +149,5 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware
     });
 
 
-    
+
 });

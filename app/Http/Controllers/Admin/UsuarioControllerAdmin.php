@@ -19,32 +19,24 @@ class UsuarioControllerAdmin extends Controller
         return view('admin.partes.usuario.index', compact('usuarios'));
     }
 
-    public function create()
+    public static function store($email, $senha, $role, $vinculo, $status)
     {
-        $mentores = Mentor::all();
-        $mentorados = Mentorado::all();
-        return view('admin.partes.usuario.create', compact('mentores', 'mentorados'));
-    }
-
-    public function store(Request $request)
-    {
-        $this->validate($request, Usuario::$regras, Usuario::$mensagens);
         $usuario = new Usuario([
-            'email' => $request->post('email'),
-            'password' => Hash::make($request->post('senha')),
-            'cd_role' => intval($request->post('role')),
-            'id_vinculo' => intval($request->post('vinculo')),
-            'cd_status' => 1,
+            'email' => $email,
+            'password' => Hash::make($senha),
+            'cd_role' => intval($role),
+            'id_vinculo' => intval($vinculo),
+            'cd_status' => $status,
         ]);
 
         try
         {
             $usuario->save();
-            return redirect('admin/usuario/')->with('success', 'save');
+            return 1;
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao alterar usuario')->withInput();
+            return 0;
         }
     }
 

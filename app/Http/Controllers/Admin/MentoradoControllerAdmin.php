@@ -8,12 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Mentorado;
 use App\Usuario;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Admin\UsuarioController;
 
 class MentoradoControllerAdmin extends Controller
 {
     public function index()
     {
-        $mentorados = Mentorado::all();
+        $mentorados = Mentorado::join('tb_usuarios', 'id_vinculo', '=', 'id_mentorado')->get();
         return view('admin.partes.mentorado.index', compact('mentorados'));
     }
 
@@ -32,14 +33,7 @@ class MentoradoControllerAdmin extends Controller
         try
         {
             $mentorado->save();
-            $usuario = new Usuario([
-                'email' => $request->post('email'),
-                'password' => Hash::make($request->post('senha')),
-                'cd_role' => 1,
-                'id_vinculo' => $mentorado->id_mentorado,
-                'cd_status' => 1,
-            ]);
-            $usuario->save();
+            UsuarioControllerAdmin::store($request->post('email'), $request->post('senha'), 1, $mentorado->id_mentorado, 1);
             return redirect('admin/mentorado')->with('success', 'save');
         }
         catch(QueryException $ex)

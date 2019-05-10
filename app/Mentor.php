@@ -14,8 +14,27 @@ class Mentor extends Model
         'vl_nota'
     ];
 
-    public static $regras = [];
-    public static $mensagens = [];
+    public static $regras=[
+        'email' => 'bail|required|email|min:10|max:100|unique:tb_usuarios,email',
+        'senha' => 'bail|required|min:8|max:100|confirmed',
+        'mentor' => 'bail|required|min:3|max:100',
+        'conhecimento' => 'required'
+    ];
+    public static $mensagens = [
+        'email.required' => 'E-mail obrigatorio',
+        'email.email' => 'E-mail invalido',
+        'email.min' => 'E-mail muito pequeno',
+        'email.max' => 'E-mail muito grande',
+        'email.unique' => 'E-mail já utilizado',
+        'senha.required' => 'Senha obrigatoria',
+        'senha.min' => 'Senha muito pequena',
+        'senha.max' => 'Senha muito grande',
+        'senha.confirmed' => 'Senhas não conferem',
+        'mentor.required' => 'Nome obrigatorio',
+        'mentor.min' => 'Nome muito pequeno',
+        'mentor.max' => 'Nome muito grande',
+        'conhecimento.required' => 'Conhecimento obrigatorio'
+    ];
 
     public function assuntos()
     {
