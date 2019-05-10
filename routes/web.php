@@ -147,4 +147,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware
     {
         return view('painel-mentorado.index');
     });
+
+
+    
 });
