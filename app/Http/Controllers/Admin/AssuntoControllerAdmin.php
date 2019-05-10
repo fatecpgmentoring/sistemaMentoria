@@ -53,7 +53,8 @@ class AssuntoControllerAdmin extends Controller
     public function edit($id)
     {
         $assunto = Assunto::find($id);
-        return view('admin.partes.assunto.edit', compact('assunto'));
+        $carreiras = Carreira::all();
+        return view('admin.partes.assunto.edit', compact('assunto', 'carreiras'));
     }
 
     public function update(Request $request, $id)
@@ -72,19 +73,18 @@ class AssuntoControllerAdmin extends Controller
         }
     }
 
-    public function activeOrDesactive(Request $request, $id)
+    public function activeOrDesactive($id)
     {
-        $this->validate($request, Assunto::$regras, Assunto::$mensagens);
         $assunto = Assunto::find($id);
         $assunto->ds_active_assunto = $assunto->ds_active_assunto ? 0 : 1;
         try
         {
             $assunto->update();
-            return json_encode(['success' => 'save']);
+            return back();
         }
         catch(QueryException $ex)
         {
-            return json_encode(['error' => $ex]);
+            return back();
         }
     }
 
@@ -98,7 +98,7 @@ class AssuntoControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar assunto');
+            return back()->with('erro','Erro ao deletar assunto');
         }
     }
 }

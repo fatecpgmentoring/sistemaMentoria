@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 use App\Contato;
 
 class ContatoControllerAdmin extends Controller
@@ -77,7 +78,7 @@ class ContatoControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar contato');
+            return back()->with('erro','Erro ao deletar contato');
         }
     }
 }

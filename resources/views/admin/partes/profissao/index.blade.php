@@ -18,9 +18,15 @@
             <td>{{date('d/m/Y H:i:s', strtotime($profissao->created_at))}}</td>
             <td>
                 <div class="btn-group">
-                    <button class="btn btn-warning">{{$profissao->ds_active_profissao ? 'Desativar' : 'Ativar'}}</button>
-                    <button class="btn btn-primary">Alterar</button>
-                    <button class="btn btn-danger">Deletar</button>
+                        <form action="{{route('admin.profissao.destroy', $profissao->id_profissao)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                    <div class="btn-group">
+                                    <a href="{{ route('admin.profissao.status', $profissao->id_profissao) }}" class="btn {{$profissao->ds_active_profissao ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$profissao->ds_active_profissao ? '' : ''}}</a>
+                                    <a href="{{ route('admin.profissao.edit', $profissao->id_profissao) }}" class="btn btn-primary fa fa-edit"></a>
+                                    <button class="btn btn-danger fa fa-trash"></button>
+                                </div>
+                            </form>
                 </div>
             </td></tr>
         @endforeach

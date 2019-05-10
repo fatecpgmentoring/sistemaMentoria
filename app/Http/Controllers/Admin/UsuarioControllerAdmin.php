@@ -5,19 +5,25 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use App\Mentor;
+use App\Mentorado;
+use App\Usuario;
 
 class UsuarioControllerAdmin extends Controller
 {
     public function index()
     {
-        $mentores = Usuario::all();
-        return view('admin.partes.usuario.index', compact('mentores'));
+        $usuarios = Usuario::leftJoin('tb_mentores', 'id_mentor', '=', 'id_vinculo')->leftJoin('tb_mentorados', 'id_mentorado', '=', 'id_vinculo')->get();
+        return view('admin.partes.usuario.index', compact('usuarios'));
     }
 
     public function create()
     {
-        return view('admin.partes.usuario.create');
+        $mentores = Mentor::all();
+        $mentorados = Mentorado::all();
+        return view('admin.partes.usuario.create', compact('mentores', 'mentorados'));
     }
 
     public function store(Request $request)
@@ -44,7 +50,9 @@ class UsuarioControllerAdmin extends Controller
 
     public function show($id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = Usuario::leftJoin('tb_mentores', 'id_mentor', '=', 'id_vinculo')
+        ->leftJoin('tb_mentorados', 'id_mentorado', '=', 'id_vinculo')
+        ->where('id_usuario', $id)->first();
         return view('admin.partes.usuario.show', compact('usuario'));
     }
 
@@ -67,6 +75,21 @@ class UsuarioControllerAdmin extends Controller
         catch(QueryException $ex)
         {
             return back()->withErrors('Erro ao alterar usuario')->withInput();
+        }
+    }
+
+    public function status($id)
+    {
+        $usuario = Usuario::find($id);
+        $usuario->cd_status = $usuario->cd_status ? 0 : 1;
+        try
+        {
+            $usuario->update();
+            return back();
+        }
+        catch(QueryException $ex)
+        {
+            return back();
         }
     }
 
@@ -139,7 +162,7 @@ class UsuarioControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar usuario');
+            return back()->whit('erro','Erro ao deletar usuario');
         }
     }
 }

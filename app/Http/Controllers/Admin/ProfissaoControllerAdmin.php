@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profissao;
+use Illuminate\Database\QueryException;
 
 class ProfissaoControllerAdmin extends Controller
 {
@@ -80,11 +81,11 @@ class ProfissaoControllerAdmin extends Controller
         try
         {
             $profissao->update();
-            return json_encode(['success' => 'save']);
+            return back();
         }
         catch(QueryException $ex)
         {
-            return json_encode(['error' => $ex]);
+            return back();
         }
     }
 
@@ -98,7 +99,7 @@ class ProfissaoControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar profissao');
+            return back()->with('erro', 'Erro ao deletar profissao');
         }
     }
 }

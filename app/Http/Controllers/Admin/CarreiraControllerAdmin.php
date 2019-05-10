@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Carreira;
 use App\Profissao;
+use Illuminate\Database\QueryException;
 
 class CarreiraControllerAdmin extends Controller
 {
@@ -77,11 +78,11 @@ class CarreiraControllerAdmin extends Controller
         try
         {
             $carreira->update();
-            return json_encode(['success' => 'save']);
+            return back();
         }
         catch(QueryException $ex)
         {
-            return json_encode(['error' => $ex]);
+            return back();
         }
     }
 
@@ -95,7 +96,7 @@ class CarreiraControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar carreira');
+            return back()->with('erro','Erro ao deletar carreira');
         }
     }
 }

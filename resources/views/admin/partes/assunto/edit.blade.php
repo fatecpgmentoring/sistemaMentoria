@@ -14,7 +14,7 @@
         <select class="form-control" name="carreira" id="carreira">
             <option value="">Selecione...</option>
             @foreach ($carreiras as $carreira)
-                <option value="{{$carreira->id_carreira}}" {{$assunto->carreira_id_carreira == $carreira->id_carreira ? 'selected' : ''}}>{{$carreira->nm_carreira - $carreira->profissao->nm_profissao}}</option>
+                <option value="{{$carreira->id_carreira}}" {{$assunto->carreira_id_carreira == $carreira->id_carreira ? 'selected' : ''}}>{{$carreira->nm_carreira.' - '.$carreira->profissao->nm_profissao}}</option>
             @endforeach
         </select>
     </div>

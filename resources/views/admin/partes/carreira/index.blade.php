@@ -20,11 +20,15 @@
                     <td>{{$carreira->carreira_log}}</td>
                     <td>{{date('d/m/Y H:i:s', strtotime($carreira->created_at))}}</td>
                     <td>
-                        <div class="btn-group">
-                            <button class="btn btn-warning">{{$carreira->ds_active_carreira ? 'Desativar' : 'Ativar'}}</button>
-                            <button class="btn btn-primary">Alterar</button>
-                            <button class="btn btn-danger">Deletar</button>
-                        </div>
+                        <form action="{{route('admin.carreira.destroy', $carreira->id_carreira)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                                <div class="btn-group">
+                                <a href="{{ route('admin.carreira.status', $carreira->id_carreira) }}" class="btn {{$carreira->ds_active_carreira ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$carreira->ds_active_carreira ? '' : ''}}</a>
+                                <a href="{{ route('admin.carreira.edit', $carreira->id_carreira) }}" class="btn btn-primary fa fa-edit"></a>
+                                <button class="btn btn-danger fa fa-trash"></button>
+                            </div>
+                        </form>
                     </td>
                 </tr>
             @endforeach

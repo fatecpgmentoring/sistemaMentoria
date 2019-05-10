@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
 use App\Mentorado;
+use App\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class MentoradoControllerAdmin extends Controller
 {
@@ -29,11 +32,19 @@ class MentoradoControllerAdmin extends Controller
         try
         {
             $mentorado->save();
-            return redirect('admin/mentorado/')->with('success', 'save');
+            $usuario = new Usuario([
+                'email' => $request->post('email'),
+                'password' => Hash::make($request->post('senha')),
+                'cd_role' => 1,
+                'id_vinculo' => $mentorado->id_mentorado,
+                'cd_status' => 1,
+            ]);
+            $usuario->save();
+            return redirect('admin/mentorado')->with('success', 'save');
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao alterar mentorado')->withInput();
+            return back()->withErrors('Erro ao salvar mentorado');
         }
     }
 
@@ -75,7 +86,7 @@ class MentoradoControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar mentorado');
+            return back()->with('erro', 'Erro ao deletar mentorado');
         }
     }
 }

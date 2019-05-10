@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
 use App\Mentor;
 
@@ -79,7 +80,7 @@ class MentorControllerAdmin extends Controller
         }
         catch(QueryException $ex)
         {
-            return back()->withErrors('Erro ao deletar mentor');
+            return back()->with('erro','Erro ao deletar mentor');
         }
     }
 }

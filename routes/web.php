@@ -46,7 +46,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::post('/store', 'ProfissaoControllerAdmin@store')->name('admin.profissao.store');
         Route::put('/update', 'ProfissaoControllerAdmin@update')->name('admin.profissao.update');
         Route::delete('/destroy/{id}', 'ProfissaoControllerAdmin@destroy')->name('admin.profissao.destroy');
-        Route::get('/status', 'ProfissaoControllerAdmin@activeOrDesactive')->name('admin.profissao.status');
+        Route::get('/status/{id}', 'ProfissaoControllerAdmin@activeOrDesactive')->name('admin.profissao.status');
     });
     Route::group(['prefix' => 'carreira'], function () {
         Route::get('/', 'CarreiraControllerAdmin@index')->name('admin.carreira.index');
@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::post('/store', 'CarreiraControllerAdmin@store')->name('admin.carreira.store');
         Route::put('/update', 'CarreiraControllerAdmin@update')->name('admin.carreira.update');
         Route::delete('/destroy/{id}', 'CarreiraControllerAdmin@destroy')->name('admin.carreira.destroy');
-        Route::get('/status', 'CarreiraControllerAdmin@activeOrDesactive')->name('admin.carreira.status');
+        Route::get('/status/{id}', 'CarreiraControllerAdmin@activeOrDesactive')->name('admin.carreira.status');
     });
     Route::group(['prefix' => 'assunto'], function () {
         Route::get('/', 'AssuntoControllerAdmin@index')->name('admin.assunto.index');
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::post('/store', 'AssuntoControllerAdmin@store')->name('admin.assunto.store');
         Route::put('/update', 'AssuntoControllerAdmin@update')->name('admin.assunto.update');
         Route::delete('/destroy/{id}', 'AssuntoControllerAdmin@destroy')->name('admin.assunto.destroy');
-        Route::get('/status', 'AssuntoControllerAdmin@activeOrDesactive')->name('admin.assunto.status');
+        Route::get('/status/{id}', 'AssuntoControllerAdmin@activeOrDesactive')->name('admin.assunto.status');
     });
 
     Route::group(['prefix' => 'mentor'], function () {
@@ -93,6 +93,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/', 'UsuarioControllerAdmin@index')->name('admin.usuario.index');
         Route::get('/create', 'UsuarioControllerAdmin@create')->name('admin.usuario.create');
         Route::get('/show/{id}', 'UsuarioControllerAdmin@show')->name('admin.usuario.show');
+        Route::get('/status/{id}', 'UsuarioControllerAdmin@status')->name('admin.usuario.status');
         Route::get('/edit/{id}', 'UsuarioControllerAdmin@edit')->name('admin.usuario.edit');
         Route::post('/store', 'UsuarioControllerAdmin@store')->name('admin.usuario.store');
         Route::put('/update', 'UsuarioControllerAdmin@update')->name('admin.usuario.update');

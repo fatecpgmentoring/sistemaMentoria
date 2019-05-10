@@ -21,11 +21,15 @@
                 <td>{{$assunto->assunto_log}}</td>
                 <td>{{date('d/m/Y H:i:s', strtotime($assunto->created_at))}}</td>
                 <td>
-                    <div class="btn-group">
-                        <button class="btn btn-warning">{{$assunto->ds_active_assunto ? 'Desativar' : 'Ativar'}}</button>
-                        <button class="btn btn-primary">Alterar</button>
-                        <button class="btn btn-danger">Deletar</button>
-                    </div>
+                    <form action="{{route('admin.assunto.destroy', $assunto->id_assunto)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                                <div class="btn-group">
+                                <a href="{{ route('admin.assunto.status', $assunto->id_assunto) }}" class="btn {{$assunto->ds_active_assunto ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$assunto->ds_active_assunto ? '' : ''}}</a>
+                                <a href="{{ route('admin.assunto.edit', $assunto->id_assunto) }}" class="btn btn-primary fa fa-edit"></a>
+                                <button class="btn btn-danger fa fa-trash"></button>
+                            </div>
+                        </form>
                 </td></tr>
             @endforeach
         </tbody>
