@@ -23,21 +23,28 @@ class MentorControllerAdmin extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Mentor::$regras, Mentor::$mensagens);
-        $mentor = new Mentor([
-            'nm_mentor' => $request->post('mentor'),
-            'nv_conhecimento' => $request->post('conhecimento'),
-            'vl_nota' => 5,
-        ]);
+        $id_user = UsuarioControllerAdmin::store($request);
+        if($id_user > 0)
+        {
+            $mentor = new Mentor([
+                'nm_mentor' => $request->post('mentor'),
+                'nv_conhecimento' => $request->post('conhecimento'),
+                'vl_nota' => 5,
+                'usuario_id_usuario' => $id_user
+            ]);
 
-        try
-        {
-            $mentor->save();
-            UsuarioControllerAdmin::store($request->post('email'), $request->post('senha'), 2, $mentor->id_mentor, 1);
-            return redirect('admin/mentor/')->with('success', 'save');
+            try
+            {
+                $mentor->save();
+                return redirect('admin/mentor/')->with('success', 'save');
+            }
+            catch(QueryException $ex)
+            {
+                return back()->withErrors('Erro ao alterar mentor')->withInput();
+            }
         }
-        catch(QueryException $ex)
-        {
-            return back()->withErrors('Erro ao alterar mentor')->withInput();
+        else {
+            return back()->withErrors('Erro ao cadastrar mentor')->withInput();
         }
     }
 

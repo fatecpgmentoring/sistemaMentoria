@@ -9,7 +9,8 @@ class Mentorado extends Model
     protected $table = 'tb_mentorados';
     protected $primaryKey = 'id_mentorado';
     protected $fillable = [
-        'nm_mentorado'
+        'nm_mentorado',
+        'id_usuario'
     ];
 
     public static $regras=[
@@ -40,5 +41,10 @@ class Mentorado extends Model
     public function conexoes()
     {
         return $this->hasMany('App\Conexao', 'mentorado_id_mentorado');
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo('App\Usuario', 'usuario_id_usuario', 'id_usuario');
     }
 }

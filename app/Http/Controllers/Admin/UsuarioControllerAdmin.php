@@ -19,20 +19,19 @@ class UsuarioControllerAdmin extends Controller
         return view('admin.partes.usuario.index', compact('usuarios'));
     }
 
-    public static function store($email, $senha, $role, $vinculo, $status)
+    public static function store(Request $request)
     {
         $usuario = new Usuario([
-            'email' => $email,
-            'password' => Hash::make($senha),
-            'cd_role' => intval($role),
-            'id_vinculo' => intval($vinculo),
-            'cd_status' => $status,
+            'email' => $request->post('email'),
+            'password' => Hash::make($request->post('senha')),
+            'cd_role' => intval($request->post('role')),
+            'cd_status' => $request->post('status'),
         ]);
 
         try
         {
             $usuario->save();
-            return 1;
+            return $usuario->id_usuario;
         }
         catch(QueryException $ex)
         {

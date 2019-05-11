@@ -8,17 +8,18 @@
             <input type="text" class="form-control" name="mentorado" id="mentorado">
         </div>
         <div class="form-group">
-                <label class="label-control" for="email">E-mail:</label>
-                <input type="email" class="form-control" name="email" id="email">
-            </div>
-            <div class="form-group">
-                <label class="label-control" for="carreira">Senha:</label>
-                <input type="password" class="form-control" name="senha" id="senha">
-            </div>
-            <div class="form-group">
-                <label class="label-control" for="carreira">Confirmação de Senha:</label>
-                <input type="password" class="form-control" name="senha_confirmation" id="senha_confirmation">
-            </div>
+            <label class="label-control" for="email">E-mail:</label>
+            <input type="email" class="form-control" name="email" id="email">
+        </div>
+        <input type="hidden" name="status" value="2" id="status">
+        <div class="form-group">
+            <label class="label-control" for="carreira">Senha:</label>
+            <input type="password" class="form-control" name="senha" id="senha">
+        </div>
+        <div class="form-group">
+            <label class="label-control" for="carreira">Confirmação de Senha:</label>
+            <input type="password" class="form-control" name="senha_confirmation" id="senha_confirmation">
+        </div>
         <div class="form-group">
             <button class="btn btn-success" type="submit">Cadastrar</button>
         </div>

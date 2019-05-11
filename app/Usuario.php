@@ -12,7 +12,6 @@ class Usuario extends Model
         'email',
         'password',
         'cd_role',
-        'id_vinculo',
         'cd_status'
     ];
 
@@ -20,7 +19,6 @@ class Usuario extends Model
         'email' => 'bail|required|email|min:10|max:100',
         'senha' => 'bail|required|min:8|max:100|confirmed',
         'role' => 'bail|required|digits:1',
-        'vinculo' => 'bail|digits:1',
         'status' => 'bail|digits:1'
     ];
     public static $mensagens = [
@@ -34,7 +32,16 @@ class Usuario extends Model
         'senha.confirmed' => 'Senhas não conferem',
         'role.required' => 'Permissão obrigatoria',
         'role.digits' => 'Permissão invalida',
-        'vinculo.digits' => 'Vinculo invalido',
         'status.digits' => 'Status invalido'
     ];
+
+    public function mentor()
+    {
+        return $this->hasOne('App\Mentor', 'usuario_id_usuario', 'id_usuario');
+    }
+
+    public function mentorado()
+    {
+        return $this->hasOne('App\Mentorado', 'usuario_id_usuario', 'id_usuario');
+    }
 }

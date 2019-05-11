@@ -26,19 +26,27 @@ class MentoradoControllerAdmin extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Mentorado::$regras, Mentorado::$mensagens);
-        $mentorado = new Mentorado([
-            'nm_mentorado' => $request->post('mentorado'),
-        ]);
+        $id_user = UsuarioControllerAdmin::store($request);
+        if($id_user > 0)
+        {
+            $mentorado = new Mentorado([
+                'nm_mentorado' => $request->post('mentorado'),
+                'usuario_id_usuario' => $id_user
+            ]);
 
-        try
-        {
-            $mentorado->save();
-            UsuarioControllerAdmin::store($request->post('email'), $request->post('senha'), 1, $mentorado->id_mentorado, 1);
-            return redirect('admin/mentorado')->with('success', 'save');
+            try
+            {
+                $mentorado->save();
+                return redirect('admin/mentorado')->with('success', 'save');
+            }
+            catch(QueryException $ex)
+            {
+                return back()->withErrors('Erro ao salvar mentorado')->withInputs();
+            }
         }
-        catch(QueryException $ex)
+        else
         {
-            return back()->withErrors('Erro ao salvar mentorado');
+            return back()->withErrors('Erro ao salvar mentorado')->withInputs();
         }
     }
 

@@ -11,7 +11,8 @@ class Mentor extends Model
     protected $fillable = [
         'nm_mentor',
         'nv_conhecimento',
-        'vl_nota'
+        'vl_nota',
+        'id_usuario'
     ];
 
     public static $regras=[
@@ -54,5 +55,10 @@ class Mentor extends Model
     public function contatos()
     {
         return $this->hasMany('App\Contato', 'mentor_id_mentor');
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo('App\Usuario', 'usuario_id_usuario', 'id_usuario');
     }
 }

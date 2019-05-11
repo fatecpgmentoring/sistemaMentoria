@@ -12,6 +12,7 @@
             <label class="label-control" for="email">E-mail:</label>
             <input type="email" class="form-control" name="email" id="email">
         </div>
+        <input type="hidden" name="status" value="2" id="status">
         <div class="form-group">
             <label class="label-control" for="carreira">Senha:</label>
             <input type="password" class="form-control" name="senha" id="senha">
