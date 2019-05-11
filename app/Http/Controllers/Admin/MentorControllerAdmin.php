@@ -11,7 +11,7 @@ class MentorControllerAdmin extends Controller
 {
     public function index()
     {
-        $mentores = Mentor::join('tb_usuarios', 'id_vinculo', '=', 'id_mentor')->get();
+        $mentores = Mentor::all();
         return view('admin.partes.mentor.index', compact('mentores'));
     }
 

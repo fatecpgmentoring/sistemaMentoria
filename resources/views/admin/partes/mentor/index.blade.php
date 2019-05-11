@@ -16,7 +16,7 @@
         @foreach ($mentores as $mentor)
             <tr><td>{{$mentor->id_mentor}}</td>
             <td><a href="{{route('admin.mentor.show', $mentor->id_mentor)}}">{{$mentor->nm_mentor}}</a></td>
-            <td>{{$mentor->email}}</td>
+            <td>{{$mentor->usuario->email}}</td>
             <td>{{date('d/m/Y H:i:s', strtotime($mentor->created_at))}}</td>
             <td>{{$mentor->assuntos->count()}}</td>
             <td>{{$mentor->conexoes->count()}}</td>

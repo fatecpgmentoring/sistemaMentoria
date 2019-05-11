@@ -89,16 +89,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::delete('/destroy/{id}', 'MentoradoControllerAdmin@destroy')->name('admin.mentorado.destroy');
     });
 
-    Route::group(['prefix' => 'usuario'], function () {
-        Route::get('/', 'UsuarioControllerAdmin@index')->name('admin.usuario.index');
-        Route::get('/show/{id}', 'UsuarioControllerAdmin@show')->name('admin.usuario.show');
-        Route::get('/status/{id}', 'UsuarioControllerAdmin@status')->name('admin.usuario.status');
-        Route::get('/edit/{id}', 'UsuarioControllerAdmin@edit')->name('admin.usuario.edit');
-        Route::post('/store', 'UsuarioControllerAdmin@store')->name('admin.usuario.store');
-        Route::put('/update', 'UsuarioControllerAdmin@update')->name('admin.usuario.update');
-        Route::delete('/destroy/{id}', 'UsuarioControllerAdmin@destroy')->name('admin.usuario.destroy');
-    });
-
     Route::group(['prefix' => 'evento'], function () {
         Route::get('/', 'EventoControllerAdmin@index')->name('admin.evento.index');
         Route::get('/create', 'EventoControllerAdmin@create')->name('admin.evento.create');

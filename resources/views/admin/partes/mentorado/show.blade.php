@@ -9,6 +9,18 @@
         </ul>
     </div>
     <div class="form-group">
+        <label class="label-control" for="mentorado">Email:</label>
+        <ul>
+            <li>{{$mentorado->usuario->email}}</li>
+        </ul>
+    </div>
+    <div class="form-group">
+        <label class="label-control" for="mentorado">Status:</label>
+        <ul>
+            <li>{{$mentorado->usuario->cd_status == 1 ? "Ativo" : "Inativo"}}</li>
+        </ul>
+    </div>
+    <div class="form-group">
         <label class="label-control" for="assunto">Assuntos:</label>
         <ul>
             @foreach ($mentorado->assuntos as $assunto)

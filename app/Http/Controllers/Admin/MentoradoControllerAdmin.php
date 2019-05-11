@@ -14,7 +14,7 @@ class MentoradoControllerAdmin extends Controller
 {
     public function index()
     {
-        $mentorados = Mentorado::join('tb_usuarios', 'id_vinculo', '=', 'id_mentorado')->get();
+        $mentorados = Mentorado::all();
         return view('admin.partes.mentorado.index', compact('mentorados'));
     }
 
@@ -33,7 +33,6 @@ class MentoradoControllerAdmin extends Controller
                 'nm_mentorado' => $request->post('mentorado'),
                 'usuario_id_usuario' => $id_user
             ]);
-
             try
             {
                 $mentorado->save();

@@ -12,7 +12,7 @@ class Mentor extends Model
         'nm_mentor',
         'nv_conhecimento',
         'vl_nota',
-        'id_usuario'
+        'usuario_id_usuario'
     ];
 
     public static $regras=[

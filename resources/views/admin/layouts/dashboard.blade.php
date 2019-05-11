@@ -181,14 +181,6 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('admin/usuario') ? 'class="active"' : '') }}>
-                                    <a href="{{ route('admin.usuario.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
                             <a href="#"><i class="fa fa-comments fa-fw"></i> Comentarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li {{ (Request::is('admin/comentario') ? 'class="active"' : '') }}>

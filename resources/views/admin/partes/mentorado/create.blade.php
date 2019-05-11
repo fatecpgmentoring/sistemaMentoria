@@ -11,7 +11,8 @@
             <label class="label-control" for="email">E-mail:</label>
             <input type="email" class="form-control" name="email" id="email">
         </div>
-        <input type="hidden" name="status" value="2" id="status">
+        <input type="hidden" name="status" value="1" id="status">
+        <input type="hidden" name="role" value="1" id="role">
         <div class="form-group">
             <label class="label-control" for="carreira">Senha:</label>
             <input type="password" class="form-control" name="senha" id="senha">

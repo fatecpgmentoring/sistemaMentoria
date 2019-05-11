@@ -15,7 +15,7 @@ class UsuarioControllerAdmin extends Controller
 {
     public function index()
     {
-        $usuarios = Usuario::leftJoin('tb_mentores', 'id_mentor', '=', 'id_vinculo')->leftJoin('tb_mentorados', 'id_mentorado', '=', 'id_vinculo')->get();
+        $usuarios = Usuario::all();
         return view('admin.partes.usuario.index', compact('usuarios'));
     }
 
