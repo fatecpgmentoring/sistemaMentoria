@@ -104,11 +104,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'ComentarioControllerAdmin@show')->name('admin.comentario.show');
     });
 
-    Route::group(['prefix' => 'mensagem'], function () {
-        Route::get('/', 'MensagemControllerAdmin@index')->name('admin.mensagem.index');
-        Route::get('/show/{id}', 'MensagemControllerAdmin@show')->name('admin.mensagem.show');
-    });
-
     Route::group(['prefix' => 'contato'], function () {
         Route::get('/', 'ContatoControllerAdmin@index')->name('admin.contato.index');
         Route::get('/show/{id}', 'ContatoControllerAdmin@show')->name('admin.contato.show');

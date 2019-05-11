@@ -13,7 +13,7 @@
     <tbody>
         @foreach ($comentarios as $comentario)
             <tr><td>{{$comentario->id_comentario}}</td>
-            <td><a href="{{route('admin.comentario.show', $comentario->id_comentario)}}">{{$comentario->ds_comentario}}</a></td>
+            <td><a href="{{route('admin.comentario.show', $comentario->id_comentario)}}">Ver Comentario</a></td>
             <td>{{$comentario->mentor->nm_mentor}}</td>
             <td>{{$comentario->mentorado->nm_mentorado}}</td>
             <td>{{date('d/m/Y H:i:s', strtotime($comentario->created_at))}}</td>
