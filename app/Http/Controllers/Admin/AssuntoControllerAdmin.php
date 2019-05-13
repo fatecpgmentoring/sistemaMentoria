@@ -8,6 +8,10 @@ use Illuminate\Facedes\Support\Auth;
 use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
 use App\Carreira;
+use App\Usuario;
+use function GuzzleHttp\json_encode;
+use App\Mentorado;
+use App\Mentor;
 
 class AssuntoControllerAdmin extends Controller
 {
@@ -100,5 +104,33 @@ class AssuntoControllerAdmin extends Controller
         {
             return back()->with('erro','Erro ao deletar assunto');
         }
+    }
+
+    public function indexUsuarioAssunto()
+    {
+        $mentorados = Mentorado::all();
+        $mentores = Mentor::all();
+        return view('admin.partes.usuarioAssunto.index', compact('mentores', 'mentorados'));
+    }
+    public function createUsuarioAssunto()
+    {
+        $mentorados = Mentorado::all();
+        $mentores = Mentor::all();
+        $assuntos = Assunto::all();
+        return view('admin.partes.usuarioAssunto.create', compact('mentores', 'assuntos', 'mentorados'));
+    }
+    public function addUsuario(Request $request)
+    {
+        try
+        {
+            $usuario = Usuario::find($request->post('usuario'));
+            $assunto = Assunto::find($request->post('assunto'))->usuarios()->save($usuario);
+            return redirect('/admin/usuario/assunto');
+        }
+        catch(QueryException $ex)
+        {
+            return json_encode(['err' => $ex]);
+        }
+
     }
 }

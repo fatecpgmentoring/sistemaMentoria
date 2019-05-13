@@ -223,6 +223,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Assuntos e Usuarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('admin/usuario/assunto/create') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.usuario.assunto.create') }}"><i class="fa fa-plus fa-fw"></i>Cadastrar</a>
+                                </li>
+                                <li {{ (Request::is('admin/usuario/assunto') ? 'class="active"' : '') }}>
+                                    <a href="{{ route('admin.usuario.assunto.index') }}"><i class="fa fa-wrench fa-fw"></i>Gerenciar</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

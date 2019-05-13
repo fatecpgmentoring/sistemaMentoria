@@ -14,4 +14,9 @@ class Usuario extends Model
         'cd_role',
         'cd_status'
     ];
+
+    public function assuntos()
+    {
+        return $this->belongsToMany(Assunto::class, 'tb_assunto_usuarios');
+    }
 }

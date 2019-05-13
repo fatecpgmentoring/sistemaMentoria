@@ -23,9 +23,9 @@ class Assunto extends Model
         return $this->belongsTo('App\Carreira', 'carreira_id_carreira', 'id_carreira');
     }
 
-    public function mentorados()
+    public function usuarios()
     {
-        return $this->belongsToMany(Mentorado::class, 'tb_assunto_mentorados');
+        return $this->belongsToMany(Usuario::class, 'tb_assunto_usuarios');
     }
 
     public function eventos()

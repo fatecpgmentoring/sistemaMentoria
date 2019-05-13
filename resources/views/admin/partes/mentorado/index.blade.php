@@ -18,7 +18,7 @@
             <td><a href="{{route('admin.mentorado.show', $mentorado->id_mentorado)}}">{{$mentorado->nm_mentorado}}</a></td>
             <td>{{$mentorado->usuario->email}}</td>
             <td>{{date('d/m/Y H:i:s', strtotime($mentorado->created_at))}}</td>
-            <td>{{$mentorado->assuntos->count()}}</td>
+            <td>{{$mentorado->usuario->assuntos->count()}}</td>
             <td>{{$mentorado->conexoes->count()}}</td>
             <td>
                 <div class="btn-group">

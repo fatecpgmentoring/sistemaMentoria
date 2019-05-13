@@ -37,11 +37,6 @@ class Mentor extends Model
         'conhecimento.required' => 'Conhecimento obrigatorio'
     ];
 
-    public function assuntos()
-    {
-        return $this->belongsToMany(Assunto::class, 'tb_assunto_mentores');
-    }
-
     public function comentarios()
     {
         return $this->hasMany('App\Comentario', 'mentor_id_mentor');

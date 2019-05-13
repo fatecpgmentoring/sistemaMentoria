@@ -118,6 +118,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/', 'InscritoControllerAdmin@index')->name('admin.inscrito.index');
         Route::get('/show/{id}', 'InscritoControllerAdmin@show')->name('admin.inscrito.show');
     });
+    Route::group(['prefix' => 'usuario'], function () {
+        Route::group(['prefix' => 'assunto'], function () {
+            Route::get('/', 'AssuntoControllerAdmin@indexUsuarioAssunto')->name('admin.usuario.assunto.index');
+            Route::get('/create', 'AssuntoControllerAdmin@createUsuarioAssunto')->name('admin.usuario.assunto.create');
+            Route::post('/addUserAssunto', 'AssuntoControllerAdmin@addUsuario')->name('admin.usuario.assunto.add');
+        });
+    });
 });
 
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => CheckMentor::class*/], function () {

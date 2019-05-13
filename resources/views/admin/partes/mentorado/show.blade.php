@@ -23,7 +23,7 @@
     <div class="form-group">
         <label class="label-control" for="assunto">Assuntos:</label>
         <ul>
-            @foreach ($mentorado->assuntos as $assunto)
+            @foreach ($mentorado->usuario->assuntos as $assunto)
                 <li><a href="{{route('admin.assunto.show', $assunto->id_assunto)}}">{{$assunto->nm_assunto}}</a></li>
             @endforeach
         </ul>
