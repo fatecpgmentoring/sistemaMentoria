@@ -19,11 +19,8 @@ class CreateConexaosTable extends Migration
             $table->unsignedInteger('mentor_id_mentor');
             $table->unsignedInteger('assunto_id_assunto');
             $table->timestamp('dt_fim')->nullable();
-            $table->timestamp('dt_finalizado')->nullable();
-            $table->bigInteger('qnt_mensagens')->default(0);
-            $table->integer('qnt_reconeccoes')->default(1);
+            $table->timestamp('dt_inicio')->nullable();
             $table->tinyInteger('ds_status');
-            $table->double('vl_nota', 2, 2)->default(0.0);
             $table->foreign('assunto_id_assunto')
                     ->references('id_assunto')
                     ->on('tb_assuntos')
@@ -50,6 +47,6 @@ class CreateConexaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conexaos');
+        Schema::dropIfExists('tb_conexoes');
     }
 }

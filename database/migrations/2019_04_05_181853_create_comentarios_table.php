@@ -16,6 +16,7 @@ class CreateComentariosTable extends Migration
         Schema::create('tb_comentarios', function (Blueprint $table) {
             $table->increments('id_comentario');
             $table->text('ds_comentario');
+            $table->double('vl_nota', 2, 2)->default(0.0);
             $table->unsignedInteger('mentor_id_mentor');
             $table->unsignedInteger('mentorado_id_mentorado');
             $table->foreign('mentor_id_mentor')
@@ -39,6 +40,6 @@ class CreateComentariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comentarios');
+        Schema::dropIfExists('tb_comentarios');
     }
 }

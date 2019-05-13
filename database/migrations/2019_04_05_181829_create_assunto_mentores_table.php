@@ -13,13 +13,13 @@ class CreateAssuntoMentoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_assunto_mentores', function (Blueprint $table) {
-            $table->increments('id_assunto_mentor');
+        Schema::create('tb_assunto_usuarios', function (Blueprint $table) {
+            $table->increments('id_assunto_usuario');
             $table->unsignedInteger('mentor_id_mentor');
             $table->unsignedInteger('assunto_id_assunto');
-            $table->foreign('mentor_id_mentor')
-                    ->references('id_mentor')
-                    ->on('tb_mentores')
+            $table->foreign('usuario_id_usuario')
+                    ->references('id_usuario')
+                    ->on('tb_usuarios')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
             $table->foreign('assunto_id_assunto')
@@ -38,6 +38,6 @@ class CreateAssuntoMentoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assunto_mentores');
+        Schema::dropIfExists('tb_assunto_usuarios');
     }
 }

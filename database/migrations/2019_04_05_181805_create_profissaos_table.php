@@ -29,6 +29,6 @@ class CreateProfissaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profissaos');
+        Schema::dropIfExists('tb_profissoes');
     }
 }

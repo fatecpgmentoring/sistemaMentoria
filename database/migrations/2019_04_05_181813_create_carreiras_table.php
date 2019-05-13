@@ -35,6 +35,6 @@ class CreateCarreirasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carreiras');
+        Schema::dropIfExists('tb_carreiras');
     }
 }

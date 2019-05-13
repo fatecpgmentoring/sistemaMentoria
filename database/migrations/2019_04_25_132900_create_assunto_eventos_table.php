@@ -38,6 +38,6 @@ class CreateAssuntoEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assunto_eventos');
+        Schema::dropIfExists('tb_assunto_eventos');
     }
 }

@@ -35,6 +35,6 @@ class CreateAssuntosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assuntos');
+        Schema::dropIfExists('tb_assuntos');
     }
 }

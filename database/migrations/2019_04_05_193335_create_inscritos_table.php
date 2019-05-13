@@ -41,6 +41,6 @@ class CreateInscritosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inscritos');
+        Schema::dropIfExists('tb_inscritos');
     }
 }

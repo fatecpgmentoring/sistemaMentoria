@@ -36,6 +36,6 @@ class CreateMentoradosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mentorados');
+        Schema::dropIfExists('tb_mentorados');
     }
 }
