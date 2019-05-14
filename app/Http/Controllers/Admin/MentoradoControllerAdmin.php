@@ -63,12 +63,15 @@ class MentoradoControllerAdmin extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, Mentorado::$regras, Mentorado::$mensagens);
+        $this->validate($request, Mentorado::$regrasUpdate, Mentorado::$mensagens);
         $mentorado = Mentorado::find($id);
+        $usuario = Usuario::find($mentorado->usuario_id_usuario);
         $mentorado->nm_mentorado = $request->post('mentorado');
+        $usuario->email = $request->post('email');
         try
         {
             $mentorado->update();
+            $usuario->save();
             return redirect('admin/mentorado/')->with('success', 'save');
         }
         catch(QueryException $ex)

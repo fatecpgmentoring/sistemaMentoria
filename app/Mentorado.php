@@ -18,6 +18,11 @@ class Mentorado extends Model
         'senha' => 'bail|required|min:8|max:100|confirmed',
         'mentorado' => 'bail|required|min:3|max:100'
     ];
+
+    public static $regrasUpdate=[
+        'email' => 'bail|required|email|min:10|max:100',
+        'mentorado' => 'bail|required|min:3|max:100'
+    ];
     public static $mensagens = [
         'email.required' => 'E-mail obrigatorio',
         'email.email' => 'E-mail invalido',

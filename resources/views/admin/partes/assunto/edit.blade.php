@@ -6,7 +6,7 @@
     @csrf
     @method('PUT')
     <div class="form-group">
-        <label class="label-control" for="assunto">Descrição:</label>
+        <label class="label-control" for="assunto">Assunto:</label>
         <input type="text" class="form-control" value="{{$assunto->nm_assunto}}" name="assunto" id="assunto">
     </div>
     <div class="form-group">

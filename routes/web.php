@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'ProfissaoControllerAdmin@show')->name('admin.profissao.show');
         Route::get('/edit/{id}', 'ProfissaoControllerAdmin@edit')->name('admin.profissao.edit');
         Route::post('/store', 'ProfissaoControllerAdmin@store')->name('admin.profissao.store');
-        Route::put('/update', 'ProfissaoControllerAdmin@update')->name('admin.profissao.update');
+        Route::put('/update/{id}', 'ProfissaoControllerAdmin@update')->name('admin.profissao.update');
         Route::delete('/destroy/{id}', 'ProfissaoControllerAdmin@destroy')->name('admin.profissao.destroy');
         Route::get('/status/{id}', 'ProfissaoControllerAdmin@activeOrDesactive')->name('admin.profissao.status');
     });
@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'CarreiraControllerAdmin@show')->name('admin.carreira.show');
         Route::get('/edit/{id}', 'CarreiraControllerAdmin@edit')->name('admin.carreira.edit');
         Route::post('/store', 'CarreiraControllerAdmin@store')->name('admin.carreira.store');
-        Route::put('/update', 'CarreiraControllerAdmin@update')->name('admin.carreira.update');
+        Route::put('/update/{id}', 'CarreiraControllerAdmin@update')->name('admin.carreira.update');
         Route::delete('/destroy/{id}', 'CarreiraControllerAdmin@destroy')->name('admin.carreira.destroy');
         Route::get('/status/{id}', 'CarreiraControllerAdmin@activeOrDesactive')->name('admin.carreira.status');
     });
@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'AssuntoControllerAdmin@show')->name('admin.assunto.show');
         Route::get('/edit/{id}', 'AssuntoControllerAdmin@edit')->name('admin.assunto.edit');
         Route::post('/store', 'AssuntoControllerAdmin@store')->name('admin.assunto.store');
-        Route::put('/update', 'AssuntoControllerAdmin@update')->name('admin.assunto.update');
+        Route::put('/update/{id}', 'AssuntoControllerAdmin@update')->name('admin.assunto.update');
         Route::delete('/destroy/{id}', 'AssuntoControllerAdmin@destroy')->name('admin.assunto.destroy');
         Route::get('/status/{id}', 'AssuntoControllerAdmin@activeOrDesactive')->name('admin.assunto.status');
     });
@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'MentorControllerAdmin@show')->name('admin.mentor.show');
         Route::get('/edit/{id}', 'MentorControllerAdmin@edit')->name('admin.mentor.edit');
         Route::post('/store', 'MentorControllerAdmin@store')->name('admin.mentor.store');
-        Route::put('/update', 'MentorControllerAdmin@update')->name('admin.mentor.update');
+        Route::put('/update/{id}', 'MentorControllerAdmin@update')->name('admin.mentor.update');
         Route::delete('/destroy/{id}', 'MentorControllerAdmin@destroy')->name('admin.mentor.destroy');
     });
 
@@ -85,7 +85,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'MentoradoControllerAdmin@show')->name('admin.mentorado.show');
         Route::get('/edit/{id}', 'MentoradoControllerAdmin@edit')->name('admin.mentorado.edit');
         Route::post('/store', 'MentoradoControllerAdmin@store')->name('admin.mentorado.store');
-        Route::put('/update', 'MentoradoControllerAdmin@update')->name('admin.mentorado.update');
+        Route::put('/update/{id}', 'MentoradoControllerAdmin@update')->name('admin.mentorado.update');
         Route::delete('/destroy/{id}', 'MentoradoControllerAdmin@destroy')->name('admin.mentorado.destroy');
     });
 
@@ -95,7 +95,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'EventoControllerAdmin@show')->name('admin.evento.show');
         Route::get('/edit/{id}', 'EventoControllerAdmin@edit')->name('admin.evento.edit');
         Route::post('/store', 'EventoControllerAdmin@store')->name('admin.evento.store');
-        Route::put('/update', 'EventoControllerAdmin@update')->name('admin.evento.update');
+        Route::put('/update/{id}/{id}', 'EventoControllerAdmin@update')->name('admin.evento.update');
         Route::delete('/destroy/{id}', 'EventoControllerAdmin@destroy')->name('admin.evento.destroy');
     });
 
