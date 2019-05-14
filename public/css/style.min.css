@@ -17550,7 +17550,7 @@ form.default .form-check-input:checked:before {
 
 #aside-nav .icon-list {
     position: absolute;
-    top: 100px;
+    top: 85px;
     left: 0;
     z-index: 100
 }
@@ -17621,7 +17621,7 @@ form.default .form-check-input:checked:before {
     font-size: 15px;
     font-weight: 600;
     text-transform: initial;
-    color: #fff
+    color: lime;
 }
 
 #aside-nav .nav-list li .wrap-item ul li {
@@ -17666,14 +17666,14 @@ form.default .form-check-input:checked:before {
 }
 
 @media (max-width:768px) {
-    #main-panel-wrap #main-box {
+    #aside-nav {
         padding-top: 25px;
         padding-left: 90px
     }
 }
 
 @media (max-width:685px) {
-    #main-panel-wrap.active #main-box {
+    #aside-nav {
         width: 100%
     }
 
