@@ -13017,7 +13017,8 @@ p {
 
     #main-nav .main-part .logo-box .logo-mobile {
         position: static;
-        width: 200px;
+    /*    width: 200px;*/
+        width: 76px;
         display: block
     }
 
