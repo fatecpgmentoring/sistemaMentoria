@@ -12898,10 +12898,15 @@ p {
 #main-nav .main-part .logo-box .logo {
     position: absolute;
     z-index: 1000;
-  /*  top: -37px; */
+  /*  top: -37px; 
     top: -41px;
     left: 15px;
-    right: 15px
+    right: 15px */
+}
+
+#main-nav .main-part .logo-box .logo .img-fluid {
+    max-width: 76px;
+    height: auto;
 }
 
 #main-nav .main-part .navbar-collapse {

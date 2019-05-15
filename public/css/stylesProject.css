@@ -1,4 +1,4 @@
-.body 
+body 
 {
   margin: 0 !important;
 }
@@ -32,4 +32,9 @@
 #main-footer
 {
   margin-top: 100px;
+}
+
+a 
+{
+	text-decoration: none;
 }
