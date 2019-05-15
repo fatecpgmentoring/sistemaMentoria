@@ -1,17 +1,18 @@
 <!-- <aside>
 	<p>sidebar</p>
 </aside> -->
-<aside>		
-	<div class="content">
+
+<div class="content">
    		<nav class="navbar navbar-expand-lg navbar-light bg-light">   		
    		<button type="button" id="sidebarCollapse" class="btn btn-info">
    			<i class="fa fa-align-justify"></i> <span> >> </span>
    		</button>
-   		
-	
-		<nav class="menu">			
-			 <div class="wrapper">
-   	<nav id="sidebar">   		
+</nav>
+</div>
+
+<aside>
+ <div class="wrapper">
+   	<nav class="menu" id="sidebar">   		
    		<ul class="list-unstyled components">
    			
    			<li class="active">
@@ -45,4 +46,5 @@
    			</li>   			
    		</ul>			
 		</nav>
+	</div>
 	</aside>

@@ -17476,11 +17476,11 @@ form.default .form-check-input:checked:before {
 
 
 .navbar{
-    padding: 15px 10px;
-    background: #fff;
+    padding: 0px 0px;
+    background: rgb(0,177,177);
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 

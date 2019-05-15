@@ -1,3 +1,11 @@
+<script>
+        $(document).ready(function(){
+            $('#sidebarCollapse').on('click',function(){
+                $('#sidebar').toggleClass('active');
+            });
+        });  
+    </script>
+    
 <footer id="main-footer" class="">
     <div class="container">
         <div class="top-box">
