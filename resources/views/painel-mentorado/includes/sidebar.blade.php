@@ -1,51 +1,48 @@
 <!-- <aside>
 	<p>sidebar</p>
 </aside> -->
-<aside id="aside-nav">
-    <ul class="icon-list">
-        <li><div class="wrap"><span class="spriting sprite-nav-dashboard"></span></div></li>
-        <li><div class="wrap"><span class="spriting sprite-nav-atendimento"></span></div></li>
-        <li><div class="wrap"><span class="spriting sprite-nav-credito"></span></div></li>
-        <li><div class="wrap"><span class="spriting sprite-nav-conta"></span></div></li>
-    </ul>
-    <nav class="nav-list">
-        <li>
-            <div class="wrap-item">
-                <h5>Menu</h5>
-                <ul>
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <h5>Atendimento</h5>
-                <ul>
-                    <li><a href="#">Relatórios</a></li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <h5>Créditos <br> Transferências</h5>
-                <ul>
-                    <li><a href="#">Relatórios</a></li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <h5>Minha Conta</h5>
-                <ul>
-                    <li><a href="/painel-consultor/minha-conta/alterar-senha">Alterar senha</a></li>
-                    <li><a href="/painel-consultor/minha-conta/alterar-cadastro">Alterar cadastro</a></li>
-                    <li><form action="" id="flogout" method="Post">
-                        <!--@csrf -->
-                        <!-- <a href="javascript:{}" onclick="document.getElementById('flogout').submit(); return false;">Sair-->
-                        <a href="#">Sair</a>
-                    </form></li>
-                </ul>
-            </div>
-        </li>
-    </nav>
-</aside>
+<aside>		
+	<div class="content">
+   		<nav class="navbar navbar-expand-lg navbar-light bg-light">   		
+   		<button type="button" id="sidebarCollapse" class="btn btn-info">
+   			<i class="fa fa-align-justify"></i> <span> >> </span>
+   		</button>
+   		
+	
+		<nav class="menu">			
+			 <div class="wrapper">
+   	<nav id="sidebar">   		
+   		<ul class="list-unstyled components">
+   			
+   			<li class="active">
+   				<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Conexões <span class="caret"></span></a>
+   				<ul class="collapse list-unstyled" id="homeSubmenu">
+   					<li>
+   						<a href="#">Minhas Conexões</a>
+   					</li>
+   					<li>
+   						<a href="#">Mensagens</a>
+   					</li>   					
+   				</ul> 
+   			</li>
+   			
+   			<li>
+   				<a href="#">Meus Assuntos</a>
+   			</li>
+   			<li>
+   				<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Meus Dados <span class="caret"></span></a>
+   				<ul class="collapse list-unstyled" id="pageSubmenu">
+   					<li>
+   						<a href="#">Perfil</a>
+   					</li>
+   					<li>
+   						<a href="#">Sair</a>
+   					</li>   					
+   				</ul> 
+   			</li>
+   			<li>
+   				<a href="#">Eventos</a>
+   			</li>   			
+   		</ul>			
+		</nav>
+	</aside>
