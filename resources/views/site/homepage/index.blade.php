@@ -5,7 +5,7 @@
 
 @section('content')
 
-<!-- HEADER --> 
+<!-- HEADER -->
 @include('site.homepage.sections.header')
 
 <!-- CONSULTANTS -->
