@@ -4,6 +4,6 @@
             <span class="spriting sprite-hanger2"></span>
             Fale agora <br> com um Mentor
             </h2>
-            <example-component></example-component>
+            <consultant-list></consultant-list>
 		</div>
 </section>

@@ -14,7 +14,9 @@ window.VueSocketio = require('vue-socket.io');
 import Snotify from 'vue-snotify';
 
 Vue.use(Snotify);
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('consultant-list', require('./vuejsTarot/ConsultantList.vue').default);
 
 
 const app = new Vue({
@@ -23,6 +25,6 @@ const app = new Vue({
 
 const notifier = new Vue({
         el: '#global-notifier'
-    })
-    // const files = require.context('./', true, /\.vue$/i)
-    // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+})
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
