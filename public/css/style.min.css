@@ -12935,8 +12935,9 @@ p {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-  /*  background: #7400d4; */
-    background: #00cb94;
+  /*background: #7400a4;
+    background: #7400d4; */
+    background: #00cb94; 
   /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
     box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
 }
@@ -13008,7 +13009,7 @@ p {
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        padding: 0 30px
+        padding: 10px 30px
     }
 
     #main-nav .main-part .logo-box .logo {
@@ -13059,6 +13060,23 @@ p {
         height: 32px;
         -webkit-background-size: contain;
         background-size: contain
+    }
+
+    #main-nav .main-part .navbar-collapse .navbar-nav .nav-item .nav-link {
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+        padding: .5rem 1rem
+    }
+
+    #main-nav .main-part .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        /*background: #7400a4;
+        background: #7400d4; */
+        background: #7400a4; 
+        /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
+        box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
     }
 
     .btn-default {
