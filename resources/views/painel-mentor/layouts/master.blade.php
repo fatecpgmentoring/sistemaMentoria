@@ -12,7 +12,7 @@
         <div class="wrap-content">
             <div class="logo-box">
                 <a href="#" class="logo">
-                    <img src="/images/logo-painel.png" alt="Logo" class="img-fluid">
+                    <img src="/images/logos/icone-branco.png" alt="Logo" class="img-fluid">
                 </a>
             </div>
             <div class="col pl-0 user-box">
@@ -22,7 +22,7 @@
                     </h5>
                     <div class="user-photo">
                         <figure class="img-frame">
-                            <img src="/images/especialistas/montezuma">
+                            <img src="/images/logos/avatar.png">
                         </figure>
                     </div>
                 </div>

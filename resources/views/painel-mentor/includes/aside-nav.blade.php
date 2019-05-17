@@ -36,10 +36,12 @@
                 <ul>
                     <li><a href="/mentor/minha-conta/alterar-senha">Alterar senha</a></li>
                     <li><a href="/mentor/minha-conta/alterar-cadastro">Alterar cadastro</a></li>
-                    <li><form action="#" id="flogout" method="Post">
+                    <li>
+                        <form action="#" id="flogout" method="Post">
                         @csrf
                         <a href="javascript:{}" onclick="document.getElementById('flogout').submit(); return false;">Sair</a>
-                    </form></li>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </li>

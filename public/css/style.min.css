@@ -142,6 +142,10 @@ hr {
     height: auto
 }
 
+#consultor-header .img-fluid {
+    max-width: 100px;
+}
+
 abbr[data-original-title],abbr[title] {
     -webkit-text-decoration: underline dotted;
     -moz-text-decoration: underline dotted;
