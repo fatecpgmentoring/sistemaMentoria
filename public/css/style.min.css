@@ -12612,10 +12612,10 @@ p {
     text-align: left;
     font-family: Montserrat,sans-serif;
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 600;
     text-transform: initial;
-    color: #00cb94;
-    /*color: #7400d4;*/
+ /*  color: #00cb94; */
+    color: #7400d4;
 }
 
 #main-nav .top-line .form-login .wrap-input ::-webkit-input-placeholder {
@@ -12927,11 +12927,11 @@ p {
 
 #main-nav .main-part .navbar-collapse .navbar-nav .nav-item .nav-link {
     -webkit-border-radius: 20px;
-    border-radius: 20px;
+    border-radius: 20px;#main-nav .main-part .navbar-collapse .navbar-nav .nav-item
     padding: .5rem 1rem
 }
 
-#main-nav .main-part .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+ .nav-link:hover {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;

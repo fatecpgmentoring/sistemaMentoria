@@ -95,7 +95,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
         Route::get('/show/{id}', 'EventoControllerAdmin@show')->name('admin.evento.show');
         Route::get('/edit/{id}', 'EventoControllerAdmin@edit')->name('admin.evento.edit');
         Route::post('/store', 'EventoControllerAdmin@store')->name('admin.evento.store');
-        Route::put('/update/{id}/{id}', 'EventoControllerAdmin@update')->name('admin.evento.update');
+        Route::put('/update/{id}', 'EventoControllerAdmin@update')->name('admin.evento.update');
         Route::delete('/destroy/{id}', 'EventoControllerAdmin@destroy')->name('admin.evento.destroy');
     });
 
@@ -130,8 +130,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => CheckMentor::class*/], function () {
    Route::get('/', function()
    {
-       return view('painel-mentorado.index');
+       return view('painel-mentor.dashboard');
    });
+   Route::get('/atendimento/relatorios', function(){return view('painel-mentor.dashboard');});
+   Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
+   Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentor.minha-conta.alterar-senha');});
+   Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentor.minha-conta.alterar-cadastro');});
 });
 
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
