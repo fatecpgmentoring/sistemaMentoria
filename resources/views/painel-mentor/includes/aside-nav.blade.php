@@ -7,6 +7,36 @@
         </li>
         <li>
             <div class="wrap-item">
+                <a href="/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/cadastrar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Conteúdo</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/conexões-mentorados"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentorados</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/listar-comentarios"><span class="spriting sprite-nav-dashboard"></span>Listar Comentários</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Listar Conteúdo</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
                 <a href="/mentor/atendimento/relatorios"><span class="spriting sprite-nav-atendimento"></span>Relatórios</a>
         </div>
         </li>
