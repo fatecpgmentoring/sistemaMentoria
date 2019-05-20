@@ -16368,7 +16368,7 @@ form.default .form-check-input:checked:before {
     #aside-nav.active{
         margin-left: auto;
         margin-right: auto;
-        width: 150px;
+        width: 100%;
     }
 
     #main-panel-wrap.active #main-box {
