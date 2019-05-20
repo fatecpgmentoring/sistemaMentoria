@@ -9,7 +9,7 @@
 <ul class="breadcrumb-list">
     <li>Você está em</li>
     <li>Home</li>
-    <li>Relatório</li>
+    <li>Painel Mentor</li>
     <li>Atendimento</li>
 </ul>
 @endsection
