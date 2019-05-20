@@ -16321,6 +16321,28 @@ form.default .form-check-input:checked:before {
     margin-right: 45px;
 }
 
+#aside-nav.active .icon-list{
+    background: #00cb94;
+}
+
+#aside-nav.active .icon-list li{
+    padding-right: 10px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#aside-nav.active .icon-list li a{
+    display: block;
+}
+
+#aside-nav.active .icon-list li:hover{
+    background: #ffff;
+}
+
+#aside-nav.active .icon-list li:hover a{
+    color: #00cb94;
+}
+
 #main-panel-wrap {
     background: #e9e8e8;
     min-height: -webkit-calc(100vh - 150px);
