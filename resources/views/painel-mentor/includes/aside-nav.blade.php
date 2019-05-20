@@ -7,32 +7,32 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
+                <a href="/mentor/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/cadastrar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Conteúdo</a>
+                <a href="/mentor/cadastrar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Conteúdo</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/conexões-mentorados"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentorados</a>
+                <a href="/mentor/conexões-mentorados"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentorados</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/listar-comentarios"><span class="spriting sprite-nav-dashboard"></span>Listar Comentários</a>
+                <a href="/mentor/listar-comentarios"><span class="spriting sprite-nav-dashboard"></span>Listar Comentários</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Listar Conteúdo</a>
+                <a href="/mentor/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Listar Conteúdo</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
+                <a href="/mentor/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
             </div>
         </li>
         <li>
