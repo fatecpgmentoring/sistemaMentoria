@@ -134,8 +134,14 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => C
    });
    Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
-   Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
-   Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
+   Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
+   Route::get('/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
+
+   Route::get('/cadastrar-assuntos', function(){return view('painel-mentor.minha-conta.cadastrar-assuntos');});
+   Route::get('/cadastrar-conteúdo', function(){return view('painel-mentor.minha-conta.cadastrar-conteudo');});
+   Route::get('/conexões-mentorados', function(){return view('painel-mentor.minha-conta.conexões-mentorados');});
+   Route::get('/listar-comentarios', function(){return view('painel-mentor.minha-conta.listar-comentarios');});
+   Route::get('/listar-conteudo', function(){return view('painel-mentor.minha-conta.listar-conteudo');});
 });
 
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
@@ -148,4 +154,8 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentorado.login.alterar-senha');});
    Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentorado.login.alterar-cadastro');});
 
+   Route::get('/cadastrar-assuntos', function(){return view('painel-mentorado.minha-conta.cadastrar-assuntos');});
+   Route::get('/listar-conteudo', function(){return view('painel-mentorado.minha-conta.listar-conteudo');});
+   Route::get('/conexões-mentores', function(){return view('painel-mentorado.minha-conta.conexões-mentores');});
+   Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
 });
