@@ -2,7 +2,7 @@
     <ul class="icon-list">
         <li>
             <div class="wrap-item">
-                <a href="/mentor"><span class="spriting sprite-nav-dashboard"></span>Dashboard</a>
+                <a href="/mentor"><span class="spriting sprite-nav-dashboard"></span>Página principal</a>
             </div>
         </li>
         <li>

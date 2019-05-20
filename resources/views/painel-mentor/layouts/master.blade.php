@@ -43,7 +43,7 @@
 
         <!-- CONTENT -->
         <main id="main-box">
-            <div class="container-fluid mt-4">
+            <div id="vue-app" class="container-fluid mt-4">
                 @yield('content')
             </div>
         </main>
