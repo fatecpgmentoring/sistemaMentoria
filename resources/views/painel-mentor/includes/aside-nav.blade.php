@@ -15,22 +15,6 @@
                 <a href="/mentor/relatorio-creditos-e-transferencias"><span class="spriting sprite-nav-credito"></span>Relatórios</a>
             </div>
         </li>
-        <li>
-            <div class="wrap-item">
-                <h5>Minha Conta</h5>
-                <ul>
-                    <li><a href="/mentor/minha-conta/alterar-senha">Alterar senha</a></li>
-                    <li><a href="/mentor/minha-conta/alterar-cadastro">Alterar cadastro</a></li>
-                    <li>
-                        <form action="#" id="flogout" method="Post">
-                        @csrf
-                        <a href="javascript:{}" onclick="document.getElementById('flogout').submit(); return false;">Sair</a>
-                        </form>
-                    </li>
-                </ul>
-                <span class="spriting sprite-nav-conta"></span>
-            </div>
-        </li>
     </ul>
     <!--
     <nav class="nav-list">

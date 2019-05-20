@@ -132,7 +132,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => C
    {
        return view('painel-mentor.dashboard-mentor');
    });
-   Route::get('/atendimento/relatorios', function(){return view('painel-mentor.dashboard-mentor');});
+   Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
    Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
@@ -143,7 +143,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware
     {
         return view('painel-mentorado.dashboard-mentorado');
     });
-   Route::get('/atendimento/relatorios', function(){return view('painel-mentorado.dashboard-mentorado');});
+   Route::get('/atendimento/relatorios', function(){return view('painel-mentorado.atendimento.relatorio');});
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentorado.relatorio-creditos-e-transferencias');});
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentorado.login.alterar-senha');});
    Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentorado.login.alterar-cadastro');});

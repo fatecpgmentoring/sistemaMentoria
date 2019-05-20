@@ -16336,7 +16336,7 @@ form.default .form-check-input:checked:before {
 #main-panel-wrap.active #main-box {
     width: -webkit-calc(100% - 281px);
     width: calc(100% - 281px);
-    padding: 15px
+    padding: 15px 15px 15px 35px;
 }
 
 
