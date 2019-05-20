@@ -38,7 +38,7 @@
         </div>
     </header>
 
-    <div id="main-panel-wrap" class="active">
+    <div id="main-panel-wrap">
         @include('painel-mentor.includes.aside-nav')
 
         <!-- CONTENT -->
@@ -67,9 +67,7 @@
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
-    <!--
     <script type="text/javascript" src="/js/painel-consultor.min.js"></script>
-    -->
     <link rel="stylesheet" href="{{ URL::asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') }}" type="text/css">
     <script type="text/javascript" src="{{ URL::asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') }}"></script>
     <script>

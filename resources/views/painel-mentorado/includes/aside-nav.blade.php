@@ -1,4 +1,4 @@
-<aside id="aside-nav" class="active">
+<aside id="aside-nav">
     <ul class="icon-list">
         <li>
             <div class="wrap-item">

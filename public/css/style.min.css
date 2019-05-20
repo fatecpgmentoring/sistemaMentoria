@@ -16317,7 +16317,9 @@ form.default .form-check-input:checked:before {
     }
 }
 
-
+#aside-nav.active {
+    margin-right: 45px;
+}
 
 #main-panel-wrap {
     background: #e9e8e8;
@@ -16331,32 +16333,42 @@ form.default .form-check-input:checked:before {
 }
 
 
-
 #main-panel-wrap.active #main-box {
     width: -webkit-calc(100% - 281px);
     width: calc(100% - 281px);
     padding: 15px
 }
 
+
+
+@media (max-width:767px) {
+
+    #aside-nav.active{
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;
+    }
+
+    #main-panel-wrap.active #main-box {
+        width: 100%;
+        padding: 0px;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s
+    }
+
+}
+
+
+#main-panel-wrap .nav-list li .wrap-item {
+    padding: 25px 15px 15px 70px!important
+}
+
 #main-panel-wrap #main-box {
-    width: 100%;
-    padding-left: 7%;
-    padding-right: 15px;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s
+    padding-left: 0;
+    padding-right: 0
 }
 
-
-    #main-panel-wrap .nav-list li .wrap-item {
-        padding: 25px 15px 15px 70px!important
-    }
-
-    #main-panel-wrap #main-box {
-        padding-left: 0;
-        padding-right: 0
-    }
-}
 
 #atendimento .atendimento-info-box .wrap .title,#atendimento .chat-talk-box .table tbody tr td .user-atendente,#atendimento .chat-talk-box .table tbody tr td .user-cliente,#credito-transferencias .search-date-box .wrap-search form .filtroRemover,#credito-transferencias .search-date-box .wrap-search form button,#table-block .table tbody tr td .btn-details,#table-block .table tbody tr td .tarja,.btn-consult,.btn-painel,.connections-infos .single-box .wrap .btns .btn,.wrap-rounded-column .status-radio-box .btn-box .text {
     -webkit-border-radius: 30px;
