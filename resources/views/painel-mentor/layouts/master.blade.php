@@ -69,9 +69,11 @@
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
     <!--
     <script type="text/javascript" src="/js/painel-consultor.min.js"></script>
+    <link rel="stylesheet" href="{{-- asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') --}}" type="text/css">
+    <script type="text/javascript" src="{{-- asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
     -->
-    <link rel="stylesheet" href="{{ asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') }}" type="text/css">
-    <script type="text/javascript" src="{{ asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script>
             
     </script>
