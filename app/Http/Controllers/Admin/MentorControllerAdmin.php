@@ -33,7 +33,7 @@ class MentorControllerAdmin extends Controller
             $mentor = new Mentor([
                 'nm_mentor' => $request->post('mentor'),
                 'nv_conhecimento' => $request->post('conhecimento'),
-                'vl_nota' => 5,
+                'vl_nota' => 8.0,
                 'usuario_id_usuario' => $id_user,
                 'ds_foto' => $userfoto
             ]);
