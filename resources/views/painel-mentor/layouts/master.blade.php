@@ -11,7 +11,7 @@
     <header id="consultor-header">
         <div class="wrap-content">
             <div class="logo-box">
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <img src="/images/logos/icone-branco.png" alt="Logo" class="img-fluid">
                 </a>
             </div>
