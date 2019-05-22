@@ -16,4 +16,6 @@
 
 @section('content')
 
+<listar-comentarios></listar-comentarios>
+
 @endsection
