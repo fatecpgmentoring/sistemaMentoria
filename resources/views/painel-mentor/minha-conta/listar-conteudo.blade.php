@@ -16,4 +16,6 @@
 
 @section('content')
 
+<listar-conteudo></listar-conteudo>
+
 @endsection

@@ -16,4 +16,6 @@
 
 @section('content')
 
+<conexoes-mentorados></conexoes-mentorados>
+
 @endsection
