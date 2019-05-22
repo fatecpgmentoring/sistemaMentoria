@@ -18,7 +18,7 @@
 
 <div class="row">
 	<div class="col-xl-5">
-		<select name="from[]" id="multiselect" class="form-control" size="8" multiple="multiple">
+		<select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
 			<option value="1">Item 1</option>
 			<option value="3">Item 3</option>
 			<option value="2">Item 2</option>
@@ -26,23 +26,24 @@
 	</div>
 	
 	<div class="col-xl-2">
-		<button type="button" id="multiselect_rightAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-forward"></i></button>
-		<button type="button" id="multiselect_rightSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
-		<button type="button" id="multiselect_leftSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
-		<button type="button" id="multiselect_leftAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+		<button type="button" id="multiselect1_rightAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+		<button type="button" id="multiselect1_rightSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+		<button type="button" id="multiselect1_leftSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+		<button type="button" id="multiselect1_leftAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-backward"></i></button>
 	</div>
 	
 	<div class="col-xl-5">
-		<select name="to[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
+		<select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
 	</div>
 </div>
+@endsection
+@section('js')
+<script>
 
-
-<script type="text/javascript">
-
-jQuery(document).ready(function($) {
-	$('#multiselect').multiselect();
-});	
+$(document).ready(function() {   
+    $('#multiselect1').multiselect();
+    $('#multiselect2').multiselect();
+});
 
 </script>
 @endsection

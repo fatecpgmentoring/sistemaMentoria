@@ -63,6 +63,7 @@
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
