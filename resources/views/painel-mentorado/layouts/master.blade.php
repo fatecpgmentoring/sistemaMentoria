@@ -11,7 +11,7 @@
     <header id="consultor-header">
         <div class="wrap-content">
             <div class="logo-box">
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <img src="/images/logos/icone-branco.png" alt="Logo" class="img-fluid">
                 </a>
             </div>
@@ -63,13 +63,18 @@
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
+    <!--
     <script type="text/javascript" src="/js/painel-consultor.min.js"></script>
-    <link rel="stylesheet" href="{{ URL::asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') }}" type="text/css">
-    <script type="text/javascript" src="{{ URL::asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') }}"></script>
+    <link rel="stylesheet" href="{{-- URL::asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') --}}" type="text/css">
+    <script type="text/javascript" src="{{-- URL::asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
+    -->
+    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script>
             
     </script>

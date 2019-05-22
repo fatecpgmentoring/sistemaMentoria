@@ -1,6 +1,6 @@
 @extends('painel-mentor.layouts.master')
 
-@section('meta-title', 'Painel Mentor | Sisscon')
+@section('meta-title', 'Painel Mentorado | Sisscon')
 @section('meta-desc', '')
 
 @section('meta-desc', '')
@@ -9,7 +9,7 @@
 <ul class="breadcrumb-list">
     <li>Você está em</li>
     <li>Home</li>
-    <li>Painel Mentor</li>
+    <li>Painel Mentorado</li>
 </ul>
 @endsection
 
