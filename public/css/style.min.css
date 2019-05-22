@@ -4412,7 +4412,7 @@ a.btn.disabled,fieldset:disabled a.btn {
 
 .nav-link {
     display: block;
-    
+
 }
 
 .nav-link:focus,.nav-link:hover {
@@ -4520,7 +4520,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     -ms-flex-pack: justify;
     justify-content: space-between;
     background-color:rgb(0,177,177);
-    
+
 }
 
 .navbar>.container,.navbar>.container-fluid {
@@ -4539,7 +4539,7 @@ a.btn.disabled,fieldset:disabled a.btn {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    
+
 }
 
 .navbar-brand {
@@ -12902,7 +12902,7 @@ p {
 #main-nav .main-part .logo-box .logo {
     position: absolute;
     z-index: 1000;
-  /*  top: -37px; 
+  /*  top: -37px;
     top: -41px;
     left: 15px;
     right: 15px */
@@ -12941,7 +12941,7 @@ p {
     transition: .3s;
   /*background: #7400a4;
     background: #7400d4; */
-    background: #00cb94; 
+    background: #00cb94;
   /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
     box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
 }
@@ -13078,7 +13078,7 @@ p {
         transition: .3s;
         /*background: #7400a4;
         background: #7400d4; */
-        background: #7400a4; 
+        background: #7400a4;
         /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
         box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
     }
@@ -14297,7 +14297,6 @@ form.default .form-check-input:checked:before {
     margin-bottom: 0;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     padding: 0 5%
 }

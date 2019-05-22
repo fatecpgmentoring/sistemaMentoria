@@ -1799,6 +1799,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37002,9 +37039,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("ul", { staticClass: "row consultant-list" }, [
+        _c("li", { staticClass: "col-lg-4 col-md-6 item" }, [
+          _c("div", { staticClass: "wrap-card" }, [
+            _c("div", { staticClass: "cheader" }, [
+              _c("h2", { staticClass: "name" }, [_vm._v("Charles")]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "specialization" }, [
+                _c("div", [
+                  _c("div", [
+                    _vm._v(
+                      "\n                                    Mentor\n                                "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c("span", { staticClass: "status-now" }, [_vm._v("Online")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "perfil-photo" }, [
+              _c("figure", [
+                _c("img", {
+                  attrs: {
+                    src: "images/logos/avatar.png",
+                    alt: "especialistas"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "description text-justify p-3" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "cfooter" }, [
+              _c("div", [
+                _c("a", { staticClass: "btn", attrs: { href: "#" } }, [
+                  _c("div", { staticClass: "spriting" }),
+                  _vm._v("chamar")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37116,7 +37206,7 @@ var render = function() {
                     { staticClass: "description text-justify p-3 text-center" },
                     [
                       _vm._v(
-                        "\n                    " +
+                        "\n                    Nota: " +
                           _vm._s(mentor.vl_nota) +
                           "\n                "
                       )

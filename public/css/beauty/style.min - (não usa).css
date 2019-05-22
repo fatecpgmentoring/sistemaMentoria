@@ -15613,7 +15613,6 @@ form.default .form-check-input:checked:before {
     margin-bottom: 0;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     padding: 0 5%
 }

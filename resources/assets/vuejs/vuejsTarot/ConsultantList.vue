@@ -45,7 +45,7 @@
                         </figure>
                     </div>
                     <p class="description text-justify p-3 text-center">
-                        {{mentor.vl_nota}}
+                        Nota: {{mentor.vl_nota}}
                     </p>
                     <div class="cfooter">
                         <div>
