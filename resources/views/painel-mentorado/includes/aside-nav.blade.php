@@ -17,7 +17,7 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/conexões-mentorados"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentorados</a>
+                <a href="/mentorado/conexões-mentores"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentores</a>
             </div>
         </li>
         <li>

@@ -17,12 +17,12 @@
 @section('content')
 
 <div class="assuntos-cad">
-	<select name="profissao" id="profissao" class="assuntos-sel">
+	<select name="profissao" id="profissao" class="form-control assuntos-sel">
 			<option value="1">Profissão 1</option>
 			<option value="2">Profissão 2</option>
 			<option value="3">Profissão 3</option>
 	</select>
-	<select name="carreira" id="carreira" class="assuntos-sel">
+	<select name="carreira" id="carreira" class="form-control assuntos-sel">
 			<option value="1">Carreira 1</option>
 			<option value="2">Carreira 2</option>
 			<option value="3">Carreira 3</option>
