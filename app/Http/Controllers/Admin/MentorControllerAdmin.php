@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Http\Controllers\Controller;
 use App\Mentor;
+use Intervention\Image\ImageManagerStatic as Image;
+use App\Http\Controllers\ImageRepository;
 
 class MentorControllerAdmin extends Controller
 {
@@ -26,11 +28,14 @@ class MentorControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
+            $repo = new ImageRepository();
+            $userfoto = $repo->saveImage($request->foto);
             $mentor = new Mentor([
                 'nm_mentor' => $request->post('mentor'),
                 'nv_conhecimento' => $request->post('conhecimento'),
                 'vl_nota' => 5,
-                'usuario_id_usuario' => $id_user
+                'usuario_id_usuario' => $id_user,
+                'ds_foto' => $userfoto
             ]);
 
             try
@@ -62,11 +67,17 @@ class MentorControllerAdmin extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, Mentor::$regras, Mentor::$mensagens);
+        $this->validate($request, Mentor::$regrasU, Mentor::$mensagens);
         $mentor = Mentor::find($id);
         $mentor->nm_mentor = $request->post('mentor');
         $mentor->nv_conhecimento = $request->post('conhecimento');
         $mentor->vl_nota = $request->post('nota');
+        if($request->foto != null)
+        {
+            $repo = new ImageRepository();
+            $repo->apagarImages($mentor->ds_foto);
+            $mentor->ds_foto = $repo->saveImage($request->foto);
+        }
         try
         {
             $mentor->update();
@@ -83,6 +94,8 @@ class MentorControllerAdmin extends Controller
         $mentor = Mentor::find($id);
         try
         {
+            $repo = new ImageRepository();
+            $repo->apagarImages($mentor->ds_foto);
             $mentor->delete();
             return redirect('admin/mentor/')->with('success', 'save');
         }

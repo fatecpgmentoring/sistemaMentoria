@@ -2,7 +2,7 @@
 @section('page_heading','Editar Mentor')
 @section('section')
 
-<form action="{{route('admin.mentor.update',$mentor->id_mentor)}}" method="POST">
+<form action="{{route('admin.mentor.update',$mentor->id_mentor)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">
@@ -12,6 +12,11 @@
     <div class="form-group">
         <label class="label-control" for="email">E-mail:</label>
         <input type="email" class="form-control" value="{{$mentor->usuario->email}}" name="email" id="email">
+    </div>
+    <img src="{{asset($mentor->ds_foto)}}" width="10%" height="10%">
+    <div class="form-group">
+        <label class="label-control" for="foto">Foto: </label>
+        <input type="file" class="form-control" name="foto" id="foto">
     </div>
     <div class="form-group">
         <label class="label-control" for="carreira">Conhecimento de Mercado:</label>

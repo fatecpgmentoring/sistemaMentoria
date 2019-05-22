@@ -12,12 +12,18 @@ class Mentor extends Model
         'nm_mentor',
         'nv_conhecimento',
         'vl_nota',
-        'usuario_id_usuario'
+        'usuario_id_usuario',
+        'ds_foto'
     ];
 
     public static $regras=[
         'email' => 'bail|required|email|min:10|max:100|unique:tb_usuarios,email',
         'senha' => 'bail|required|min:8|max:100|confirmed',
+        'mentor' => 'bail|required|min:3|max:100',
+        'conhecimento' => 'required'
+    ];
+    public static $regrasU=[
+        'email' => 'bail|required|email|min:10|max:100',
         'mentor' => 'bail|required|min:3|max:100',
         'conhecimento' => 'required'
     ];

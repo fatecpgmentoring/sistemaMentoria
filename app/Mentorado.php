@@ -10,7 +10,8 @@ class Mentorado extends Model
     protected $primaryKey = 'id_mentorado';
     protected $fillable = [
         'nm_mentorado',
-        'usuario_id_usuario'
+        'usuario_id_usuario',
+        'ds_foto'
     ];
 
     public static $regras=[

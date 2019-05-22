@@ -2,7 +2,7 @@
 @section('page_heading','Cadastrar Mentor')
 @section('section')
 
-<form action="{{route('admin.mentor.store')}}" method="POST">
+<form action="{{route('admin.mentor.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label class="label-control" for="mentor">Nome:</label>
@@ -21,6 +21,10 @@
         <div class="form-group">
             <label class="label-control" for="carreira">Confirmação de Senha:</label>
             <input type="password" class="form-control" name="senha_confirmation" id="senha_confirmation">
+        </div>
+        <div class="form-group">
+            <label class="label-control" for="foto">Foto: </label>
+            <input type="file" class="form-control" name="foto" id="foto">
         </div>
         <div class="form-group">
             <label class="label-control" for="carreira">Conhecimento de Mercado:</label>
