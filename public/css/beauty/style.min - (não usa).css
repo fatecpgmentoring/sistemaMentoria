@@ -15623,7 +15623,7 @@ form.default .form-check-input:checked:before {
     font-size: 16px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8
+    color: rgba(0, 176, 176, 1);
 }
 
 #consultants .consultant-list .item .wrap-card .cheader .status-now {

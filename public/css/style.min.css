@@ -12616,29 +12616,29 @@ p {
     text-align: left;
     font-family: Montserrat,sans-serif;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 300;
     text-transform: initial;
  /*  color: #00cb94; */
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
 }
 
 #main-nav .top-line .form-login .wrap-input ::-webkit-input-placeholder {
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
     font-family: COCOGOOSE
 }
 
 #main-nav .top-line .form-login .wrap-input ::-moz-placeholder {
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
     font-family: COCOGOOSE
 }
 
 #main-nav .top-line .form-login .wrap-input :-ms-input-placeholder {
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
     font-family: COCOGOOSE
 }
 
 #main-nav .top-line .form-login .wrap-input :-moz-placeholder {
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
     font-family: COCOGOOSE
 }
 
@@ -12666,7 +12666,7 @@ p {
 }
 
 #main-nav .top-line .form-login button:hover {
-  /*  background: #7400d4; */
+  /*  background: rgba(0, 176, 176, 1); */
   /*  background: #3e83f2; */
     background: #00cb91;
     -webkit-transition: .3s;
@@ -12731,7 +12731,7 @@ p {
 }
 
 #main-nav .top-line .total-minutes .btn {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-radius: 4px;
     border-radius: 4px;
     display: inline-block;
@@ -12798,18 +12798,18 @@ p {
 }
 
 #main-nav .top-line .box-user .login-menu.active {
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #main-nav .top-line .box-user .login-menu:hover {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #main-nav .top-line .box-user .tiny-menu {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     position: absolute;
     bottom: -92px;
     height: auto;
@@ -12849,7 +12849,7 @@ p {
 
 #main-nav .top-line .register-link {
     position: relative;
-/*   background: #7400d4; */
+/*   background: rgba(0, 176, 176, 1); */
 /*   background: #034cc1; */
     background: #00cb94;
     -webkit-border-radius: 4px;
@@ -12940,7 +12940,7 @@ p {
     -o-transition: .3s;
     transition: .3s;
   /*background: #7400a4;
-    background: #7400d4; */
+    background: rgba(0, 176, 176, 1); */
     background: #00cb94;
   /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
     box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
@@ -13028,7 +13028,7 @@ p {
     }
 
     #main-nav .main-part .navbar-collapse {
-        background: #7400d4;
+        background: rgba(0, 176, 176, 1);
         margin: 0
     }
 
@@ -13054,7 +13054,7 @@ p {
         height: 60px;
         width: 60px;
         border: 1px solid #fff;
-        background: #7400d4;
+        background: rgba(0, 176, 176, 1);
         margin-top: 12px
     }
 
@@ -13077,7 +13077,7 @@ p {
         -o-transition: .3s;
         transition: .3s;
         /*background: #7400a4;
-        background: #7400d4; */
+        background: rgba(0, 176, 176, 1); */
         background: #7400a4;
         /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
         box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
@@ -13095,7 +13095,7 @@ p {
     display: inline-flex;
     -webkit-border-radius: 25px;
     border-radius: 25px;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     padding: 1rem 2rem;
     overflow: hidden;
     position: relative
@@ -13124,7 +13124,7 @@ p {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    color: #7400d4
+    color: rgb(0, 0, 0)
 }
 
 .btn-default:hover:before {
@@ -13170,7 +13170,7 @@ p {
     height: 40px;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     color: #fff
 }
 
@@ -13231,7 +13231,7 @@ p {
     font-size: 15px;
     font-weight: 300;
     text-transform: initial;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #main-footer .top-box .fast-access-list li:hover a,#main-footer .top-box .fast-access-list li:hover:before {
@@ -13304,7 +13304,7 @@ p {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #main-footer .bottom-box .container div a {
@@ -13482,7 +13482,7 @@ p {
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #paginator ul li.next:hover a,#paginator ul li.prev:hover a {
@@ -13544,7 +13544,7 @@ p {
 }
 
 .br-theme-fontawesome-stars .br-widget a.br-active:after,.br-theme-fontawesome-stars .br-widget a.br-selected:after {
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 .br-theme-fontawesome-stars-o .br-widget a:nth-child(2n+2) {
@@ -13733,9 +13733,9 @@ form.default [type=submit]:hover {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    border-color: #7400d4;
+    border-color: rgba(0, 176, 176, 1);
     color: #fff;
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #main-header h2,#main-header h3 {
@@ -13828,8 +13828,8 @@ form.default .form-check-input:checked:before {
 }
 
 #main-header .btn-wrap .btn-default {
-    -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
-    box-shadow: 0 7px 7px 1px rgba(117,0,212,.3)
+    -webkit-box-shadow: 0 7px 7px 1px rgba( 0, 176, 176,1);
+    box-shadow: 0 7px 7px 1px rgba( 0, 176, 176,1)
 }
 
 #main-header .btn-wrap .btn-default .wrap {
@@ -13867,7 +13867,7 @@ form.default .form-check-input:checked:before {
 }
 
 #main-header #go-down {
-    background-color: #7400d4;
+    background-color: rgba(0, 176, 176, 1);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -14059,7 +14059,7 @@ form.default .form-check-input:checked:before {
 }
 
 #why-box .content {
-    background-color: #7400d4;
+    background-color: rgba(0, 176, 176, 1);
     background-image: url(../images/bg-why.png);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -14212,7 +14212,7 @@ form.default .form-check-input:checked:before {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    border-color: #7400d4
+    border-color: rgba(0, 176, 176, 1)
 }
 
 #consultants .search-wrap form .wrap-input input[type=text]:focus+[type=submit] {
@@ -14226,7 +14226,7 @@ form.default .form-check-input:checked:before {
     border-top-right-radius: 30px;
     -webkit-border-bottom-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     border: none;
     right: 0;
     position: absolute;
@@ -14307,7 +14307,7 @@ form.default .form-check-input:checked:before {
     font-size: 16px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8
+    color: rgba(0, 176, 176, 1);
 }
 
 #consultants .consultant-list .item .wrap-card .cheader .status-now {
@@ -14395,7 +14395,7 @@ form.default .form-check-input:checked:before {
 
 #consultants .consultant-list .item .wrap-card .cfooter .btn {
     padding: .5em;
-    background: #7400d4;
+    background: rgba(0, 210, 200, 1);
     text-align: center;
     font-family: COCOGOOSE;
     font-size: 18px;
@@ -14473,7 +14473,7 @@ form.default .form-check-input:checked:before {
 }
 
 #consultants .btn-wrap .btn-default:hover {
-    background: #00f0ff;
+    background: rgb(0, 226, 226);
     -webkit-box-shadow: none;
     box-shadow: none
 }
@@ -14548,14 +14548,14 @@ form.default .form-check-input:checked:before {
     font-size: 16px;
     font-weight: 600;
     text-transform: initial;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #consultants-show .perfil-desc-content .title-wrapping .btn {
     padding: .5em 2em;
     -webkit-border-radius: 30px;
     border-radius: 30px;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     text-align: center;
     font-family: COCOGOOSE;
     font-size: 18px;
@@ -14720,7 +14720,7 @@ form.default .form-check-input:checked:before {
 #consultants-show .evaluation-content .rate-list li .title-wrap h3 {
     font-size: 16px;
     font-weight: 600;
-    color: #7400d4;
+    color: rgba(0, 176, 176, 1);
     margin-bottom: 0
 }
 
@@ -14823,7 +14823,7 @@ form.default .form-check-input:checked:before {
 }
 
 #contact .container form [type=submit] {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     padding: .9em 3em .9em 2em;
     margin-top: 3%;
     font-weight: 300;
@@ -14909,7 +14909,7 @@ form.default .form-check-input:checked:before {
 }
 
 #contact .container .wrap-buttons .btn.btn-email {
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #contact .container .wrap-buttons .btn.btn-email:hover {
@@ -15031,7 +15031,7 @@ form.default .form-check-input:checked:before {
 }
 
 .buy-time-block .wrap-content .select-quantity-comp .header {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-top-left-radius: 5px;
     border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -15149,7 +15149,7 @@ form.default .form-check-input:checked:before {
     -ms-flex-align: center;
     align-items: center;
     right: 0;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-top-right-radius: 30px;
     border-top-right-radius: 30px;
     -webkit-border-bottom-right-radius: 30px;
@@ -15211,7 +15211,7 @@ form.default .form-check-input:checked:before {
 }
 
 .buy-time-block .btn-box button:hover {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s
@@ -15612,7 +15612,7 @@ form.default .form-check-input:checked:before {
 
 #chat .chat-main-wrap .client-spec .header {
     padding: 1em .5em;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
@@ -15665,7 +15665,7 @@ form.default .form-check-input:checked:before {
     font-size: 16px;
     font-weight: 700;
     text-transform: initial;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #chat .chat-main-wrap .timing-status-list {
@@ -15852,7 +15852,7 @@ form.default .form-check-input:checked:before {
 }
 
 #chat .chat-main-wrap #chat-frame-box .status .btn-default:hover {
-    background: #b201c5
+    background: rgba(0, 176, 176, 1)
 }
 
 #chat .chat-main-wrap #chat-frame-box .status-done,#chat .chat-main-wrap #chat-frame-box .status-waiting {
@@ -15909,7 +15909,7 @@ form.default .form-check-input:checked:before {
 }
 
 #chat .chat-main-wrap #chat-frame-box .talking-area::-webkit-scrollbar-thumb {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-radius: 8px;
     border-radius: 8px
 }
@@ -15951,11 +15951,11 @@ form.default .form-check-input:checked:before {
 
 #chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-notme .text {
     background: #f4e8ff;
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-notme .text span {
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #chat .chat-main-wrap #chat-frame-box .panel-text {
@@ -16025,7 +16025,7 @@ form.default .form-check-input:checked:before {
     position: absolute;
     top: -34px;
     right: 0;
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
@@ -16086,7 +16086,7 @@ form.default .form-check-input:checked:before {
 }
 
 #avaliation-modal .modal-content .modal-body form [type=submit] {
-    background: #7400d4;
+    background: rgba(0, 176, 176, 1);
     padding: 1em 2em;
     font-weight: 300
 }
@@ -17438,7 +17438,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.finalizado-atendente p span,#atendimento .status-box.finalizado-cliente p span {
-    color: #7400d4
+    color: rgba(0, 176, 176, 1)
 }
 
 #atendimento .status-box.timeout .watchout {
@@ -17450,7 +17450,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.finalizado-atendente .watchout {
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #atendimento .status-box.finalizado-cliente .icon {
@@ -17458,7 +17458,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.finalizado-cliente .watchout {
-    background: #7400d4
+    background: rgba(0, 176, 176, 1)
 }
 
 #atendimento .status-box .main {
