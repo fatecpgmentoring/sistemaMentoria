@@ -4204,7 +4204,7 @@ a.btn.disabled,fieldset:disabled a.btn {
 .nav,.navbar {
     display: -webkit-flex;
     display: -ms-flexbox;
-    -webkit-flex-wrap: wrap
+    -webkit-flex-wrap: wrap;
     background-color:rgb(0,177,177);
 }
 
@@ -10893,7 +10893,7 @@ a.text-dark:focus,a.text-dark:hover {
 
     h2,h3 {
         page-break-after: avoid
-    }@    page {
+    }@page {
         size: a3
     }
 
@@ -12931,7 +12931,7 @@ p {
 
 #main-nav .main-part .navbar-collapse .navbar-nav .nav-item .nav-link {
     -webkit-border-radius: 20px;
-    border-radius: 20px;#main-nav .main-part .navbar-collapse .navbar-nav .nav-item
+    border-radius: 20px;
     padding: .5rem 1rem
 }
 
@@ -17665,7 +17665,7 @@ a.download{
 }
 a.article,
 a.article:hover {
-    background: rgb(0,150,150); !important;
+    background: rgb(0,150,150) !important;
     color: white !important;
 }
 
