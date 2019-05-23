@@ -58,12 +58,8 @@
     </div> -->
 
     <!-- WS URL && Socket Lib -->
-<<<<<<< HEAD
-
-=======
-    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
->>>>>>> 5ef141ac9c3141b8a6bc55e83dcd229293dfa02c
-    <script src="{{ asset('js/socket.io.js') }}"></script>
+    {{-- <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
+    <script src="{{ asset('js/socket.io.js') }}"></script> --}}
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
     <!--

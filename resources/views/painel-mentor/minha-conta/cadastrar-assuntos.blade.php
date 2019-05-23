@@ -18,13 +18,13 @@
 
 @csrf
 <div class="assuntos-cad">
-    <select name="profissao" id="profissao" class="form-control assuntos-sel select2">
+    <select name="profissao" id="profissao" class="form-control assuntos-sel">
         <option value="">Filtrar...</option>
         @foreach ($profissoes as $profissao)
             <option value="{{$profissao->id_profissao}}">{{$profissao->nm_profissao}}</option>
         @endforeach
     </select>
-    <select name="carreira" id="carreira" class="form-control assuntos-sel select2">
+    <select name="carreira" id="carreira" class="form-control assuntos-sel">
         <option value="">Filtrar...</option>
         @foreach ($carreiras as $carreira)
             <option value="{{$carreira->id_carreira}}">{{$carreira->nm_carreira}}</option>
@@ -76,7 +76,7 @@ $(document).ready(function() {
                     $('#multiselect1').empty();
                     $.each(data, function(i, obj)
                     {
-                        $('#multiselect1').append('<option value"'+obj.id_assunto+'">'+obj.nm_assunto+'</option>');
+                        $('#multiselect1').append('<option value="'+obj.id_assunto+'">'+obj.nm_assunto+'</option>');
                     });
                 }
             }
@@ -96,10 +96,10 @@ $(document).ready(function() {
                 console.log(data);
                 if(data.length > 0) {
                     $('#carreira').empty();
-                    $('#carreira').append('<option value="">Filtrar...</option>');
+                    $('#carreira').append('<option value="" selected>Filtrar...</option>');
                     $.each(data, function(i, obj)
                     {
-                        $('#carreira').append('<option value"'+obj.id_carreira+'">'+obj.nm_carreira+'</option>');
+                        $('#carreira').append('<option value="'+obj.id_carreira+'">'+obj.nm_carreira+'</option>');
                     });
                 }
             }
