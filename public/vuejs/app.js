@@ -1786,6 +1786,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
@@ -37129,6 +37187,83 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("ul", { staticClass: "row consultant-list" }, [
+        _c("li", { staticClass: "col-lg-4 col-md-6 item" }, [
+          _c("div", { staticClass: "wrap-card" }, [
+            _c("div", { staticClass: "cheader" }, [
+              _c("h2", { staticClass: "name" }, [_vm._v("Charles")]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "specialization" }, [
+                _c("div", [
+                  _c("div", [
+                    _vm._v(
+                      "\n                                    Mentor\n                                "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c("span", { staticClass: "status-now" }, [_vm._v("Online")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "perfil-photo" }, [
+              _c("figure", [
+                _c("img", {
+                  attrs: {
+                    src: "images/logos/avatar.png",
+                    alt: "especialistas"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "description text-justify p-3" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "cfooter" }, [
+              _c("div", [
+                _c("a", { staticClass: "btn", attrs: { href: "#" } }, [
+                  _c("div", { staticClass: "spriting" }),
+                  _vm._v("chamar")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&":
 /*!***************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
@@ -50936,6 +51071,22 @@ window.VueSocketio = __webpack_require__(/*! vue-socket.io */ "./node_modules/vu
 Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/assets/vuejs/components/ExampleComponent.vue")["default"]);
 Vue.component('consultant-list', __webpack_require__(/*! ./vuejsTarot/ConsultantList.vue */ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue")["default"]);
+/* Painel-Mentor */
+
+Vue.component('chat-mentor', __webpack_require__(/*! ./painel-mentor/ChatMentor.vue */ "./resources/assets/vuejs/painel-mentor/ChatMentor.vue")["default"]);
+Vue.component('conexoes-mentorados', __webpack_require__(/*! ./painel-mentor/ConexoesMentorados.vue */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue")["default"]);
+Vue.component('listar-comentarios', __webpack_require__(/*! ./painel-mentor/ListarComentarios.vue */ "./resources/assets/vuejs/painel-mentor/ListarComentarios.vue")["default"]);
+Vue.component('listar-conteudo', __webpack_require__(/*! ./painel-mentor/ListarConteudo.vue */ "./resources/assets/vuejs/painel-mentor/ListarConteudo.vue")["default"]);
+/* Painel-Mentorado */
+
+Vue.component('chat-mentorado', __webpack_require__(/*! ./painel-mentorado/ChatMentorado.vue */ "./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue")["default"]);
+Vue.component('conexoes-mentores', __webpack_require__(/*! ./painel-mentorado/ConexoesMentores.vue */ "./resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue")["default"]);
+Vue.component('listar-conteudo', __webpack_require__(/*! ./painel-mentorado/ListarConteudo.vue */ "./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue")["default"]);
+Vue.component('mentores', __webpack_require__(/*! ./painel-mentorado/Mentores.vue */ "./resources/assets/vuejs/painel-mentorado/Mentores.vue")["default"]);
+/* Painel-Site */
+
+Vue.component('all-mentores', __webpack_require__(/*! ./painel-site/AllMentores.vue */ "./resources/assets/vuejs/painel-site/AllMentores.vue")["default"]);
+Vue.component('best-grades-mentores', __webpack_require__(/*! ./painel-site/BestGradesMentores.vue */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue")["default"]);
 var app = new Vue({
   el: '#vue-app'
 });
@@ -51073,6 +51224,363 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/vuejs/painel-mentor/ChatMentor.vue":
+/*!*************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ChatMentor.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentor/ChatMentor.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConexoesMentorados.vue?vue&type=template&id=769a3a5c& */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&");
+/* harmony import */ var _ConexoesMentorados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConexoesMentorados.vue?vue&type=script&lang=js& */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConexoesMentorados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConexoesMentorados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConexoesMentorados.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConexoesMentorados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConexoesMentorados.vue?vue&type=template&id=769a3a5c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConexoesMentorados_vue_vue_type_template_id_769a3a5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentor/ListarComentarios.vue":
+/*!********************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ListarComentarios.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentor/ListarComentarios.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentor/ListarConteudo.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentor/ListarConteudo.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentor/ListarConteudo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentorado/ChatMentorado.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue":
+/*!********************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentorado/ListarConteudo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-mentorado/Mentores.vue":
+/*!**************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-mentorado/Mentores.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-mentorado/Mentores.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-site/AllMentores.vue":
+/*!************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-site/AllMentores.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-site/AllMentores.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-site/BestGradesMentores.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/vuejs/painel-site/BestGradesMentores.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue":
 /*!**************************************************************!*\
   !*** ./resources/assets/vuejs/vuejsTarot/ConsultantList.vue ***!
@@ -51128,7 +51636,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************************!*\
   !*** ./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
   \*********************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

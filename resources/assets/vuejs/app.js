@@ -40,7 +40,7 @@ const app = new Vue({
 });
 
 const notifier = new Vue({
-        el: '#global-notifier'
+    el: '#global-notifier'
 })
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
