@@ -49,14 +49,14 @@
         </main>
     </div>
 
-    <!-- This Global Component Listen For Notification 
+    <!-- This Global Component Listen For Notification
 
     <div id="global-notifier">
         <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
     </div> -->
 
     <!-- WS URL && Socket Lib -->
-    
+
     <script src="{{ asset('js/socket.io.js') }}"></script>
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
@@ -75,8 +75,13 @@
     -->
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
     <script>
-            
+        $(document).ready(function()
+        {
+            $('.select2').select2();
+        });
     </script>
     @yield('js')
 

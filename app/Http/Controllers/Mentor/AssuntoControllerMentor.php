@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Mentor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Assunto;
+use App\Carreira;
+use App\Profissao;
 
 class AssuntoControllerMentor extends Controller
 {
@@ -15,6 +18,22 @@ class AssuntoControllerMentor extends Controller
     public function index()
     {
         //
+    }
+
+    public function carregaAssunto(Request $request)
+    {
+        $assuntos = Assunto::where('ds_active_assunto', '=', 1);
+        $assuntos = $request->car != null ? $assuntos->where('ds_active_assunto', '=', 1)->where('carreira_id_carreira', '=', $request->car) : $assuntos;
+        $assuntos = $request->prof != null ? $assuntos->join('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
+        return json_encode($assuntos);
+    }
+
+    public function cadastrarAssunto()
+    {
+        $assuntos = Assunto::where('ds_active_assunto', '=', 1)->get();
+        $carreiras = Carreira::where('ds_active_carreira', '=', 1)->get();
+        $profissoes = Profissao::where('ds_active_profissao', '=', 1)->get();
+        return view('painel-mentor.minha-conta.cadastrar-assuntos', compact('profissoes', 'carreiras', 'assuntos'));
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Mentor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Carreira;
+use function GuzzleHttp\json_encode;
 
 class CarreiraControllerMentor extends Controller
 {
@@ -17,6 +19,12 @@ class CarreiraControllerMentor extends Controller
         //
     }
 
+    public function carregaCarreira(Request $request)
+    {
+        if($request->prof != null && $request->prof != '') $carreiras = Carreira::where('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
+        else $carreiras = Carreira::where('ds_active_carreira', '=', 1)->get();
+        return json_encode($carreiras);
+    }
     /**
      * Show the form for creating a new resource.
      *
