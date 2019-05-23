@@ -16,6 +16,7 @@ class CreateMentoradosTable extends Migration
         Schema::create('tb_mentorados', function (Blueprint $table) {
             $table->increments('id_mentorado');
             $table->string('nm_mentorado', 100);
+            $table->string('ds_foto');
             $table->unsignedInteger('usuario_id_usuario');
             $table->foreign('usuario_id_usuario')
                     ->references('id_usuario')

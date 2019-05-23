@@ -16,9 +16,7 @@ use App\Http\Middleware\CheckOnline;
 |
 */
 
-Route::get('/', function () {
-    return view('site.homepage.index');
-});
+Route::get('/', 'SiteController@index');
 
 Route::get('/login', function () {
     return view('site.login');

@@ -9,6 +9,8 @@ use App\Mentorado;
 use App\Usuario;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Admin\UsuarioController;
+use Intervention\Image\ImageManagerStatic as Image;
+use App\Http\Controllers\ImageRepository;
 
 class MentoradoControllerAdmin extends Controller
 {
@@ -29,9 +31,12 @@ class MentoradoControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
+            $repo = new ImageRepository();
+            $userfoto = $repo->saveImage($request->foto);
             $mentorado = new Mentorado([
                 'nm_mentorado' => $request->post('mentorado'),
-                'usuario_id_usuario' => $id_user
+                'usuario_id_usuario' => $id_user,
+                'ds_foto' => $userfoto
             ]);
             try
             {
@@ -68,6 +73,12 @@ class MentoradoControllerAdmin extends Controller
         $usuario = Usuario::find($mentorado->usuario_id_usuario);
         $mentorado->nm_mentorado = $request->post('mentorado');
         $usuario->email = $request->post('email');
+        if($request->foto != null)
+        {
+            $repo = new ImageRepository();
+            $repo->apagarImages($mentorado->ds_foto);
+            $mentorado->ds_foto = $repo->saveImage($request->foto);
+        }
         try
         {
             $mentorado->update();
@@ -85,6 +96,8 @@ class MentoradoControllerAdmin extends Controller
         $mentorado = Mentorado::find($id);
         try
         {
+            $repo = new ImageRepository();
+            $repo->apagarImages($mentorado->ds_foto);
             $mentorado->delete();
             return redirect('admin/mentorado/')->with('success', 'save');
         }

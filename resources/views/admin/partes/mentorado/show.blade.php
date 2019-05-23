@@ -2,6 +2,8 @@
 @section('page_heading','Visualizar Mentorado')
 @section('section')
 
+
+<img src="{{ asset($mentorado->ds_foto) }}" width="10%" height="10%">
 <div class="form-group">
         <label class="label-control" for="mentorado">Mentorado:</label>
         <ul>
