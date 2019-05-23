@@ -43,8 +43,10 @@
 
         <!-- CONTENT -->
         <main id="main-box">
-            <div id="vue-app" class="container-fluid mt-4">
-                @yield('content')
+            <div class="container-fluid mt-4">
+                <div id="vue-app">
+                    @yield('content')
+                </div>
             </div>
         </main>
     </div>
@@ -56,11 +58,17 @@
     </div> -->
 
     <!-- WS URL && Socket Lib -->
+<<<<<<< HEAD
 
+=======
+    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
+>>>>>>> 5ef141ac9c3141b8a6bc55e83dcd229293dfa02c
     <script src="{{ asset('js/socket.io.js') }}"></script>
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
-
+    <!--
+    <script type="text/javascript" src="{{-- mix('vuejs/app.js') --}}"></script>
+    -->
     <!-- SCRIPTS -->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
