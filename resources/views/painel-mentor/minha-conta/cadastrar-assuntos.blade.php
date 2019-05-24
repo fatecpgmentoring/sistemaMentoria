@@ -18,18 +18,19 @@
 
 @csrf
 <div class="assuntos-cad">
-    <select name="profissao" id="profissao" class="form-control assuntos-sel">
+    <select name="profissao" id="profissao" class="form-control assuntos-sel select2">
         <option value="">Filtrar...</option>
         @foreach ($profissoes as $profissao)
             <option value="{{$profissao->id_profissao}}">{{$profissao->nm_profissao}}</option>
         @endforeach
     </select>
-    <select name="carreira" id="carreira" class="form-control assuntos-sel">
+    <select name="carreira" id="carreira" class="form-control assuntos-sel select2">
         <option value="">Filtrar...</option>
         @foreach ($carreiras as $carreira)
             <option value="{{$carreira->id_carreira}}">{{$carreira->nm_carreira}}</option>
         @endforeach
     </select>
+    <button class="btn btn-mentoring-circule btn-lg" id="searchAssunto"><i class="fa fa-search fa-lg"></i></button>
 </div>
 
 <div class="row">
@@ -62,13 +63,10 @@ $(document).ready(function() {
 
     function carregarAssuntos()
     {
-        var token = $("input[name=_token]").val();
-        var profissao = $('#profissao').val();
-        var carreira = $('#carreira').val();
         $.ajax({
             url: "{{route('carrega.assuntos')}}",
             method: 'post',
-            data: {prof: profissao, _token: token, car: carreira},
+            data: {prof: $('#profissao option:selected').val(), _token: $("input[name=_token]").val(), car: $('#carreira option:selected').val()},
             dataType: 'json',
             success: function(data)
             {
@@ -84,12 +82,10 @@ $(document).ready(function() {
     }
     function carregarCarreiras()
     {
-        var token = $("input[name=_token]").val();
-        var profissao = $('#profissao').val();
         $.ajax({
             url: "{{route('carrega.carreira')}}",
             method: 'post',
-            data: {prof: profissao, _token: token},
+            data: {prof: $('#profissao option:selected').val(), _token: $("input[name=_token]").val()},
             dataType: 'json',
             success: function(data)
             {
@@ -103,14 +99,13 @@ $(document).ready(function() {
                     });
                 }
             }
-        })
+        });
     }
     $('#profissao').change(function()
     {
         carregarCarreiras();
-        carregarAssuntos();
     });
-    $('#carreira').change(function()
+    $('#searchAssunto').click(function()
     {
         carregarAssuntos();
     });

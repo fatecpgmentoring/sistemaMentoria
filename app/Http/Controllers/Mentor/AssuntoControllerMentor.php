@@ -23,10 +23,10 @@ class AssuntoControllerMentor extends Controller
     public function carregaAssunto(Request $request)
     {
         $assuntos = Assunto::where('ds_active_assunto', '=', 1);
-        if($request->car != null)
-        $assuntos = $assuntos->where('carreira_id_carreira', '=', $request->car);
-        else if($request->prof != null)
+        if($request->prof != null)
             $assuntos->join('tb_carreiras', 'id_carreira', '=', 'carreira_id_carreira')->where('profissao_id_profissao', '=', $request->prof);
+        if($request->car != null)
+            $assuntos = $assuntos->where('carreira_id_carreira', '=', $request->car);
         $assuntos = $assuntos->get();
         return json_encode($assuntos);
     }

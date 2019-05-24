@@ -13,3 +13,21 @@
 .fa-mentoring {
     color: white
 }
+
+.btn-mentoring-circule{
+    background-color: rgba(0, 176, 176, 1);
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.fa-search {
+    color: white;
+}
+.btn-mentoring-circule:hover{
+    background-color: rgba(0, 200, 200, 1);
+}
