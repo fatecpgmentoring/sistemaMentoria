@@ -57,21 +57,12 @@
         <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
     </div> -->
 
-<<<<<<< HEAD
+
     <!-- WS URL && Socket Lib 
     <script>window.WS_URL = "{{--@php echo env('WS_URL', ''); @endphp--}}"</script>
     
     <script src="{{-- asset('js/socket.io.js') --}}"></script>
     -->
-||||||| merged common ancestors
-    <!-- WS URL && Socket Lib -->
-    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-    <script src="{{ asset('js/socket.io.js') }}"></script>
-=======
-    <!-- WS URL && Socket Lib -->
-    {{-- <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-    <script src="{{ asset('js/socket.io.js') }}"></script> --}}
->>>>>>> 0f2ca2da4c297d18bf33bff87dd2139c84a388c6
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
     <!--
