@@ -1754,75 +1754,6 @@ module.exports = {
 
 /***/ }),
 
-<<<<<<< HEAD
-||||||| merged common ancestors
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
-<<<<<<< HEAD
-=======
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
->>>>>>> 0f2ca2da4c297d18bf33bff87dd2139c84a388c6
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js& ***!
@@ -1874,7 +1805,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-<<<<<<< HEAD
   name: 'conexoes-mentorados',
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -1887,100 +1817,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************/
-||||||| merged common ancestors
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-||||||| merged common ancestors
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************/
->>>>>>> ba1635a2e6c10fc3854686f3ff8eb36136682054
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-=======
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
->>>>>>> 0f2ca2da4c297d18bf33bff87dd2139c84a388c6
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37136,205 +36972,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&scoped=true& ***!
   \**********************************************************************************************************************************************************************************************************************************************/
-||||||| merged common ancestors
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=template&id=7de5c3d0&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=template&id=7de5c3d0& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-<<<<<<< HEAD
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("ul", { staticClass: "row consultant-list" }, [
-        _c("li", { staticClass: "col-lg-4 col-md-6 item" }, [
-          _c("div", { staticClass: "wrap-card" }, [
-            _c("div", { staticClass: "cheader" }, [
-              _c("h2", { staticClass: "name" }, [_vm._v("Charles")]),
-              _vm._v(" "),
-              _c("h3", { staticClass: "specialization" }, [
-                _c("div", [
-                  _c("div", [
-                    _vm._v(
-                      "\n                                    Mentor\n                                "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-center" }, [
-                _c("span", { staticClass: "status-now" }, [_vm._v("Online")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "perfil-photo" }, [
-              _c("figure", [
-                _c("img", {
-                  attrs: {
-                    src: "images/logos/avatar.png",
-                    alt: "especialistas"
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "description text-justify p-3" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "cfooter" }, [
-              _c("div", [
-                _c("a", { staticClass: "btn", attrs: { href: "#" } }, [
-                  _c("div", { staticClass: "spriting" }),
-                  _vm._v("chamar")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-||||||| merged common ancestors
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
->>>>>>> ba1635a2e6c10fc3854686f3ff8eb36136682054
-=======
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=template&id=7de5c3d0&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/components/ExampleComponent.vue?vue&type=template&id=7de5c3d0& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue?vue&type=template&id=769a3a5c& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
->>>>>>> 0f2ca2da4c297d18bf33bff87dd2139c84a388c6
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51069,12 +50710,10 @@ Vue.component('consultant-list', require('./vuejsTarot/ConsultantList.vue').defa
 Vue.component('chat-mentor', __webpack_require__(/*! ./painel-mentor/ChatMentor.vue */ "./resources/assets/vuejs/painel-mentor/ChatMentor.vue")["default"]);
 Vue.component('conexoes-mentorados', __webpack_require__(/*! ./painel-mentor/ConexoesMentorados.vue */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue")["default"]);
 Vue.component('listar-comentarios', __webpack_require__(/*! ./painel-mentor/ListarComentarios.vue */ "./resources/assets/vuejs/painel-mentor/ListarComentarios.vue")["default"]);
-Vue.component('listar-conteudo', __webpack_require__(/*! ./painel-mentor/ListarConteudo.vue */ "./resources/assets/vuejs/painel-mentor/ListarConteudo.vue")["default"]);
 /* Painel-Mentorado */
 
 Vue.component('chat-mentorado', __webpack_require__(/*! ./painel-mentorado/ChatMentorado.vue */ "./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue")["default"]);
 Vue.component('conexoes-mentores', __webpack_require__(/*! ./painel-mentorado/ConexoesMentores.vue */ "./resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue")["default"]);
-Vue.component('listar-conteudo', __webpack_require__(/*! ./painel-mentorado/ListarConteudo.vue */ "./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue")["default"]);
 Vue.component('mentores', __webpack_require__(/*! ./painel-mentorado/Mentores.vue */ "./resources/assets/vuejs/painel-mentorado/Mentores.vue")["default"]);
 /* Painel-Site */
 
@@ -51285,38 +50924,6 @@ component.options.__file = "resources/assets/vuejs/painel-mentor/ListarComentari
 
 /***/ }),
 
-/***/ "./resources/assets/vuejs/painel-mentor/ListarConteudo.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/assets/vuejs/painel-mentor/ListarConteudo.vue ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/assets/vuejs/painel-mentor/ListarConteudo.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue":
 /*!*******************************************************************!*\
   !*** ./resources/assets/vuejs/painel-mentorado/ChatMentorado.vue ***!
@@ -51377,38 +50984,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 )
 
 component.options.__file = "resources/assets/vuejs/painel-mentorado/ConexoesMentores.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue":
-/*!********************************************************************!*\
-  !*** ./resources/assets/vuejs/painel-mentorado/ListarConteudo.vue ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/assets/vuejs/painel-mentorado/ListarConteudo.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
