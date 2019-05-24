@@ -62,6 +62,7 @@
 <script>
     export default {
         props: ['mentores'],
+        name: 'consultant-list',
         data()
         {
             return {

@@ -15,8 +15,7 @@
 @endsection
 
 @section('content')
-<div>
+<div id="consultants">
 	<conexoes-mentorados></conexoes-mentorados>
-    @include('painel-mentor.minha-conta.includes.conexoes-mentorados-vue')
 </div>
 @endsection

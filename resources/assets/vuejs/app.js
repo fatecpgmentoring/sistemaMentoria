@@ -5,16 +5,20 @@
  */
 
 require('./bootstrap');
-
+/*
 window.CreateConnectionSocket = io(WS_URL);
-
+*/
 window.Vue = require('vue');
+/*
 window.VueSocketio = require('vue-socket.io');
-
+*/
 import Snotify from 'vue-snotify';
 
-Vue.use(Snotify);
+import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
+import ConsultantList from './vuejsTarot/ConsultantList.vue';
 
+Vue.use(Snotify);
+/*
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('consultant-list', require('./vuejsTarot/ConsultantList.vue').default);
 
@@ -36,7 +40,11 @@ Vue.component('best-grades-mentores', require('./painel-site/BestGradesMentores.
 
 
 const app = new Vue({
-    el: '#vue-app'
+    el: '#vue-app',
+    components: {
+    	ConsultantList,
+    	ConexoesMentorados
+    }
 });
 
 const notifier = new Vue({

@@ -57,9 +57,11 @@
         <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
     </div> -->
 
-    <!-- WS URL && Socket Lib -->
-    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-    <script src="{{ asset('js/socket.io.js') }}"></script>
+    <!-- WS URL && Socket Lib 
+    <script>window.WS_URL = "{{--@php echo env('WS_URL', ''); @endphp--}}"</script>
+    
+    <script src="{{-- asset('js/socket.io.js') --}}"></script>
+    -->
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
     <!--
@@ -77,7 +79,6 @@
     <link rel="stylesheet" href="{{-- asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') --}}" type="text/css">
     <script type="text/javascript" src="{{-- asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
     -->
-    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script>
             

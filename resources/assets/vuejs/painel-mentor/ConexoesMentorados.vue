@@ -20,7 +20,7 @@
                     </div>
                     <div class="perfil-photo">
                         <figure>
-                            <img src="images/logos/avatar.png" alt="especialistas">
+                            <img src="/images/logos/avatar.png" alt="mentores">
                         </figure>
                     </div>
                     <p class="description text-justify p-3">
@@ -42,9 +42,14 @@
 <script>
 
     export default {
+    	name: 'conexoes-mentorados',
         mounted() {
             console.log('Component mounted.')
         }
     }
 
 </script>
+
+<style scoped>
+	
+</style>
