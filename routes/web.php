@@ -5,22 +5,17 @@ use App\Http\Middleware\CheckMentor;
 use App\Http\Middleware\CheckMentorado;
 use App\Http\Middleware\CheckOnline;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'SiteController@index');
 
 Route::get('/login', function () {
     return view('site.login');
 });
+
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
+
+Route::post('admin/logar', 'Admin\UsuarioControllerAdmin@logIn')->name('login.admin');
 
 Route::group(['middleware' => CheckOnline::class], function () {
 
@@ -31,7 +26,7 @@ Route::get('/icons', function()
     return view('admin.icons');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => CheckAdmin::class*/], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => CheckAdmin::class], function () {
     Route::get('/', function()
     {
         return view('admin.home');
@@ -125,7 +120,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'/*, 'middleware' => Che
     });
 });
 
-Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => CheckMentor::class*/], function () {
+Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
    Route::get('/', function()
    {
        return view('painel-mentor.dashboard-mentor');
@@ -144,7 +139,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => C
    Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
 });
 
-Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado'/*, 'middleware' => CheckMentorado::class*/], function () {
+Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' => CheckMentorado::class], function () {
    Route::get('/', function()
     {
         return view('painel-mentorado.dashboard-mentorado');

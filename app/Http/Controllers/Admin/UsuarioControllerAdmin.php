@@ -111,7 +111,7 @@ class UsuarioControllerAdmin extends Controller
     public function logIn(Request $request)
     {
         $this->validate($request, Usuario::$regras, Usuario::$mensagens);
-        $credenciais = $request->only('email', 'senha');
+        $credenciais = $request->only('email', 'password');
         if(Auth::attempt($credenciais))
         {
             return redirect('/admin');

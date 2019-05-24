@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Illuminate\Support\Facades\Auth;
 class CheckMentorado
 {
     /**
@@ -15,11 +15,13 @@ class CheckMentorado
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->cd_role == 1) {
-            return $next($request);
+        if(Auth::check()) {
+            if(Auth::user()->cd_role == 1) {
+                return $next($request);
+            }
         }
         else {
-            return \redirect('/permission')->with('permission', Auth::user()->cd_role);
+            return \redirect('/login');
         }
     }
 }
