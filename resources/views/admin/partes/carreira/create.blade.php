@@ -9,7 +9,7 @@
         <input type="text" class="form-control" name="carreira" id="carreira">
     </div>
     <div class="form-group">
-        <label class="label-control" for="profissao">Carreira:</label>
+        <label class="label-control" for="profissao">Profissão:</label>
         <select class="form-control" name="profissao" id="profissao">
             <option value="">Selecione...</option>
             @foreach ($profissoes as $profissao)

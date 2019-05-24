@@ -51,17 +51,27 @@
         </main>
     </div>
 
-    <!-- This Global Component Listen For Notification 
+    <!-- This Global Component Listen For Notification
 
     <div id="global-notifier">
         <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
     </div> -->
 
+<<<<<<< HEAD
     <!-- WS URL && Socket Lib 
     <script>window.WS_URL = "{{--@php echo env('WS_URL', ''); @endphp--}}"</script>
     
     <script src="{{-- asset('js/socket.io.js') --}}"></script>
     -->
+||||||| merged common ancestors
+    <!-- WS URL && Socket Lib -->
+    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
+    <script src="{{ asset('js/socket.io.js') }}"></script>
+=======
+    <!-- WS URL && Socket Lib -->
+    {{-- <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
+    <script src="{{ asset('js/socket.io.js') }}"></script> --}}
+>>>>>>> 0f2ca2da4c297d18bf33bff87dd2139c84a388c6
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
     <!--
@@ -80,8 +90,13 @@
     <script type="text/javascript" src="{{-- asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
     -->
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
     <script>
-            
+        $(document).ready(function()
+        {
+            $('.select2').select2();
+        });
     </script>
     @yield('js')
 

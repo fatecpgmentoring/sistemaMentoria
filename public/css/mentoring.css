@@ -1,0 +1,15 @@
+.btn-mentoring {
+    background-color: rgba(0, 176, 176, 1);
+    border-radius: 40px;
+}
+
+.btn-mentoring:first-child {
+    margin-top: .5rem
+}
+.btn-mentoring:hover{
+    background-color: rgba(0, 200, 200, 1);
+}
+
+.fa-mentoring {
+    color: white
+}

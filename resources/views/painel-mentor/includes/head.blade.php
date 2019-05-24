@@ -6,8 +6,9 @@
 <link rel="stylesheet" href="/css/vendor.css" type="text/css">
 <link rel="stylesheet" href="/css/jquery-ui.css" type="text/css">
 <link rel="stylesheet" href="/css/style.min.css" type="text/css">
+<link rel="stylesheet" href="/css/mentoring.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 <!-- META TAGS -->
 <meta name="description" content="@yield('meta-desc', '')" />
 <meta name="keywords" content="@yield('meta-keywords', '')">
@@ -34,7 +35,7 @@
 <meta property="twitter:description" content="@yield('meta-desc', '')">
 <meta property="twitter:image" content="{{ url('/') }}@yield('meta-image', '')">
 
-<!-- for Google+ -->	
+<!-- for Google+ -->
 <meta itemprop="name" content="@yield('meta-title','Sisscon | Mentoring')">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 

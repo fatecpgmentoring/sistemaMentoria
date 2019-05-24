@@ -134,8 +134,9 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor'/*, 'middleware' => C
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
    Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
    Route::get('/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
-
-   Route::get('/cadastrar-assuntos', function(){return view('painel-mentor.minha-conta.cadastrar-assuntos');});
+   Route::post('/carregaAssunto', 'AssuntoControllerMentor@carregaAssunto')->name('carrega.assuntos');
+   Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
+   Route::get('/cadastrar-assuntos', 'AssuntoControllerMentor@cadastrarAssunto');
    Route::get('/cadastrar-conteúdo', function(){return view('painel-mentor.minha-conta.cadastrar-conteudo');});
    Route::get('/conexões-mentorados', function(){return view('painel-mentor.minha-conta.conexões-mentorados');});
    Route::get('/listar-comentarios', function(){return view('painel-mentor.minha-conta.listar-comentarios');});
