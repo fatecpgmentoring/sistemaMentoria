@@ -37141,7 +37141,10 @@ var render = function() {
                   _c("div", { staticClass: "perfil-photo" }, [
                     _c("figure", [
                       _c("img", {
-                        attrs: { src: "/" + mentor.ds_foto, alt: "mentor" }
+                        attrs: {
+                          src: "images/logos/" + mentor.ds_foto,
+                          alt: "mentor"
+                        }
                       })
                     ])
                   ]),
