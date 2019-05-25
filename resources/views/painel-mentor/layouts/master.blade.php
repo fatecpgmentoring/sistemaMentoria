@@ -7,7 +7,9 @@
     @include('painel-mentor.includes.head')
 </head>
 <body>
-
+    @php
+    $usuario = session('usuario.0');
+    @endphp
     <header id="consultor-header">
         <div class="wrap-content">
             <div class="logo-box">
@@ -17,12 +19,11 @@
             </div>
             <div class="col pl-0 user-box">
                 <div class="user-info">
-                    <h5 class="name">Olá,
-                        Montezuma
+                    <h5 class="name">Olá, {{$usuario->nm_mentor}}
                     </h5>
                     <div class="user-photo">
                         <figure class="img-frame">
-                            <img src="/images/logos/avatar.png">
+                            <img src="{{asset($usuario->ds_foto)}}">
                         </figure>
                     </div>
                 </div>
@@ -58,9 +59,9 @@
     </div> -->
 
 
-    <!-- WS URL && Socket Lib 
+    <!-- WS URL && Socket Lib
     <script>window.WS_URL = "{{--@php echo env('WS_URL', ''); @endphp--}}"</script>
-    
+
     <script src="{{-- asset('js/socket.io.js') --}}"></script>
     -->
 

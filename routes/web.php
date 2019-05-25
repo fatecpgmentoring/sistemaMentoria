@@ -11,11 +11,14 @@ Route::get('/login', function () {
     return view('site.login');
 });
 
+Route::get('/logout', 'SiteController@logout');
+
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
 
 Route::post('admin/logar', 'Admin\UsuarioControllerAdmin@logIn')->name('login.admin');
+Route::post('logar', 'SiteController@logIn')->name('login');
 
 Route::group(['middleware' => CheckOnline::class], function () {
 
@@ -121,10 +124,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
 });
 
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
-   Route::get('/', function()
-   {
-       return view('painel-mentor.dashboard-mentor');
-   });
+   Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
+
    Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
    Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});

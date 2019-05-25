@@ -23,16 +23,16 @@
                         <h2>Já possui cadastro?</h2>
                         <p>Entre para continuar e ter acesso a sua conta.</p>
 
-                        
-                        <form action="{{url('login')}}" method="post" class="default">
-                            
+
+                        <form action="{{route('login')}}" method="post" class="default">
+                            @csrf
                             <div class="form-group">
                                 <label for="nomeusuario">Nome</label>
-                                <input type="text" name="nm_user_login" id="nomeusuario" class="form-control" value="" required>
+                                <input type="text" name="email" id="nomeusuario" class="form-control" value="" required>
                             </div>
                             <div class="form-group">
                                 <label for="pwduser">Senha</label>
-                                <input type="password" name="cd_senha" id="pwduser" class="form-control" value="" required>
+                                <input type="password" name="password" id="pwduser" class="form-control" value="" required>
                             </div>
                             <div class="forgot">
                                 <p>Esqueceu sua senha? <a href="/recuperar-senha">Clique aqui</a></p>
@@ -47,10 +47,10 @@
                 <div class="col-md-6 mb-2">
                     <div class="wrap">
                         <h2>Primeira Vez?</h2>
-                        <p>Realize seu cadastro</p>                      
+                        <p>Realize seu cadastro</p>
 
                     <form action="{{url('cadastrar')}}" method="post" class="default">
-                            
+
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" name="nm_visitante" id="nome" class="form-control" value="" required>
@@ -106,7 +106,7 @@
                                 <div class="custom-control custom-radio">
                                         <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
                                         <label class="custom-control-label" for="defaultGroupExample1">Sim</label>
-                                </div>        
+                                </div>
                                 <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
                                 <label class="custom-control-label" for="defaultGroupExample2">Não</label>
@@ -127,9 +127,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
             $(document).ready(function(){
-               $("#rg_user").mask('99.999.999-9'); 
-               $("#cpf_user").mask('999.999.999-99'); 
-               $("#tel_user").mask('(99) 9999-9999'); 
+               $("#rg_user").mask('99.999.999-9');
+               $("#cpf_user").mask('999.999.999-99');
+               $("#tel_user").mask('(99) 9999-9999');
                $("#cel_user").mask('(99) 9999-99999');
                $("#cel_user").blur(function(event){
                    if ($(this).val().length == 15){
@@ -138,9 +138,9 @@
                        $("#cel_user").mask('(99) 9999-99999');
                    }
                     });
-               
+
             });
-</script>    
+</script>
 @endsection
 
 @section('js')

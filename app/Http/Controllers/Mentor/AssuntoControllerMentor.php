@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Assunto;
 use App\Carreira;
 use App\Profissao;
+use Illuminate\Support\Facades\Auth;
 
 class AssuntoControllerMentor extends Controller
 {
@@ -28,7 +29,18 @@ class AssuntoControllerMentor extends Controller
         if($request->car != null)
             $assuntos = $assuntos->where('carreira_id_carreira', '=', $request->car);
         $assuntos = $assuntos->get();
-        return json_encode($assuntos);
+        $dados = array();
+        foreach(Auth::user()->assuntos as $assuntoUser)
+        {
+            foreach($assuntos as $assunto)
+            {
+                if($assunto->id_assunto != $assuntoUser->id_assunto)
+                {
+                    $dados[] = $assunto;
+                }
+            }
+        }
+        return json_encode($dados);
     }
 
     public function cadastrarAssunto()

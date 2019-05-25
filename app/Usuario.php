@@ -10,6 +10,7 @@ class Usuario extends Authenticatable
     use Notifiable;
 
     protected $table = 'tb_usuarios';
+    protected $rememberTokenName = false;
     protected $primaryKey = 'id_usuario';
     protected $fillable = [
         'email',

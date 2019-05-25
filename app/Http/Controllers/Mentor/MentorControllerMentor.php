@@ -14,7 +14,7 @@ class MentorControllerMentor extends Controller
      */
     public function index()
     {
-        //
+        return view('painel-mentor.dashboard-mentor');
     }
 
     /**
