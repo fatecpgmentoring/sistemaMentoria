@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
             ProfissaoTableSeeder::class,
             CarreiraTableSeeder::class,
          	AssuntoTableSeeder::class,
-
+            MentoradoDevTableSeeder::class,
+            MentorDevTableSeeder::class,
+            AdminTableSeeder::class,
+            
          ]);
     }
 }
