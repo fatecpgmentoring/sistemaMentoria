@@ -4,7 +4,7 @@
 }
 
 .btn-mentoring:first-child {
-    margin-top: .5rem
+    margin-top: .2rem
 }
 .btn-mentoring:hover{
     background-color: rgba(0, 200, 200, 1);
@@ -30,4 +30,40 @@
 }
 .btn-mentoring-circule:hover{
     background-color: rgba(0, 200, 200, 1);
+}
+
+@media (max-width:767px) {
+
+    .assuntos-cad{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .select2-container{
+        width: 48%!important;
+    }
+
+    .assuntos-cad > .select2-container:first-child{
+        margin-right: 4%!important;
+    }
+    
+    .btn-mentoring-circule{
+        margin-top: 20px;
+    }
+
+    .col-xl-2 .btn-mentoring{
+       height: 50px;
+       width: 50px;
+       border-radius: 50%;
+    }
+
+    .col-xl-2 .btn-mentoring a{
+        display: none;
+    }
+ 
+    .col-xl-2 .btn-mentoring{
+        margin: .5rem 15px;
+    }
+
 }

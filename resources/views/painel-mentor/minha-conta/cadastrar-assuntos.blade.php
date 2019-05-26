@@ -50,10 +50,10 @@
 		</select>
 	</div>
 	<div class="col-xl-2">
-		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring"> Adicionar</i></button>
+		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring"> <a>Adicionar</a></i></button>
 		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring"></i></button>
 		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring"></i></button>
-		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-save fa-lg fa-mentoring"> Salvar</i></button>
+		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-save fa-lg fa-mentoring"> <a>Salvar</a></i></button>
 	</div>
 
 	<div class="col-xl-5">
