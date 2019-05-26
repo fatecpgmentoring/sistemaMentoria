@@ -23,7 +23,7 @@
                     </h5>
                     <div class="user-photo">
                         <figure class="img-frame">
-                            <img src="{{asset($usuario->ds_foto)}}">
+                            <img src="/images/logos/{{$usuario->ds_foto}}">
                         </figure>
                     </div>
                 </div>
@@ -76,11 +76,7 @@
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
-    <!--
-    <script type="text/javascript" src="/js/painel-consultor.min.js"></script>
-    <link rel="stylesheet" href="{{-- asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') --}}" type="text/css">
-    <script type="text/javascript" src="{{-- asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
-    -->
+    
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 

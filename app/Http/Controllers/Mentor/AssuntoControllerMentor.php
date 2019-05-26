@@ -30,16 +30,27 @@ class AssuntoControllerMentor extends Controller
             $assuntos = $assuntos->where('carreira_id_carreira', '=', $request->car);
         $assuntos = $assuntos->get();
         $dados = array();
-        foreach(Auth::user()->assuntos as $assuntoUser)
+        if(Auth::user()->assuntos->count() > 0)
         {
-            foreach($assuntos as $assunto)
+            foreach(Auth::user()->assuntos as $assuntoUser)
             {
-                if($assunto->id_assunto != $assuntoUser->id_assunto)
+                foreach($assuntos as $assunto)
                 {
-                    $dados[] = $assunto;
+                    if($assunto->id_assunto != $assuntoUser->id_assunto)
+                    {
+                        $dados[] = $assunto;
+                    }
                 }
             }
         }
+        else
+        {
+            foreach($assuntos as $assunto)
+            {
+                   $dados[] = $assunto;   
+            }
+        }
+        
         return json_encode($dados);
     }
 
