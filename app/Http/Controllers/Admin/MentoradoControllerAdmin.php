@@ -31,12 +31,14 @@ class MentoradoControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
-            $repo = new ImageRepository();
-            $userfoto = $repo->saveImage($request->foto);
+            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $arquivo_tmp = $_FILES['foto']['tmp_name'];
+            move_uploaded_file( $arquivo_tmp, $destino  );
             $mentorado = new Mentorado([
                 'nm_mentorado' => $request->post('mentorado'),
                 'usuario_id_usuario' => $id_user,
-                'ds_foto' => $userfoto
+                'ds_foto' => $destino
             ]);
             try
             {

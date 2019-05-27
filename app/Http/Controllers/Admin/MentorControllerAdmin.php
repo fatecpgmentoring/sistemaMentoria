@@ -28,14 +28,16 @@ class MentorControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
-            $repo = new ImageRepository();
-            $userfoto = $repo->saveImage($request->foto);
+            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $arquivo_tmp = $_FILES['foto']['tmp_name'];
+            move_uploaded_file( $arquivo_tmp, $destino  );
             $mentor = new Mentor([
                 'nm_mentor' => $request->post('mentor'),
                 'nv_conhecimento' => $request->post('conhecimento'),
                 'vl_nota' => 5.0,
                 'usuario_id_usuario' => $id_user,
-                'ds_foto' => $userfoto
+                'ds_foto' => $destino
             ]);
 
             try
