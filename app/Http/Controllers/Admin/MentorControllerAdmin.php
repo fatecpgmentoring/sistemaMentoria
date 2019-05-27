@@ -73,12 +73,14 @@ class MentorControllerAdmin extends Controller
         $mentor = Mentor::find($id);
         $mentor->nm_mentor = $request->post('mentor');
         $mentor->nv_conhecimento = $request->post('conhecimento');
-        $mentor->vl_nota = $request->post('nota');
         if($request->foto != null)
         {
-            $repo = new ImageRepository();
-            $repo->apagarImages($mentor->ds_foto);
-            $mentor->ds_foto = $repo->saveImage($request->foto);
+            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $arquivo_tmp = $_FILES['foto']['tmp_name'];
+            move_uploaded_file( $arquivo_tmp, $destino  );
+            try { unlink($mentor->ds_foto); } catch(\Exception $ex) {};
+            $mentor->ds_foto = $destino;
         }
         try
         {
@@ -96,8 +98,7 @@ class MentorControllerAdmin extends Controller
         $mentor = Mentor::find($id);
         try
         {
-            $repo = new ImageRepository();
-            $repo->apagarImages($mentor->ds_foto);
+            unlink($mentor->ds_foto);
             UsuarioControllerAdmin::destroy($mentor->usuario_id_usuario);
             $mentor->delete();
             return redirect('admin/mentor/')->with('success', 'save');
