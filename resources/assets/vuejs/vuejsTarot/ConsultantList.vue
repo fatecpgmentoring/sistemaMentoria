@@ -41,7 +41,7 @@
                     </div>
                     <div class="perfil-photo">
                         <figure>
-                            <img :src="'images/logos/' + mentor.ds_foto" alt="mentor">
+                            <img :src="'/' + mentor.ds_foto" alt="mentor">
                         </figure>
                     </div>
                     <p class="description text-justify p-3 text-center">
