@@ -143,13 +143,12 @@ class UsuarioControllerAdmin extends Controller
         }
     }
 
-    public function destroy($id)
+    public static function destroy($id)
     {
         $usuario = Usuario::find($id);
         try
         {
             $usuario->delete();
-            return redirect('admin/usuario/')->with('success', 'save');
         }
         catch(QueryException $ex)
         {

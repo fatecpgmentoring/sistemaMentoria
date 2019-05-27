@@ -100,6 +100,7 @@ class MentoradoControllerAdmin extends Controller
         {
             $repo = new ImageRepository();
             $repo->apagarImages($mentorado->ds_foto);
+            UsuarioControllerAdmin::destroy($mentorado->usuario_id_usuario);
             $mentorado->delete();
             return redirect('admin/mentorado/')->with('success', 'save');
         }

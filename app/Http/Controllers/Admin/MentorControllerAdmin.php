@@ -98,6 +98,7 @@ class MentorControllerAdmin extends Controller
         {
             $repo = new ImageRepository();
             $repo->apagarImages($mentor->ds_foto);
+            UsuarioControllerAdmin::destroy($mentor->usuario_id_usuario);
             $mentor->delete();
             return redirect('admin/mentor/')->with('success', 'save');
         }
