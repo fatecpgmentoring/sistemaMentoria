@@ -34,7 +34,6 @@
 </div>
 <div class="row">
 	<div class="col-xl-5">
-
 		<select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
             @foreach ($assuntos as $assunto)
                 <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>

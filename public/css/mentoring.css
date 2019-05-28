@@ -6,12 +6,18 @@
 .btn-mentoring:first-child {
     margin-top: .2rem
 }
+
 .btn-mentoring:hover{
     background-color: rgba(0, 200, 200, 1);
 }
 
 .fa-mentoring {
     color: white
+}
+
+.fa-plus::before,
+.fa-save::before{
+    margin-right: 5px;
 }
 
 .btn-mentoring-circule{
@@ -28,8 +34,16 @@
 .fa-search {
     color: white;
 }
+
 .btn-mentoring-circule:hover{
     background-color: rgba(0, 200, 200, 1);
+}
+
+.select2{
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
 }
 
 @media (max-width:767px) {
@@ -64,6 +78,11 @@
  
     .col-xl-2 .btn-mentoring{
         margin: .5rem 15px;
+    }
+
+    .fa-plus::before,
+    .fa-save::before{
+        margin-right: 0px;
     }
 
 }
