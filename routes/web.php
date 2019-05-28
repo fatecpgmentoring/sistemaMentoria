@@ -131,7 +131,10 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
    Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
    Route::get('/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
    Route::post('/carregaAssunto', 'AssuntoControllerMentor@carregaAssunto')->name('carrega.assuntos');
+   Route::post('/carregaMeusAssuntos', 'AssuntoControllerMentor@carregaMeusAssuntos')->name('carrega.assuntos.meus');
    Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
+   Route::post('/salvarAssunto', 'AssuntoControllerMentor@salvarAssunto')->name('salva.assunto.mentor');
+   Route::post('/removerAssunto', 'AssuntoControllerMentor@removerAssunto')->name('remove.assunto.mentor');
    Route::get('/cadastrar-assuntos', 'AssuntoControllerMentor@cadastrarAssunto');
    Route::get('/cadastrar-conteúdo', function(){return view('painel-mentor.minha-conta.cadastrar-conteudo');});
    Route::get('/conexões-mentorados', function(){return view('painel-mentor.minha-conta.conexões-mentorados');});

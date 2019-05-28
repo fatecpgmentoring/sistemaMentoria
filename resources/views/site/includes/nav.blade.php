@@ -2,30 +2,38 @@
       <div class="top-line color-theme">
          <div class="container">
             <div class="row">
-                
-                <div class="col-lg-5 col-md-6 right-move">
-                    <form action="{{url('login')}}" class="form-login" method="Post">                        
-                        <div class="wrap-input mr-1">
-                            <span class="spriting centerY sprite-user1"></span>
-                            <input type="text" name="nm_login" placeholder="Login" required>
-                        </div>
-                        <div class="wrap-input">
-                            <span class="spriting centerY sprite-key1"></span>
-                            <input type="password" name="cd_senha" placeholder="Senha" required>
-                        </div>
-                        <button type="submit">ok</button>
-                        <a href="/login" class="pwd-forget">Esqueceu sua senha?</a>
-                    </form>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    <a href="/login" class="register-link link-l">
-                        cadastro
+                @guest
+                    <div class="col-lg-5 col-md-6 right-move">
+                        <form action="{{route('login')}}" class="form-login" method="POST">
+                            @csrf
+                            <div class="wrap-input mr-1">
+                                <span class="spriting centerY sprite-user1"></span>
+                                <input type="text" name="email" placeholder="Login" required>
+                            </div>
+                            <div class="wrap-input">
+                                <span class="spriting centerY sprite-key1"></span>
+                                <input type="password" name="password" placeholder="Senha" required>
+                            </div>
+                            <button type="submit">ok</button>
+                            <a href="/login" class="pwd-forget">Esqueceu sua senha?</a>
+                        </form>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <a href="/login" class="register-link link-l">
+                            cadastro
+                        </a>
+                    </div>
+                @else
+                <div class="col-lg-5 col-md-6 right-move"></div>
+                <div class="col-lg-1 col-md-3">
+                    <a href="/logout" class="register-link link-l">
+                        sair
                     </a>
                 </div>
-
+                @endguest
             </div>
-         </div>   
-      </div>  
+         </div>
+      </div>
 
       <div class="main-part w-100 navbar-expand-md color-subtheme">
         <div class="container">

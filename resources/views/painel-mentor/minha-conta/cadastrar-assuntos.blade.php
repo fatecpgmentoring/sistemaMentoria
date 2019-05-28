@@ -32,28 +32,19 @@
     </select>
     <button class="btn btn-mentoring-circule btn-lg" id="searchAssunto"><i class="fa fa-search fa-lg"></i></button>
 </div>
-
 <div class="row">
 	<div class="col-xl-5">
+
 		<select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
             @foreach ($assuntos as $assunto)
-                @if(Auth::user()->assuntos->count() > 0)
-                    @foreach (Auth::user()->assuntos as $assuntoUsuario)
-                        @if($assuntoUsuario->id_assunto != $assunto->id_assunto)
-                            <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
-                        @endif
-                    @endforeach
-                @else
-                    <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
-                @endif
+                <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
             @endforeach
 		</select>
 	</div>
 	<div class="col-xl-2">
-		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring"> <a>Adicionar</a></i></button>
+		<button type="button" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring"> <a>Adicionar</a></i></button>
 		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring"></i></button>
 		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring"></i></button>
-		<button type="button" class="btn btn-mentoring btn-block"><i class="fa fa-save fa-lg fa-mentoring"> <a>Salvar</a></i></button>
 	</div>
 
 	<div class="col-xl-5">
@@ -70,8 +61,8 @@
 <script>
 
 $(document).ready(function() {
-    $('#multiselect1').multiselect();
-    $('#multiselect2').multiselect();
+    // $('#multiselect1').multiselect();
+    // $('#multiselect2').multiselect();
 
     function carregarAssuntos()
     {
@@ -113,6 +104,25 @@ $(document).ready(function() {
             }
         });
     }
+    function carregarMeusAssuntos()
+    {
+        $.ajax({
+            url: "{{route('carrega.assuntos.meus')}}",
+            method: 'post',
+            dataType: 'json',
+            data: {_token: $("input[name=_token]").val()},
+            success: function(data)
+            {
+                if(data.length > 0) {
+                    $('#multiselect1_to').empty();
+                    $.each(data, function(i, obj)
+                    {
+                        $('#multiselect1_to').append('<option value="'+obj.id_assunto+'">'+obj.nm_assunto+'</option>');
+                    });
+                }
+            }
+        });
+    }
     $('#profissao').change(function()
     {
         carregarCarreiras();
@@ -120,7 +130,47 @@ $(document).ready(function() {
     $('#searchAssunto').click(function()
     {
         carregarAssuntos();
+        carregarMeusAssuntos();
     });
+    $("#multiselect1_rightSelected").click(function()
+    {
+        var assuntos = $('#multiselect1').val()
+        $.ajax({
+            url: "{{route('salva.assunto.mentor')}}",
+            method: 'post',
+            data: {assuntos: assuntos, _token: $("input[name=_token]").val()},
+            dataType: 'json',
+            success: function(data)
+            {
+                $('#multiselect1_to').append($('#multiselect1 option:selected'));
+                $('#multiselect1 option:selected').remove();
+                $('#multiselect1_to option:selected').prop('selected', false);
+            }
+        });
+    });
+    $("#multiselect1_leftSelected").click(function()
+    {
+        var assuntos = $('#multiselect1_to').val();
+        $.ajax({
+            url: "{{route('remove.assunto.mentor')}}",
+            method: 'post',
+            data: {assuntos: assuntos, _token: $("input[name=_token]").val()},
+            dataType: 'json',
+            success: function(data)
+            {
+                $('#multiselect1').append($('#multiselect1_to option:selected'));
+                $('#multiselect1_to option:selected').remove();
+                $('#multiselect1 option:selected').prop('selected', false);
+            }
+        });
+    });
+
+    $("#addAssunto").click(function()
+    {
+
+    });
+
+
 });
 
 </script>

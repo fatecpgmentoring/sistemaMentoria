@@ -10,6 +10,6 @@
             }
             @endphp
 
-        <consultant-list :mentores="{{ json_encode($cfiltered) }}"></consultant-list>
+        <best-grades-mentores :mentores="{{ json_encode($cfiltered) }}"></best-grades-mentores>
 		</div>
 </section>

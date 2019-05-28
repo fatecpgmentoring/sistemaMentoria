@@ -19,6 +19,14 @@ class CheckMentorado
             if(Auth::user()->cd_role == 1) {
                 return $next($request);
             }
+            else if(Auth::user()->cd_role == 2)
+            {
+                return redirect('/mentor');
+            }
+            else
+            {
+                return redirect('/admin');
+            }
         }
         else {
             return \redirect('/login');

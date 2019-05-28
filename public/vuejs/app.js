@@ -1838,10 +1838,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1910,14 +1910,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentores'],
-  name: 'consultant-list',
+  name: 'best-grades-mentores',
   data: function data() {
     return {};
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
-    console.log(this.mentores);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -37132,10 +37129,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -50876,7 +50873,7 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_snotify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-snotify */ "./node_modules/vue-snotify/vue-snotify.esm.js");
 /* harmony import */ var _painel_mentor_ConexoesMentorados_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./painel-mentor/ConexoesMentorados.vue */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue");
-/* harmony import */ var _vuejsTarot_ConsultantList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vuejsTarot/ConsultantList.vue */ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue");
+/* harmony import */ var _painel_site_BestGradesMentores_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./painel-site/BestGradesMentores.vue */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -50899,7 +50896,6 @@ window.VueSocketio = require('vue-socket.io');
 Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /*
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('consultant-list', require('./vuejsTarot/ConsultantList.vue').default);
 
 /* Painel-Mentor */
 
@@ -50914,11 +50910,10 @@ Vue.component('mentores', __webpack_require__(/*! ./painel-mentorado/Mentores.vu
 /* Painel-Site */
 
 Vue.component('all-mentores', __webpack_require__(/*! ./painel-site/AllMentores.vue */ "./resources/assets/vuejs/painel-site/AllMentores.vue")["default"]);
-Vue.component('best-grades-mentores', __webpack_require__(/*! ./painel-site/BestGradesMentores.vue */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue")["default"]);
 var app = new Vue({
   el: '#vue-app',
   components: {
-    ConsultantList: _vuejsTarot_ConsultantList_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BestGradesMentores: _painel_site_BestGradesMentores_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ConexoesMentorados: _painel_mentor_ConexoesMentorados_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
@@ -51257,40 +51252,8 @@ component.options.__file = "resources/assets/vuejs/painel-site/AllMentores.vue"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/assets/vuejs/painel-site/BestGradesMentores.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue":
-/*!**************************************************************!*\
-  !*** ./resources/assets/vuejs/vuejsTarot/ConsultantList.vue ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConsultantList.vue?vue&type=template&id=91c70fce& */ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&");
-/* harmony import */ var _ConsultantList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConsultantList.vue?vue&type=script&lang=js& */ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&");
+/* harmony import */ var _BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BestGradesMentores.vue?vue&type=template&id=00995eaa& */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa&");
+/* harmony import */ var _BestGradesMentores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BestGradesMentores.vue?vue&type=script&lang=js& */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -51300,9 +51263,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ConsultantList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _BestGradesMentores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -51312,38 +51275,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/assets/vuejs/vuejsTarot/ConsultantList.vue"
+component.options.__file = "resources/assets/vuejs/painel-site/BestGradesMentores.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
+/***/ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultantList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultantList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultantList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BestGradesMentores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BestGradesMentores.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BestGradesMentores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce& ***!
-  \*********************************************************************************************/
+/***/ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa& ***!
+  \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultantList.vue?vue&type=template&id=91c70fce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/vuejsTarot/ConsultantList.vue?vue&type=template&id=91c70fce&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./BestGradesMentores.vue?vue&type=template&id=00995eaa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/vuejs/painel-site/BestGradesMentores.vue?vue&type=template&id=00995eaa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultantList_vue_vue_type_template_id_91c70fce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BestGradesMentores_vue_vue_type_template_id_00995eaa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
