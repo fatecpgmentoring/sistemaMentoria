@@ -118,7 +118,7 @@ class UsuarioControllerAdmin extends Controller
         }
         else
         {
-            return redirect('/loginAdmin')->with('failure', 'Senha incorreta');
+            return redirect('/admin/login')->with('failure', 'Senha incorreta');
         }
     }
 

@@ -20,6 +20,9 @@ class CheckAdmin
             if(Auth::user()->cd_role == 3) {
                 return $next($request);
             }
+            else {
+                return \redirect('/');
+            }
         }
         else {
             return \redirect('/admin/login');

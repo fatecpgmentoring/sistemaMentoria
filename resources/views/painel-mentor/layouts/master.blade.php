@@ -23,7 +23,7 @@
                     </h5>
                     <div class="user-photo">
                         <figure class="img-frame">
-                            <img src="/images/logos/{{$usuario->ds_foto}}">
+                            <img src="/{{$usuario->ds_foto}}">
                         </figure>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="breadcrumb-wrapper">
                     @yield('breadcrumb')
                     <div class="link">
-                        <a href="/">Voltar ao site</a>
+                        <a href="/logout">Sair e voltar ao site</a>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
-    
+
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 
