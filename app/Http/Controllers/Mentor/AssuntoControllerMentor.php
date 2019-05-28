@@ -59,11 +59,9 @@ class AssuntoControllerMentor extends Controller
     {
         $assuntos = $request->input('assuntos');
         $usuario = Usuario::find(Auth::user()->id_usuario);
-        $assuntosARemover = $usuario->assuntos()->whereIn('id_assunto', $assuntos);
-        dd($assuntosARemover);
-        foreach($assuntosARemover as $assuntoDel)
+        foreach($assuntos as $assunto)
         {
-            $assuntoDel->delete();
+            $usuario->assuntos()->detach($assunto);
         }
         return json_encode("OK");
     }
