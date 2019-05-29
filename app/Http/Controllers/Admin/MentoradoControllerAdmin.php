@@ -77,8 +77,8 @@ class MentoradoControllerAdmin extends Controller
         $usuario->email = $request->post('email');
         if($request->foto != null)
         {
-            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
-            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $extension = new SplFileInfo($_FILES['foto']['name']);
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension->getExtension();
             $arquivo_tmp = $_FILES['foto']['tmp_name'];
             move_uploaded_file( $arquivo_tmp, $destino  );
             try { unlink($mentorado->ds_foto); } catch(\Exception $ex) {};
