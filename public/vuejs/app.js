@@ -51825,6 +51825,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _painel_mentor_ConexoesMentorados_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./painel-mentor/ConexoesMentorados.vue */ "./resources/assets/vuejs/painel-mentor/ConexoesMentorados.vue");
 /* harmony import */ var _painel_site_BestGradesMentores_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./painel-site/BestGradesMentores.vue */ "./resources/assets/vuejs/painel-site/BestGradesMentores.vue");
 /* harmony import */ var _painel_site_ShowMentor_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./painel-site/ShowMentor.vue */ "./resources/assets/vuejs/painel-site/ShowMentor.vue");
+/* harmony import */ var _painel_site_AllMentores_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./painel-site/AllMentores.vue */ "./resources/assets/vuejs/painel-site/AllMentores.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -51840,6 +51841,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 /*
 window.VueSocketio = require('vue-socket.io');
 */
+
 
 
 
@@ -51867,7 +51869,8 @@ var app = new Vue({
   components: {
     BestGradesMentores: _painel_site_BestGradesMentores_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ConexoesMentorados: _painel_mentor_ConexoesMentorados_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ShowMentor: _painel_site_ShowMentor_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ShowMentor: _painel_site_ShowMentor_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AllMentores: _painel_site_AllMentores_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 var notifier = new Vue({

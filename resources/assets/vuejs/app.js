@@ -17,6 +17,7 @@ import Snotify from 'vue-snotify';
 import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
 import BestGradesMentores from './painel-site/BestGradesMentores.vue';
 import ShowMentor from './painel-site/ShowMentor.vue';
+import AllMentores from './painel-site/AllMentores.vue';
 
 Vue.use(Snotify);
 /*
@@ -41,7 +42,8 @@ const app = new Vue({
     components: {
     	BestGradesMentores,
         ConexoesMentorados,
-        ShowMentor
+        ShowMentor,
+        AllMentores
     }
 });
 
