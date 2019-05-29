@@ -7,7 +7,9 @@
     @include('painel-mentor.includes.head')
 </head>
 <body>
-
+    @php
+    $usuario = session('usuario.1');
+    @endphp
     <header id="consultor-header">
         <div class="wrap-content">
             <div class="logo-box">
@@ -17,12 +19,11 @@
             </div>
             <div class="col pl-0 user-box">
                 <div class="user-info">
-                    <h5 class="name">Olá,
-                        Montezuma
+                    <h5 class="name">Olá, {{$usuario->nm_mentorado}}
                     </h5>
                     <div class="user-photo">
                         <figure class="img-frame">
-                            <img src="/images/logos/avatar.png">
+                            <img src="/{{$usuario->ds_foto}}">
                         </figure>
                     </div>
                 </div>
@@ -39,7 +40,7 @@
     </header>
 
     <div id="main-panel-wrap">
-        @include('painel-mentor.includes.aside-nav')
+        @include('painel-mentorado.includes.aside-nav')
 
         <!-- CONTENT -->
         <main id="main-box">

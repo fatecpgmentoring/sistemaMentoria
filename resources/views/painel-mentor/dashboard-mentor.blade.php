@@ -42,7 +42,7 @@
                 <p class="color-green paragraph text-uppercase mb-1">Créditos disponíveis</p>
                     <span class="total-credit">24 Pila</span>
                 <div class="text-center">
-                    <a href=#" class="btn-consult"><i class="fa fa-search" aria-hidden="true"></i> Consultar relatórios</a>
+                    <a href="#" class="btn-consult"><i class="fa fa-search" aria-hidden="true"></i> Consultar relatórios</a>
                 </div>
             </div>
         </div>

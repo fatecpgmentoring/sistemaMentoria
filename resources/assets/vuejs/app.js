@@ -25,12 +25,24 @@ Vue.use(Snotify);
 /*
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/* Painel-Mentor */
+/* Painel-Mentor
+import ChatMentor from './painel-mentor/ChatMentor.vue';
+import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
+import ListarComentarios from './painel-mentor/ListarComentarios.vue';
+*/
 Vue.component('chat-mentor', require('./painel-mentor/ChatMentor.vue').default);
 Vue.component('conexoes-mentorados', require('./painel-mentor/ConexoesMentorados.vue').default);
 Vue.component('listar-comentarios', require('./painel-mentor/ListarComentarios.vue').default);
 
-/* Painel-Mentorado */
+/* Test */
+Vue.component('conexoes-mentorados-test', require('./painel-mentor/ConexoesMentoradosTest.vue').default);
+
+
+/* Painel-Mentorado
+import ChatMentorado from './painel-mentorado/ChatMentorado.vue';
+import ConexoesMentores from './painel-mentorado/ConexoesMentores.vue';
+import Mentores from './painel-mentorado/Mentores.vue';
+*/
 Vue.component('chat-mentorado', require('./painel-mentorado/ChatMentorado.vue').default);
 Vue.component('conexoes-mentores', require('./painel-mentorado/ConexoesMentores.vue').default);
 Vue.component('mentores', require('./painel-mentorado/Mentores.vue').default);
@@ -40,6 +52,12 @@ Vue.component('conexoes-mentorados', ConexoesMentorados);
 
 const app = new Vue({
     el: '#vue-app',
+    components: {
+    	BestGradesMentores,
+        ConexoesMentorados,
+        ShowMentor,
+        AllMentores
+    }
 });
 
 const notifier = new Vue({

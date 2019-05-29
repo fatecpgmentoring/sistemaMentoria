@@ -62,7 +62,6 @@
 <script>
     export default {
         props: ['mentores'],
-        name: 'best-grades-mentores',
         data()
         {
             return {
@@ -70,6 +69,8 @@
             }
         },
         mounted() {
+            console.log('Component mounted.')
+            console.log(this.mentores);
         }
     }
 </script>

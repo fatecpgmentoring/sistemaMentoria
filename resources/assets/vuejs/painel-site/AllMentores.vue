@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+<template>
+	
+</template>
+
+<script>
+    export default {
+        props: [''],
+        name: 'all-mentores',
+        data()
+        {
+            return {
+
+            }
+        },
+        mounted() {
+        }
+    }
+</script>
+||||||| merged common ancestors
+=======
 <template>
 
     <div>
@@ -158,3 +179,4 @@
         },
     }
 </script>
+>>>>>>> 68fefac1520f3cc5987e602d7a2ab373b534eeb9
