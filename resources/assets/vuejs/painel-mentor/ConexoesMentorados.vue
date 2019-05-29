@@ -62,7 +62,6 @@
 <script>
     export default {
         props: ['mentoresConexao'],
-        name: 'conexoes-mentorados',
         data()
         {
             return {

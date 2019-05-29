@@ -15,13 +15,16 @@
 @endsection
 
 @section('content')
+{{--
 @php
     $cfiltered = [];
     // foreach ($mentores as $c) {
     //     $cfiltered[] = $c;
     // }
 @endphp
+--}}
 <div id="consultants">
-	<conexoes-mentorados :mentoresConexao="{{ json_encode($cfiltered) }}"></conexoes-mentorados>
+{{--	<conexoes-mentorados :mentoresConexao="{{ json_encode($cfiltered) }}"></conexoes-mentorados> --}}
+        <conexoes-mentorados-test></conexoes-mentorados-test>
 </div>
 @endsection

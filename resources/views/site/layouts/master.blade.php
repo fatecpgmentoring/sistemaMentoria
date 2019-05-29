@@ -18,6 +18,7 @@
     <!-- FOOTER -->
     @include('site.includes.footer')
 
+    {{--
     @if(Auth::user() && Auth::user()->cd_role == 2)
     <!-- This Global Component Listen For Notification -->
     <div id="global-notifier">
@@ -26,6 +27,7 @@
     @else
     <div id="global-notifier"></div>
     @endif
+    --}}
 
     <!-- WS URL && Socket Lib -->
     <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
