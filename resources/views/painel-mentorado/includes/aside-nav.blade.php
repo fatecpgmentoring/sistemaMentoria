@@ -1,4 +1,4 @@
-<aside id="aside-nav">
+<aside id="aside-nav" class="active">
     <ul class="icon-list">
         <li>
             <div class="wrap-item">
@@ -28,6 +28,11 @@
         <li>
             <div class="wrap-item">
                 <a href="#"><span class="spriting sprite-nav-dashboard"></span>Meus Dados</a>
+            </div>
+        </li>
+        <li>
+            <div class="wrap-item">
+                <a href="/logout"><span class="spriting sprite-nav-dashboard"></span>Sair</a>
             </div>
         </li>
     </ul>
