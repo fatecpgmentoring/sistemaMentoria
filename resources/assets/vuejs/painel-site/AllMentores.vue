@@ -74,7 +74,6 @@
                     <div v-else>
                         <li class="prev"><a href="" @click="changePage(page-1)">Anterior</a></li>
                     </div>
-                    &nbsp &nbsp
                     <div v-for="n in qtd">
                         <div v-if="page == n">
                             <li class="active">
@@ -91,7 +90,6 @@
                             </li>
                         </div>
                     </div>
-                    &nbsp &nbsp
                     <div v-if="page == qtd">
                         <li class="next disabled"><a href="" @click="changePage(page+1)">Proximo</a></li>
                     </div>
@@ -111,6 +109,7 @@
 <script>
     export default {
         props: ['mentores'],
+        mode: 'production',
         name: 'all-mentores',
         data()
         {

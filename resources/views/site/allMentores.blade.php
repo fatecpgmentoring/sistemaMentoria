@@ -17,14 +17,7 @@
 
 <section id="consultants" class="inside">
     <div class="container">
-        @php
-        $cfiltered = [];
-        foreach ($mentores as $c) {
-            $cfiltered[] = $c;
-        }
-        @endphp
-        <all-mentores :mentores="{{ json_encode($cfiltered) }}"></all-mentores>
-
+        @include('site.includes.listagemMentores')
     </div>
 </section>
 @endsection

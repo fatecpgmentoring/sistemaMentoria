@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import "@babel/polyfill";
+
 require('./bootstrap');
 /*
 window.CreateConnectionSocket = io(WS_URL);
@@ -33,18 +35,11 @@ Vue.component('chat-mentorado', require('./painel-mentorado/ChatMentorado.vue').
 Vue.component('conexoes-mentores', require('./painel-mentorado/ConexoesMentores.vue').default);
 Vue.component('mentores', require('./painel-mentorado/Mentores.vue').default);
 
-/* Painel-Site */
-Vue.component('all-mentores', require('./painel-site/AllMentores.vue').default);
-
+Vue.component('best-grades-mentores', BestGradesMentores);
+Vue.component('conexoes-mentorados', ConexoesMentorados);
 
 const app = new Vue({
     el: '#vue-app',
-    components: {
-    	BestGradesMentores,
-        ConexoesMentorados,
-        ShowMentor,
-        AllMentores
-    }
 });
 
 const notifier = new Vue({

@@ -65,6 +65,7 @@
 <script>
 export default {
     props: ['mentor', 'assuntos', 'contatos'],
+    mode: 'production',
     name: 'show-mentor',
     data () {
         return {
