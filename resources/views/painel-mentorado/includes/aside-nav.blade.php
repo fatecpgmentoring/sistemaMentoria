@@ -1,4 +1,4 @@
-<aside id="aside-nav">
+<aside id="aside-nav" class="active">
     <ul class="icon-list">
         <li>
             <div class="wrap-item">
@@ -7,42 +7,32 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
+                <a href="/mentorado/conexões-mentores"><span class="spriting sprite-nav-dashboard"></span>Minhas Conexões</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/cadastrar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Conteúdo</a>
+                <a href="/mentorado/chat"><span class="spriting sprite-nav-dashboard"></span>Mensagens</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/conexões-mentores"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentores</a>
+                <a href="/mentor/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Meus Assuntos</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentor/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Listar Conteúdo</a>
+                <a href="#"><span class="spriting sprite-nav-dashboard"></span>Perfil</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/mentores"><span class="spriting sprite-nav-dashboard"></span>Mentores</a>
+                <a href="#"><span class="spriting sprite-nav-dashboard"></span>Meus Dados</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
-            </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <a href="/mentorado/atendimento/relatorios"><span class="spriting sprite-nav-atendimento"></span>Relatórios</a>
-        </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <a href="/mentorado/relatorio-creditos-e-transferencias"><span class="spriting sprite-nav-credito"></span>Relatórios</a>
+                <a href="/logout"><span class="spriting sprite-nav-dashboard"></span>Sair</a>
             </div>
         </li>
     </ul>

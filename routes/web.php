@@ -6,29 +6,22 @@ use App\Http\Middleware\CheckMentorado;
 use App\Http\Middleware\CheckOnline;
 
 Route::get('/', 'SiteController@index');
-
 Route::get('/login', function () {
     return view('site.login');
 });
-
+Route::get('/mentores', 'SiteController@mentoresAll')->name('mentores.all');
+Route::get('/show/mentor/{id}', 'SiteController@showMentor')->name('mentores.all');
+Route::get('/mentoresListagem', 'SiteController@mentorListagem')->name('lista.mentor');
 Route::get('/logout', 'SiteController@logout');
-
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
-
 Route::post('admin/logar', 'Admin\UsuarioControllerAdmin@logIn')->name('login.admin');
 Route::post('logar', 'SiteController@logIn')->name('login');
-
-Route::group(['middleware' => CheckOnline::class], function () {
-
-});
-
 Route::get('/icons', function()
 {
     return view('admin.icons');
 });
-
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => CheckAdmin::class], function () {
     Route::get('/', function()
     {
@@ -122,7 +115,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
         });
     });
 });
-
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
    Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
 
@@ -142,7 +134,6 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
    Route::get('/listar-conteudo', function(){return view('painel-mentor.minha-conta.listar-conteudo');});
    Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
 });
-
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' => CheckMentorado::class], function () {
    Route::get('/', function()
     {
@@ -159,7 +150,6 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
    Route::get('/chat', function(){return view('painel-mentorado.chat.chat-mentorado');});
 });
-
 Route::group(['prefix' => 'chat', 'namespace' => 'Chat'], function () {
 
     Route::get('/', function() {

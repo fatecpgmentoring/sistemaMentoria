@@ -14,6 +14,16 @@ window.VueSocketio = require('vue-socket.io');
 */
 import Snotify from 'vue-snotify';
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
+import BestGradesMentores from './painel-site/BestGradesMentores.vue';
+=======
+import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
+import BestGradesMentores from './painel-site/BestGradesMentores.vue';
+import ShowMentor from './painel-site/ShowMentor.vue';
+import AllMentores from './painel-site/AllMentores.vue';
+>>>>>>> 68fefac1520f3cc5987e602d7a2ab373b534eeb9
 
 Vue.use(Snotify);
 /*
@@ -50,7 +60,23 @@ Vue.component('all-mentores', require('./painel-site/AllMentores.vue').default);
 
 
 const app = new Vue({
+<<<<<<< HEAD
     el: '#vue-app'
+||||||| merged common ancestors
+    el: '#vue-app',
+    components: {
+    	BestGradesMentores,
+    	ConexoesMentorados
+    }
+=======
+    el: '#vue-app',
+    components: {
+    	BestGradesMentores,
+        ConexoesMentorados,
+        ShowMentor,
+        AllMentores
+    }
+>>>>>>> 68fefac1520f3cc5987e602d7a2ab373b534eeb9
 });
 
 const notifier = new Vue({

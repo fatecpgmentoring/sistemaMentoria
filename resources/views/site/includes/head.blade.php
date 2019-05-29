@@ -5,6 +5,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/vendor.css" type="text/css">
 <link rel="stylesheet" href="/css/style.min.css" type="text/css">
+<link rel="stylesheet" href="/css/mentoring.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <!-- META TAGS -->
@@ -33,7 +34,7 @@
 <meta property="twitter:description" content="@yield('meta-desc', '')">
 <meta property="twitter:image" content="{{ url('/') }}@yield('meta-image', '')">
 
-<!-- for Google+ -->	
+<!-- for Google+ -->
 <meta itemprop="name" content="@yield('meta-title','Sisscon | Mentoring')">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 

@@ -40,11 +40,11 @@
             <div class="row">
                 <div class="col-md-3 logo-box">
                     <a href="/" class="logo">
-                        <img src="images/logos/icone-branco.png" class="img-fluid" alt="Logo Tarot Nova Era">
+                        <img src="/images/logos/icone-branco.png" class="img-fluid" alt="Logo Tarot Nova Era">
 
                     </a>
                     <a href="/" class="logo-mobile">
-                        <img src="images/logos/icone-branco.png" class="img-fluid" alt="Logo Tarot Nova Era">
+                        <img src="/images/logos/icone-branco.png" class="img-fluid" alt="Logo Tarot Nova Era">
                     </a>
 
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#navigationComponent">
