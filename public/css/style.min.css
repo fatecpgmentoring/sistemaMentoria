@@ -16109,7 +16109,7 @@ form.default .form-check-input:checked:before {
 }
 
 #consultor-header {
-    background: #131a1d;
+    background: #00b1b1;
     display: block;
     width: 100%;
     height: 150px
@@ -16322,13 +16322,14 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active .icon-list{
-    background: #00cb94;
+    background: #00b1b1;
 }
 
 #aside-nav.active .icon-list li{
     padding-right: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     border-right: 2px solid black;
+    border-top: 1px solid black;
 }
 
 #aside-nav.active .icon-list li a{
