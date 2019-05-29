@@ -49,8 +49,8 @@
                     </p>
                     <div class="cfooter">
                         <div>
-                            <a href="#" class="btn">
-                                <div class="spriting"></div>chamar</a>
+                            <a :href="'/show/mentor/' + mentor.id_mentor" class="btn">
+                                <div class="spriting"></div>ver</a>
                         </div>
                     </div>
                 </div>

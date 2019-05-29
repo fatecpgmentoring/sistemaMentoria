@@ -46,6 +46,17 @@
     vertical-align: middle;
 }
 
+.estrelas input[type=radio] {
+    display: none;
+  }
+  .estrelas label i.fa:before {
+    content:'\f005';
+    color: #FC0;
+  }
+  .estrelas input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+  }
+
 @media (max-width:767px) {
 
     .assuntos-cad{
@@ -61,7 +72,7 @@
     .assuntos-cad > .select2-container:first-child{
         margin-right: 4%!important;
     }
-    
+
     .btn-mentoring-circule{
         margin-top: 20px;
     }
@@ -75,7 +86,7 @@
     .col-xl-2 .btn-mentoring a{
         display: none;
     }
- 
+
     .col-xl-2 .btn-mentoring{
         margin: .5rem 15px;
     }
