@@ -2023,9 +2023,202 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [''],
   name: 'chat-mentorado',
+  // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
   data: function data() {
     return {};
   },
@@ -48481,9 +48674,527 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "frame" } }, [
+      _c("div", { attrs: { id: "sidepanel" } }, [
+        _c("div", { attrs: { id: "profile" } }, [
+          _c("div", { staticClass: "wrap" }, [
+            _c("img", {
+              staticClass: "online",
+              attrs: {
+                id: "profile-img",
+                src: "http://emilcarlsson.se/assets/mikeross.png",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("p", [_vm._v("Mike Ross")]),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-chevron-down expand-button",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "status-options" } }, [
+              _c("ul", [
+                _c(
+                  "li",
+                  { staticClass: "active", attrs: { id: "status-online" } },
+                  [
+                    _c("span", { staticClass: "status-circle" }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Online")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("li", { attrs: { id: "status-away" } }, [
+                  _c("span", { staticClass: "status-circle" }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Away")])
+                ]),
+                _vm._v(" "),
+                _c("li", { attrs: { id: "status-busy" } }, [
+                  _c("span", { staticClass: "status-circle" }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Busy")])
+                ]),
+                _vm._v(" "),
+                _c("li", { attrs: { id: "status-offline" } }, [
+                  _c("span", { staticClass: "status-circle" }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Offline")])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "expanded" } }, [
+              _c("label", { attrs: { for: "twitter" } }, [
+                _c("i", {
+                  staticClass: "fa fa-facebook fa-fw",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { name: "twitter", type: "text", value: "mikeross" }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "twitter" } }, [
+                _c("i", {
+                  staticClass: "fa fa-twitter fa-fw",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { name: "twitter", type: "text", value: "ross81" }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "twitter" } }, [
+                _c("i", {
+                  staticClass: "fa fa-instagram fa-fw",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { name: "twitter", type: "text", value: "mike.ross" }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "search" } }, [
+          _c("label", { attrs: { for: "" } }, [
+            _c("i", {
+              staticClass: "fa fa-search",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "text", placeholder: "Search contacts..." }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "contacts" } }, [
+          _c("ul", [
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status online" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/louislitt.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Louis Litt")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("You just got LITT up, Mike.")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact active" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status busy" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Harvey Specter")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v(
+                      "Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things."
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status away" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/rachelzane.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Rachel Zane")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v(
+                      "I was thinking that we could have chicken tonight, sounds good?"
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status online" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/donnapaulsen.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Donna Paulsen")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("Mike, I know everything! I'm Donna..")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status busy" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/jessicapearson.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Jessica Pearson")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v(
+                      "Have you finished the draft on the Hinsenburg deal?"
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/haroldgunderson.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [
+                    _vm._v("Harold Gunderson")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("Thanks Mike! :)")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/danielhardman.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Daniel Hardman")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("We'll meet again, Mike. Tell Jessica I said 'Hi'.")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status busy" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/katrinabennett.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [_vm._v("Katrina Bennett")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("I've sent you the files for the Garrett trial.")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/charlesforstman.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [
+                    _vm._v("Charles Forstman")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _vm._v("Mike, this isn't over.")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "contact" }, [
+              _c("div", { staticClass: "wrap" }, [
+                _c("span", { staticClass: "contact-status" }),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: "http://emilcarlsson.se/assets/jonathansidwell.png",
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "meta" }, [
+                  _c("p", { staticClass: "name" }, [
+                    _vm._v("Jonathan Sidwell")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "preview" }, [
+                    _c("span", [_vm._v("You:")]),
+                    _vm._v(" That's bullshit. This deal is solid.")
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "bottom-bar" } }, [
+          _c("button", { attrs: { id: "addcontact" } }, [
+            _c("i", {
+              staticClass: "fa fa-user-plus fa-fw",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Add contact")])
+          ]),
+          _vm._v(" "),
+          _c("button", { attrs: { id: "settings" } }, [
+            _c("i", {
+              staticClass: "fa fa-cog fa-fw",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Settings")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "contact-profile" }, [
+          _c("img", {
+            attrs: {
+              src: "http://emilcarlsson.se/assets/harveyspecter.png",
+              alt: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Harvey Specter")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "social-media" }, [
+            _c("i", {
+              staticClass: "fa fa-facebook",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-twitter",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-instagram",
+              attrs: { "aria-hidden": "true" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "messages" }, [
+          _c("ul", [
+            _c("li", { staticClass: "sent" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/mikeross.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!"
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "replies" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "When you're backed against the wall, break the god damn thing down."
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "replies" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Excuses don't win championships.")])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "sent" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/mikeross.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Oh yeah, did Michael Jordan tell you that?")])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "replies" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [_vm._v("No, I told him that.")])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "replies" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "What are your choices when someone puts a gun to your head?"
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "sent" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/mikeross.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "What are you talking about? You do what they say or they shoot you."
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "replies" }, [
+              _c("img", {
+                attrs: {
+                  src: "http://emilcarlsson.se/assets/harveyspecter.png",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things."
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "message-input" }, [
+          _c("div", { staticClass: "wrap" }, [
+            _c("input", {
+              attrs: { type: "text", placeholder: "Write your message..." }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-paperclip attachment",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "submit" }, [
+              _c("i", {
+                staticClass: "fa fa-paper-plane",
+                attrs: { "aria-hidden": "true" }
+              })
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
