@@ -10,8 +10,8 @@
                 </div>
             </form>
         </div>
-        <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
+        <ul class="row consultant-list" v-if="filteredMentores.length > 0">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in filteredMentores" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentor.nm_mentor}}</h2>
@@ -100,7 +100,7 @@
                 </div>
             </ul>
         </div>
-        <div v-if="mentores.length == 0">
+        <div v-if="filteredMentores.length == 0">
             <div class="col-12 h2-title center-sprite text-center">
                 Não há mentores
             </div>
@@ -111,7 +111,6 @@
 <script>
     export default {
         props: ['mentores'],
-        mode: 'production',
         name: 'all-mentores',
         data() {
             return {
@@ -121,7 +120,7 @@
                 filteredMentores: [],
             }
         },
-        created() {
+        beforeCreate() {
             axios.get('/mentoresListagem')
                 .then((data) => {
                     this.filteredMentores = data.data.dados;

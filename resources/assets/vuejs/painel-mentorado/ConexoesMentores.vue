@@ -86,7 +86,7 @@
                 </div>
             </ul>
         </div>
-        <div v-if="mentores.length == 0">
+        <div v-if="filteredMentores.length == 0">
             <div class="col-12 h2-title center-sprite text-center">
                 Não há mentores
             </div>
@@ -96,8 +96,6 @@
 
 <script>
     export default {
-        props: ['mentores'],
-        mode: 'production',
         name: 'conexoes-mentores',
         data() {
             return {

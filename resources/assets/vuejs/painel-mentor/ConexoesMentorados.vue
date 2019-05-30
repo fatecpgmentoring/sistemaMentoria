@@ -86,7 +86,7 @@
                 </div>
             </ul>
         </div>
-        <div v-if="mentorados.length == 0">
+        <div v-if="filteredMentorados.length == 0">
             <div class="col-12 h2-title center-sprite text-center">
                 Não há mentorados
             </div>
@@ -96,8 +96,6 @@
 
 <script>
     export default {
-        props: ['mentorados'],
-        mode: 'production',
         name: 'conexoes-mentorados',
         data() {
             return {

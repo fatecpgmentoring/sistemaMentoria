@@ -17,7 +17,7 @@
 
 <section id="consultants" class="inside">
     <div class="container">
-        <all-mentores></all-mentores>
+        <all-mentores :mentores="{{$mentores}}"></all-mentores>
         {{-- @include('site.includes.listagemMentores') --}}
     </div>
 </section>
