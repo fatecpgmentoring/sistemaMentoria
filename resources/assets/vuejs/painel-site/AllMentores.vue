@@ -1,38 +1,16 @@
-<<<<<<< HEAD
 <template>
-	
-</template>
-
-<script>
-    export default {
-        props: [''],
-        name: 'all-mentores',
-        data()
-        {
-            return {
-
-            }
-        },
-        mounted() {
-        }
-    }
-</script>
-||||||| merged common ancestors
-=======
-<template>
-
     <div>
         <div class="search-wrap">
-        <form>
-            <div class="wrap-input">
-                <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
-                <button type="submit" @click="fsearch(search)">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-        <ul class="row consultant-list"  v-if="this.filteredMentores.length > 0">
+            <form>
+                <div class="wrap-input">
+                    <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
+                    <button type="submit" @click="fsearch(search)">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
             <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
@@ -81,47 +59,50 @@
                     <div class="cfooter">
                         <div>
                             <a :href="'/show/mentor/' + mentor.id_mentor" class="btn">
-                                <div class="spriting"></div>ver</a>
+                                <div class="spriting"></div>ver
+                            </a>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
         <div id="paginator">
-                <ul>
-                    <div v-if="page == 1">
-                        <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>
+            <ul>
+                <div v-if="page == 1">
+                    <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>
+                </div>
+                <div v-else>
+                    <li class="prev"><a href="" @click="changePage(page-1)">Anterior</a></li>
+                </div>
+                &nbsp &nbsp
+                <div v-for="n in qtd">
+                    <div v-if="page == n">
+                        <li class="active">
+                            <a href="" @click="changePage(n)">
+                                {{n}}
+                            </a>
+                        </li>
                     </div>
                     <div v-else>
-                        <li class="prev"><a href="" @click="changePage(page-1)">Anterior</a></li>
+                        <li>
+                            <a href="" @click="changePage(n)">
+                                {{n}}
+                            </a>
+                        </li>
                     </div>
-                    <div v-for="n in qtd">
-                        <div v-if="page == n">
-                            <li class="active">
-                                <a href="" @click="changePage(n)">
-                                    {{n}}
-                                </a>
-                            </li>
-                        </div>
-                        <div v-else>
-                            <li>
-                                <a href="" @click="changePage(n)">
-                                    {{n}}
-                                </a>
-                            </li>
-                        </div>
-                    </div>
-                    <div v-if="page == qtd">
-                        <li class="next disabled"><a href="" @click="changePage(page+1)">Proximo</a></li>
-                    </div>
-                    <div v-else>
-                        <li class="next"><a href="" @click="changePage(page+1)">Proximo</a></li>
-                    </div>
-                </ul>
-            </div>
-    <div v-if="mentores.length == 0">
+                </div>
+                &nbsp &nbsp
+                <div v-if="page == qtd">
+                    <li class="next disabled"><a href="" @click="changePage(page+1)">Proximo</a></li>
+                </div>
+                <div v-else>
+                    <li class="next"><a href="" @click="changePage(page+1)">Proximo</a></li>
+                </div>
+            </ul>
+        </div>
+        <div v-if="mentores.length == 0">
             <div class="col-12 h2-title center-sprite text-center">
-                Não há consultores
+                Não há mentores
             </div>
         </div>
     </div>
@@ -132,8 +113,7 @@
         props: ['mentores'],
         mode: 'production',
         name: 'all-mentores',
-        data()
-        {
+        data() {
             return {
                 page: 1,
                 qtd: 0,
@@ -143,40 +123,50 @@
         },
         created() {
             axios.get('/mentoresListagem')
-            .then((data) => {
-                this.filteredMentores = data.data.dados;
-                this.qtd = data.data.qtd;
-            })
-            .catch((e) => {
-                console.log('Erro ao carregar consultores: ', e);
-            });
+                .then((data) => {
+                    this.filteredMentores = data.data.dados;
+                    this.qtd = data.data.qtd;
+                })
+                .catch((e) => {
+                    console.log('Erro ao carregar mentores: ', e);
+                });
         },
         methods: {
             changePage(data) {
-            event.preventDefault();
-            this.page = data;
-            axios.get('/mentoresListagem', {params: {page: this.page, search: this.search}})
-            .then((data) => {
-                this.filteredMentores = data.data.dados;
-                this.qtd = data.data.qtd;
-            })
-            .catch((e) => {
-                console.log('Erro ao carregar consultores: ', e);
-            });
-        },
-        fsearch(data) {
-            event.preventDefault();
-            this.search = data;
-            axios.get('/mentoresListagem', {params: {page: this.page, search: this.search}})
-            .then((data) => {
-                this.filteredMentores = data.data.dados;
-                this.qtd = data.data.qtd;
-            })
-            .catch((e) => {
-                console.log('Erro ao carregar consultores: ', e);
-            });
-        },
+                event.preventDefault();
+                this.page = data;
+                axios.get('/mentoresListagem', {
+                        params: {
+                            page: this.page,
+                            search: this.search
+                        }
+                    })
+                    .then((data) => {
+                        this.filteredMentores = data.data.dados;
+                        this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
+            fsearch(data) {
+                event.preventDefault();
+                this.search = data;
+                axios.get('/mentoresListagem', {
+                        params: {
+                            page: this.page,
+                            search: this.search
+                        }
+                    })
+                    .then((data) => {
+                        this.filteredMentores = data.data.dados;
+                        this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
         },
     }
+
 </script>
->>>>>>> 68fefac1520f3cc5987e602d7a2ab373b534eeb9

@@ -17,7 +17,8 @@
 
 <section id="consultants" class="inside">
     <div class="container">
-        @include('site.includes.listagemMentores')
+        <all-mentores></all-mentores>
+        {{-- @include('site.includes.listagemMentores') --}}
     </div>
 </section>
 @endsection

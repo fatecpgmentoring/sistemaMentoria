@@ -2,7 +2,7 @@
 
 <!-- Coloque o html do Chat aqui -->
 
-	
+
 </template>
 
 <script>

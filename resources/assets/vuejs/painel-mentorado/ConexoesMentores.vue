@@ -1,18 +1,158 @@
+<!-- Limitar a 6 por pagina -->
 <template>
-	
+    <div>
+        <div class="search-wrap">
+            <form>
+                <div class="wrap-input">
+                    <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
+                    <button type="submit" @click="fsearch(search)">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
+                <div class="wrap-card">
+                    <div class="cheader">
+                        <h2 class="name">{{mentor.nm_mentor}}</h2>
+                        <h3 class="specialization">
+                            <div>
+                                <div>
+                                    <!-- Status Conexão -->
+                                </div>
+                            </div>
+
+                        </h3>
+
+                        <div class="text-center">
+                            <!-- Assunto de Conexão -->
+                        </div>
+                    </div>
+                    <div class="perfil-photo">
+                        <figure>
+                            <img :src="'/' + mentor.ds_foto" alt="mentor">
+                        </figure>
+                    </div>
+                    <p class="description text-justify p-3 text-center">
+                        <!-- Data do Termino -->
+                    </p>
+                    <div class="cfooter">
+                        <div v-if="true"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
+                            <a :href="'/mentorado/chat/' + mentor.id_mentor" class="btn">
+                                <div class="spriting"></div>ver
+                            </a>
+                        </div>
+                        <div v-else>
+                            <a :href="'/mentorado/chat/' + mentor.id_mentor" class="btn">
+                                <div class="spriting"></div>ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div id="paginator">
+            <ul>
+                <div v-if="page == 1">
+                    <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>
+                </div>
+                <div v-else>
+                    <li class="prev"><a href="" @click="changePage(page-1)">Anterior</a></li>
+                </div>
+                &nbsp &nbsp
+                <div v-for="n in qtd">
+                    <div v-if="page == n">
+                        <li class="active">
+                            <a href="" @click="changePage(n)">
+                                {{n}}
+                            </a>
+                        </li>
+                    </div>
+                    <div v-else>
+                        <li>
+                            <a href="" @click="changePage(n)">
+                                {{n}}
+                            </a>
+                        </li>
+                    </div>
+                </div>
+                &nbsp &nbsp
+                <div v-if="page == qtd">
+                    <li class="next disabled"><a href="" @click="changePage(page+1)">Proximo</a></li>
+                </div>
+                <div v-else>
+                    <li class="next"><a href="" @click="changePage(page+1)">Proximo</a></li>
+                </div>
+            </ul>
+        </div>
+        <div v-if="mentores.length == 0">
+            <div class="col-12 h2-title center-sprite text-center">
+                Não há mentores
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        props: [''],
+        props: ['mentores'],
+        mode: 'production',
         name: 'conexoes-mentores',
-        data()
-        {
+        data() {
             return {
-
+                page: 1,
+                qtd: 0,
+                search: "",
+                filteredMentores: [],
             }
         },
-        mounted() {
-        }
+        created() {
+            axios.get('/mentoresConectados')
+                .then((data) => {
+                    this.filteredMentores = data.data.dados;
+                    this.qtd = data.data.qtd;
+                })
+                .catch((e) => {
+                    console.log('Erro ao carregar mentores: ', e);
+                });
+        },
+        methods: {
+            changePage(data) {
+                event.preventDefault();
+                this.page = data;
+                axios.get('/mentoresConectados', {
+                        params: {
+                            page: this.page,
+                            search: this.search
+                        }
+                    })
+                    .then((data) => {
+                        this.filteredMentores = data.data.dados;
+                        this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
+            fsearch(data) {
+                event.preventDefault();
+                this.search = data;
+                axios.get('/mentoresConectados', {
+                        params: {
+                            page: this.page,
+                            search: this.search
+                        }
+                    })
+                    .then((data) => {
+                        this.filteredMentores = data.data.dados;
+                        this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
+        },
     }
+
 </script>
