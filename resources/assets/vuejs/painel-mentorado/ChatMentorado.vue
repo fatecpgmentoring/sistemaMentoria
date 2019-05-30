@@ -8,7 +8,7 @@
 <script>
     export default {
         props: [''],
-        name: 'chat-mentorado',
+        name: 'chat-mentorado', // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
         data()
         {
             return {
