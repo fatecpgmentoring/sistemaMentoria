@@ -1,4 +1,7 @@
 <template>
+
+<!-- Coloque o html do Chat aqui -->
+
 	
 </template>
 
