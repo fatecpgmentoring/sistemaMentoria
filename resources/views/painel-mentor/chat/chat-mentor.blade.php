@@ -7,6 +7,9 @@
 
 @section('content')
 
-<chat-mentor></chat-mentor>
+<chat-mentor>
+	
+		
+</chat-mentor>
 
 @endsection
