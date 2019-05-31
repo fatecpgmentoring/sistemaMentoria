@@ -6,10 +6,10 @@
 @section('content')
 
 <!-- HEADER -->
+@include('site.includes.nav')
 @include('site.homepage.sections.header')
 
-<!-- CONSULTANTS -->
-@include('site.homepage.sections.consultants')
+
 
 <!--Fale Conosco -->
 @include('site.includes.faleConosco')
