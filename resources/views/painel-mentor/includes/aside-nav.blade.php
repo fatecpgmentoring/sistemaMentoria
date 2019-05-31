@@ -12,12 +12,12 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentor/cadastrar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Conteúdo</a>
+                <a href="/mentor/cadastrar-contato"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Contato</a>
             </div>
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentor/conexões-mentorados"><span class="spriting sprite-nav-dashboard"></span>Conexões Mentorados</a>
+                <a href="/mentor/conexões-mentor"><span class="spriting sprite-nav-dashboard"></span>Conexões</a>
             </div>
         </li>
         <li>
@@ -37,14 +37,8 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentor/atendimento/relatorios"><span class="spriting sprite-nav-atendimento"></span>Relatórios</a>
-        </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <a href="/mentor/relatorio-creditos-e-transferencias"><span class="spriting sprite-nav-credito"></span>Relatórios</a>
+                <a href="/logout"><span class="spriting sprite-nav-dashboard"></span>Sair</a>
             </div>
-        </li>
+        </li>                
     </ul>
-
 </aside>

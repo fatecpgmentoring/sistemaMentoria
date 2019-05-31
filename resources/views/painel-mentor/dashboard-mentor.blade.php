@@ -20,6 +20,7 @@
         <consultant-notification consultantid="{{--Auth::user()->cd_usuario_fk--}}"></consultant-notification>
     </div>
     -->
+    <!--
     <div class="row r-m">
         <div class="col-md-6">
             <div class="wrap-rounded-column">
@@ -65,7 +66,7 @@
     </div>
 </section>
 
-<!-- table listing -->
+<!--table listing
 <div id="table-block">
     <div class="container-fluid">
         <div class="table-responsive">
@@ -96,6 +97,7 @@
         </div>
     </div>
 </div>
+-->
 
 @endsection
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
