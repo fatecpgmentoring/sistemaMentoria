@@ -5,6 +5,10 @@ use App\Http\Middleware\CheckMentor;
 use App\Http\Middleware\CheckMentorado;
 use App\Http\Middleware\CheckOnline;
 
+Route::get('/contato', function () {
+   return view('site.contato');
+});
+
 Route::get('/', 'SiteController@index');
 Route::get('/login', function () {
     return view('site.login');

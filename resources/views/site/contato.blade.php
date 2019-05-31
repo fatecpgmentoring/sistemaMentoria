@@ -6,9 +6,6 @@
 @section('content')
 
 <!-- HEADER -->
-@include('site.includes.nav')
-@include('site.homepage.sections.header')
-
 
 
 <!--Fale Conosco -->
