@@ -17,7 +17,7 @@ class MentoradoController extends Controller
      */
     public function index()
     {
-        return view('painel-mentorado.dashboard-mentorado', compact('usuario'));
+        return view('painel-mentorado.dashboard-mentorado');
     }
 
     /**
