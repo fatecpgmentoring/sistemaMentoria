@@ -27,7 +27,7 @@
                         @method('DELETE')
                             <div class="btn-group">
                             <a href="{{ route('admin.mentor.edit', $mentor->id_mentor) }}" class="btn btn-primary fa fa-edit"></a>
-                            <button class="btn btn-danger fa fa-trash"></button>
+                            <button class="btn btn-danger fa fa-trash" data-toggle="tooltip" title="Excluir"></button>
                         </div>
                     </form>
                 </div>

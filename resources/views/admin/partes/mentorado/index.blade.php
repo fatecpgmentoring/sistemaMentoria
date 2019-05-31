@@ -26,8 +26,8 @@
                         @csrf
                         @method('DELETE')
                             <div class="btn-group">
-                            <a href="{{ route('admin.mentorado.edit', $mentorado->id_mentorado) }}" class="btn btn-primary fa fa-edit"></a>
-                            <button class="btn btn-danger fa fa-trash"></button>
+                            <a href="{{ route('admin.mentorado.edit', $mentorado->id_mentorado) }}" class="btn btn-primary fa fa-edit" data-toggle="tooltip" title="Editar"></a>
+                            <button class="btn btn-danger fa fa-trash" data-toggle="tooltip" title="Excluir"></button>
                         </div>
                     </form>
                 </div>
