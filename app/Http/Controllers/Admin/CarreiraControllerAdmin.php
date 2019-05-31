@@ -52,7 +52,7 @@ class CarreiraControllerAdmin extends Controller
     public function edit($id)
     {
         $carreira = Carreira::find($id);
-        return view('admin.partes.carreira.show', compact('carreira'));
+        return view('admin.partes.carreira.edit', compact('carreira'));
     }
 
     public function update(Request $request, $id)

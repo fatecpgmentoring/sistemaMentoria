@@ -55,7 +55,7 @@ class ProfissaoControllerAdmin extends Controller
     public function edit($id)
     {
         $profissao = Profissao::find($id);
-        return view('admin.partes.profissao.show', compact('profissao'));
+        return view('admin.partes.profissao.edit', compact('profissao'));
     }
 
     public function update(Request $request, $id)

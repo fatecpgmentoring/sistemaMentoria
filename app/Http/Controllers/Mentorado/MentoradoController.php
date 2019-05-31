@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Mentorado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Usuario;
+use App\Mentorado;
 
-class MentoradoControler extends Controller
+class MentoradoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,7 @@ class MentoradoControler extends Controller
      */
     public function index()
     {
-        //
+        return view('painel-mentorado.dashboard-mentorado', compact('usuario'));
     }
 
     /**

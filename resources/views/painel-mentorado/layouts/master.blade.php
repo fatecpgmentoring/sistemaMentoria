@@ -8,7 +8,7 @@
 </head>
 <body>
     @php
-    $usuario = session('usuario.1');
+    $usuario = session('usuario.0');
     @endphp
     <header id="consultor-header">
         <div class="wrap-content">
@@ -50,14 +50,14 @@
         </main>
     </div>
 
-    <!-- This Global Component Listen For Notification 
+    <!-- This Global Component Listen For Notification
 
     <div id="global-notifier">
         <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
     </div> -->
 
     <!-- WS URL && Socket Lib -->
-    
+
     <script src="{{ asset('js/socket.io.js') }}"></script>
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
@@ -77,7 +77,7 @@
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
     <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
     <script>
-            
+
     </script>
     @yield('js')
 

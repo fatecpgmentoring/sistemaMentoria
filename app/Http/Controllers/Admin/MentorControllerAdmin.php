@@ -28,8 +28,8 @@ class MentorControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
-            $extension = new SplFileInfo($_FILES['foto']['name']);
-            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension->getExtension();
+            $extension = str_replace('.', '', strstr($_FILES['foto']['name'], '.'));
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
             $arquivo_tmp = $_FILES['foto']['tmp_name'];
             move_uploaded_file( $arquivo_tmp, $destino  );
             $mentor = new Mentor([

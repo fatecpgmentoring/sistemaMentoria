@@ -117,7 +117,7 @@
                 page: 1,
                 qtd: 0,
                 search: "",
-                filteredMentores: [],
+                filteredMentores: this.mentores,
             }
         },
         beforeCreate() {

@@ -3,6 +3,10 @@
     border-radius: 40px;
 }
 
+.link-breadcrumb:hover{
+    color: white;
+}
+
 .btn-mentoring:first-child {
     margin-top: .2rem
 }

@@ -135,10 +135,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
    Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
 });
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' => CheckMentorado::class], function () {
-   Route::get('/', function()
-    {
-        return view('painel-mentorado.dashboard-mentorado');
-    });
+   Route::get('/', 'MentoradoController@index')->name('index.mentorado.painel');
    Route::get('/atendimento/relatorios', function(){return view('painel-mentorado.atendimento.relatorio');});
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentorado.relatorio-creditos-e-transferencias');});
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentorado.login.alterar-senha');});

@@ -13,7 +13,7 @@
         <label class="label-control" for="email">E-mail:</label>
         <input type="email" class="form-control" value="{{$mentorado->usuario->email}}" name="email" id="email">
     </div>
-    <img src="{{asset($mentor->ds_foto)}}" width="10%" height="10%">
+    <img src="{{asset($mentorado->ds_foto)}}" width="10%" height="10%">
     <div class="form-group">
         <label class="label-control" for="foto">Foto: </label>
         <input type="file" class="form-control" name="foto" id="foto">

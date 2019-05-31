@@ -1,6 +1,6 @@
 @extends('site.layouts.master')
 
-@section('meta-title', 'Consultores | Tarot Nova Era')
+@section('meta-title', 'Mentores | SISCCON')
 @section('meta-desc', '')
 
 @section('content')
