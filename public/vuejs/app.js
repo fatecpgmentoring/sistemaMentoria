@@ -2713,10 +2713,6 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Erro ao carregar mentores: ', e);
     });
   },
-  mounted: function mounted() {
-    var x = document.getElementsByName("fb");
-    x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
-  },
   methods: {
     changePage: function changePage(data) {
       var _this2 = this;
@@ -2834,10 +2830,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência']
     };
-  },
-  mounted: function mounted() {
-    var x = document.getElementsByName("fb");
-    x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
   }
 });
 
@@ -49915,7 +49907,7 @@ var render = function() {
                     _c("div", { staticClass: "text-center" }, [
                       _vm._v(
                         "\n                        Conhecimento: " +
-                          _vm._s(this.dic[mentor.nv_conhecimento - 1]) +
+                          _vm._s(_vm.dic[mentor.nv_conhecimento - 1]) +
                           "\n                    "
                       )
                     ])
@@ -49929,7 +49921,219 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(1, true),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "description text-justify p-3 text-center estrelas"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Nota:\n                    "
+                      ),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-empty-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 0
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-1-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-1-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "1",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 1
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-2-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-2-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "2",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 2
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-3-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-3-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "3",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 3
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-4-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-4-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "4",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 4
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-5-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-5-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "5",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 5
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-6-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-6-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "6",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 6
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-7-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-7-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "7",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 7
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-8-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-8-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "8",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 8
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-9-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-9-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "9",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 9
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-10-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-10-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "10",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 10
+                        }
+                      })
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     _c("div", [
@@ -50105,167 +50309,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      { staticClass: "description text-justify p-3 text-center estrelas" },
-      [
-        _vm._v("\n                    Nota:\n                    "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-empty",
-            name: "fb",
-            value: "",
-            checked: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-1" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-1",
-            name: "fb",
-            value: "1",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-2" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-2",
-            name: "fb",
-            value: "2",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-3" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-3",
-            name: "fb",
-            value: "3",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-4" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-4",
-            name: "fb",
-            value: "4",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-5" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-5",
-            name: "fb",
-            value: "6",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-6" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-6",
-            name: "fb",
-            value: "6",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-7" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-7",
-            name: "fb",
-            value: "7",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-8" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-8",
-            name: "fb",
-            value: "8",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-9" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-9",
-            name: "fb",
-            value: "9",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-10" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-10",
-            name: "fb",
-            value: "10",
-            disabled: ""
-          }
-        })
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -50310,7 +50353,7 @@ var render = function() {
                     _c("div", { staticClass: "text-center" }, [
                       _vm._v(
                         "\n                        Conhecimento: " +
-                          _vm._s(this.dic[mentor.nv_conhecimento - 1]) +
+                          _vm._s(_vm.dic[mentor.nv_conhecimento - 1]) +
                           "\n                    "
                       )
                     ])
@@ -50324,7 +50367,219 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(1, true),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "description text-justify p-3 text-center estrelas"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Nota:\n                    "
+                      ),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-empty-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 0
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-1-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-1-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "1",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 1
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-2-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-2-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "2",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 2
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-3-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-3-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "3",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 3
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-4-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-4-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "4",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 4
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-5-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-5-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "5",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 5
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-6-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-6-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "6",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 6
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-7-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-7-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "7",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 7
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-8-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-8-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "8",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 8
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-9-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-9-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "9",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 9
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-10-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-10-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "10",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 10
+                        }
+                      })
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     _c("div", [
@@ -50361,167 +50616,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      { staticClass: "description text-justify p-3 text-center estrelas" },
-      [
-        _vm._v("\n                    Nota:\n                    "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-empty",
-            name: "fb",
-            value: "",
-            checked: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-1" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-1",
-            name: "fb",
-            value: "1",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-2" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-2",
-            name: "fb",
-            value: "2",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-3" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-3",
-            name: "fb",
-            value: "3",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-4" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-4",
-            name: "fb",
-            value: "4",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-5" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-5",
-            name: "fb",
-            value: "6",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-6" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-6",
-            name: "fb",
-            value: "6",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-7" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-7",
-            name: "fb",
-            value: "7",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-8" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-8",
-            name: "fb",
-            value: "8",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-9" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-9",
-            name: "fb",
-            value: "9",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "cm_star-10" } }, [
-          _c("i", { staticClass: "fa" })
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            id: "cm_star-10",
-            name: "fb",
-            value: "10",
-            disabled: ""
-          }
-        })
-      ]
-    )
   }
 ]
 render._withStripped = true
