@@ -25,8 +25,8 @@
                             @method('DELETE')
                                 <div class="btn-group">
                                 <a href="{{ route('admin.carreira.status', $carreira->id_carreira) }}" class="btn {{$carreira->ds_active_carreira ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$carreira->ds_active_carreira ? '' : ''}}</a>
-                                <a href="{{ route('admin.carreira.edit', $carreira->id_carreira) }}" class="btn btn-primary fa fa-edit"></a>
-                                <button class="btn btn-danger fa fa-trash"></button>
+                                <a href="{{ route('admin.carreira.edit', $carreira->id_carreira) }}" class="btn btn-primary fa fa-edit"  data-toggle="tooltip" title="Editar"></a>
+                                <button class="btn btn-danger fa fa-trash"  data-toggle="tooltip" title="Excluir"></button>
                             </div>
                         </form>
                     </td>

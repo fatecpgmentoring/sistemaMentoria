@@ -26,8 +26,8 @@
                             @method('DELETE')
                                 <div class="btn-group">
                                 <a href="{{ route('admin.assunto.status', $assunto->id_assunto) }}" class="btn {{$assunto->ds_active_assunto ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$assunto->ds_active_assunto ? '' : ''}}</a>
-                                <a href="{{ route('admin.assunto.edit', $assunto->id_assunto) }}" class="btn btn-primary fa fa-edit"></a>
-                                <button class="btn btn-danger fa fa-trash"></button>
+                                <a href="{{ route('admin.assunto.edit', $assunto->id_assunto) }}" class="btn btn-primary fa fa-edit"  data-toggle="tooltip" title="Editar"></a>
+                                <button class="btn btn-danger fa fa-trash"  data-toggle="tooltip" title="Excluir"></button>
                             </div>
                         </form>
                 </td></tr>
