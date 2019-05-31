@@ -1,6 +1,6 @@
 @extends('painel-mentor.layouts.master')
 
-@section('meta-title', 'Listar Comentários - Painel Mentor | Sisscon')
+@section('meta-title', 'Cadastrar Contato - Painel Mentor | Sisscon')
 @section('meta-desc', '')
 
 @section('meta-desc', '')
@@ -10,12 +10,10 @@
     <li>Você está em</li>
     <li><a href="/" class="link-breadcrumb">Home</a></li>
     <li><a href="/mentor" class="link-breadcrumb">Painel Mentor</a></li>
-    <li><a href="/mentor/comentarios" class="link-breadcrumb">Listar Comentários</a></li>
+    <li><a href="/mentor/cadastrar-contato" class="link-breadcrumb">Cadastrar Contato</a></li>
 </ul>
 @endsection
 
 @section('content')
-
-<listar-comentarios></listar-comentarios>
 
 @endsection

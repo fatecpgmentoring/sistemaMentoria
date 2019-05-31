@@ -1,6 +1,6 @@
 @extends('site.layouts.master')
 
-@section('meta-title', 'Sisscon | Mentoring')
+@section('meta-title', 'Acesso Restrito | Sisscon')
 @section('meta-desc', '')
 
 @section('content')

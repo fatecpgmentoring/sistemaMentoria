@@ -8,8 +8,8 @@
 @section('breadcrumb')
 <ul class="breadcrumb-list">
     <li>Você está em</li>
-    <li>Home</li>
-    <li>Painel Mentor</li>
+    <li><a href="/" class="link-breadcrumb">Home</a></li>
+    <li><a href="/mentor"class="link-breadcrumb">Painel Mentor</a></li>
 </ul>
 @endsection
 
@@ -82,7 +82,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        
+
                         <tr>
                             <td>1</td>
                             <td>Aroldo</td>

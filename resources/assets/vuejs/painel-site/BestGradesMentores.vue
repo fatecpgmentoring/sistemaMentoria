@@ -16,7 +16,7 @@
                         </h3>
 
                         <div class="text-center">
-                            Conhecimento: {{this.dic[mentor.nv_conhecimento-1]}}
+                            Conhecimento: {{dic[mentor.nv_conhecimento-1]}}
                         </div>
                     </div>
                     <div class="perfil-photo">
@@ -26,27 +26,27 @@
                     </div>
                     <p class="description text-justify p-3 text-center estrelas">
                         Nota:
-                        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
-                        <label for="cm_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-1" name="fb" value="1" disabled/>
-                        <label for="cm_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-2" name="fb" value="2" disabled/>
-                        <label for="cm_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-3" name="fb" value="3" disabled/>
-                        <label for="cm_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-4" name="fb" value="4" disabled/>
-                        <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" value="6" disabled/>
-                        <label for="cm_star-6"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-6" name="fb" value="6" disabled/>
-                        <label for="cm_star-7"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-7" name="fb" value="7" disabled/>
-                        <label for="cm_star-8"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-8" name="fb" value="8" disabled/>
-                        <label for="cm_star-9"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-9" name="fb" value="9" disabled/>
-                        <label for="cm_star-10"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-10" name="fb" value="10" disabled/>
+                        <input type="radio" :id="'cm_star-empty-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 0"/>
+                        <label :for="'cm_star-1-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-1-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="1" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 1" disabled/>
+                        <label :for="'cm_star-2-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-2-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="2" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 2" disabled/>
+                        <label :for="'cm_star-3-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-3-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="3" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 3" disabled/>
+                        <label :for="'cm_star-4-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-4-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="4" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 4" disabled/>
+                        <label :for="'cm_star-5-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-5-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="5" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 5" disabled/>
+                        <label :for="'cm_star-6-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-6-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="6" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 6" disabled/>
+                        <label :for="'cm_star-7-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-7-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="7" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 7" disabled/>
+                        <label :for="'cm_star-8-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-8-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="8" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 8" disabled/>
+                        <label :for="'cm_star-9-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-9-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="9" :checked="parseInt(mentor.vl_nota.toFixed(0)) == 9" disabled/>
+                        <label :for="'cm_star-10-' + mentor.id_mentor"><i class="fa"></i></label>
+                        <input type="radio" :id="'cm_star-10-' + mentor.id_mentor" :name="'fb-' + mentor.id_mentor" value="10":checked="parseInt(mentor.vl_nota.toFixed(0)) == 10" disabled/>
                     </p>
                     <div class="cfooter">
                         <div>
@@ -76,9 +76,5 @@
                 'mais de 20 anos de experiência'],
             }
         },
-        mounted() {
-            var x = document.getElementsByName("fb");
-            x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true
-        }
     }
 </script>

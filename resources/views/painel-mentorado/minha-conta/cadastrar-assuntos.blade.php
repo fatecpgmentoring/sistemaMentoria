@@ -1,6 +1,6 @@
 @extends('painel-mentorado.layouts.master')
 
-@section('meta-title', 'Cadastrar Assuntos - Mentorado | Sisscon')
+@section('meta-title', 'Cadastrar Assuntos - Painel Mentorado | Sisscon')
 @section('meta-desc', '')
 
 @section('meta-desc', '')
@@ -8,9 +8,9 @@
 @section('breadcrumb')
 <ul class="breadcrumb-list">
     <li>Você está em</li>
-    <li>Home</li>
-    <li>Painel Mentorado</li>
-    <li>Cadastrar Assuntos</li>
+    <li><a href="/" class="link-breadcrumb">Home</a></li>
+    <li><a href="/mentorado" class="link-breadcrumb">Painel Mentorado</a></li>
+    <li><a href="/mentorado/cadastrar-assunto" class="link-breadcrumb">Cadastrar Assuntos</a></li>
 </ul>
 @endsection
 
