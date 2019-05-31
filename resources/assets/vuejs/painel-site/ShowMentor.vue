@@ -82,7 +82,6 @@ export default {
     mounted()
     {
         var x = document.getElementsByName("fb");
-        console.log();
         x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true
     }
 }

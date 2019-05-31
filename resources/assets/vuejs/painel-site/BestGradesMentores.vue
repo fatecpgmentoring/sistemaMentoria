@@ -16,27 +16,7 @@
                         </h3>
 
                         <div class="text-center">
-                            <div v-if="mentor.nv_conhecimento == 1">
-                                menos de 1 ano de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 2">
-                                de 1 a 3 anos de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 3">
-                                de 3 a 6 anos de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 4">
-                                6 a 10 anos de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 5">
-                                10 a 15 anos de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 6">
-                                15 a 20 anos de experiência
-                            </div>
-                            <div v-if="mentor.nv_conhecimento == 7">
-                                mais de 20 anos de experiência
-                            </div>
+                            Conhecimento: {{this.dic[mentor.nv_conhecimento-1]}}
                         </div>
                     </div>
                     <div class="perfil-photo">
@@ -44,8 +24,29 @@
                             <img :src="'/' + mentor.ds_foto" alt="mentor">
                         </figure>
                     </div>
-                    <p class="description text-justify p-3 text-center">
-                        Nota: {{mentor.vl_nota}}
+                    <p class="description text-justify p-3 text-center estrelas">
+                        Nota:
+                        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+                        <label for="cm_star-1"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-1" name="fb" value="1" disabled/>
+                        <label for="cm_star-2"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-2" name="fb" value="2" disabled/>
+                        <label for="cm_star-3"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-3" name="fb" value="3" disabled/>
+                        <label for="cm_star-4"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-4" name="fb" value="4" disabled/>
+                        <label for="cm_star-5"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-5" name="fb" value="6" disabled/>
+                        <label for="cm_star-6"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-6" name="fb" value="6" disabled/>
+                        <label for="cm_star-7"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-7" name="fb" value="7" disabled/>
+                        <label for="cm_star-8"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-8" name="fb" value="8" disabled/>
+                        <label for="cm_star-9"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-9" name="fb" value="9" disabled/>
+                        <label for="cm_star-10"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-10" name="fb" value="10" disabled/>
                     </p>
                     <div class="cfooter">
                         <div>
@@ -65,12 +66,19 @@
         data()
         {
             return {
-
+                dic: [
+                'menos de 1 ano de experiência',
+                'entre 1 e 3 anos de experiência',
+                'entre 3 e 6 anos de experiência',
+                'entre 6 e 10 anos de experiência',
+                'entre 10 e 15 anos de experiência',
+                'entre 15 e 20 anos de experiência',
+                'mais de 20 anos de experiência'],
             }
         },
         mounted() {
-            console.log('Component mounted.')
-            console.log(this.mentores);
+            var x = document.getElementsByName("fb");
+            x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true
         }
     }
 </script>
