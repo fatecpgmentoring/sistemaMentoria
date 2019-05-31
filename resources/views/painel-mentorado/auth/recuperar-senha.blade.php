@@ -1,6 +1,6 @@
 @extends('painel-consultor.layouts.clean')
 
-@section('meta-title', 'Recuperar senha - Painel Mentor | Sisscon')
+@section('meta-title', 'Recuperar Senha - Painel Mentor | Sisscon')
 @section('meta-desc', '')
 
 @section('meta-desc', '')

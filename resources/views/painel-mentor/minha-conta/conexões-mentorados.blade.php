@@ -1,6 +1,6 @@
 @extends('painel-mentor.layouts.master')
 
-@section('meta-title', 'Conexões - Mentor | Sisscon')
+@section('meta-title', 'Minhas Conexões - Painel Mentor | Sisscon')
 @section('meta-desc', '')
 
 @section('meta-desc', '')
@@ -8,9 +8,9 @@
 @section('breadcrumb')
 <ul class="breadcrumb-list">
     <li>Você está em</li>
-    <li>Home</li>
-    <li>Painel Mentor</li>
-    <li>Conexões</li>
+    <li><a href="/" class="link-breadcrumb">Home</a></li>
+    <li><a href="/mentor" class="link-breadcrumb">Painel Mentor</a></li>
+    <li><a href="/mentor/conexoes" class="link-breadcrumb">Conexões</a></li>
 </ul>
 @endsection
 

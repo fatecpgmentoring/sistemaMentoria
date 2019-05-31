@@ -1,11 +1,11 @@
 @extends('painel-mentor.master')
 
-@section('meta-title', 'Sisscon | Mentoring')
+@section('meta-title', ' Home | Sisscon')
 @section('meta-desc', '')
 
 @section('content')
 
-<!-- HEADER --> 
+<!-- HEADER -->
 @include('site.homepage.sections.header')
 
 <!-- CONSULTANTS -->

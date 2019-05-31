@@ -8,15 +8,15 @@
 @section('breadcrumb')
 <ul class="breadcrumb-list">
     <li>Você está em</li>
-    <li>Home</li>
-    <li>Alterar Cadastro</li>
+    <li><a href="/" class="link-breadcrumb">Home</a></li>
+    <li><a href="/alterar-cadastro" class="link-breadcrumb">Alterar Cadastro</a></li>
 </ul>
 @endsection
 
 @section('content')
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-<section id="minha-conta"> 
+
+<section id="minha-conta">
     <div class="wrap-rounded-column">
         <div class="form-box cad">
             @include('site.includes.msgs')
@@ -24,7 +24,7 @@
             <form action="#" method="post" class="default" enctype="multipart/form-data">
             @csrf
                 <div class="row divisor">
-                    <div class="col-md-6">    
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="text" id="nome" name="nome" class="form-control" value="Nome" required>
@@ -36,9 +36,9 @@
                             <input type="email" id="email" name="email" class="form-control" required value="E-mail">
                         </div>
                     </div>
-                </div>    
+                </div>
                 <div class="row divisor">
-                    <div class="col-md-3">    
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="cpf">CPF</label>
                             <input type="text" id="cpf" name="cpf" data-cpf-mask class="form-control" value="CPF">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="row divisor">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -110,9 +110,9 @@
                                 <div class="form-group">
                                     <label for="especialidade">Especialidades</label>
                                     <select name="especialidade[]" id="especialidade" multiple="multiple">
-                                        
+
                                             <option value="Alguma especialidade" selected>Alguma especialidade</option>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
             </form>
-        </div> 
+        </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/ckeditor/ckeditor.js')}}"></script>
     <script type="text/javascript">
