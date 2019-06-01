@@ -48,6 +48,7 @@ class SiteController extends Controller
     public function logout()
     {
         Auth::logout();
+        $request->session()->flush();
         return redirect('/');
     }
 
