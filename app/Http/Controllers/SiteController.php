@@ -45,7 +45,7 @@ class SiteController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->flush();
