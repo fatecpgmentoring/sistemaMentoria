@@ -39,16 +39,19 @@
         </div>
     </header>
 
-    <div id="main-panel-wrap">
+    <div id="main-panel-wrap" class="active">
         @include('painel-mentorado.includes.aside-nav')
 
         <!-- CONTENT -->
         <main id="main-box">
-            <div id="vue-app" class="container-fluid mt-4">
-                @yield('content')
+            <div class="container-fluid mt-4">
+                <div id="vue-app">
+                    @yield('content')
+                </div>
             </div>
         </main>
     </div>
+
 
     <!-- This Global Component Listen For Notification
 
@@ -69,15 +72,15 @@
     <script type="text/javascript" src="/js/jquery-mobile-events.min.js"></script>
     <script type="text/javascript" src="/js/vendor.js"></script>
     <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
-    <!--
-    <script type="text/javascript" src="/js/painel-consultor.min.js"></script>
-    <link rel="stylesheet" href="{{-- URL::asset('js/BootstrapMultiselect/dist/css/bootstrap-multiselect.css') --}}" type="text/css">
-    <script type="text/javascript" src="{{-- URL::asset('js/BootstrapMultiselect/dist/js/bootstrap-multiselect.js') --}}"></script>
-    -->
-    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.css') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
-    <script>
 
+    <script type="text/javascript" src="{{ asset('js/Multiselect/multiselect.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+            $('.select2').select2();
+        });
     </script>
     @yield('js')
 
