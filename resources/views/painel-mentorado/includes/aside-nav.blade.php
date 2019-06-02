@@ -17,7 +17,7 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Meus Assuntos</a>
+                <a href="/mentorado/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
             </div>
         </li>
         <li>
