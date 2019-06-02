@@ -76,8 +76,9 @@ class ProfissaoControllerAdmin extends Controller
 
     public function activeOrDesactive($id)
     {
+
         $profissao = Profissao::find($id);
-        $profissao->ds_active_assunto = $profissao->ds_active_assunto ? 0 : 1;
+        $profissao->ds_active_profissao = $profissao->ds_active_profissao ? 0 : 1;
         try
         {
             $profissao->update();

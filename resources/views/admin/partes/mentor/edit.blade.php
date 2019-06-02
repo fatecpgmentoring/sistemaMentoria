@@ -9,10 +9,10 @@
         <label class="label-control" for="mentor">Nome:</label>
         <input type="text" class="form-control" value="{{$mentor->nm_mentor}}" name="mentor" id="mentor">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="label-control" for="email">E-mail:</label>
         <input type="email" class="form-control" value="{{$mentor->usuario->email}}" name="email" id="email">
-    </div>
+    </div> -->
     <img src="{{asset($mentor->ds_foto)}}" width="10%" height="10%">
     <div class="form-group">
         <label class="label-control" for="foto">Foto: </label>

@@ -21,7 +21,7 @@ class Mentorado extends Model
     ];
 
     public static $regrasUpdate=[
-        'email' => 'bail|required|email|min:10|max:100',
+      //  'email' => 'bail|required|email|min:10|max:100',
         'mentorado' => 'bail|required|min:3|max:100'
     ];
     public static $mensagens = [
