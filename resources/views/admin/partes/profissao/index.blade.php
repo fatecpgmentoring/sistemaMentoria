@@ -22,7 +22,7 @@
                                 @csrf
                                 @method('DELETE')
                                     <div class="btn-group">
-                                    <a href="{{ route('admin.profissao.status', $profissao->id_profissao) }}" class="btn {{$profissao->ds_active_profissao ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}">{{$profissao->ds_active_profissao ? '' : ''}}</a>
+                                    <a href="{{ route('admin.profissao.status', $profissao->id_profissao) }}" class="btn {{$profissao->ds_active_profissao ? 'btn-warning fa fa-times' : 'btn-success fa fa-check'}}" data-toggle="tooltip" title="{{$profissao->ds_active_profissao ? 'Inativar' : 'Ativar'}}">{{$profissao->ds_active_profissao ? '' : ''}}</a>
                                     <a href="{{ route('admin.profissao.edit', $profissao->id_profissao) }}" class="btn btn-primary fa fa-edit" data-toggle="tooltip" title="Editar"></a>
                                     <button class="btn btn-danger fa fa-trash" data-toggle="tooltip" title="Excluir"></button>
                                 </div>

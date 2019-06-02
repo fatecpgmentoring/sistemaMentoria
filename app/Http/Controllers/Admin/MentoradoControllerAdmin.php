@@ -74,11 +74,11 @@ class MentoradoControllerAdmin extends Controller
         $mentorado = Mentorado::find($id);
         $usuario = Usuario::find($mentorado->usuario_id_usuario);
         $mentorado->nm_mentorado = $request->post('mentorado');
-        $usuario->email = $request->post('email');
+        // $usuario->email = $request->post('email');
         if($request->foto != null)
         {
             $extension = str_replace('.', '', strstr($_FILES['foto']['name'], '.'));
-            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension->getExtension();
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
             $arquivo_tmp = $_FILES['foto']['tmp_name'];
             move_uploaded_file( $arquivo_tmp, $destino  );
             try { unlink($mentorado->ds_foto); } catch(\Exception $ex) {};
@@ -87,7 +87,7 @@ class MentoradoControllerAdmin extends Controller
         try
         {
             $mentorado->update();
-            $usuario->save();
+            // $usuario->save();
             return redirect('admin/mentorado/')->with('success', 'save');
         }
         catch(QueryException $ex)

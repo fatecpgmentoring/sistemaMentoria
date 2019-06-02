@@ -47,11 +47,11 @@ class MentorControllerAdmin extends Controller
             }
             catch(QueryException $ex)
             {
-                return back()->withErrors('Erro ao alterar mentor')->withInput();
+                return back()->withErrors('Erro ao salvar mentor')->withInput();
             }
         }
         else {
-            return back()->withErrors('Erro ao cadastrar mentor')->withInput();
+            return back()->withErrors('Erro ao salvar mentor')->withInput();
         }
     }
 

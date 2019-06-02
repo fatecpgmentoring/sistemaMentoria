@@ -23,7 +23,7 @@ class Mentor extends Model
         'conhecimento' => 'required'
     ];
     public static $regrasU=[
-        'email' => 'bail|required|email|min:10|max:100',
+        // 'email' => 'bail|required|email|min:10|max:100',
         'mentor' => 'bail|required|min:3|max:100',
         'conhecimento' => 'required'
     ];
