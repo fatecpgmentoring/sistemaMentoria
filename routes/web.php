@@ -145,7 +145,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentorado.login.alterar-senha');});
    Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentorado.login.alterar-cadastro');});
 
-   Route::get('/cadastrar-assuntos', function(){return view('painel-mentorado.minha-conta.cadastrar-assuntos');});
+   Route::get('/cadastrar-assuntos', 'AssuntoMentoradoController@cadastrarAssunto')->name('cadastra.assunto.mentorado');
    Route::get('/listar-conteudo', function(){return view('painel-mentorado.minha-conta.listar-conteudo');});
    Route::get('/conexões-mentores', function(){return view('painel-mentorado.minha-conta.conexões-mentores');});
    Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
