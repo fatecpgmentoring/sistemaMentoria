@@ -124,7 +124,7 @@ class AssuntoControllerAdmin extends Controller
         try
         {
             $usuario = Usuario::find($request->post('usuario'));
-            $assunto = Assunto::find($request->post('assunto'))->usuarios()->save($usuario);
+            $usuario->assuntos()->attach(intval($request->post('assunto')));
             return redirect('/admin/usuario/assunto');
         }
         catch(QueryException $ex)
