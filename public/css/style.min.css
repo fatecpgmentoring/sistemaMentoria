@@ -16191,7 +16191,8 @@ form.default .form-check-input:checked:before {
 }
 
 #consultor-header .wrap-content .user-box .user-info .user-photo {
-    border-left: 1px solid #222d32;
+   /* border-left: 1px solid #222d32; */
+    border-left: 2px solid #037a7a;
     padding: 25px 15px 15px 30px
 }
 
@@ -16212,8 +16213,8 @@ form.default .form-check-input:checked:before {
 }
 
 #consultor-header .wrap-content .user-box .breadcrumb-wrapper {
-    border-top: 1px solid #222d32;
-    border-left: 1px solid #222d32;
+    border-top: 2px solid #037a7a;
+    border-left: 2px solid #037a7a;
     padding: 10px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -16321,19 +16322,52 @@ form.default .form-check-input:checked:before {
     margin-right: 45px;
 }
 
+#aside-nav.active > .wrap-item {
+    padding: 25px;
+    background: #008787;
+    border-bottom: 1px solid #4bc5c5;
+    border-top: 1px solid #4bc5c5;
+}
+
+#aside-nav.active .icon-list li > .wrap-item {
+    
+}
+
+#aside-nav.active .icon-list li a .sprite-nav-dashboard {
+    position: absolute;
+    top: 5px;
+    left: 3px;
+}
+
 #aside-nav.active .icon-list{
     background: #00b1b1;
 }
 
 #aside-nav.active .icon-list li{
     padding-right: 10px;
-    border-bottom: 1px solid black;
-    border-right: 2px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid #4bc5c5;
+    border-right: 1px solid #4bc5c5;
 }
 
 #aside-nav.active .icon-list li a{
     display: block;
+    position: relative;
+    padding: 10px 20px 10px 40px;
+    font-weight: 600;
+}
+
+#aside-nav.active .icon-list li a::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    background: #03717a;
+    width: 10px;
+    height: 100%;
+}
+
+#aside-nav.active .icon-list li:hover a::before{
+    background: #54b8b8;    
 }
 
 #aside-nav.active .icon-list li:hover{
