@@ -41,7 +41,7 @@ class SiteController extends Controller
         }
         else
         {
-            return redirect('/loginAdmin')->with('failure', 'Senha incorreta');
+            return redirect('/login')->with('failure', 'Senha incorreta');
         }
     }
 

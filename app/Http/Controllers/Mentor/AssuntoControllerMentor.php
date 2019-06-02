@@ -50,7 +50,7 @@ class AssuntoControllerMentor extends Controller
         $usuario = Usuario::find(Auth::user()->id_usuario);
         foreach($assuntos as $assunto)
         {
-            $assunto = Assunto::find(intval($assunto))->usuarios()->save($usuario);
+            $usuario->assuntos()->attach(intval($assunto));
         }
         return json_encode("OK");
     }
