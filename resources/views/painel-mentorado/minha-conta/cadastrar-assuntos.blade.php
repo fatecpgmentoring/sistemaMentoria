@@ -85,7 +85,7 @@ $(document).ready(function() {
     function carregarCarreiras()
     {
         $.ajax({
-            url: "{{route('carrega.carreira.mentorado')}}",
+            url: "{{route('carrega.carreira')}}",
             method: 'post',
             data: {prof: $('#profissao option:selected').val(), _token: $("input[name=_token]").val()},
             dataType: 'json',
