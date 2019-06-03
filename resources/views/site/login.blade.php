@@ -27,7 +27,7 @@
                         <form action="{{route('login')}}" method="post" class="default">
                             @csrf
                             <div class="form-group">
-                                <label for="nomeusuario">Nome</label>
+                                <label for="nomeusuario">E-mail</label>
                                 <input type="text" name="email" id="nomeusuario" class="form-control" value="" required>
                             </div>
                             <div class="form-group">
@@ -56,12 +56,8 @@
                                 <input type="text" name="nm_visitante" id="nome" class="form-control" value="" required>
                             </div>
                             <div class="form-group">
-                                        <label for="emailcad">E-mail</label>
-                                        <input type="email" name="email" id="emailcad" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group">
-                                        <label for="nomeusuario">Nome de Usuário <span>(Será usado como login)</span></label>
-                                        <input type="text" name="nm_user_login" id="nomeusuario" class="form-control" value="" required>
+                                    <label for="emailcad">E-mail <span>(Será usado como login)</span></label>
+                                    <input type="email" name="email" id="emailcad" class="form-control" value="" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -76,41 +72,23 @@
                                         <input type="password" name="senha" id="pwdcad" class="form-control" value="" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="cpf_user">CPF</label>
-                                        <input type="text" name="cpf" id="cpf_user" class="form-control" value="" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="rg_user">RG</label>
-                                        <input type="text" name="rg" id="rg_user" class="form-control" value="" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="tel_user">Telefone</label>
-                                        <input type="tel" name="telefone" id="tel_user" class="form-control" value="" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="cel_user">Celular</label>
-                                        <input type="tel" name="celular" id="cel_user" class="form-control" value="" required>
-                                    </div>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="pwdcad">Deseja ser Mentor?</label>
                                 <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
-                                        <label class="custom-control-label" for="defaultGroupExample1">Sim</label>
+                                    <input type="radio" class="custom-control-input" id="qrosermentor" value="true" name="groupOfDefaultRadios">
+                                    <label class="custom-control-label" for="qrosermentor">Sim</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
-                                <label class="custom-control-label" for="defaultGroupExample2">Não</label>
+                                    <input type="radio" class="custom-control-input" id="naoqrosermentor" value="false" name="groupOfDefaultRadios" checked>
+                                    <label class="custom-control-label" for="naoqrosermentor">Não</label>
                                 </div>
+                            </div>
+                            <div class="form-group" id="divMentor" hidden="hidden">
+                                <label for="cel_user">Conhecimento</label>
+                                <select name="conhecimento" id="conhecimento" class="form-control" value="">
+
+                                </select>
                             </div>
                             <input type="hidden" value="1" name="telaComprar"/>
                             <div class="text-center mt">
@@ -123,28 +101,24 @@
         </div>
     </section>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script type="text/javascript">
-            $(document).ready(function(){
-               $("#rg_user").mask('99.999.999-9');
-               $("#cpf_user").mask('999.999.999-99');
-               $("#tel_user").mask('(99) 9999-9999');
-               $("#cel_user").mask('(99) 9999-99999');
-               $("#cel_user").blur(function(event){
-                   if ($(this).val().length == 15){
-                       $("#cel_user").mask('(99) 99999-9999');
-                   } else {
-                       $("#cel_user").mask('(99) 9999-99999');
-                   }
-                    });
-
-            });
-</script>
 @endsection
 
 @section('js')
 <script>
     MainObj.events.closedRegisterTab();
+    $(document).ready(function()
+    {
+        $("input[name=groupOfDefaultRadios]").change(function()
+        {
+            if($(this).val() == 'true')
+            {
+                $("#divMentor").prop('hidden', false);
+            }
+            else
+            {
+                $("#divMentor").prop('hidden', true);
+            }
+        });
+    });
 </script>
 @endsection
