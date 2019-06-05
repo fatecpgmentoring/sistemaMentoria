@@ -18,9 +18,9 @@
 {{--
 @php
     $cfiltered = [];
-    // foreach ($mentores as $c) {
-    //     $cfiltered[] = $c;
-    // }
+    foreach ($mentores as $c) {
+      $cfiltered[] = $c;
+    }
 @endphp
 --}}
 <div id="consultants">
