@@ -22,18 +22,20 @@ class MentoradoController extends Controller
         foreach (Auth::user()->assuntos as $assunto) {
             $assuntos[] = $assunto->id_assunto;
         }
-        $mentores = Mentor::all();
-        $mentoresArray = array();
-        foreach ($mentores as $mentor) {
-            foreach ($mentor->usuario->assuntos() as $assunto) {
-                if($mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count() > 0)
-                $mentoresArray[] = $mentor;
-            }
-        }
-        $mentores = $mentoresArray;
+        $mentores = Mentor::orderBy('vl_nota', 'desc')->get();
+        $mentores = $this->selecionaMentores($mentores, $assuntos);
         return view('painel-mentorado.dashboard-mentorado', compact('mentores'));
     }
 
+    public function selecionaMentores($mentores, $assuntos)
+    {
+        $mentoresArray = array();
+        foreach ($mentores as $mentor) {
+            if($mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count() > 0  && count($mentoresArray) < 6)
+            $mentoresArray[] = $mentor;
+        }
+        return $mentoresArray;
+    }
     /**
      * Show the form for creating a new resource.
      *

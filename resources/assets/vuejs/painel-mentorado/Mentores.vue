@@ -59,7 +59,7 @@
                     <div class="cfooter">
                         <div>
                             <a :href="'/show/mentor/' + mentor.id_mentor" class="btn">
-                                <div class="spriting"></div>ver
+                                <div class="spriting"></div>conectar
                             </a>
                         </div>
                     </div>

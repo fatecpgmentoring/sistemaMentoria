@@ -50364,7 +50364,7 @@ var render = function() {
                         },
                         [
                           _c("div", { staticClass: "spriting" }),
-                          _vm._v("ver\n                        ")
+                          _vm._v("conectar\n                        ")
                         ]
                       )
                     ])
