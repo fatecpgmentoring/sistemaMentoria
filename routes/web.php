@@ -159,6 +159,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::post('/salvarAssunto', 'AssuntoMentoradoController@salvarAssunto')->name('salva.assunto.mentorado');
    Route::post('/removerAssunto', 'AssuntoMentoradoController@removerAssunto')->name('remove.assunto.mentorado');
    Route::post('/carregaMeusAssuntos', 'AssuntoMentoradoController@carregaMeusAssuntos')->name('carrega.assuntos.meus.mentorado');
+   Route::post('/cadastrar-assunto-mentorado', 'AssuntoMentoradoController@cadastrarAssuntoMentorado')->name('cadastrar.assunto.mentorado');
 });
 Route::group(['prefix' => 'chat', 'namespace' => 'Chat'], function () {
 
