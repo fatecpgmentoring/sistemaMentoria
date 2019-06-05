@@ -15,18 +15,9 @@
 @endsection
 
 @section('content')
-<<<<<<< HEAD
-{{--
-@php
-    $cfiltered = [];
-    foreach ($mentores as $c) {
-      $cfiltered[] = $c;
-    }
-@endphp
---}}
-=======
->>>>>>> bf366be3e0f4a1998941c1228bb3f3cac181de53
+
 <div id="consultants">
 	<conexoes-mentorados :mentorados="{{ json_encode($mentorados) }}"></conexoes-mentorados>
 </div>
+
 @endsection
