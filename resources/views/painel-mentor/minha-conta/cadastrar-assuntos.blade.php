@@ -34,6 +34,7 @@
 </div>
 <div class="row">
 	<div class="col-xl-5">
+        <div style="text-align:center;">Assuntos Existentes</div>
 		<select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
             @foreach ($assuntos as $assunto)
                 <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
@@ -41,12 +42,13 @@
 		</select>
 	</div>
 	<div class="col-xl-2">
-		<button type="button" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring"> <a>Adicionar</a></i></button>
-		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring"></i></button>
-		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring"></i></button>
+		<button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto.">Adicionar</a></i></button>
+		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring" data-toggle="tooltip" title="Adicionar a sua lista de assuntos"></i></button>
+		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring" data-toggle="tooltip" title="Remover da sua lista de assuntos"></i></button>
 	</div>
 
 	<div class="col-xl-5">
+        <div style="text-align:center;">Meus Assuntos</div>
         <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
             @foreach (Auth::user()->assuntos as $assunto)
                 <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
@@ -57,6 +59,7 @@
 @endsection
 
 @section('js')
+@include('painel-mentor.includes.addAssunto')
 <script>
 
 $(document).ready(function() {
@@ -163,13 +166,22 @@ $(document).ready(function() {
             }
         });
     });
-
-    $("#addAssunto").click(function()
+    $("#btnSalvaSugestaoAssunto").click(function()
     {
-
+        var assunto = $("#assuntoInput").val();
+        var carreira = $("#carreiraAssunto").val();
+        $.ajax({
+            url: "{{route('cadastrar.assunto.mentor')}}",
+            method: 'post',
+            dataType: 'json',
+            data: {_token: $("input[name=_token]").val(), dados: {assunto, carreira}},
+            success: function(data) {
+                $("#assuntoInput").val("");
+                $("#carreiraAssunto").val("");
+                if(data.status == 'success') alert('salvo mano')
+            }
+        })
     });
-
-
 });
 
 </script>

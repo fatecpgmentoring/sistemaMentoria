@@ -1,9 +1,18 @@
 .btn-mentoring {
     background-color: rgba(0, 176, 176, 1);
+    color: white;
     border-radius: 40px;
 }
+.modal-backdrop {
+    z-index: 0;
+  }
 
 .link-breadcrumb:hover{
+    color: white;
+}
+
+.btn-mentoring:hover {
+    background-color: rgba(0, 176, 176, 0.3);
     color: white;
 }
 
@@ -104,7 +113,7 @@
 
 /*************************************************CSS CHAT***********************************************/
 
- .cp-pen-styles">body {
+ .cp-pen-styles > body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -773,23 +782,25 @@
 #frame .content .message-input .wrap button:focus {
   outline: none;
   }
-  
+
 /*******************************************************************************************************/
 /***********************************CSS /contato***********************************************************/
 
 #btn-enviar {
   color:white;
   background-color:#00b1b1;
-  
+
   }
-  
-  #container-contato {  
+
+  #container-contato {
   width:50%;
   padding-top: 3%;
-  
+
   }
-  
+
   #message-contato {
   width: 100%;
-  
+
+}
+
 /*******************************************************************************************************/

@@ -14169,7 +14169,6 @@ form.default .form-check-input:checked:before {
 }
 
 #consultants {
-    background: url(../images/bg-especialistas.png) no-repeat;
     background-position-y: 0;
     background-position-x: center;
     min-height: 500px
@@ -16331,7 +16330,7 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active .icon-list li > .wrap-item {
-    
+
 }
 
 #aside-nav.active .icon-list li a .sprite-nav-dashboard {
@@ -16368,7 +16367,7 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active .icon-list li:hover a::before{
-    background: #54b8b8;    
+    background: #54b8b8;
 }
 
 #aside-nav.active .icon-list li:hover{

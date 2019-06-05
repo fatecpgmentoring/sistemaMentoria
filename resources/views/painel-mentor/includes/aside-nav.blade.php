@@ -19,7 +19,7 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentor/conexões-mentor"><span class="spriting sprite-nav-dashboard"></span>Conexões</a>
+                <a href="/mentor/conexoes"><span class="spriting sprite-nav-dashboard"></span>Conexões</a>
             </div>
         </li>
         <li>
@@ -41,6 +41,6 @@
             <div class="wrap-item">
                 <a href="/logout"><span class="spriting sprite-nav-dashboard"></span>Sair</a>
             </div>
-        </li>                
+        </li>
     </ul>
 </aside>

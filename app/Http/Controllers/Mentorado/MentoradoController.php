@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Mentorado;
+use App\Mentor;
 
 class MentoradoController extends Controller
 {
@@ -17,9 +18,30 @@ class MentoradoController extends Controller
      */
     public function index()
     {
-        return view('painel-mentorado.dashboard-mentorado');
+        $mentores = $this->getMentores();
+        return view('painel-mentorado.dashboard-mentorado', compact('mentores'));
     }
 
+    public function selecionaMentores($mentores, $assuntos)
+    {
+        $mentoresArray = array();
+        foreach ($mentores as $mentor) {
+            if($mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count() > 0  && count($mentoresArray) < 6)
+            $mentoresArray[] = $mentor;
+        }
+        return $mentoresArray;
+    }
+
+    public function getMentores()
+    {
+        $assuntos = array();
+        foreach (Auth::user()->assuntos as $assunto) {
+            $assuntos[] = $assunto->id_assunto;
+        }
+        $mentores = Mentor::orderBy('vl_nota', 'desc')->get();
+        $mentores = $this->selecionaMentores($mentores, $assuntos);
+        return $mentores;
+    }
     /**
      * Show the form for creating a new resource.
      *
