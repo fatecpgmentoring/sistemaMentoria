@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="form-group" id="divMentor" hidden="hidden">
-                                <label for="cel_user">Conhecimento</label>
+                                <label for="conhecimento">Conhecimento</label>
                                 <select name="conhecimento" id="conhecimento" class="form-control" value="">
 
                                 </select>
