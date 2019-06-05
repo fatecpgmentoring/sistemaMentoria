@@ -2708,13 +2708,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['mentores'],
   name: 'all-mentores',
   data: function data() {
     return {
       page: 1,
       qtd: 0,
       search: "",
-      filteredMentores: []
+      filteredMentores: this.mentores
     };
   },
   created: function created() {

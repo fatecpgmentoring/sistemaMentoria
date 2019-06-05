@@ -110,13 +110,14 @@
 
 <script>
     export default {
+        props: ['mentores'],
         name: 'all-mentores',
         data() {
             return {
                 page: 1,
                 qtd: 0,
                 search: "",
-                filteredMentores: [],
+                filteredMentores: this.mentores,
             }
         },
         created() {
