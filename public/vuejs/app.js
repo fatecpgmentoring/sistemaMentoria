@@ -2143,14 +2143,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['mentorados'],
   name: 'conexoes-mentorados',
   data: function data() {
     return {
       page: 1,
       qtd: 0,
       search: "",
-      filteredMentorados: []
+      filteredMentorados: this.mentorados,
+      status: ['Pendente', 'Ativa', 'Encerrada', 'Cancelada', 'Recusada']
     };
   },
   created: function created() {
@@ -49171,14 +49183,64 @@ var render = function() {
               { key: index, staticClass: "col-lg-4 col-md-6 item" },
               [
                 _c("div", { staticClass: "wrap-card" }, [
+                  _c(
+                    "div",
+                    { staticStyle: { color: "red", "margin-top": "0px" } },
+                    [_vm._v("×")]
+                  ),
+                  _vm._v(" "),
                   _c("div", { staticClass: "cheader" }, [
                     _c("h2", { staticClass: "name" }, [
                       _vm._v(_vm._s(mentorado.nm_mentorado))
                     ]),
                     _vm._v(" "),
-                    _vm._m(0, true),
+                    _c("h3", { staticClass: "specialization" }, [
+                      _c("div", [
+                        mentorado.ds_status == 1
+                          ? _c("div", { staticStyle: { color: "green" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentorado.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        mentorado.ds_status == 0
+                          ? _c("div", { staticStyle: { color: "#FF8C00" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentorado.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        mentorado.ds_status == 2
+                          ? _c("div", { staticStyle: { color: "#FF0000" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentorado.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : _c("div", { staticStyle: { color: "#000000" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentorado.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "text-center" })
+                    _c("div", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "\n                       Assunto: " +
+                          _vm._s(mentorado.nm_assunto) +
+                          "\n                    "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "perfil-photo" }, [
@@ -49192,9 +49254,17 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("p", {
-                    staticClass: "description text-justify p-3 text-center"
-                  }),
+                  _c(
+                    "p",
+                    { staticClass: "description text-justify p-3 text-center" },
+                    [
+                      _vm._v(
+                        "\n                    Ate: " +
+                          _vm._s(mentorado.dt_fim) +
+                          "\n                "
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     true
@@ -49360,14 +49430,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "specialization" }, [_c("div", [_c("div")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

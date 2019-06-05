@@ -18,12 +18,7 @@ class MentoradoController extends Controller
      */
     public function index()
     {
-        $assuntos = array();
-        foreach (Auth::user()->assuntos as $assunto) {
-            $assuntos[] = $assunto->id_assunto;
-        }
-        $mentores = Mentor::orderBy('vl_nota', 'desc')->get();
-        $mentores = $this->selecionaMentores($mentores, $assuntos);
+        $mentores = $this->getMentores();
         return view('painel-mentorado.dashboard-mentorado', compact('mentores'));
     }
 
@@ -35,6 +30,17 @@ class MentoradoController extends Controller
             $mentoresArray[] = $mentor;
         }
         return $mentoresArray;
+    }
+
+    public function getMentores()
+    {
+        $assuntos = array();
+        foreach (Auth::user()->assuntos as $assunto) {
+            $assuntos[] = $assunto->id_assunto;
+        }
+        $mentores = Mentor::orderBy('vl_nota', 'desc')->get();
+        $mentores = $this->selecionaMentores($mentores, $assuntos);
+        return $mentores;
     }
     /**
      * Show the form for creating a new resource.

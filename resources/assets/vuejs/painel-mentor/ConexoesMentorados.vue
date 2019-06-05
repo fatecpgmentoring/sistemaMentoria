@@ -14,19 +14,29 @@
         <ul class="row consultant-list" v-if="this.filteredMentorados.length > 0">
             <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in mentorados" :key="index">
                 <div class="wrap-card">
+                    <div style="color: red; margin-top: 0px">&times</div>
                     <div class="cheader">
                         <h2 class="name">{{mentorado.nm_mentorado}}</h2>
                         <h3 class="specialization">
                             <div>
-                                <div>
-                                    <!-- Status Conexão -->
+                                <div v-if="mentorado.ds_status == 1" style="color: green">
+                                    Conexão {{status[mentorado.ds_status]}}
+                                </div>
+                                <div v-if="mentorado.ds_status == 0" style="color: #FF8C00">
+                                    Conexão {{status[mentorado.ds_status]}}
+                                </div>
+                                <div v-if="mentorado.ds_status == 2" style="color: #FF0000">
+                                    Conexão {{status[mentorado.ds_status]}}
+                                </div>
+                                <div v-else style="color: #000000">
+                                    Conexão {{status[mentorado.ds_status]}}
                                 </div>
                             </div>
 
                         </h3>
 
                         <div class="text-center">
-                            <!-- Assunto de Conexão -->
+                           Assunto: {{mentorado.nm_assunto}}
                         </div>
                     </div>
                     <div class="perfil-photo">
@@ -35,7 +45,7 @@
                         </figure>
                     </div>
                     <p class="description text-justify p-3 text-center">
-                        <!-- Data do Termino -->
+                        Ate: {{mentorado.dt_fim}}
                     </p>
                     <div class="cfooter">
                         <div v-if="true"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
@@ -45,7 +55,7 @@
                         </div>
                         <div v-else>
                             <a :href="'/mentor/chat/' + mentorado.id_mentorado" class="btn">
-                                <div class="spriting"></div>ver
+                                <div class="spriting"></div>chamar
                             </a>
                         </div>
                     </div>
@@ -96,13 +106,21 @@
 
 <script>
     export default {
+        props: ['mentorados'],
         name: 'conexoes-mentorados',
         data() {
             return {
                 page: 1,
                 qtd: 0,
                 search: "",
-                filteredMentorados: [],
+                filteredMentorados: this.mentorados,
+                status: [
+                    'Pendente',
+                    'Ativa',
+                    'Encerrada',
+                    'Cancelada',
+                    'Recusada'
+                ]
             }
         },
         created() {

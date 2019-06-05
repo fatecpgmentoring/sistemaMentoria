@@ -9,7 +9,7 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/conexões-mentores"><span class="spriting sprite-nav-dashboard"></span>Minhas Conexões</a>
+                <a href="/mentorado/conexoes"><span class="spriting sprite-nav-dashboard"></span>Minhas Conexões</a>
             </div>
         </li>
         <li>
