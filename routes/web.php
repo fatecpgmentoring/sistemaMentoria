@@ -22,6 +22,7 @@ Route::get('/admin/login', function () {
 });
 Route::post('admin/logar', 'Admin\UsuarioControllerAdmin@logIn')->name('login.admin');
 Route::post('logar', 'SiteController@logIn')->name('login');
+Route::post('/cadastrar-site', 'SiteController@cadastro')->name('cadastrar.site');
 Route::get('/icons', function()
 {
     return view('admin.icons');

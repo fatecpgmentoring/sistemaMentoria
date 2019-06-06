@@ -30,16 +30,16 @@
 
     <!-- WS URL && Socket Lib -->
     <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-    <script src="{{ asset('js/socket.io.js') }}"></script>
+    {{-- <script src="{{ asset('js/socket.io.js') }}"></script> --}}
 
 
     <!-- VUEJS -->
     <script type="text/javascript" src="/vuejs/app.js"></script>
 
     <!-- SCRIPTS -->
-    <script type="text/javascript" src="/js/vendor.js"></script>
-    <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/main.min.js"></script>
+    {{-- <script type="text/javascript" src="/js/vendor.js"></script> --}}
+    {{-- <script type="text/javascript" src="/js/maskedinput1.4.1.min.js"></script> --}}
+    {{-- <script type="text/javascript" src="/js/main.min.js"></script> --}}
 
     @yield('js')
 

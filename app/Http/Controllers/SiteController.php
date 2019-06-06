@@ -6,15 +6,108 @@ use Illuminate\Http\Request;
 use App\Mentor;
 use App\Usuario;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Session\Session;
 use App\Mentorado;
+use Illuminate\Support\Facades\Hash;
 
 class SiteController extends Controller
 {
+    public function Valida(Request $request)
+    {
+        if($request->queroser == "true") return [
+            'email' => 'bail|required|email|min:10|max:100|unique:tb_usuarios,email',
+            'senha' => 'bail|required|min:8|max:100|confirmed',
+            'nome' => 'bail|required|min:3|max:100',
+            'conhecimento' => 'required'
+        ];
+        else return [
+            'email' => 'bail|required|email|min:10|max:100|unique:tb_usuarios,email',
+            'senha' => 'bail|required|min:8|max:100|confirmed',
+            'nome' => 'bail|required|min:3|max:100'
+        ];
+    }
+
+    public $mensagem = [
+        'email.required' => 'E-mail obrigatorio',
+        'email.email' => 'E-mail invalido',
+        'email.min' => 'E-mail muito pequeno',
+        'email.max' => 'E-mail muito grande',
+        'email.unique' => 'E-mail já utilizado',
+        'senha.required' => 'Senha obrigatoria',
+        'senha.min' => 'Senha muito pequena',
+        'senha.max' => 'Senha muito grande',
+        'senha.confirmed' => 'Senhas não conferem',
+        'nome.required' => 'Nome obrigatorio',
+        'nome.min' => 'Nome muito pequeno',
+        'nome.max' => 'Nome muito grande',
+        'conhecimento.required' => 'Conhecimento obrigatorio'
+    ];
     public function index(Request $request)
     {
         $mentores = Mentor::orderBy('vl_nota', 'desc')->limit(6)->get();
         return view('site.homepage.index', compact('mentores'));
+    }
+
+    public function cadastro(Request $request)
+    {
+        $this->validate($request, $this->Valida($request), $this->mensagem);
+        $id_user = $this->salvarUser($request);
+        if($request->queroser == "true")
+        {
+            $extension = str_replace('.', '', strstr($_FILES['foto']['name'], '.'));
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $arquivo_tmp = $_FILES['foto']['tmp_name'];
+            move_uploaded_file( $arquivo_tmp, $destino  );
+            $user = new Mentor([
+                'nm_mentor' => $request->post('nome'),
+                'nv_conhecimento' => $request->post('conhecimento'),
+                'vl_nota' => 5.0,
+                'usuario_id_usuario' => $id_user,
+                'ds_foto' => $destino
+            ]);
+        }
+        else
+        {
+            $extension = str_replace('.', '', strstr($_FILES['foto']['name'], '.'));
+            $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
+            $arquivo_tmp = $_FILES['foto']['tmp_name'];
+            move_uploaded_file( $arquivo_tmp, $destino  );
+            $user = new Mentorado([
+                'nm_mentorado' => $request->post('nome'),
+                'usuario_id_usuario' => $id_user,
+                'ds_foto' => $destino
+            ]);
+        }
+        try
+        {
+            $user->save();
+            Auth::loginUsingId($id_user);
+            $request->session()->push('usuario', $user);
+            return redirect($request->conhecimento == "true" ? '/mentor' : '/mentorado')->with('success', 'save');
+        }
+        catch(QueryException $ex)
+        {
+            return back()->withErrors('Erro ao salvar mentor')->withInput();
+        }
+    }
+
+    public function salvarUser(Request $request)
+    {
+        $usuario = new Usuario([
+            'email' => $request->post('email'),
+            'password' => Hash::make($request->post('senha')),
+            'cd_role' => $request->queroser == "true" ? 2 : 1,
+            'cd_status' => 1,
+        ]);
+
+        try
+        {
+            $usuario->save();
+            return $usuario->id_usuario;
+        }
+        catch(QueryException $ex)
+        {
+            return 0;
+        }
     }
 
     public function logIn(Request $request)

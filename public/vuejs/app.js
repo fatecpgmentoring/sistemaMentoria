@@ -2719,6 +2719,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentores'],
   name: 'all-mentores',
@@ -2727,7 +2728,8 @@ __webpack_require__.r(__webpack_exports__);
       page: 1,
       qtd: 0,
       search: "",
-      filteredMentores: this.mentores
+      filteredMentores: this.mentores,
+      dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência']
     };
   },
   created: function created() {
@@ -50339,61 +50341,11 @@ var render = function() {
                     _vm._m(0, true),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-center" }, [
-                      mentor.nv_conhecimento == 1
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            menos de 1 ano de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 2
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            de 1 a 3 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 3
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            de 3 a 6 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 4
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            6 a 10 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 5
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            10 a 15 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 6
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            15 a 20 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      mentor.nv_conhecimento == 7
-                        ? _c("div", [
-                            _vm._v(
-                              "\n                            mais de 20 anos de experiência\n                        "
-                            )
-                          ])
-                        : _vm._e()
+                      _vm._v(
+                        "\n                       Conhecimento: " +
+                          _vm._s(_vm.dic[mentor.nv_conhecimento - 1]) +
+                          "\n                    "
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -50407,13 +50359,215 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "p",
-                    { staticClass: "description text-justify p-3 text-center" },
+                    {
+                      staticClass:
+                        "description text-justify p-3 text-center estrelas"
+                    },
                     [
                       _vm._v(
-                        "\n                    Nota: " +
-                          _vm._s(mentor.vl_nota) +
-                          "\n                "
-                      )
+                        "\n                    Nota:\n                    "
+                      ),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-empty-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 0
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-1-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-1-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "1",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 1
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-2-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-2-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "2",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 2
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-3-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-3-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "3",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 3
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-4-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-4-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "4",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 4
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-5-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-5-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "5",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 5
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-6-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-6-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "6",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 6
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-7-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-7-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "7",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 7
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-8-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-8-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "8",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 8
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-9-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-9-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "9",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 9
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "cm_star-10-" + mentor.id_mentor } },
+                        [_c("i", { staticClass: "fa" })]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "radio",
+                          id: "cm_star-10-" + mentor.id_mentor,
+                          name: "fb-" + mentor.id_mentor,
+                          value: "10",
+                          disabled: ""
+                        },
+                        domProps: {
+                          checked: parseInt(mentor.vl_nota.toFixed(0)) == 10
+                        }
+                      })
                     ]
                   ),
                   _vm._v(" "),

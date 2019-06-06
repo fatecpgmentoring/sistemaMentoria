@@ -49,15 +49,19 @@
                         <h2>Primeira Vez?</h2>
                         <p>Realize seu cadastro</p>
 
-                    <form action="{{url('cadastrar')}}" method="post" class="default">
-
+                    <form action="{{route('cadastrar.site')}}" method="post" class="default" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" name="nm_visitante" id="nome" class="form-control" value="" required>
+                                <input type="text" name="nome" id="nome" class="form-control" value="" required>
                             </div>
                             <div class="form-group">
-                                    <label for="emailcad">E-mail <span>(Será usado como login)</span></label>
-                                    <input type="email" name="email" id="emailcad" class="form-control" value="" required>
+                                    <label for="email">E-mail <span>(Será usado como login)</span></label>
+                                    <input type="email" name="email" id="email" class="form-control" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="foto">Foto<span></span></label>
+                                <input type="file" name="foto" id="foto" class="form-control" value="" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -69,25 +73,32 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="pwdcad">Senha <span>(Confirmar)</span></label>
-                                        <input type="password" name="senha" id="pwdcad" class="form-control" value="" required>
+                                        <input type="password" name="senha_confirmation" id="pwdcad" class="form-control" value="" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="pwdcad">Deseja ser Mentor?</label>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="qrosermentor" value="true" name="groupOfDefaultRadios">
+                                    <input type="radio" class="custom-control-input" id="qrosermentor" value="true" name="queroser">
                                     <label class="custom-control-label" for="qrosermentor">Sim</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="naoqrosermentor" value="false" name="groupOfDefaultRadios" checked>
+                                    <input type="radio" class="custom-control-input" id="naoqrosermentor" value="false" name="queroser" checked>
                                     <label class="custom-control-label" for="naoqrosermentor">Não</label>
                                 </div>
                             </div>
                             <div class="form-group" id="divMentor" hidden="hidden">
                                 <label for="conhecimento">Conhecimento</label>
                                 <select name="conhecimento" id="conhecimento" class="form-control" value="">
-
+                                    <option value="">Selecione...</option>
+                                    <option value="1">menos de 1 ano</option>
+                                    <option value="2">de 1 a 3 anos</option>
+                                    <option value="3">de 3 a 6 anos</option>
+                                    <option value="4">de 6 a 10 anos</option>
+                                    <option value="5">de 10 a 15 anos</option>
+                                    <option value="6">de 15 a 20 anos</option>
+                                    <option value="7">mais de 20 anos</option>
                                 </select>
                             </div>
                             <input type="hidden" value="1" name="telaComprar"/>
@@ -105,10 +116,9 @@
 
 @section('js')
 <script>
-    MainObj.events.closedRegisterTab();
     $(document).ready(function()
     {
-        $("input[name=groupOfDefaultRadios]").change(function()
+        $("input[name=queroser]").change(function()
         {
             if($(this).val() == 'true')
             {

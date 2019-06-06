@@ -11897,8 +11897,6 @@ a.text-dark:focus,a.text-dark:hover {
 
 #buy-minutes .container .title-box .icon,#contact .container .wrap-buttons .btn .icon,#how-it-works .step-list .step .wrapper .number,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .decrement,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .increment,.spriting {
     display: inline-block;
-  /*  background: url(../images/sprites.png) no-repeat */
-    background: url(../images/sprites.png) no-repeat
 }
 
 #buy-minutes .container .title-box .centerY.icon,#contact .container .wrap-buttons .btn .centerY.icon,#how-it-works .step-list .step .wrapper .centerY.number,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .centerY.decrement,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .centerY.increment,.spriting.centerY {
@@ -12504,8 +12502,8 @@ p {
     margin: 6px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border: 20px solid #e001f8;
-    border-color: #e001f8 transparent;
+    border: 20px solid #00cb94;
+    border-color: #00cb94 transparent;
     -webkit-animation: lds-hourglass 1.2s infinite;
     animation: lds-hourglass 1.2s infinite
 }
@@ -12559,7 +12557,6 @@ p {
 #main-nav .top-line {
     width: 100%;
     background: #00cb94;
-   /* background: #bd00d1; */
     padding: 5px 0
 }
 
@@ -12660,8 +12657,6 @@ p {
     height: 25px;
     margin-left: 5px;
     padding: 0 1rem;
-  /*  background: #e001f8; */
-  /*  background: #0856d3; */
     background: #00cb94;
     cursor: pointer
 }
@@ -12831,7 +12826,7 @@ p {
 #main-nav .top-line .box-user .tiny-menu li:before {
     content: "\f105";
     font-family: FontAwesome;
-    color: #e001f8;
+    color: #00cb94;
     margin-right: 10px
 }
 
@@ -12845,7 +12840,7 @@ p {
 }
 
 #main-nav .top-line .box-user .tiny-menu li a:hover {
-    color: #e001f8
+    color: #00cb94
 }
 
 #main-nav .top-line .register-link {
@@ -12882,13 +12877,13 @@ p {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-  /*  background: #e001f8; */
+  /*  background: #00cb94; */
   /*  background: #679bef; */
     background: #00cb94;
 }
 
 #main-nav .main-part {
-    background: #e001f8;
+    background: #00cb94;
     padding: 0
 }
 
@@ -13188,7 +13183,7 @@ p {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    background: #e001f8
+    background: #00cb94
 }
 
 #main-footer.bd>.container {
@@ -13222,7 +13217,7 @@ p {
 
 #main-footer .top-box .fast-access-list li:before {
     content: '•';
-    color: #bd6eff;
+    color: rgb(0, 120, 120);
     margin-right: 5px
 }
 
@@ -13236,7 +13231,7 @@ p {
 }
 
 #main-footer .top-box .fast-access-list li:hover a,#main-footer .top-box .fast-access-list li:hover:before {
-    color: #bd00d1
+    color: rgb(0, 120, 120);
 }
 
 #main-footer .top-box .btn-whatsapp {
@@ -13309,7 +13304,7 @@ p {
 }
 
 #main-footer .bottom-box .container div a {
-    color: #e001f8
+    color: #00cb94
 }
 
 @media (max-width:992px) {
@@ -13397,12 +13392,11 @@ p {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
-   /* color: #e001f8; */
+   /* color: #00cb94; */
     color: #00cb94;
 }
 
 #breadcrumb ul li a:hover,#breadcrumb ul li:hover {
-  /*  color: #bd00d1; */
     color: #00ce99;
 
 }
@@ -13417,14 +13411,14 @@ p {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
-   /* color: #e001f8;*/
+   /* color: #00cb94;*/
     color: #00cb94;
 }
 
 #breadcrumb ul li:not(:last-child):after {
     content: "\f105";
     font-family: FontAwesome;
-   /* color: #e001f8; */
+   /* color: #00cb94; */
     color: #00cb94;
     margin-left: 10px
 }
@@ -13487,7 +13481,7 @@ p {
 }
 
 #paginator ul li.next:hover a,#paginator ul li.prev:hover a {
-    color: #e001f8;
+    color: #00cb94;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s
@@ -13496,7 +13490,7 @@ p {
 #paginator ul li.prev:before {
     content: "\f104";
     font-family: FontAwesome;
-    color: #e001f8;
+    color: #00cb94;
     font-size: 15px;
     margin-right: 5px
 }
@@ -13508,7 +13502,7 @@ p {
 #paginator ul li.next:after {
     content: "\f101";
     font-family: FontAwesome;
-    color: #e001f8;
+    color: #00cb94;
     font-size: 15px;
     margin-left: 5px
 }
@@ -13518,7 +13512,7 @@ p {
 }
 
 #paginator ul li.active a {
-    background: #e001f8;
+    background: #00cb94;
     color: #fff;
     -webkit-transition: .3s;
     -o-transition: .3s;
@@ -13533,7 +13527,7 @@ p {
 }
 
 #paginator ul li:not(.prev):not(.next)>a:hover {
-    background: #e001f8;
+    background: #00cb94;
     color: #fff;
     -webkit-transition: .3s;
     -o-transition: .3s;
@@ -13541,7 +13535,7 @@ p {
 }
 
 .ui-datepicker-next span,.ui-datepicker-prev span {
-    background-image: url(../images/sprites.png)!important
+    background-image: /* corrigir */ white;
 }
 
 .br-theme-fontawesome-stars .br-widget a.br-active:after,.br-theme-fontawesome-stars .br-widget a.br-selected:after {
@@ -14445,13 +14439,13 @@ form.default .form-check-input:checked:before {
 }
 
 #consultants .consultant-list .item.offline .cheader .status-now {
-    background: #e001f8;
+    background: #00cb94;
     -webkit-box-shadow: 0 5px 8px 2px rgba(224,1,248,.14);
     box-shadow: 0 5px 8px 2px rgba(224,1,248,.14)
 }
 
 #consultants .consultant-list .item.offline .cfooter .btn {
-    background: #e001f8
+    background: #00cb94
 }
 
 #consultants .consultant-list .item.offline .cfooter .btn:hover {
@@ -14479,18 +14473,18 @@ form.default .form-check-input:checked:before {
 }
 
 #consultants-show .perfil-desc-content.offline .status-now {
-    background: #e001f8;
+    background: #00cb94;
     -webkit-box-shadow: 0 5px 8px 2px rgba(224,1,248,.14);
     box-shadow: 0 5px 8px 2px rgba(224,1,248,.14)
 }
 
 #consultants-show .perfil-desc-content.offline .title-wrapping .btn {
-    background: #e001f8;
+    background: #00cb94;
     pointer-events: none
 }
 
 #consultants-show .perfil-desc-content.offline .title-wrapping .btn:hover {
-    background: #e001f8
+    background: #00cb94
 }
 
 #consultants-show .perfil-desc-content .photo figure {
@@ -14897,7 +14891,7 @@ form.default .form-check-input:checked:before {
 }
 
 #contact .container .wrap-buttons .btn.btn-whats {
-    background: #e001f8
+    background: #00cb94
 }
 
 #contact .container .wrap-buttons .btn.btn-whats:hover {
@@ -14986,7 +14980,7 @@ form.default .form-check-input:checked:before {
 }
 
 #buy-minutes .container .title-box p span {
-    color: #e001f8;
+    color: #00cb94;
     font-weight: 400
 }
 
@@ -15027,7 +15021,7 @@ form.default .form-check-input:checked:before {
 .buy-time-block .wrap-content.price .text .price {
     display: block;
     font-size: 2em;
-    color: #e001f8
+    color: #00cb94
 }
 
 .buy-time-block .wrap-content .select-quantity-comp .header {
@@ -15189,7 +15183,7 @@ form.default .form-check-input:checked:before {
     cursor: pointer;
     -webkit-border-radius: 30px;
     border-radius: 30px;
-    background: #e001f8;
+    background: #00cb94;
     text-align: center;
     font-size: 18px;
     font-weight: 600;
@@ -15302,7 +15296,7 @@ form.default .form-check-input:checked:before {
     padding: .5em 4em;
     font-weight: 400;
     color: #fff;
-    background: #e001f8;
+    background: #00cb94;
     border: none;
     text-transform: uppercase;
     font-size: 16px;
@@ -15349,7 +15343,7 @@ form.default .form-check-input:checked:before {
 
 #login .wrap form button[type=submit] {
     background: #00cb94;
-    /*background: #e001f8;*/
+    /*background: #00cb94;*/
     text-transform: uppercase;
     min-width: 250px
 }
@@ -15444,7 +15438,7 @@ form.default .form-check-input:checked:before {
 
 #chat .chat-main-wrap .user-information-status .header {
     padding: 1.5em .5em;
-    background: #e001f8;
+    background: #00cb94;
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
@@ -15521,7 +15515,7 @@ form.default .form-check-input:checked:before {
 }
 
 #chat .chat-main-wrap .user-information-status .footer .btn-default {
-    background: #e001f8;
+    background: #00cb94;
     padding: 1em;
     font-size: 14px;
     border: none;
@@ -15550,7 +15544,7 @@ form.default .form-check-input:checked:before {
 
 #chat .chat-main-wrap .client-box .header {
     padding: 1.5em .5em;
-    background: #e001f8;
+    background: #00cb94;
     -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
@@ -15656,7 +15650,7 @@ form.default .form-check-input:checked:before {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #e001f8
+    color: #00cb94
 }
 
 #chat .chat-main-wrap .client-spec .body ul li .value {
@@ -15767,7 +15761,7 @@ form.default .form-check-input:checked:before {
     background: #fff;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border: 2px solid #e001f8;
+    border: 2px solid #00cb94;
     padding: 15px;
     position: relative
 }
@@ -15833,7 +15827,7 @@ form.default .form-check-input:checked:before {
     font-size: 18px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8;
+    color: #00cb94;
     padding: 1em
 }
 
@@ -15844,7 +15838,7 @@ form.default .form-check-input:checked:before {
 
 #chat .chat-main-wrap #chat-frame-box .status .btn-default {
     padding: .8em 1rem;
-    background: #e001f8;
+    background: #00cb94;
     color: #fff;
     font-family: Montserrat;
     font-weight: 400;
@@ -16072,7 +16066,7 @@ form.default .form-check-input:checked:before {
     font-size: 18px;
     font-weight: 300;
     text-transform: initial;
-    color: #e001f8
+    color: #00cb94
 }
 
 #avaliation-modal .modal-content .modal-body form .wrap-rating {
@@ -16092,7 +16086,7 @@ form.default .form-check-input:checked:before {
 }
 
 #avaliation-modal .modal-content .modal-body form [type=submit]:hover {
-    background: #e001f8
+    background: #00cb94
 }
 
 @media (max-width:767px) {
@@ -16248,7 +16242,7 @@ form.default .form-check-input:checked:before {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    color: #bd00d1
+    color: rgb(0, 120, 120);
 }
 
 #consultor-header .wrap-content .user-box .breadcrumb-wrapper .link a:before {
@@ -16567,7 +16561,7 @@ form.default .form-check-input:checked:before {
 }
 
 .connections-infos .single-box .wrap .btns .btn.btn-deny {
-    background: #ce3d5c
+    background: #3dce96
 }
 
 .connections-infos .single-box .wrap .btns .btn.btn-deny:hover {
@@ -16663,7 +16657,7 @@ form.default .form-check-input:checked:before {
 }
 
 .wrap-rounded-column .status-radio-box .btn-box.ocupado>[type=radio]:checked+.text {
-    background: #ce3d5c
+    background: rgb(0, 176, 140)
 }
 
 .wrap-rounded-column .status-radio-box .btn-box [type=radio] {
@@ -16887,7 +16881,7 @@ form.default .form-check-input:checked:before {
 }
 
 #table-block .table tbody tr td .tarja.red {
-    background: #ce3d5c
+    background: rgb(0, 176, 140)
 }
 
 #table-block .table tbody tr td .tarja.green {
@@ -16966,7 +16960,6 @@ form.default .form-check-input:checked:before {
 .login-recovery .wrap-login:before {
     content: '';
     display: block;
-    background: url(../images/sprites.png) -418px -292px no-repeat;
     width: 75px;
     height: 70px;
     position: absolute;
@@ -17010,11 +17003,9 @@ form.default .form-check-input:checked:before {
 }
 
 #minha-conta .form-box.pwd:before {
-    background: url(../images/sprites.png) -418px -377px no-repeat
 }
 
 #minha-conta .form-box.cad:before {
-    background: url(../images/sprites.png) -322px -377px no-repeat
 }
 
 #minha-conta .form-box form .forca-senha {
@@ -17274,7 +17265,7 @@ form.default .form-check-input:checked:before {
 #credito-transferencias .search-date-box .wrap-search form .filtroRemover {
     border: none;
     margin-left: 0px;
-    background: #ce3d5c;
+    background: rgb(0, 176, 140);
     cursor: pointer;
     outline: 0;
     padding: .7em 2em;
@@ -17451,12 +17442,11 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.credito-insuficiente p span,#atendimento .status-box.timeout p span {
-    color: #ce3d5c
+    color: rgb(0, 176, 140)
 }
 
 #atendimento .status-box .icon {
     display: block;
-    background: url(../images/sprites.png) no-repeat;
     width: 80px;
     height: 80px
 }
@@ -17466,7 +17456,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.credito-insuficiente .watchout {
-    background: #ce3d5c
+    background: rgb(0, 176, 140)
 }
 
 #atendimento .status-box.timeout .icon {
@@ -17478,7 +17468,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .status-box.timeout .watchout {
-    background: #ce3d5c
+    background: rgb(0, 176, 140)
 }
 
 #atendimento .status-box.finalizado-atendente .icon {
@@ -17552,7 +17542,7 @@ form.default .form-check-input:checked:before {
 #atendimento .chat-talk-box .is-empty {
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background: #ce3d5c;
+    background: rgb(0, 176, 140);
     -webkit-box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
     box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
     padding: .5em .8em;
@@ -17582,7 +17572,7 @@ form.default .form-check-input:checked:before {
 }
 
 #atendimento .chat-talk-box .table tbody tr td .user-cliente {
-    background: #ce3d5c
+    background: rgb(0, 176, 140)
 }
 
 #atendimento .chat-talk-box .table tbody tr td .user-atendente {

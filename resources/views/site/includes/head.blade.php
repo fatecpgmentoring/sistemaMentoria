@@ -3,13 +3,13 @@
 <link rel="icon" type="image/png" href="/images/logos/icone-azul.png" sizes="16x16" />
 
 <!-- CSS -->
-<link rel="stylesheet" href="/css/vendor.css" type="text/css">
+{{-- <link rel="stylesheet" href="/css/vendor.css" type="text/css"> --}}
 <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 <link rel="stylesheet" href="/css/mentoring.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <!-- META TAGS -->
-<meta name="description" content="@yield('meta-desc', '')" />
+{{-- <meta name="description" content="@yield('meta-desc', '')" />
 <meta name="keywords" content="@yield('meta-keywords', '')">
 <meta name="author" content="Tarot Nova Era">
 <meta name="copyright" content="">
@@ -18,10 +18,10 @@
 <meta name="distribution" content="Global">
 <meta name="rating" content="General">
 <meta name="revisit-after" content="5">
-<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="0"> --}}
 
 <!-- for Facebook -->
-<meta property="og:title" content="@yield('meta-title','')">
+{{-- <meta property="og:title" content="@yield('meta-title','')">
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="@yield('site-name', 'Sisscon | Mentoring')">
@@ -35,7 +35,7 @@
 <meta property="twitter:image" content="{{ url('/') }}@yield('meta-image', '')">
 
 <!-- for Google+ -->
-<meta itemprop="name" content="@yield('meta-title','Sisscon | Mentoring')">
+<meta itemprop="name" content="@yield('meta-title','Sisscon | Mentoring')"> --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 

@@ -31,7 +31,7 @@ class MentoradoControllerAdmin extends Controller
         $id_user = UsuarioControllerAdmin::store($request);
         if($id_user > 0)
         {
-            $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $extension = str_replace('.', '', strstr($_FILES['foto']['name'], '.'));
             $destino = 'images/usuarios/' . round(microtime(true) * 1000).".".$extension;
             $arquivo_tmp = $_FILES['foto']['tmp_name'];
             move_uploaded_file( $arquivo_tmp, $destino  );
