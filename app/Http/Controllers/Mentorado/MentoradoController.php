@@ -42,6 +42,27 @@ class MentoradoController extends Controller
         $mentores = $this->selecionaMentores($mentores, $assuntos);
         return $mentores;
     }
+
+
+    public function mentorListagem(Request $request)
+    {
+        $mentores = new Mentor;
+        $mentores = $mentores->join('tb_usuarios', 'usuario_id_usuario', '=', 'id_usuario')->where('cd_role', '=', 2)->where('cd_status', '=', 1)->where('nm_mentor', 'like', '%'.$request->search.'%' )->orderBy('vl_nota', 'desc');
+        $count = $mentores->get()->count();
+        $mentoresAExibir = array();
+        foreach($mentores->limit(6)->offset(($request->page-1)*6)->get() as $linhaMentor)
+        {
+            $subMentoresAExbir = array();
+            $subMentoresAExbir['id_mentor'] = $linhaMentor->id_mentor;
+            $subMentoresAExbir['nm_mentor'] = $linhaMentor->nm_mentor;
+            $subMentoresAExbir['vl_nota'] = $linhaMentor->vl_nota;
+            $subMentoresAExbir['nv_conhecimento'] = $linhaMentor->nv_conhecimento;
+            $subMentoresAExbir['ds_foto'] = $linhaMentor->ds_foto;
+            $mentoresAExibir[] = $subMentoresAExbir;
+        }
+        return json_encode(array('dados' => $mentoresAExibir, 'qtd' => ceil($count/6)));
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

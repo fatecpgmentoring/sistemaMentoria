@@ -80,6 +80,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
         Route::post('/store', 'MentoradoControllerAdmin@store')->name('admin.mentorado.store');
         Route::put('/update/{id}', 'MentoradoControllerAdmin@update')->name('admin.mentorado.update');
         Route::delete('/destroy/{id}', 'MentoradoControllerAdmin@destroy')->name('admin.mentorado.destroy');
+        Route::delete('/destroy/{id}', 'MentoradoControllerAdmin@destroy')->name('admin.mentorado.destroy');
+        Route::get('/mentoresListagembyMentorado', 'SiteController@mentorListagem')->name('lista.mentor.by.mentorado');
     });
 
     Route::group(['prefix' => 'evento'], function () {
