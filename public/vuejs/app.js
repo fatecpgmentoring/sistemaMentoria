@@ -49293,7 +49293,7 @@ var render = function() {
                             {
                               staticClass: "btn",
                               attrs: {
-                                href: "/mentor/chat/" + mentorado.id_mentorado
+                                href: "/mentor/chat/" + mentorado.id_conexao
                               }
                             },
                             [

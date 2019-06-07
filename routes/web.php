@@ -123,24 +123,26 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
     });
 });
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
-   Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
-
-   Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
-   Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
-   Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
-   Route::get('/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
-   Route::post('/carregaAssunto', 'AssuntoControllerMentor@carregaAssunto')->name('carrega.assuntos');
-   Route::post('/carregaMeusAssuntos', 'AssuntoControllerMentor@carregaMeusAssuntos')->name('carrega.assuntos.meus');
-   Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
-   Route::post('/salvarAssunto', 'AssuntoControllerMentor@salvarAssunto')->name('salva.assunto.mentor');
-   Route::post('/removerAssunto', 'AssuntoControllerMentor@removerAssunto')->name('remove.assunto.mentor');
-   Route::get('/cadastrar-assuntos', 'AssuntoControllerMentor@cadastrarAssunto');
-   Route::get('/cadastrar-conteúdo', function(){return view('painel-mentor.minha-conta.cadastrar-conteudo');});
-   Route::get('/conexoes', 'ConexaoControllerMentor@conexoes')->name('conexoes.mentor');
-   Route::get('/listar-comentarios', function(){return view('painel-mentor.minha-conta.listar-comentarios');});
-   Route::get('/listar-conteudo', function(){return view('painel-mentor.minha-conta.listar-conteudo');});
-   Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
-   Route::post('/cadastrar-assunto-mentor', 'AssuntoControllerMentor@cadastrarAssuntoMentor')->name('cadastrar.assunto.mentor');
+    Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
+    Route::get('/chat/aceitar/{id}', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
+    Route::get('/chat/recusar/{id}', 'ConexaoControllerMentor@recusar')->name('recusar.mentorado');
+    Route::get('/chat/{id}', 'ConexaoControllerMentor@chamar')->name('chamar.mentorado');
+    Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
+    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
+    Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
+    Route::get('/alterar-cadastro', function(){return view('painel-mentor.login.alterar-cadastro');});
+    Route::post('/carregaAssunto', 'AssuntoControllerMentor@carregaAssunto')->name('carrega.assuntos');
+    Route::post('/carregaMeusAssuntos', 'AssuntoControllerMentor@carregaMeusAssuntos')->name('carrega.assuntos.meus');
+    Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
+    Route::post('/salvarAssunto', 'AssuntoControllerMentor@salvarAssunto')->name('salva.assunto.mentor');
+    Route::post('/removerAssunto', 'AssuntoControllerMentor@removerAssunto')->name('remove.assunto.mentor');
+    Route::get('/cadastrar-assuntos', 'AssuntoControllerMentor@cadastrarAssunto');
+    Route::get('/cadastrar-conteúdo', function(){return view('painel-mentor.minha-conta.cadastrar-conteudo');});
+    Route::get('/conexoes', 'ConexaoControllerMentor@conexoes')->name('conexoes.mentor');
+    Route::get('/listar-comentarios', function(){return view('painel-mentor.minha-conta.listar-comentarios');});
+    Route::get('/listar-conteudo', function(){return view('painel-mentor.minha-conta.listar-conteudo');});
+    Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
+    Route::post('/cadastrar-assunto-mentor', 'AssuntoControllerMentor@cadastrarAssuntoMentor')->name('cadastrar.assunto.mentor');
 });
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' => CheckMentorado::class], function () {
    Route::get('/', 'MentoradoController@index')->name('index.mentorado.painel');

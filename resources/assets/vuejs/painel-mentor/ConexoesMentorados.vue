@@ -53,7 +53,7 @@
                             </a>
                         </div>
                         <div v-else-if="mentorado.ds_status == 1">
-                            <a :href="'/mentor/chat/' + mentorado.id_mentorado" class="btn">
+                            <a :href="'/mentor/chat/' + mentorado.id_conexao" class="btn">
                                 <span class="fa fa-comments fa-lg"></span>&nbsp chamar
                             </a>
                         </div>
