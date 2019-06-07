@@ -16186,7 +16186,9 @@ form.default .form-check-input:checked:before {
 
 #consultor-header .wrap-content .user-box .user-info .user-photo {
    /* border-left: 1px solid #222d32; */
-    border-left: 2px solid #037a7a;
+    border-left: 2px solid rgba(0, 120, 120, 1);
+    background-color: rgba(0, 120, 120, 1);
+    -webkit-border-radius: 20px 0 0 20px;
     padding: 25px 15px 15px 30px
 }
 
@@ -16226,7 +16228,10 @@ form.default .form-check-input:checked:before {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    background-color: rgba(0, 120, 120, 1);
+    border-radius: 20px 0 0 0;
+
 }
 
 #consultor-header .wrap-content .user-box .breadcrumb-wrapper .link a {
@@ -16335,6 +16340,7 @@ form.default .form-check-input:checked:before {
 
 #aside-nav.active .icon-list{
     background: #00b1b1;
+    height: 100%;
 }
 
 #aside-nav.active .icon-list li{
@@ -16348,20 +16354,6 @@ form.default .form-check-input:checked:before {
     position: relative;
     padding: 10px 20px 10px 40px;
     font-weight: 600;
-}
-
-#aside-nav.active .icon-list li a::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -10px;
-    background: #03717a;
-    width: 10px;
-    height: 100%;
-}
-
-#aside-nav.active .icon-list li:hover a::before{
-    background: #54b8b8;
 }
 
 #aside-nav.active .icon-list li:hover{

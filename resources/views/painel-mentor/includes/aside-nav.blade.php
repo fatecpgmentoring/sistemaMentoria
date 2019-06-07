@@ -1,6 +1,4 @@
 <aside id="aside-nav" class="active">
-    <div class="wrap-item">
-    </div>
     <ul class="icon-list">
         <li>
             <div class="wrap-item">
@@ -25,11 +23,6 @@
         <li>
             <div class="wrap-item">
                 <a href="/mentor/listar-comentarios"><span class="spriting sprite-nav-dashboard"></span>Listar Comentários</a>
-            </div>
-        </li>
-        <li>
-            <div class="wrap-item">
-                <a href="/mentor/listar-conteudo"><span class="spriting sprite-nav-dashboard"></span>Listar Conteúdo</a>
             </div>
         </li>
         <li>
