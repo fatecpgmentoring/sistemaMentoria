@@ -1,7 +1,7 @@
 <!-- Limitar a 6 por pagina -->
 <template>
     <div>
-        <div class="search-wrap">
+        <div class="search-wrap"  v-if="filteredMentorados.length > 0">
             <form>
                 <div class="wrap-input">
                     <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
@@ -14,7 +14,6 @@
         <ul class="row consultant-list" v-if="this.filteredMentorados.length > 0">
             <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in mentorados" :key="index">
                 <div class="wrap-card">
-                    <div style="color: red; margin-top: 0px">&times</div>
                     <div class="cheader">
                         <h2 class="name">{{mentorado.nm_mentorado}}</h2>
                         <h3 class="specialization">
@@ -22,13 +21,10 @@
                                 <div v-if="mentorado.ds_status == 1" style="color: green">
                                     Conexão {{status[mentorado.ds_status]}}
                                 </div>
-                                <div v-if="mentorado.ds_status == 0" style="color: #FF8C00">
+                                <div v-else-if="mentorado.ds_status == 0" style="color: #FF8C00">
                                     Conexão {{status[mentorado.ds_status]}}
                                 </div>
-                                <div v-if="mentorado.ds_status == 2" style="color: #FF0000">
-                                    Conexão {{status[mentorado.ds_status]}}
-                                </div>
-                                <div v-else style="color: #000000">
+                                <div v-else-if="mentorado.ds_status == 2" style="color: #FF0000">
                                     Conexão {{status[mentorado.ds_status]}}
                                 </div>
                             </div>
@@ -48,21 +44,24 @@
                         Ate: {{mentorado.dt_fim}}
                     </p>
                     <div class="cfooter">
-                        <div v-if="true"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
-                            <a :href="'/mentor/chat/' + mentorado.id_mentorado" class="btn">
-                                <div class="spriting"></div>ver
+                        <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
+                            <a :href="'/mentor/chat/aceitar/' + mentorado.id_conexao" class="btn-aceitar">
+                                <span class="fa fa-check fa-lg"></span>&nbsp aceitar
+                            </a>
+                            <a :href="'/mentor/chat/recusar/' + mentorado.id_conexao" class="btn-recusar">
+                                <span class="fa fa-times fa-lg"></span>&nbsp recusar
                             </a>
                         </div>
-                        <div v-else>
+                        <div v-else-if="mentorado.ds_status == 1">
                             <a :href="'/mentor/chat/' + mentorado.id_mentorado" class="btn">
-                                <div class="spriting"></div>chamar
+                                <span class="fa fa-comments fa-lg"></span>&nbsp chamar
                             </a>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
-        <div id="paginator">
+        <div id="paginator" v-if="filteredMentorados.length > 0">
             <ul>
                 <div v-if="page == 1">
                     <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>

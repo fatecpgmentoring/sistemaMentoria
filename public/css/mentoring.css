@@ -804,3 +804,68 @@
 }
 
 /*******************************************************************************************************/
+
+
+#consultants .consultant-list .item .wrap-card .cfooter .btn-aceitar {
+    padding: .5em;
+    background: rgba(0, 210, 200, 1);
+    text-align: center;
+    font-family: COCOGOOSE;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: initial;
+    color: #fff;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
+    box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
+    border-radius: 0 0 0 10px;
+    width: 50%;
+    float: left;
+    background-color: rgb(3, 211, 0)
+}
+
+#consultants .consultant-list .item .wrap-card .cfooter .btn-recusar {
+    padding: .5em;
+    background: rgba(0, 210, 200, 1);
+    text-align: center;
+    font-family: COCOGOOSE;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: initial;
+    color: #fff;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
+    box-shadow: 0 8px 15px 2px rgba(0,0,0,.1);
+    border-radius: 0 0 10px 0;
+    width: 50%;
+    float: left;
+    background-color: rgb(229, 3, 0);
+}

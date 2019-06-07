@@ -2152,7 +2152,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentorados'],
   name: 'conexoes-mentorados',
@@ -49125,55 +49124,57 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "search-wrap" }, [
-      _c("form", [
-        _c("div", { staticClass: "wrap-input" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.search,
-                expression: "search"
-              }
-            ],
-            attrs: {
-              type: "text",
-              id: "search",
-              placeholder: "Buscar",
-              name: "termo"
-            },
-            domProps: { value: _vm.search },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+    _vm.filteredMentorados.length > 0
+      ? _c("div", { staticClass: "search-wrap" }, [
+          _c("form", [
+            _c("div", { staticClass: "wrap-input" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.search,
+                    expression: "search"
+                  }
+                ],
+                attrs: {
+                  type: "text",
+                  id: "search",
+                  placeholder: "Buscar",
+                  name: "termo"
+                },
+                domProps: { value: _vm.search },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.search = $event.target.value
+                  }
                 }
-                _vm.search = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.fsearch(_vm.search)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-search",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]
-          )
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function($event) {
+                      return _vm.fsearch(_vm.search)
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-search",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ])
+          ])
         ])
-      ])
-    ]),
+      : _vm._e(),
     _vm._v(" "),
     this.filteredMentorados.length > 0
       ? _c(
@@ -49185,12 +49186,6 @@ var render = function() {
               { key: index, staticClass: "col-lg-4 col-md-6 item" },
               [
                 _c("div", { staticClass: "wrap-card" }, [
-                  _c(
-                    "div",
-                    { staticStyle: { color: "red", "margin-top": "0px" } },
-                    [_vm._v("×")]
-                  ),
-                  _vm._v(" "),
                   _c("div", { staticClass: "cheader" }, [
                     _c("h2", { staticClass: "name" }, [
                       _vm._v(_vm._s(mentorado.nm_mentorado))
@@ -49206,9 +49201,7 @@ var render = function() {
                                   "\n                            "
                               )
                             ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        mentorado.ds_status == 0
+                          : mentorado.ds_status == 0
                           ? _c("div", { staticStyle: { color: "#FF8C00" } }, [
                               _vm._v(
                                 "\n                                Conexão " +
@@ -49216,9 +49209,7 @@ var render = function() {
                                   "\n                            "
                               )
                             ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        mentorado.ds_status == 2
+                          : mentorado.ds_status == 2
                           ? _c("div", { staticStyle: { color: "#FF0000" } }, [
                               _vm._v(
                                 "\n                                Conexão " +
@@ -49226,13 +49217,7 @@ var render = function() {
                                   "\n                            "
                               )
                             ])
-                          : _c("div", { staticStyle: { color: "#000000" } }, [
-                              _vm._v(
-                                "\n                                Conexão " +
-                                  _vm._s(_vm.status[mentorado.ds_status]) +
-                                  "\n                            "
-                              )
-                            ])
+                          : _vm._e()
                       ])
                     ]),
                     _vm._v(" "),
@@ -49269,7 +49254,39 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
-                    true
+                    mentorado.ds_status == 0
+                      ? _c("div", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn-aceitar",
+                              attrs: {
+                                href:
+                                  "/mentor/chat/aceitar/" + mentorado.id_conexao
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "fa fa-check fa-lg" }),
+                              _vm._v("  aceitar\n                        ")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn-recusar",
+                              attrs: {
+                                href:
+                                  "/mentor/chat/recusar/" + mentorado.id_conexao
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "fa fa-times fa-lg" }),
+                              _vm._v("  recusar\n                        ")
+                            ]
+                          )
+                        ])
+                      : mentorado.ds_status == 1
                       ? _c("div", [
                           _c(
                             "a",
@@ -49280,12 +49297,14 @@ var render = function() {
                               }
                             },
                             [
-                              _c("div", { staticClass: "spriting" }),
-                              _vm._v("ver\n                        ")
+                              _c("span", {
+                                staticClass: "fa fa-comments fa-lg"
+                              }),
+                              _vm._v("  chamar\n                        ")
                             ]
                           )
                         ])
-                      : undefined
+                      : _vm._e()
                   ])
                 ])
               ]
@@ -49295,131 +49314,133 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { attrs: { id: "paginator" } }, [
-      _c(
-        "ul",
-        [
-          _vm.page == 1
-            ? _c("div", [
-                _c("li", { staticClass: "prev disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page - 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Anterior")]
-                  )
-                ])
-              ])
-            : _c("div", [
-                _c("li", { staticClass: "prev" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page - 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Anterior")]
-                  )
-                ])
-              ]),
-          _vm._v("\n               \n            "),
-          _vm._l(_vm.qtd, function(n) {
-            return _c("div", [
-              _vm.page == n
+    _vm.filteredMentorados.length > 0
+      ? _c("div", { attrs: { id: "paginator" } }, [
+          _c(
+            "ul",
+            [
+              _vm.page == 1
                 ? _c("div", [
-                    _c("li", { staticClass: "active" }, [
+                    _c("li", { staticClass: "prev disabled" }, [
                       _c(
                         "a",
                         {
                           attrs: { href: "" },
                           on: {
                             click: function($event) {
-                              return _vm.changePage(n)
+                              return _vm.changePage(_vm.page - 1)
                             }
                           }
                         },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(n) +
-                              "\n                        "
-                          )
-                        ]
+                        [_vm._v("Anterior")]
                       )
                     ])
                   ])
                 : _c("div", [
-                    _c("li", [
+                    _c("li", { staticClass: "prev" }, [
                       _c(
                         "a",
                         {
                           attrs: { href: "" },
                           on: {
                             click: function($event) {
-                              return _vm.changePage(n)
+                              return _vm.changePage(_vm.page - 1)
                             }
                           }
                         },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(n) +
-                              "\n                        "
+                        [_vm._v("Anterior")]
+                      )
+                    ])
+                  ]),
+              _vm._v("\n               \n            "),
+              _vm._l(_vm.qtd, function(n) {
+                return _c("div", [
+                  _vm.page == n
+                    ? _c("div", [
+                        _c("li", { staticClass: "active" }, [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(n) +
+                                  "\n                        "
+                              )
+                            ]
                           )
-                        ]
+                        ])
+                      ])
+                    : _c("div", [
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(n) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                ])
+              }),
+              _vm._v("\n               \n            "),
+              _vm.page == _vm.qtd
+                ? _c("div", [
+                    _c("li", { staticClass: "next disabled" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
                       )
                     ])
                   ])
-            ])
-          }),
-          _vm._v("\n               \n            "),
-          _vm.page == _vm.qtd
-            ? _c("div", [
-                _c("li", { staticClass: "next disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page + 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Proximo")]
-                  )
-                ])
-              ])
-            : _c("div", [
-                _c("li", { staticClass: "next" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page + 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Proximo")]
-                  )
-                ])
-              ])
-        ],
-        2
-      )
-    ]),
+                : _c("div", [
+                    _c("li", { staticClass: "next" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
+                      )
+                    ])
+                  ])
+            ],
+            2
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _vm.filteredMentorados.length == 0
       ? _c("div", [
