@@ -1,7 +1,7 @@
 <!-- Limitar a 6 por pagina -->
 <template>
     <div>
-        <div class="search-wrap"  v-if="filteredMentorados.length > 0">
+        <div class="search-wrap">
             <form>
                 <div class="wrap-input">
                     <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
@@ -12,7 +12,7 @@
             </form>
         </div>
         <ul class="row consultant-list" v-if="this.filteredMentorados.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in mentorados" :key="index">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in filteredMentorados" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentorado.nm_mentorado}}</h2>
@@ -40,9 +40,10 @@
                             <img :src="'/' + mentorado.ds_foto" alt="mentorado">
                         </figure>
                     </div>
-                    <p class="description text-justify p-3 text-center">
+                    <p class="description text-justify p-3 text-center" v-if="mentorado.dt_fim != null">
                         Ate: {{mentorado.dt_fim}}
                     </p>
+                    <p class="description text-justify p-3 text-center" v-else></p>
                     <div class="cfooter">
                         <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
                             <a href="" @click="aceitarMentorado(mentorado.id_conexao)" class="btn-aceitar">
@@ -105,12 +106,12 @@
 
 <script>
     export default {
-        props: ['mentorados'],
+        props: ['mentorados', 'quantidade'],
         name: 'conexoes-mentorados',
         data() {
             return {
                 page: 1,
-                qtd: 0,
+                qtd: this.quantidade,
                 search: "",
                 filteredMentorados: this.mentorados,
                 status: [
@@ -123,7 +124,7 @@
             }
         },
         created() {
-            axios.get('/mentoradosConectados')
+            axios.get('/mentor/conexao/mentorados')
                 .then((data) => {
                     this.filteredMentorados = data.data.dados;
                     this.qtd = data.data.qtd;
@@ -136,7 +137,7 @@
             changePage(data) {
                 event.preventDefault();
                 this.page = data;
-                axios.get('/mentoradosConectados', {
+                axios.get('/mentor/conexao/mentorados', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -153,7 +154,7 @@
             fsearch(data) {
                 event.preventDefault();
                 this.search = data;
-                axios.get('/mentoradosConectados', {
+                axios.get('/mentor/conexao/mentorados', {
                         params: {
                             page: this.page,
                             search: this.search

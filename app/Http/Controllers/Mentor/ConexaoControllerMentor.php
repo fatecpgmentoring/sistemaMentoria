@@ -22,17 +22,24 @@ class ConexaoControllerMentor extends Controller
 
     public function conexoes(Request $request)
     {
+        $mentorados = $this->getConexoes($request);
+        return view('painel-mentor.minha-conta.conexões-mentorados', compact('mentorados'));
+    }
+
+    public function getConexoes(Request $request)
+    {
         $mentor = $request->session()->get('usuario.0');
         $mentor = Mentor::find($mentor->id_mentor);
         $mentorados = array();
-        $conexoes = $mentor->conexoes()->where('ds_status', '<', 3)->get();
-        if($conexoes->count() > 0)
+        $conexoes = $mentor->conexoes()->join('tb_mentorados', 'mentorado_id_mentorado', '=', 'id_mentorado')->where('ds_status', '<', 3)->where('nm_mentorado', 'like', '%'.$request->search.'%' )->orderBy('id_conexao', 'desc');
+        $count = $conexoes->get()->count();
+        if($count > 0)
         {
-            foreach($conexoes as $conexao);
+            foreach($conexoes->limit(12)->offset(($request->page-1)*12)->get() as $conexao);
             {
                 $subArray = array();
-                $subArray['dt_fim'] = date('d/m/Y h:i:s', strtotime($conexao->dt_fim));
-                $subArray['dt_inicio'] = date('d/m/Y h:i:s', strtotime($conexao->dt_inicio));
+                $subArray['dt_fim'] = $conexao->dt_fim != null ? date('d/m/Y h:i:s', strtotime($conexao->dt_fim)) : null;
+                $subArray['dt_inicio'] = $conexao->dt_inicio != null ? date('d/m/Y h:i:s', strtotime($conexao->dt_inicio)) : null;
                 $subArray['ds_status'] = $conexao->ds_status;
                 $subArray['id_conexao'] = $conexao->id_conexao;
                 $subArray['id_mentorado'] = $conexao->mentorado->id_mentorado;
@@ -45,13 +52,16 @@ class ConexaoControllerMentor extends Controller
                 $mentorados[] = $subArray;
             }
         }
-        return view('painel-mentor.minha-conta.conexões-mentorados', compact('mentorados'));
-    }
 
+        return array('dados' => $mentorados, 'qtd' => $count);
+    }
     public function aceitar(Request $request)
     {
         $conexao = Conexao::find($request->conexao);
         $conexao->ds_status = 1;
+        $data = date('Y-m-d h:i:s');
+        $conexao->dt_inicio = $data;
+        $conexao->dt_fim = date('Y-m-d h:i:s', strtotime("+1 month",strtotime($data)));
         $conexao->update();
         return json_encode("OK");
     }
@@ -71,5 +81,11 @@ class ConexaoControllerMentor extends Controller
         $assunto = $conexao->assunto;
         $mensagens = $conexao->mensagens;
         dd($conexao);
+    }
+
+    public function mentoradosAjax(Request $request)
+    {
+        $mentorados = $this->getConexoes($request);
+        return json_encode($mentorados);
     }
 }

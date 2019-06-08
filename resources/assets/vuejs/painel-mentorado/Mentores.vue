@@ -18,7 +18,7 @@
                         <h3 class="specialization">
                             <div>
                                 <div>
-                                    Mentor
+                                    Assuntos: {{mentor.assuntos}}
                                 </div>
                             </div>
 

@@ -2152,13 +2152,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['mentorados'],
+  props: ['mentorados', 'quantidade'],
   name: 'conexoes-mentorados',
   data: function data() {
     return {
       page: 1,
-      qtd: 0,
+      qtd: this.quantidade,
       search: "",
       filteredMentorados: this.mentorados,
       status: ['Pendente', 'Ativa', 'Encerrada', 'Cancelada', 'Recusada']
@@ -2167,7 +2168,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('/mentoradosConectados').then(function (data) {
+    axios.get('/mentor/conexao/mentorados').then(function (data) {
       _this.filteredMentorados = data.data.dados;
       _this.qtd = data.data.qtd;
     })["catch"](function (e) {
@@ -2180,7 +2181,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.page = data;
-      axios.get('/mentoradosConectados', {
+      axios.get('/mentor/conexao/mentorados', {
         params: {
           page: this.page,
           search: this.search
@@ -2197,7 +2198,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.search = data;
-      axios.get('/mentoradosConectados', {
+      axios.get('/mentor/conexao/mentorados', {
         params: {
           page: this.page,
           search: this.search
@@ -49152,63 +49153,61 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.filteredMentorados.length > 0
-      ? _c("div", { staticClass: "search-wrap" }, [
-          _c("form", [
-            _c("div", { staticClass: "wrap-input" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.search,
-                    expression: "search"
-                  }
-                ],
-                attrs: {
-                  type: "text",
-                  id: "search",
-                  placeholder: "Buscar",
-                  name: "termo"
-                },
-                domProps: { value: _vm.search },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.search = $event.target.value
-                  }
+    _c("div", { staticClass: "search-wrap" }, [
+      _c("form", [
+        _c("div", { staticClass: "wrap-input" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            attrs: {
+              type: "text",
+              id: "search",
+              placeholder: "Buscar",
+              name: "termo"
+            },
+            domProps: { value: _vm.search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      return _vm.fsearch(_vm.search)
-                    }
-                  }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-search",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ])
-          ])
+                _vm.search = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.fsearch(_vm.search)
+                }
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fa fa-search",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]
+          )
         ])
-      : _vm._e(),
+      ])
+    ]),
     _vm._v(" "),
     this.filteredMentorados.length > 0
       ? _c(
           "ul",
           { staticClass: "row consultant-list" },
-          _vm._l(_vm.mentorados, function(mentorado, index) {
+          _vm._l(_vm.filteredMentorados, function(mentorado, index) {
             return _c(
               "li",
               { key: index, staticClass: "col-lg-4 col-md-6 item" },
@@ -49269,17 +49268,24 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "description text-justify p-3 text-center" },
-                    [
-                      _vm._v(
-                        "\n                    Ate: " +
-                          _vm._s(mentorado.dt_fim) +
-                          "\n                "
+                  mentorado.dt_fim != null
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "description text-justify p-3 text-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Ate: " +
+                              _vm._s(mentorado.dt_fim) +
+                              "\n                "
+                          )
+                        ]
                       )
-                    ]
-                  ),
+                    : _c("p", {
+                        staticClass: "description text-justify p-3 text-center"
+                      }),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     mentorado.ds_status == 0
@@ -50395,7 +50401,17 @@ var render = function() {
                       _vm._v(_vm._s(mentor.nm_mentor))
                     ]),
                     _vm._v(" "),
-                    _vm._m(0, true),
+                    _c("h3", { staticClass: "specialization" }, [
+                      _c("div", [
+                        _c("div", [
+                          _vm._v(
+                            "\n                                Assuntos: " +
+                              _vm._s(mentor.assuntos) +
+                              "\n                            "
+                          )
+                        ])
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-center" }, [
                       _vm._v(
@@ -50788,22 +50804,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "specialization" }, [
-      _c("div", [
-        _c("div", [
-          _vm._v(
-            "\n                                Mentor\n                            "
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

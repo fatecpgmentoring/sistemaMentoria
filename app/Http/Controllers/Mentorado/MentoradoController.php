@@ -26,8 +26,24 @@ class MentoradoController extends Controller
     {
         $mentoresArray = array();
         foreach ($mentores as $mentor) {
-            if($mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count() > 0  && count($mentoresArray) < 6)
-            $mentoresArray[] = $mentor;
+            $count = $mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count();
+            if($count > 0  && count($mentoresArray) < 6)
+            {
+                $cont = 0;
+                $assuntosText = "";
+                $assuntoArray = array();
+                foreach($mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->get() as $assunto)
+                {
+                    if($cont == 0) $assuntosText .= $assunto->nm_assunto;
+                    else if($count > 1 && $cont == ($count-1)) $assuntosText .= " e ".$assunto->nm_assunto.".";
+                    else $assuntosText .= ", ".$assunto->nm_assunto;
+                    $assuntoArray[] = $assunto;
+                    $cont++;
+                }
+                $mentor->assuntos = $assuntosText;
+                $mentor->assuntosSeparados = $assuntoArray;
+                $mentoresArray[] = $mentor;
+            }
         }
         return $mentoresArray;
     }
@@ -62,7 +78,7 @@ class MentoradoController extends Controller
         }
         return json_encode(array('dados' => $mentoresAExibir, 'qtd' => ceil($count/6)));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
