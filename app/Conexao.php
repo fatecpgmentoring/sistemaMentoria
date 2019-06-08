@@ -14,10 +14,7 @@ class Conexao extends Model
         'assunto_id_assunto',
         'dt_fim',
         'dt_finalizado',
-        'qnt_mensagens',
-        'qnt_reconeccoes',
-        'ds_status',
-        'vl_nota',
+        'ds_status'
     ];
 
     public static $regras = [];

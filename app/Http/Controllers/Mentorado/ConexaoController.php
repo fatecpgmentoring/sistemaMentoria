@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mentorado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Conexao;
 
 class ConexaoController extends Controller
 {
@@ -35,7 +36,15 @@ class ConexaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mentorado = $request->session()->get('usuario.0');
+        $conexao = new Conexao([
+            'mentorado_id_mentorado' => $mentorado->id_mentorado,
+            'mentor_id_mentor' => $request->mentor,
+            'assunto_id_assunto'=> $request->assunto,
+            'ds_status' => 0
+        ]);
+         
+        dd($conexao);
     }
 
     /**

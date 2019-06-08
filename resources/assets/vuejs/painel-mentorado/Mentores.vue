@@ -212,7 +212,19 @@
             {
                 var idAssunto = document.getElementById('assuntosEscolher').options[document.getElementById('assuntosEscolher').selectedIndex].value;
                 var idMentor = this.mentorEscolhido.id_mentor;
-                console.log(idAssunto + " " + idMentor);
+                axios.post('/solicita-conexao', {
+                        params: {
+                            mentor: idMentor,
+                            assunto: idAssunto,
+                            _token: document.head.querySelector("[name~=csfr-token][content]").content;
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(page)
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
             },
         },
     }
