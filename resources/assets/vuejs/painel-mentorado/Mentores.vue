@@ -216,7 +216,7 @@
                         params: {
                             mentor: idMentor,
                             assunto: idAssunto,
-                            _token: document.head.querySelector("[name~=csfr-token][content]").content;
+                            _token: document.head.querySelector("[name~=csfr-token][content]").content
                         }
                     })
                     .then((data) => {
