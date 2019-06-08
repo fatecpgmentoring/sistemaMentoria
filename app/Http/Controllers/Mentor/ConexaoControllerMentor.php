@@ -35,7 +35,7 @@ class ConexaoControllerMentor extends Controller
         $count = $conexoes->get()->count();
         if($count > 0)
         {
-            foreach($conexoes->limit(12)->offset(($request->page-1)*12)->get() as $conexao);
+            foreach($conexoes->limit(6)->offset(($request->page-1)*6)->get() as $conexao);
             {
                 $subArray = array();
                 $subArray['dt_fim'] = $conexao->dt_fim != null ? date('d/m/Y h:i:s', strtotime($conexao->dt_fim)) : null;

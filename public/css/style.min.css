@@ -14102,21 +14102,23 @@ form.default .form-check-input:checked:before {
 #why-box .content:after {
     width: 290px;
     height: 290px;
-    background: url(../images/tarot-2.png) no-repeat;
+    background: url(../images/logos/icone-branco.png) no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
     right: 15px;
-    bottom: -160px
+    bottom: -168px;
+    border-radius: 50%;
+    border: 5px solid rgb(0, 176, 176);
 }
 
 #why-box:before {
-    background: url(../images/tarot-1.png) no-repeat;
-    width: 700px;
-    height: 700px;
+    background: url(../images/logos/icone-azul.png) no-repeat;
+    width: 500px;
+    height: 500px;
     -webkit-background-size: contain;
     background-size: contain;
-    left: 0;
-    top: -150px;
+    left: -30px;
+    top: -72px;
     z-index: 0
 }
 

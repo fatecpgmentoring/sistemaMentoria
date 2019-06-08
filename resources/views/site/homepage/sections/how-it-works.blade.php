@@ -11,7 +11,7 @@
                         <span>1°</span>
                     </div>
                     <div class="content">
-                        <h3>Escolha o consultor</h3>
+                        <h3>Escolha os seus assuntos de interesse</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consecte
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -26,7 +26,7 @@
                         <span>2°</span>
                     </div>
                     <div class="content">
-                        <h3>Faça seu pagamento</h3>
+                        <h3>Busque um mentor e solicite uma conexão</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consecte
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -41,7 +41,7 @@
                         <span>3°</span>
                     </div>
                     <div class="content">
-                        <h3>Inicie sua consulta</h3>
+                        <h3>Ao ser aceita a conexão, inicie a conversa com o seu mentor</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consecte
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

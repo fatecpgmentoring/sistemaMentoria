@@ -11,5 +11,6 @@
 <!-- CONSULTANTS -->
 @include('site.homepage.sections.consultants')
 
+@include('site.homepage.sections.how-it-works')
 
 @endsection
