@@ -60,7 +60,7 @@
             <div class="offset-lg-4 col-lg-8 offset-md-2 col-md-10 content">
                 <h2>
                     <span>Porque</span>
-                    Tarot Nova Era?
+                    Mentoring?
                 </h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
