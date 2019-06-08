@@ -157,7 +157,8 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::get('/conexoes', function(){return view('painel-mentorado.minha-conta.conexões-mentores');});
    Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
    Route::get('/chat', function(){return view('painel-mentorado.chat.chat-mentorado');});
-
+  
+   Route::get('/conexao/cancelar/', 'ConexaoController@destroy')->name('cancelar.mentor');
 
    Route::post('/carregaAssunto', 'AssuntoMentoradoController@carregaAssunto')->name('carrega.assuntos.mentorado');
    Route::post('/carregaCarreira', 'CarreiraController@carregaCarreira')->name('carrega.carreira.mentorado');
