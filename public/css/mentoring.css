@@ -1,3 +1,7 @@
+body > div > a {
+    text-decoration: none !important;
+}
+
 .btn-mentoring {
     background-color: rgba(0, 176, 176, 1);
     color: white;

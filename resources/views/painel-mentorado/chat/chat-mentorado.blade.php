@@ -1,4 +1,4 @@
-@extends('chat.layouts.master')
+@extends('painel-mentorado.layouts.master')
 
 @section('meta-title', 'Chat - Painel Mentorado | Sisscon')
 @section('meta-desc', '')
