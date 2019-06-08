@@ -2220,12 +2220,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'conexoes-mentores',
   data: function data() {
     return {
       page: 1,
-      qtd: 0,
+      qtd: this.quantidade,
       search: "",
       filteredMentores: []
     };
@@ -2271,6 +2273,20 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this3.filteredMentores = data.data.dados;
         _this3.qtd = data.data.qtd;
+      })["catch"](function (e) {
+        console.log('Erro ao carregar mentores: ', e);
+      });
+    },
+    cancelarMentor: function cancelarMentor(idConexao) {
+      var _this4 = this;
+
+      event.preventDefault();
+      axios.get('/mentorado/conexao/cancelar', {
+        params: {
+          conexao: idConexao
+        }
+      }).then(function (data) {
+        _this4.changePage(_this4.page);
       })["catch"](function (e) {
         console.log('Erro ao carregar mentores: ', e);
       });
@@ -49783,9 +49799,43 @@ var render = function() {
                       _vm._v(_vm._s(mentor.nm_mentor))
                     ]),
                     _vm._v(" "),
-                    _vm._m(0, true),
+                    _c("h3", { staticClass: "specialization" }, [
+                      _c("div", [
+                        mentor.ds_status == 1
+                          ? _c("div", { staticStyle: { color: "green" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentor.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : mentor.ds_status == 0
+                          ? _c("div", { staticStyle: { color: "#FF8C00" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentor.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : mentor.ds_status == 2
+                          ? _c("div", { staticStyle: { color: "#FF0000" } }, [
+                              _vm._v(
+                                "\n                                Conexão " +
+                                  _vm._s(_vm.status[mentor.ds_status]) +
+                                  "\n                            "
+                              )
+                            ])
+                          : _vm._e()
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "text-center" })
+                    _c("div", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "\n                      Assunto: " +
+                          _vm._s(mentor.nm_assunto) +
+                          "\n                    "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "perfil-photo" }, [
@@ -49796,28 +49846,46 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("p", {
-                    staticClass: "description text-justify p-3 text-center"
-                  }),
+                  mentor.dt_fim != null
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "description text-justify p-3 text-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Ate: " +
+                              _vm._s(mentor.dt_fim) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    : _c("p", {
+                        staticClass: "description text-justify p-3 text-center"
+                      }),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
-                    true
+                    mentor.ds_status == 0
                       ? _c("div", [
                           _c(
                             "a",
                             {
-                              staticClass: "btn",
-                              attrs: {
-                                href: "/mentorado/chat/" + mentor.id_mentor
+                              staticClass: "btn-aceitar",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.cancelarMentor(mentor.id_conexao)
+                                }
                               }
                             },
                             [
-                              _c("div", { staticClass: "spriting" }),
-                              _vm._v("ver\n                        ")
+                              _c("span", { staticClass: "btn btn-warning" }),
+                              _vm._v("  aceitar\n                        ")
                             ]
                           )
                         ])
-                      : undefined
+                      : _vm._e()
                   ])
                 ])
               ]
@@ -49964,14 +50032,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "specialization" }, [_c("div", [_c("div")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
