@@ -40,6 +40,8 @@ import ChatMentorado from './painel-mentorado/ChatMentorado.vue';
 Vue.component('chat-mentorado', ChatMentorado);
 import Mentores from './painel-mentorado/Mentores.vue';
 Vue.component('mentores', Mentores);
+import Modal from './painel-mentorado/Modal.vue';
+Vue.component('modal', Modal);
 
 const app = new Vue({
     el: '#vue-app'

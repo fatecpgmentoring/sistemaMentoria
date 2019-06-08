@@ -11,7 +11,7 @@
             </form>
         </div>
         <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in filteredMentores" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentor.nm_mentor}}</h2>
@@ -59,7 +59,7 @@
                     </p>
                     <div class="cfooter">
                         <div>
-                            <a :href="'/show/mentor/' + mentor.id_mentor" class="btn">
+                            <a href=""  @click="modal(index)" class="btn">
                                 <div class="spriting"></div>conectar
                             </a>
                         </div>
@@ -106,19 +106,40 @@
                 Não há mentores
             </div>
         </div>
-    </div>
+         <div class="py-4">
+            <stack-modal :show="show" title="Solicitar Mentoria" @close="show=false" @save="salvar()">
+                <select name="assuntoEscolher" id="assuntosEscolher">
+                    <option value="">Selecione...</option>
+                    <option v-for="(assunto, indexAssunto) in assuntosFiltereds" :key="indexAssunto" :value="assunto.id_assunto">
+                        {{assunto.nm_assunto}}
+                    </option>
+                </select>
+
+            </stack-modal>
+
+        </div>
+
+</div>
+
 </template>
 
 <script>
+    import StackModal from './Modal.vue'
     export default {
         props: ['mentores'],
         name: 'all-mentores',
+        components: { StackModal },
         data() {
             return {
+                mentorEscolhido: null,
+                show: false,
+                show_second: false,
+                show_third: false,
                 page: 1,
                 qtd: 0,
                 search: "",
                 filteredMentores: this.mentores,
+                assuntosFiltereds: [],
                 dic: [
                 'menos de 1 ano de experiência',
                 'entre 1 e 3 anos de experiência',
@@ -174,7 +195,29 @@
                         console.log('Erro ao carregar mentores: ', e);
                     });
             },
+            modal(indexMentor) {
+                event.preventDefault();
+                this.mentorEscolhido = this.filteredMentores[indexMentor];
+                if(this.mentorEscolhido.assuntosSeparados.length > 1)
+                {
+                    this.assuntosFiltereds = this.mentorEscolhido.assuntosSeparados;
+                    this.show = true;
+                }
+                else
+                {
+
+                }
+            },
+            salvar()
+            {
+                var idAssunto = document.getElementById('assuntosEscolher').options[document.getElementById('assuntosEscolher').selectedIndex].value;
+                var idMentor = this.mentorEscolhido.id_mentor;
+                console.log(idAssunto + " " + idMentor);
+            },
         },
     }
 
 </script>
+<style>
+    @import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+</style>
