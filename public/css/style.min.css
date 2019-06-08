@@ -15408,7 +15408,7 @@ form.default .form-check-input:checked:before {
     margin-bottom: 25px
 }
 
-#chat .chat-main-wrap .user-information-status .body .name,#chat .chat-main-wrap .user-information-status .header h3 {
+.user-information-status .body .name,.user-information-status .header h3 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 0;
@@ -15427,15 +15427,15 @@ form.default .form-check-input:checked:before {
     padding: 5% 0
 }
 
-#chat .chat-main-wrap .user-information-status.consultant .header {
+.user-information-status.consultant .header {
     padding: 1em .5em
 }
 
-#chat .chat-main-wrap .user-information-status.consultant .body {
+.user-information-status.consultant .body {
     background: #fff
 }
 
-#chat .chat-main-wrap .user-information-status .header {
+.user-information-status .header {
     padding: 1.5em .5em;
     background: #00cb94;
     -webkit-border-top-left-radius: 10px;
@@ -15444,7 +15444,7 @@ form.default .form-check-input:checked:before {
     border-top-right-radius: 10px
 }
 
-#chat .chat-main-wrap .user-information-status .body {
+.user-information-status .body {
     background-image: url(../images/bg-chat-user.png);
     background-color: #fff;
     background-repeat: no-repeat;
@@ -15452,7 +15452,7 @@ form.default .form-check-input:checked:before {
     padding: 1.5em .5em
 }
 
-#chat .chat-main-wrap .user-information-status .body .name+p {
+.user-information-status .body .name+p {
     text-align: center;
     font-family: Montserrat,sans-serif;
     font-size: 15px;
@@ -15461,7 +15461,7 @@ form.default .form-check-input:checked:before {
     color: #fff
 }
 
-#chat .chat-main-wrap .user-information-status .body figure {
+.user-information-status .body figure {
     margin: 0 auto;
     width: 200px;
     height: 200px;
@@ -15471,7 +15471,7 @@ form.default .form-check-input:checked:before {
     border: 8px solid #fff
 }
 
-#chat .chat-main-wrap .user-information-status .body figure img {
+.user-information-status .body figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -15484,25 +15484,25 @@ form.default .form-check-input:checked:before {
 }
 
 @media (max-width:992px) {
-    #chat .chat-main-wrap .user-information-status .body figure {
+    .user-information-status .body figure {
         width: 100%
     }
 }
 
 @media (max-width:767px) {
-    #chat .chat-main-wrap .user-information-status .body {
+    .user-information-status .body {
         -webkit-background-size: 100% 100%;
         background-size: 100%;
         background-position-y: -120px
     }
 
-    #chat .chat-main-wrap .user-information-status .body figure {
+    .user-information-status .body figure {
         width: 60%;
         height: auto
     }
 }
 
-#chat .chat-main-wrap .user-information-status .footer {
+.user-information-status .footer {
     padding: 0 .5em 1.5em;
     background: #fff;
     -webkit-box-shadow: 0 10px 12px -1px rgba(0,0,0,.1);
@@ -15513,7 +15513,7 @@ form.default .form-check-input:checked:before {
     border-bottom-right-radius: 10px
 }
 
-#chat .chat-main-wrap .user-information-status .footer .btn-default {
+.user-information-status .footer .btn-default {
     background: #00cb94;
     padding: 1em;
     font-size: 14px;
@@ -15522,16 +15522,16 @@ form.default .form-check-input:checked:before {
 }
 
 @media (max-width:992px) {
-    #chat .chat-main-wrap .user-information-status .footer .btn-default {
+    .user-information-status .footer .btn-default {
         padding: .5em
     }
 }
 
-#chat .chat-main-wrap .client-box {
+.client-box {
     margin-bottom: 30px
 }
 
-#chat .chat-main-wrap .client-box .body .name,#chat .chat-main-wrap .client-box .header h3 {
+.client-box .body .name,.client-box .header h3 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 0;
@@ -15541,7 +15541,7 @@ form.default .form-check-input:checked:before {
     text-align: center
 }
 
-#chat .chat-main-wrap .client-box .header {
+.client-box .header {
     padding: 1.5em .5em;
     background: #00cb94;
     -webkit-border-top-left-radius: 10px;
@@ -15550,7 +15550,7 @@ form.default .form-check-input:checked:before {
     border-top-right-radius: 10px
 }
 
-#chat .chat-main-wrap .client-box .body {
+.client-box .body {
     background-image: url(../images/bg-chat-user.png);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -15562,7 +15562,7 @@ form.default .form-check-input:checked:before {
     padding: 1.5em .5em 1em
 }
 
-#chat .chat-main-wrap .client-box .body .name+p {
+.client-box .body .name+p {
     text-align: center;
     font-family: Montserrat,sans-serif;
     font-size: 15px;
@@ -15571,7 +15571,7 @@ form.default .form-check-input:checked:before {
     color: #fff
 }
 
-#chat .chat-main-wrap .client-box .body figure {
+.client-box .body figure {
     margin: 0 auto;
     width: 200px;
     height: 200px;
@@ -15581,7 +15581,7 @@ form.default .form-check-input:checked:before {
     border: 8px solid #fff
 }
 
-#chat .chat-main-wrap .client-box .body figure img {
+.client-box .body figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -15594,16 +15594,16 @@ form.default .form-check-input:checked:before {
 }
 
 @media (max-width:992px) {
-    #chat .chat-main-wrap .client-box .body figure {
+    .client-box .body figure {
         width: 100%
     }
 }
 
-#chat .chat-main-wrap .client-spec {
+.client-spec {
     margin-bottom: 30px
 }
 
-#chat .chat-main-wrap .client-spec .header {
+.client-spec .header {
     padding: 1em .5em;
     background: rgba(0, 176, 176, 1);
     -webkit-border-top-left-radius: 10px;
@@ -15612,7 +15612,7 @@ form.default .form-check-input:checked:before {
     border-top-right-radius: 10px
 }
 
-#chat .chat-main-wrap .client-spec .header h3 {
+.client-spec .header h3 {
     margin-bottom: 0;
     text-align: center;
     font-family: Montserrat,sans-serif;
@@ -15622,7 +15622,7 @@ form.default .form-check-input:checked:before {
     color: #fff
 }
 
-#chat .chat-main-wrap .client-spec .body {
+.client-spec .body {
     background: #fff;
     padding: 15px;
     -webkit-border-bottom-left-radius: 10px;
@@ -15633,17 +15633,17 @@ form.default .form-check-input:checked:before {
     box-shadow: 0 3px 10px 2px rgba(0,0,0,.1)
 }
 
-#chat .chat-main-wrap .client-spec .body ul li:not(:last-child) {
+.client-spec .body ul li:not(:last-child) {
     border-bottom: 1px solid #d6dfd6;
     padding-bottom: 15px;
     margin-bottom: 15px
 }
 
-#chat .chat-main-wrap .client-spec .body ul li .lbl,#chat .chat-main-wrap .client-spec .body ul li .value {
+.client-spec .body ul li .lbl,.client-spec .body ul li .value {
     display: block
 }
 
-#chat .chat-main-wrap .client-spec .body ul li .lbl {
+.client-spec .body ul li .lbl {
     text-align: center;
     font-family: Poppins,sans-serif;
     font-size: 14px;
@@ -15652,7 +15652,7 @@ form.default .form-check-input:checked:before {
     color: #00cb94
 }
 
-#chat .chat-main-wrap .client-spec .body ul li .value {
+.client-spec .body ul li .value {
     text-align: center;
     font-family: Montserrat,sans-serif;
     font-size: 16px;
@@ -15661,7 +15661,7 @@ form.default .form-check-input:checked:before {
     color: rgba(0, 176, 176, 1)
 }
 
-#chat .chat-main-wrap .timing-status-list {
+.timing-status-list {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -15683,24 +15683,24 @@ form.default .form-check-input:checked:before {
     margin-right: -5px
 }
 
-#chat .chat-main-wrap .timing-status-list li {
+.timing-status-list li {
     width: 33.33333%;
     padding: 0 5px 5px
 }
 
 @media (max-width:992px) {
-    #chat .chat-main-wrap .timing-status-list li {
+    .timing-status-list li {
         width: 50%
     }
 }
 
 @media (max-width:767px) {
-    #chat .chat-main-wrap .timing-status-list li {
+    .timing-status-list li {
         width: 100%
     }
 }
 
-#chat .chat-main-wrap .timing-status-list li .wrap {
+.timing-status-list li .wrap {
     padding: 2px 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -15713,13 +15713,13 @@ form.default .form-check-input:checked:before {
     display: flex
 }
 
-#buy-minutes .container .title-box #chat .chat-main-wrap .timing-status-list li .wrap .icon,#chat .chat-main-wrap .timing-status-list li .wrap #buy-minutes .container .title-box .icon,#chat .chat-main-wrap .timing-status-list li .wrap #contact .container .wrap-buttons .btn .icon,#chat .chat-main-wrap .timing-status-list li .wrap #how-it-works .step-list .step .wrapper .number,#chat .chat-main-wrap .timing-status-list li .wrap .buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .decrement,#chat .chat-main-wrap .timing-status-list li .wrap .buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .increment,#chat .chat-main-wrap .timing-status-list li .wrap .spriting,#contact .container .wrap-buttons .btn #chat .chat-main-wrap .timing-status-list li .wrap .icon,#how-it-works .step-list .step .wrapper #chat .chat-main-wrap .timing-status-list li .wrap .number,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector #chat .chat-main-wrap .timing-status-list li .wrap .decrement,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector #chat .chat-main-wrap .timing-status-list li .wrap .increment {
+#buy-minutes .container .title-box .timing-status-list li .wrap .icon,.timing-status-list li .wrap #buy-minutes .container .title-box .icon,.timing-status-list li .wrap #contact .container .wrap-buttons .btn .icon,.timing-status-list li .wrap #how-it-works .step-list .step .wrapper .number,.timing-status-list li .wrap .buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .decrement,.timing-status-list li .wrap .buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .increment,.timing-status-list li .wrap .spriting,#contact .container .wrap-buttons .btn .timing-status-list li .wrap .icon,#how-it-works .step-list .step .wrapper .timing-status-list li .wrap .number,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .timing-status-list li .wrap .decrement,.buy-time-block .wrap-content .select-quantity-comp .body .chooser .wrap-input .selector .timing-status-list li .wrap .increment {
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0
 }
 
-#chat .chat-main-wrap .timing-status-list li .wrap .content {
+.timing-status-list li .wrap .content {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -15736,7 +15736,7 @@ form.default .form-check-input:checked:before {
     padding-left: 10px
 }
 
-#chat .chat-main-wrap .timing-status-list li .wrap .content .title {
+.timing-status-list li .wrap .content .title {
     text-align: left;
     font-family: Montserrat,sans-serif;
     font-size: 15px;
@@ -15746,7 +15746,7 @@ form.default .form-check-input:checked:before {
     margin-bottom: 0
 }
 
-#chat .chat-main-wrap .timing-status-list li .wrap .content span {
+.timing-status-list li .wrap .content span {
     text-align: left;
     font-family: Montserrat,sans-serif;
     font-size: 12px;
@@ -15755,7 +15755,7 @@ form.default .form-check-input:checked:before {
     color: #fff
 }
 
-#chat .chat-main-wrap #chat-frame-box {
+#chat-frame-box {
     margin-top: 50px;
     background: #fff;
     -webkit-border-radius: 10px;
@@ -15765,17 +15765,17 @@ form.default .form-check-input:checked:before {
     position: relative
 }
 
-#chat .chat-main-wrap #chat-frame-box.waiting .status-waiting {
+#chat-frame-box.waiting .status-waiting {
     display: block
 }
 
-#chat .chat-main-wrap #chat-frame-box.done .status-done {
+#chat-frame-box.done .status-done {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     display: block
 }
 
-#chat .chat-main-wrap #chat-frame-box .status {
+#chat-frame-box .status {
     background: #fff;
     position: absolute;
     top: 0;
@@ -15805,7 +15805,7 @@ form.default .form-check-input:checked:before {
     align-items: center
 }
 
-#chat .chat-main-wrap #chat-frame-box .status h3 {
+#chat-frame-box .status h3 {
     text-align: center;
     font-family: COCOGOOSE;
     font-size: 2em;
@@ -15815,7 +15815,7 @@ form.default .form-check-input:checked:before {
     margin-bottom: 15px
 }
 
-#chat .chat-main-wrap #chat-frame-box .status .info {
+#chat-frame-box .status .info {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     border: 1px solid #e9e8e8;
@@ -15830,12 +15830,12 @@ form.default .form-check-input:checked:before {
     padding: 1em
 }
 
-#chat .chat-main-wrap #chat-frame-box .status .info .fa {
+#chat-frame-box .status .info .fa {
     color: #00cb94;
     margin-right: 10px
 }
 
-#chat .chat-main-wrap #chat-frame-box .status .btn-default {
+#chat-frame-box .status .btn-default {
     padding: .8em 1rem;
     background: #00cb94;
     color: #fff;
@@ -15844,15 +15844,15 @@ form.default .form-check-input:checked:before {
     margin-top: 30px
 }
 
-#chat .chat-main-wrap #chat-frame-box .status .btn-default:hover {
+#chat-frame-box .status .btn-default:hover {
     background: rgba(0, 176, 176, 1)
 }
 
-#chat .chat-main-wrap #chat-frame-box .status-done,#chat .chat-main-wrap #chat-frame-box .status-waiting {
+#chat-frame-box .status-done,#chat-frame-box .status-waiting {
     display: none
 }
 
-#chat .chat-main-wrap #chat-frame-box .dots {
+#chat-frame-box .dots {
     text-align: center;
     width: 65px;
     background: #fff;
@@ -15873,7 +15873,7 @@ form.default .form-check-input:checked:before {
     cursor: default
 }
 
-#chat .chat-main-wrap #chat-frame-box .dots span {
+#chat-frame-box .dots span {
     -webkit-transform: translateY(-6px);
     -ms-transform: translateY(-6px);
     transform: translateY(-6px);
@@ -15884,34 +15884,34 @@ form.default .form-check-input:checked:before {
     user-select: none
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area {
+#chat-frame-box .talking-area {
     height: 350px;
     overflow-y: auto;
     padding: 15px
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area::-webkit-scrollbar {
+#chat-frame-box .talking-area::-webkit-scrollbar {
     width: 5px
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area::-webkit-scrollbar-track {
+#chat-frame-box .talking-area::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 2px #222d32;
     box-shadow: inset 0 0 2px #222d32;
     -webkit-border-radius: 5px;
     border-radius: 5px
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area::-webkit-scrollbar-thumb {
+#chat-frame-box .talking-area::-webkit-scrollbar-thumb {
     background: rgba(0, 176, 176, 1);
     -webkit-border-radius: 8px;
     border-radius: 8px
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area::-webkit-scrollbar-thumb:hover {
+#chat-frame-box .talking-area::-webkit-scrollbar-thumb:hover {
     background: #5800a1
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg .text {
+#chat-frame-box .talking-area .msg .text {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     color: #272933;
@@ -15922,40 +15922,40 @@ form.default .form-check-input:checked:before {
     margin-bottom: 15px
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg .text span {
+#chat-frame-box .talking-area .msg .text span {
     font-weight: 700
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-me {
+#chat-frame-box .talking-area .msg.agent-me {
     text-align: left
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-me .text {
+#chat-frame-box .talking-area .msg.agent-me .text {
     background: #feefd8
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-me .text span {
+#chat-frame-box .talking-area .msg.agent-me .text span {
     color: #f89801
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-notme {
+#chat-frame-box .talking-area .msg.agent-notme {
     text-align: right
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-notme .text {
+#chat-frame-box .talking-area .msg.agent-notme .text {
     background: #f4e8ff;
     color: rgba(0, 176, 176, 1)
 }
 
-#chat .chat-main-wrap #chat-frame-box .talking-area .msg.agent-notme .text span {
+#chat-frame-box .talking-area .msg.agent-notme .text span {
     color: rgba(0, 176, 176, 1)
 }
 
-#chat .chat-main-wrap #chat-frame-box .panel-text {
+#chat-frame-box .panel-text {
     margin-top: 15px
 }
 
-#chat .chat-main-wrap #chat-frame-box .panel-text #message {
+#chat-frame-box .panel-text #message {
     resize: none;
     width: 100%;
     height: 100px;
@@ -15973,7 +15973,7 @@ form.default .form-check-input:checked:before {
     color: #272933
 }
 
-#chat .chat-main-wrap #chat-frame-box .panel-text button {
+#chat-frame-box .panel-text button {
     margin-top: 3%;
     padding: .5em 2em;
     font-weight: 400;
@@ -15991,13 +15991,13 @@ form.default .form-check-input:checked:before {
 }
 
 @media (max-width:767px) {
-    #chat .chat-main-wrap #chat-frame-box .panel-text button {
+    #chat-frame-box .panel-text button {
         width: 100%;
         padding: .5em
     }
 }
 
-#chat .chat-main-wrap #chat-frame-box .panel-text button:hover {
+#chat-frame-box .panel-text button:hover {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
