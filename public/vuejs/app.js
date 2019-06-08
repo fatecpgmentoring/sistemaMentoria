@@ -2446,6 +2446,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Erro ao carregar mentores: ', e);
     });
   },
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  },
   methods: {
     changePage: function changePage(data) {
       var _this2 = this;
@@ -2495,13 +2499,14 @@ __webpack_require__.r(__webpack_exports__);
 
       var idAssunto = document.getElementById('assuntosEscolher').options[document.getElementById('assuntosEscolher').selectedIndex].value;
       var idMentor = this.mentorEscolhido.id_mentor;
-      axios.post('/solicita-conexao', {
+      axios.post('/mentorado/solicita-conexao', {
         params: {
           mentor: idMentor,
-          assunto: idAssunto,
-          _token: document.head.querySelector("[name~=csfr-token][content]").content
+          assunto: idAssunto
         }
       }).then(function (data) {
+        _this4.show = false;
+
         _this4.changePage(page);
       })["catch"](function (e) {
         console.log('Erro ao carregar mentores: ', e);
@@ -49241,14 +49246,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "msg agent-notme" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "msg agent-me" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ])
       ]),
@@ -49665,14 +49670,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "msg agent-notme" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "msg agent-me" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ])
       ]),
@@ -51849,7 +51854,7 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(this.dic[_vm.mentor.nv_conhecimento - 1]) +
-                  "\r\n                        "
+                  "\n                        "
               ),
               _vm.contatos.length > 0
                 ? _c(
@@ -66432,7 +66437,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sistemaMentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
+module.exports = __webpack_require__(/*! C:\Users\leona\Desktop\Mentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
 
 
 /***/ })
