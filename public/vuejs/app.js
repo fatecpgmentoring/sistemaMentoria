@@ -49241,14 +49241,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "msg agent-notme" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\n                    Mensagem\n                ")
+            _vm._v("\r\n                    Mensagem\r\n                ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "msg agent-me" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\n                    Mensagem\n                ")
+            _vm._v("\r\n                    Mensagem\r\n                ")
           ])
         ])
       ]),
@@ -49665,14 +49665,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "msg agent-notme" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\n                    Mensagem\n                ")
+            _vm._v("\r\n                    Mensagem\r\n                ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "msg agent-me" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\n                    Mensagem\n                ")
+            _vm._v("\r\n                    Mensagem\r\n                ")
           ])
         ])
       ]),
@@ -51849,7 +51849,7 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(this.dic[_vm.mentor.nv_conhecimento - 1]) +
-                  "\n                        "
+                  "\r\n                        "
               ),
               _vm.contatos.length > 0
                 ? _c(
@@ -66432,7 +66432,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\leona\Desktop\Mentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\sistemaMentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
 
 
 /***/ })
