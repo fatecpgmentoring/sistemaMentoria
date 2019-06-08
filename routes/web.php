@@ -160,7 +160,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
 
 
    Route::post('/carregaAssunto', 'AssuntoMentoradoController@carregaAssunto')->name('carrega.assuntos.mentorado');
-   Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
+   Route::post('/carregaCarreira', 'CarreiraController@carregaCarreira')->name('carrega.carreira.mentorado');
 
    Route::post('/salvarAssunto', 'AssuntoMentoradoController@salvarAssunto')->name('salva.assunto.mentorado');
    Route::post('/removerAssunto', 'AssuntoMentoradoController@removerAssunto')->name('remove.assunto.mentorado');
