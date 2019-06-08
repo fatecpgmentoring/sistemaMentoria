@@ -1852,6 +1852,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [''],
   name: 'chat-mentorado',
@@ -49257,33 +49280,73 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-      _c("div", { staticClass: "talking-area" }, [
-        _c("div", { staticClass: "msg agent-notme" }, [
-          _c("div", { staticClass: "text" }, [
-            _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\n                    Mensagem\n                ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "msg agent-me" }, [
-          _c("div", { staticClass: "text" }, [
-            _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\n                    Mensagem\n                ")
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
+          _c("div", { staticClass: "talking-area" }, [
+            _c("div", { staticClass: "msg agent-notme" }, [
+              _c("div", { staticClass: "text" }, [
+                _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
+                _vm._v(
+                  "\n                        Mensagem\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "msg agent-me" }, [
+              _c("div", { staticClass: "text" }, [
+                _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
+                _vm._v(
+                  "\n                        Mensagem\n                    "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-text" }, [
+            _c("p", { staticClass: "typing" }, [
+              _vm._v(" paulo está digitando...")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              attrs: { id: "message", placeholder: "Enviar mensagem..." }
+            }),
+            _vm._v(" "),
+            _c("button", [_vm._v("Enviar Mensagem")])
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-text" }, [
-        _c("p", { staticClass: "typing" }, [
-          _vm._v(" paulo está digitando...")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          attrs: { id: "message", placeholder: "Enviar mensagem..." }
-        }),
-        _vm._v(" "),
-        _c("button", [_vm._v("Enviar Mensagem")])
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c(
+          "div",
+          {
+            staticClass: "done",
+            staticStyle: { height: "565px" },
+            attrs: { id: "chat-frame-box" }
+          },
+          [
+            _c("div", { staticClass: "talking-area" }, [
+              _c("div", { staticClass: "msg agent-notme" }, [
+                _c("div", { staticClass: "text" }, [
+                  _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
+                  _vm._v(
+                    "\n                        Mensagem\n                    "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "msg agent-me" }, [
+                _c("div", { staticClass: "text" }, [
+                  _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
+                  _vm._v(
+                    "\n                        Mensagem\n                    "
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
       ])
     ])
   }
