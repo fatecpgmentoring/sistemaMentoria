@@ -57,7 +57,16 @@ class ConexaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $conexao = Conexao::find($id);
+        try
+        {
+            $conexao->delete();
+            return json_encode('Ok');
+        }
+        catch(QueryException $ex)
+        {
+            return json_encode('Erro');
+        }
     }
 
     /**
