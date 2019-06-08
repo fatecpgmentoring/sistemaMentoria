@@ -124,8 +124,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
 });
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
     Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
-    Route::get('/chat/aceitar/{id}', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
-    Route::get('/chat/recusar/{id}', 'ConexaoControllerMentor@recusar')->name('recusar.mentorado');
+    Route::get('/conexao/aceitar/', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
+    Route::get('/conexao/recusar/', 'ConexaoControllerMentor@recusar')->name('recusar.mentorado');
     Route::get('/chat/{id}', 'ConexaoControllerMentor@chamar')->name('chamar.mentorado');
     Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
     Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});

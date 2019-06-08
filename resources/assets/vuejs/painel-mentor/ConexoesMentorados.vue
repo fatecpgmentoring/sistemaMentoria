@@ -45,10 +45,10 @@
                     </p>
                     <div class="cfooter">
                         <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
-                            <a :href="'/mentor/chat/aceitar/' + mentorado.id_conexao" class="btn-aceitar">
+                            <a href="" @click="aceitarMentorado(mentorado.id_conexao)" class="btn-aceitar">
                                 <span class="fa fa-check fa-lg"></span>&nbsp aceitar
                             </a>
-                            <a :href="'/mentor/chat/recusar/' + mentorado.id_conexao" class="btn-recusar">
+                            <a href="" @click="recusarMentorado(mentorado.id_conexao)" class="btn-recusar">
                                 <span class="fa fa-times fa-lg"></span>&nbsp recusar
                             </a>
                         </div>
@@ -162,6 +162,34 @@
                     .then((data) => {
                         this.filteredMentorados = data.data.dados;
                         this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentorados: ', e);
+                    });
+            },
+            aceitarMentorado(idConexao){
+                event.preventDefault();
+                axios.get('/mentor/conexao/aceitar', {
+                        params: {
+                            conexao: idConexao,
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(this.page);
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentorados: ', e);
+                    });
+            },
+            recusarMentorado(idConexao){
+                event.preventDefault();
+                axios.get('/mentor/conexao/recusar', {
+                        params: {
+                            conexao: idConexao,
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(this.page);
                     })
                     .catch((e) => {
                         console.log('Erro ao carregar mentorados: ', e);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mentor;
 use App\Conexao;
+use function GuzzleHttp\json_encode;
 
 class ConexaoControllerMentor extends Controller
 {
@@ -47,22 +48,19 @@ class ConexaoControllerMentor extends Controller
         return view('painel-mentor.minha-conta.conexões-mentorados', compact('mentorados'));
     }
 
-    public function aceitar($id)
+    public function aceitar(Request $request)
     {
-        $conexao = Conexao::find($id);
-        $mentorado = $conexao->mentorado;
-        $mentor = $conexao->mentor;
-        $assunto = $conexao->assunto;
-        dd($conexao);
+        $conexao = Conexao::find($request->conexao);
+        $conexao->ds_status = 1;
+        $conexao->update();
+        return json_encode("OK");
     }
 
-    public function recusar($id)
+    public function recusar(Request $request)
     {
-        $conexao = Conexao::find($id);
-        $mentorado = $conexao->mentorado;
-        $mentor = $conexao->mentor;
-        $assunto = $conexao->assunto;
-        dd($conexao);
+        $conexao = Conexao::find($request->conexao);
+        $conexao->delete();
+        return json_encode("OK");
     }
 
     public function chamar(Request $request, $id)
@@ -71,6 +69,7 @@ class ConexaoControllerMentor extends Controller
         $mentorado = $conexao->mentorado;
         $mentor = $conexao->mentor;
         $assunto = $conexao->assunto;
+        $mensagens = $conexao->mensagens;
         dd($conexao);
     }
 }

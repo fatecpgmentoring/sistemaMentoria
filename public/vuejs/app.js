@@ -2208,6 +2208,34 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         console.log('Erro ao carregar mentorados: ', e);
       });
+    },
+    aceitarMentorado: function aceitarMentorado(idConexao) {
+      var _this4 = this;
+
+      event.preventDefault();
+      axios.get('/mentor/conexao/aceitar', {
+        params: {
+          conexao: idConexao
+        }
+      }).then(function (data) {
+        _this4.changePage(_this4.page);
+      })["catch"](function (e) {
+        console.log('Erro ao carregar mentorados: ', e);
+      });
+    },
+    recusarMentorado: function recusarMentorado(idConexao) {
+      var _this5 = this;
+
+      event.preventDefault();
+      axios.get('/mentor/conexao/recusar', {
+        params: {
+          conexao: idConexao
+        }
+      }).then(function (data) {
+        _this5.changePage(_this5.page);
+      })["catch"](function (e) {
+        console.log('Erro ao carregar mentorados: ', e);
+      });
     }
   }
 });
@@ -49260,9 +49288,13 @@ var render = function() {
                             "a",
                             {
                               staticClass: "btn-aceitar",
-                              attrs: {
-                                href:
-                                  "/mentor/chat/aceitar/" + mentorado.id_conexao
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.aceitarMentorado(
+                                    mentorado.id_conexao
+                                  )
+                                }
                               }
                             },
                             [
@@ -49275,9 +49307,13 @@ var render = function() {
                             "a",
                             {
                               staticClass: "btn-recusar",
-                              attrs: {
-                                href:
-                                  "/mentor/chat/recusar/" + mentorado.id_conexao
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.recusarMentorado(
+                                    mentorado.id_conexao
+                                  )
+                                }
                               }
                             },
                             [
