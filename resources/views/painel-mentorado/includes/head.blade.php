@@ -7,7 +7,10 @@
 <link rel="stylesheet" href="/css/jquery-ui.css" type="text/css">
 <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<!-- biscoito-->
 <link rel="stylesheet" href="/css/mentoring.css" type="text/css">
+
+
 
 
 <!-- META TAGS -->
@@ -41,5 +44,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-<title>@yield('meta-title', 'Painel Mentor - Sisscon | Mentoring')</title>
 
+<title>@yield('meta-title', 'Painel Mentor - Sisscon | Mentoring')</title>
