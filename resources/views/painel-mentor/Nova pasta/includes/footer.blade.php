@@ -6,7 +6,7 @@
                     <h3 class="title">Acesso rápido</h3>
                     <ul class="fast-access-list">
                         <li><a href="/mentores" title="consultores">Mentores</a></li>
-                        <li><a href="/sobre" title="comprar minutos">Sobre</a></li>
+                        <li><a href="/#why-box" title="comprar minutos">Sobre</a></li>
                         <li><a href="/#how-it-works" title="como Funciona">Como Funciona</a></li>
                         <li><a href="/contato" title="fale conosco">Fale Conosco</a></li>
                     </ul>
