@@ -209,7 +209,7 @@
                 }
                 else
                 {
-
+                    this.salvar();
                 }
             },
             salvar()
