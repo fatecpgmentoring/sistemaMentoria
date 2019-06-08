@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Mentorado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Conexao;
+use function GuzzleHttp\json_encode;
 
 class ConexaoController extends Controller
 {
@@ -39,12 +40,13 @@ class ConexaoController extends Controller
         $mentorado = $request->session()->get('usuario.0');
         $conexao = new Conexao([
             'mentorado_id_mentorado' => $mentorado->id_mentorado,
-            'mentor_id_mentor' => $request->mentor,
-            'assunto_id_assunto'=> $request->assunto,
+            'mentor_id_mentor' => $request->params["mentor"],
+            'assunto_id_assunto'=> intval($request->params["assunto"]),
             'ds_status' => 0
         ]);
-         
-        dd($conexao);
+
+        $conexao->save();
+        return json_encode($conexao);
     }
 
     /**

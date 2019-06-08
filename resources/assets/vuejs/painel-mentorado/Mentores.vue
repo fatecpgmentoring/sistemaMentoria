@@ -160,6 +160,10 @@
                     console.log('Erro ao carregar mentores: ', e);
                 });
         },
+        mounted() {
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        },
         methods: {
             changePage(data) {
                 event.preventDefault();
@@ -212,14 +216,14 @@
             {
                 var idAssunto = document.getElementById('assuntosEscolher').options[document.getElementById('assuntosEscolher').selectedIndex].value;
                 var idMentor = this.mentorEscolhido.id_mentor;
-                axios.post('/solicita-conexao', {
+                axios.post('/mentorado/solicita-conexao', {
                         params: {
                             mentor: idMentor,
-                            assunto: idAssunto,
-                            _token: document.head.querySelector("[name~=csfr-token][content]").content
+                            assunto: idAssunto
                         }
                     })
                     .then((data) => {
+                        this.show = false;
                         this.changePage(page)
                     })
                     .catch((e) => {

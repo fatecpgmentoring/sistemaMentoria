@@ -5,7 +5,7 @@
               <div class="btn-wrap">
                    <a href="{{url('/login')}}" class="btn-default">
                    <div class="wrap">
-                       Torne-se mentorado
+                       Torne-se um mentor ou mentorado
                     </div>
                    </a>
               </div>
