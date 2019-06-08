@@ -98,13 +98,14 @@
 
 <script>
     export default {
+        props: ['mentores'],
         name: 'conexoes-mentores',
         data() {
             return {
                 page: 1,
                 qtd: this.quantidade,
                 search: "",
-                filteredMentores: [],
+                filteredMentores: this.mentores,
             }
         },
         created() {
