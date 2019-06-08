@@ -13188,7 +13188,7 @@ p {
 
 #main-footer.bd>.container {
     padding-top: 5%;
-    border-top: 1px solid #e9e8e8
+    border-top: 1px solid rgba(0, 176, 176, 1);
 }
 
 #main-footer .top-box {

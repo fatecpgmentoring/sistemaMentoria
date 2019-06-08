@@ -1,4 +1,4 @@
-<footer id="main-footer" class="">
+<footer id="main-footer" class="bd">
     <div class="container">
         <div class="top-box">
             <div class="row">
@@ -11,9 +11,9 @@
                         <li><a href="/contato" title="fale conosco">Fale Conosco</a></li>
                     </ul>
                 </div>
-                
+
             </div>
         </div>
 </div>
-    
+
 </footer>
