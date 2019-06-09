@@ -2004,7 +2004,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentorados', 'quantidade'],
   name: 'conexoes-mentorados',
@@ -2108,6 +2107,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49447,54 +49464,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "search-wrap" }, [
-      _c("form", [
-        _c("div", { staticClass: "wrap-input" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.search,
-                expression: "search"
+  return _c("div", { staticClass: "search-wrap" }, [
+    _c("form", [
+      _c("div", { staticClass: "wrap-input" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search,
+              expression: "search"
+            }
+          ],
+          attrs: {
+            type: "text",
+            id: "search",
+            placeholder: "Buscar",
+            name: "termo"
+          },
+          domProps: { value: _vm.search },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
               }
-            ],
-            attrs: {
-              type: "text",
-              id: "search",
-              placeholder: "Buscar",
-              name: "termo"
-            },
-            domProps: { value: _vm.search },
+              _vm.search = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            attrs: { type: "submit" },
             on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.search = $event.target.value
+              click: function($event) {
+                return _vm.fsearch(_vm.search)
               }
             }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  return _vm.fsearch(_vm.search)
-                }
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fa fa-search",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]
-          )
-        ])
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-search",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -49819,52 +49834,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-8" }, [
-        _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-          _c("div", { staticClass: "talking-area" }, [
-            _c("div", { staticClass: "msg agent-notme" }, [
-              _c("div", { staticClass: "text" }, [
-                _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-                _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "msg agent-me" }, [
-              _c("div", { staticClass: "text" }, [
-                _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-                _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-text" }, [
-            _c("p", { staticClass: "typing" }, [
-              _vm._v(" paulo está digitando...")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              attrs: { id: "message", placeholder: "Enviar mensagem..." }
-            }),
-            _vm._v(" "),
-            _c("button", [_vm._v("Enviar Mensagem")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "div",
-          {
-            staticClass: "done",
-            staticStyle: { height: "565px" },
-            attrs: { id: "chat-frame-box" }
-          },
-          [
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-8" }, [
+          _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
             _c("div", { staticClass: "talking-area" }, [
               _c("div", { staticClass: "msg agent-notme" }, [
                 _c("div", { staticClass: "text" }, [
@@ -49883,9 +49856,134 @@ var staticRenderFns = [
                   )
                 ])
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "panel-text" }, [
+              _c("p", { staticClass: "typing" }, [
+                _vm._v(" paulo está digitando...")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                attrs: { id: "message", placeholder: "Enviar mensagem..." }
+              }),
+              _vm._v(" "),
+              _c("button", [_vm._v("Enviar Mensagem")])
             ])
-          ]
-        )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c(
+            "div",
+            {
+              staticClass: "done",
+              staticStyle: { height: "565px" },
+              attrs: { id: "chat-frame-box" }
+            },
+            [
+              _c("div", [
+                _c("ul", [
+                  _c("li", { staticClass: "contact" }, [
+                    _c("div", { staticClass: "wrap" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row",
+                          staticStyle: {
+                            "background-color": "#037a7a",
+                            "margin-bottom": "1%"
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "col-4" }, [
+                            _c("span", {
+                              staticClass: "contact-status online"
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "55px",
+                                width: "55px",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                src:
+                                  "http://emilcarlsson.se/assets/louislitt.png",
+                                alt: ""
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "name",
+                                staticStyle: {
+                                  "font-weight": "600",
+                                  "margin-top": "10%",
+                                  "padding-right": "5%",
+                                  "margin-left": "0",
+                                  "margin-right": "0"
+                                }
+                              },
+                              [_vm._v("Bolonha Maria")]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row",
+                          staticStyle: { "background-color": "#037a7a" }
+                        },
+                        [
+                          _c("div", { staticClass: "col-4" }, [
+                            _c("span", {
+                              staticClass: "contact-status online"
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "55px",
+                                width: "55px",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                src:
+                                  "http://emilcarlsson.se/assets/rachelzane.png",
+                                alt: ""
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "name",
+                                staticStyle: {
+                                  "font-weight": "600",
+                                  "margin-top": "10%",
+                                  "padding-right": "5%",
+                                  "margin-left": "0",
+                                  "margin-right": "0"
+                                }
+                              },
+                              [_vm._v("Najila Trindade")]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
       ])
     ])
   }

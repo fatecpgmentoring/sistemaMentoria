@@ -1,6 +1,4 @@
-<aside id="aside-nav" class="active">
-    <div class="wrap-item">
-    </div>
+<aside id="aside-nav" class="active">   
     <ul class="icon-list">
         <li>
             <div class="wrap-item">
@@ -14,7 +12,7 @@
         </li>
         <li>
             <div class="wrap-item">
-                <a href="/mentorado/chat"><span class="spriting sprite-nav-dashboard"></span>Mensagens</a>
+                <a href="/mentorado/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
             </div>
         </li>
         <li>
