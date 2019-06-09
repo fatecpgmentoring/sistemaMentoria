@@ -14252,12 +14252,17 @@ form.default .form-check-input:checked:before {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    background: #5800a1
+    /*background: #5800a1*/
+    background: #ffff;
 }
 
 #consultants .search-wrap form .wrap-input [type=submit] .fa {
     color: #fff;
     font-size: 18px
+}
+
+#consultants .search-wrap form .wrap-input [type=submit]:hover .fa {
+    color: rgba(0, 176, 176, 1);
 }
 
 #consultants .consultant-list {
@@ -16233,7 +16238,7 @@ form.default .form-check-input:checked:before {
     align-items: center;
     background-color: rgba(0, 120, 120, 1);
     border-radius: 20px 0 0 0;
-
+    position: relative;
 }
 
 #consultor-header .wrap-content .user-box .breadcrumb-wrapper .link a {
@@ -16249,7 +16254,7 @@ form.default .form-check-input:checked:before {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    color: rgb(0, 120, 120);
+    /*color: rgb(0, 120, 120);*/
 }
 
 #consultor-header .wrap-content .user-box .breadcrumb-wrapper .link a:before {
@@ -16400,7 +16405,91 @@ form.default .form-check-input:checked:before {
     background: #00f0ff;
 }
 
+.option-nav {
+    cursor: pointer;
+}
+
+.dropdown-nav {
+    position: absolute;
+    width: 120px;
+    height: 150px;
+    right: 5px;
+    top: 43px;
+    z-index: 1;
+    background: #00f0ff;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #fff;
+    clip-path: circle(0px at top right);
+    transition: all ease-in-out 500ms;
+}
+
+.dropdown-nav.active {
+    clip-path: circle(100%);
+}
+
+.dropdown-nav ul li a {
+    display: block;
+    padding: 10px 12px;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+
+.dropdown-nav ul li:first-child {
+    padding-top: 20px;
+}
+
+.dropdown-nav ul li a:hover {
+    background: #ffff;
+    color: #00f0ff;
+}
+
+.dropdown-nav ul {
+    position: relative;
+}
+
+.hamburger-nav {
+    display: none;
+}
+
+
 @media (max-width:767px) {
+
+    .hamburger-nav {
+        display: block;
+        position: relative;
+        right: 100px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        background: #fff;
+        color: #00f0ff !important;
+        border: 2px solid #008787;
+        cursor: pointer;
+    }
+
+    .hamburger-nav i{
+        position: relative;
+        top: 13px;
+        font-size: 30px;
+    }
+
+    .hamburger-nav:hover{
+        background: #00f0ff;
+        color: #ffff !important;
+    }
+
+    #consultants div.h2-title{
+        margin-top: 20px;
+    }
+    .user-info .name {
+        display: none;
+    }
+
+    #aside-nav.active {
+        display: none;
+    }
 
     #aside-nav.active{
         margin-left: auto;
