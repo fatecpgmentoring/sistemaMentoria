@@ -15931,11 +15931,11 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box .talking-area .msg.agent-me .text {
-    background: #feefd8
+    background: #f4e8ff
 }
 
 #chat-frame-box .talking-area .msg.agent-me .text span {
-    color: #f89801
+    color: #00b1b1
 }
 
 #chat-frame-box .talking-area .msg.agent-notme {
@@ -15943,12 +15943,12 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box .talking-area .msg.agent-notme .text {
-    background: #f4e8ff;
-    color: rgba(0, 176, 176, 1)
+    background: #feefd8;
+    /*color: #f89801;*/
 }
 
 #chat-frame-box .talking-area .msg.agent-notme .text span {
-    color: rgba(0, 176, 176, 1)
+    color: #f89801;
 }
 
 #chat-frame-box .panel-text {

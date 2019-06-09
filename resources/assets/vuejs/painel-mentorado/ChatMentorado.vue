@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <div id="chat-frame-box" class="done" style="height: 585px;">
+        <div id="chat-frame-box" class="done" style="height: 565px;">
             <div class="talking-area">
                 <div class="msg agent-notme">
                     <div class="text">
