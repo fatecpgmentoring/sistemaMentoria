@@ -2111,6 +2111,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentorados', 'quantidade'],
   name: 'conexoes-mentorados',
@@ -2310,6 +2312,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2649,7 +2653,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['mentores'],
+  props: ['mentores', 'quantidade'],
   name: 'all-mentores',
   components: {
     StackModal: _Modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -2661,7 +2665,7 @@ __webpack_require__.r(__webpack_exports__);
       show_second: false,
       show_third: false,
       page: 1,
-      qtd: 0,
+      qtd: this.quantidade,
       search: "",
       filteredMentores: this.mentores,
       assuntosFiltereds: [],
@@ -49809,9 +49813,18 @@ var render = function() {
                           )
                         ]
                       )
-                    : _c("p", {
-                        staticClass: "description text-justify p-3 text-center"
-                      }),
+                    : _c(
+                        "p",
+                        {
+                          staticClass:
+                            "description text-justify p-3 text-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Fim da mentoria a definir\n                "
+                          )
+                        ]
+                      ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     mentorado.ds_status == 0
@@ -50361,9 +50374,18 @@ var render = function() {
                           )
                         ]
                       )
-                    : _c("p", {
-                        staticClass: "description text-justify p-3 text-center"
-                      }),
+                    : _c(
+                        "p",
+                        {
+                          staticClass:
+                            "description text-justify p-3 text-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Fim da mentoria a definir\n                 "
+                          )
+                        ]
+                      ),
                   _vm._v(" "),
                   _c("div", { staticClass: "cfooter" }, [
                     mentor.ds_status == 0

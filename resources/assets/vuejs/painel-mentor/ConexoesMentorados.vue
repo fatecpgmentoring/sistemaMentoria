@@ -42,7 +42,9 @@
                     <p class="description text-justify p-3 text-center" v-if="mentorado.dt_fim != null">
                         Ate: {{mentorado.dt_fim}}
                     </p>
-                    <p class="description text-justify p-3 text-center" v-else></p>
+                    <p class="description text-justify p-3 text-center" v-else>
+                        Fim da mentoria a definir
+                    </p>
                     <div class="cfooter">
                         <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
                             <a href="" @click="aceitarMentorado(mentorado.id_conexao)" class="btn-aceitar">
