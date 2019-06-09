@@ -67,16 +67,16 @@
      
       
     
-
-
-    <!-- This Global Component Listen For Notification
-
-    <div id="global-notifier">
-        <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
-    </div> -->
-
-    <!-- WS URL && Socket Lib -->
-
+        
+        <!-- This Global Component Listen For Notification
+            
+            <div id="global-notifier">
+                <generic-consultant-notifier consultantid="{{--Auth::user()->cd_usuario_fk--}}"></generic-consultant-notifier>
+            </div> -->
+            
+            <!-- WS URL && Socket Lib -->
+            
+    <script>window.WS_URL = "http://chat-mentoring-com.umbler.net"</script>
     <script src="{{ asset('js/socket.io.js') }}"></script>
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
