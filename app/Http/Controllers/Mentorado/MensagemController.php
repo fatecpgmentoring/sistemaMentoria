@@ -12,11 +12,15 @@ class MensagemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function chamar(Request $request)
     {
-        //
+        return view('painel-mentorado.chat.chat-mentorado');
     }
 
+    public function chamarId(Request $request, $id)
+    {
+        return view('painel-mentorado.chat.chat-mentorado');
+    }
     /**
      * Show the form for creating a new resource.
      *

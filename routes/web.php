@@ -127,7 +127,8 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
     Route::get('/conexao/aceitar/', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
     Route::get('/conexao/recusar/', 'ConexaoControllerMentor@recusar')->name('recusar.mentorado');
     Route::get('/conexao/mentorados', 'ConexaoControllerMentor@mentoradosAjax')->name('conxoes.ajax');
-    Route::get('/chat/{id}', 'ConexaoControllerMentor@chamar')->name('chamar.mentorado');
+    Route::get('/chat', 'MensagemControllerMentor@chamar')->name('chamar.mentorado');
+    Route::get('/chat/{id}', 'MensagemControllerMentor@chamarId')->name('chamar.mentorado');
     Route::get('/atendimento/relatorios', function(){return view('painel-mentor.atendimento.relatorio');});
     Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentor.relatorio-creditos-e-transferencias');});
     Route::get('/alterar-senha', function(){return view('painel-mentor.login.alterar-senha');});
@@ -142,7 +143,6 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
     Route::get('/conexoes', 'ConexaoControllerMentor@conexoes')->name('conexoes.mentor');
     Route::get('/listar-comentarios', function(){return view('painel-mentor.minha-conta.listar-comentarios');});
     Route::get('/listar-conteudo', function(){return view('painel-mentor.minha-conta.listar-conteudo');});
-    Route::get('/chat', function(){return view('painel-mentor.chat.chat-mentor');});
     Route::post('/cadastrar-assunto-mentor', 'AssuntoControllerMentor@cadastrarAssuntoMentor')->name('cadastrar.assunto.mentor');
 });
 Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' => CheckMentorado::class], function () {
@@ -156,7 +156,8 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::get('/listar-conteudo', function(){return view('painel-mentorado.minha-conta.listar-conteudo');});
    Route::get('/conexoes', 'ConexaoController@conexoes')->name('conexoes.mentores');
    Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
-   Route::get('/chat', function(){return view('painel-mentorado.chat.chat-mentorado');});
+   Route::get('/chat', 'MensagemController@chamar')->name('chamar.mentor');
+   Route::get('/chat/{id}', 'MensagemController@chamarId')->name('chamar.mentor');
    Route::get('/conexao/cancelar/', 'ConexaoController@destroy')->name('cancelar.mentor');
    Route::post('/carregaAssunto', 'AssuntoMentoradoController@carregaAssunto')->name('carrega.assuntos.mentorado');
    Route::post('/carregaCarreira', 'CarreiraController@carregaCarreira')->name('carrega.carreira.mentorado');
