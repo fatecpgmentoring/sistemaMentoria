@@ -17,20 +17,26 @@
 @section('content')
 
 @csrf
-<div class="assuntos-cad">
-    <select name="profissao" id="profissao" class="form-control assuntos-sel select2">
-        <option value="">Filtrar...</option>
-        @foreach ($profissoes as $profissao)
-            <option value="{{$profissao->id_profissao}}">{{$profissao->nm_profissao}}</option>
-        @endforeach
-    </select>
-    <select name="carreira" id="carreira" class="form-control assuntos-sel select2">
-        <option value="">Filtrar...</option>
-        @foreach ($carreiras as $carreira)
-            <option value="{{$carreira->id_carreira}}">{{$carreira->nm_carreira}}</option>
-        @endforeach
-    </select>
-    <button class="btn btn-mentoring-circule btn-lg" id="searchAssunto"><i class="fa fa-search fa-lg"></i></button>
+<div class="assuntos-cad row">
+    <div class="col-xl-2">
+        <select name="profissao" id="profissao" class="form-control assuntos-sel">
+            <option value="">Filtrar...</option>
+            @foreach ($profissoes as $profissao)
+                <option value="{{$profissao->id_profissao}}">{{$profissao->nm_profissao}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-xl-2">
+        <select name="carreira" id="carreira" class="form-control assuntos-sel">
+            <option value="">Filtrar...</option>
+            @foreach ($carreiras as $carreira)
+                <option value="{{$carreira->id_carreira}}">{{$carreira->nm_carreira}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-xl-2">
+        <button class="btn btn-mentoring-circule btn-lg" id="searchAssunto"><i class="fa fa-search fa-lg"></i></button>
+    </div>
 </div>
 <div class="row">
 	<div class="col-xl-5">
@@ -41,8 +47,8 @@
             @endforeach
 		</select>
 	</div>
-	<div class="col-xl-2">
-        <button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto.">Adicionar</a></i></button>
+	<div class="col-xl-2" style="margin-top: 24px">
+        <button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto."><a class="btnAdicionar">Adicionar</a></i></button>
 		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring" data-toggle="tooltip" title="Adicionar a sua lista de assuntos"></i></button>
 		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring" data-toggle="tooltip" title="Remover da sua lista de assuntos"></i></button>
 	</div>
