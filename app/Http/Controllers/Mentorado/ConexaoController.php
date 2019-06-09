@@ -99,9 +99,14 @@ class ConexaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $conexao = Conexao::find($request->params['conexao']);
+        $conexao->ds_status = 0;
+        $conexao->dt_inicio = null;
+        $conexao->dt_fim = null;
+        $conexao->update();
+        return json_encode($conexao);
     }
 
     public function conexoes(Request $request)

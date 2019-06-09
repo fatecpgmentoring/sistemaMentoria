@@ -191,7 +191,7 @@
             solicitarAgain(idConexao)
             {
                 event.preventDefault();
-                  axios.get('/mentorado/conexao/resolicitar', {
+                  axios.get('/mentorado/resolicitar', {
                         params: {
                             conexao: idConexao,
                         }
