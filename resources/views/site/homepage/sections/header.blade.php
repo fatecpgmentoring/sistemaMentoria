@@ -3,9 +3,9 @@
               <h2>Seja um Mentorado <br> </h2>
               <h1>Aproveite os vários <br> mentores disponíveis </h1>
               <div class="btn-wrap">
-                   <a href="{{url('/cadastro')}}" class="btn-default">
+                   <a href="{{url('/login')}}" class="btn-default">
                    <div class="wrap">
-                       Torne-se mentorado
+                       Torne-se um mentor ou mentorado
                     </div>
                    </a>
               </div>

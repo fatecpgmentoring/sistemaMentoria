@@ -53,7 +53,7 @@
                                 <a class="nav-link" href="/mentores">Mentores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/sobre">Sobre</a>
+                                <a class="nav-link" href="/#why-box">Sobre</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/#how-it-works">Como Funciona</a>

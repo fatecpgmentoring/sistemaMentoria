@@ -14,6 +14,8 @@
     <div id="vue-app">
         @yield('content')
     </div>
+
+    <hr>
     <!-- FOOTER -->
     @include('site.includes.footer')
 

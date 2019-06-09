@@ -25,7 +25,7 @@ class AssuntoControllerMentor extends Controller
         {
             $assuntosArray[] = $assunto->id_assunto;
         }
-        $assuntos = Assunto::whereNotIn('id_assunto', $assuntosArray)->get();
+        $assuntos = $assuntos->whereNotIn('id_assunto', $assuntosArray)->get();
         return json_encode($assuntos);
     }
 

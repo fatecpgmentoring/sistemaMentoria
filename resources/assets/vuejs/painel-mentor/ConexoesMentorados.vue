@@ -1,7 +1,6 @@
 <!-- Limitar a 6 por pagina -->
 <template>
-    <div>
-        <div class="search-wrap"  v-if="filteredMentorados.length > 0">
+          <div class="search-wrap">
             <form>
                 <div class="wrap-input">
                     <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
@@ -10,9 +9,9 @@
                     </button>
                 </div>
             </form>
-        </div>
+        
         <ul class="row consultant-list" v-if="this.filteredMentorados.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in mentorados" :key="index">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in filteredMentorados" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentorado.nm_mentorado}}</h2>
@@ -40,15 +39,16 @@
                             <img :src="'/' + mentorado.ds_foto" alt="mentorado">
                         </figure>
                     </div>
-                    <p class="description text-justify p-3 text-center">
+                    <p class="description text-justify p-3 text-center" v-if="mentorado.dt_fim != null">
                         Ate: {{mentorado.dt_fim}}
                     </p>
+                    <p class="description text-justify p-3 text-center" v-else></p>
                     <div class="cfooter">
                         <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
-                            <a :href="'/mentor/chat/aceitar/' + mentorado.id_conexao" class="btn-aceitar">
+                            <a href="" @click="aceitarMentorado(mentorado.id_conexao)" class="btn-aceitar">
                                 <span class="fa fa-check fa-lg"></span>&nbsp aceitar
                             </a>
-                            <a :href="'/mentor/chat/recusar/' + mentorado.id_conexao" class="btn-recusar">
+                            <a href="" @click="recusarMentorado(mentorado.id_conexao)" class="btn-recusar">
                                 <span class="fa fa-times fa-lg"></span>&nbsp recusar
                             </a>
                         </div>
@@ -105,12 +105,12 @@
 
 <script>
     export default {
-        props: ['mentorados'],
+        props: ['mentorados', 'quantidade'],
         name: 'conexoes-mentorados',
         data() {
             return {
                 page: 1,
-                qtd: 0,
+                qtd: this.quantidade,
                 search: "",
                 filteredMentorados: this.mentorados,
                 status: [
@@ -123,7 +123,7 @@
             }
         },
         created() {
-            axios.get('/mentoradosConectados')
+            axios.get('/mentor/conexao/mentorados')
                 .then((data) => {
                     this.filteredMentorados = data.data.dados;
                     this.qtd = data.data.qtd;
@@ -132,11 +132,15 @@
                     console.log('Erro ao carregar mentorados: ', e);
                 });
         },
+        mounted() {
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        },
         methods: {
             changePage(data) {
                 event.preventDefault();
                 this.page = data;
-                axios.get('/mentoradosConectados', {
+                axios.get('/mentor/conexao/mentorados', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -153,7 +157,7 @@
             fsearch(data) {
                 event.preventDefault();
                 this.search = data;
-                axios.get('/mentoradosConectados', {
+                axios.get('/mentor/conexao/mentorados', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -162,6 +166,34 @@
                     .then((data) => {
                         this.filteredMentorados = data.data.dados;
                         this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentorados: ', e);
+                    });
+            },
+            aceitarMentorado(idConexao){
+                event.preventDefault();
+                axios.get('/mentor/conexao/aceitar', {
+                        params: {
+                            conexao: idConexao,
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(this.page);
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentorados: ', e);
+                    });
+            },
+            recusarMentorado(idConexao){
+                event.preventDefault();
+                axios.get('/mentor/conexao/recusar', {
+                        params: {
+                            conexao: idConexao,
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(this.page);
                     })
                     .catch((e) => {
                         console.log('Erro ao carregar mentorados: ', e);

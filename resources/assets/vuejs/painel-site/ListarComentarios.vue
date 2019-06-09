@@ -38,7 +38,9 @@
         {
             var x = document.getElementsByName("fb");
             console.log();
-            x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true
+            x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
         }
     }
 </script>

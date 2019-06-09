@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('painel-mentor.includes.head')
+    @include('painel-mentorado.includes.head')
 </head>
 <body>
     @php
@@ -42,15 +42,21 @@
     <div id="main-panel-wrap" class="active">
         @include('painel-mentorado.includes.aside-nav')
 
-        <!-- CONTENT -->
-        <main id="main-box">
-            <div class="container-fluid mt-4">
+           <main id="main-box">
+            <div class="container-fluid">
                 <div id="vue-app">
                     @yield('content')
                 </div>
             </div>
         </main>
+        
     </div>
+
+        <!-- CONTENT -->
+      
+     
+      
+    
 
 
     <!-- This Global Component Listen For Notification

@@ -11,14 +11,14 @@
             </form>
         </div>
         <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in filteredMentores" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentor.nm_mentor}}</h2>
                         <h3 class="specialization">
                             <div>
                                 <div>
-                                    Mentor
+                                    Assuntos: {{mentor.assuntos}}
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                     </p>
                     <div class="cfooter">
                         <div>
-                            <a :href="'/show/mentor/' + mentor.id_mentor" class="btn">
+                            <a href=""  @click="modal(index)" class="btn">
                                 <div class="spriting"></div>conectar
                             </a>
                         </div>
@@ -67,7 +67,7 @@
                 </div>
             </li>
         </ul>
-        <div id="paginator">
+        <div id="paginator" v-if="filteredMentores.length > 0">
             <ul>
                 <div v-if="page == 1">
                     <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>
@@ -106,19 +106,40 @@
                 Não há mentores
             </div>
         </div>
-    </div>
+         <div class="py-4">
+            <stack-modal :show="show" title="Solicitar Mentoria" @close="show=false" @save="salvar()">
+                <select name="assuntoEscolher" id="assuntosEscolher">
+                    <option value="">Selecione...</option>
+                    <option v-for="(assunto, indexAssunto) in assuntosFiltereds" :key="indexAssunto" :value="assunto.id_assunto">
+                        {{assunto.nm_assunto}}
+                    </option>
+                </select>
+
+            </stack-modal>
+
+        </div>
+
+</div>
+
 </template>
 
 <script>
+    import StackModal from './Modal.vue'
     export default {
         props: ['mentores'],
         name: 'all-mentores',
+        components: { StackModal },
         data() {
             return {
+                mentorEscolhido: null,
+                show: false,
+                show_second: false,
+                show_third: false,
                 page: 1,
                 qtd: 0,
                 search: "",
                 filteredMentores: this.mentores,
+                assuntosFiltereds: [],
                 dic: [
                 'menos de 1 ano de experiência',
                 'entre 1 e 3 anos de experiência',
@@ -138,6 +159,10 @@
                 .catch((e) => {
                     console.log('Erro ao carregar mentores: ', e);
                 });
+        },
+        mounted() {
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
         },
         methods: {
             changePage(data) {
@@ -169,6 +194,37 @@
                     .then((data) => {
                         this.filteredMentores = data.data.dados;
                         this.qtd = data.data.qtd;
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
+            modal(indexMentor) {
+                event.preventDefault();
+                this.mentorEscolhido = this.filteredMentores[indexMentor];
+                if(this.mentorEscolhido.assuntosSeparados.length > 1)
+                {
+                    this.assuntosFiltereds = this.mentorEscolhido.assuntosSeparados;
+                    this.show = true;
+                }
+                else
+                {
+
+                }
+            },
+            salvar()
+            {
+                var idAssunto = document.getElementById('assuntosEscolher').options[document.getElementById('assuntosEscolher').selectedIndex].value;
+                var idMentor = this.mentorEscolhido.id_mentor;
+                axios.post('/mentorado/solicita-conexao', {
+                        params: {
+                            mentor: idMentor,
+                            assunto: idAssunto
+                        }
+                    })
+                    .then((data) => {
+                        this.show = false;
+                        this.changePage(page)
                     })
                     .catch((e) => {
                         console.log('Erro ao carregar mentores: ', e);
