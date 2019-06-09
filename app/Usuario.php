@@ -25,8 +25,8 @@ class Usuario extends Authenticatable
     ];
 
     public static $mensagens = [
-        'email.required' => 'E-mail obrigatorio',
-        'password.required' => 'Senha obrigatoria'
+        'email.required' => 'E-mail obrigatório',
+        'password.required' => 'Senha obrigatória'
     ];
     public function assuntos()
     {

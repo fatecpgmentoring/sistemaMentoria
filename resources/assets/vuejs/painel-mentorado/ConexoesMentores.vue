@@ -132,7 +132,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
         },
         mounted() {
@@ -154,7 +154,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -171,7 +171,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             cancelarMentor(idConexao){
@@ -185,7 +185,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao cancelar solicitação: ', e);
                     });
             },
             solicitarAgain(idConexao)
@@ -200,7 +200,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar novamente conexão: ', e);
                     });
             }
         },

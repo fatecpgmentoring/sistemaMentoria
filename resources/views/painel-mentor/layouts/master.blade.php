@@ -37,7 +37,7 @@
                          <ul>
                              <li><a href="#">Alterar Dados</a></li>
                              <li><a href="#">Alterar Senha</a></li>
-                             <li><a href="#">Sair</a></li>
+                             <li><a href="/logout">Sair</a></li>
                          </ul>  
                     </div>
                 </div>

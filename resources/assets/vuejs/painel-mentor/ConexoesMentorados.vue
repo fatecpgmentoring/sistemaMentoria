@@ -129,7 +129,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentorados: ', e);
+                    console.log('Erro ao carregar mentorados created: ', e);
                 });
         },
         mounted() {
@@ -151,7 +151,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao carregar mentorados changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -168,7 +168,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao carregar mentorados fsearch: ', e);
                     });
             },
             aceitarMentorado(idConexao){
@@ -182,7 +182,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao aceitar mentoria: ', e);
                     });
             },
             recusarMentorado(idConexao){
@@ -196,7 +196,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao recusar mentoria: ', e);
                     });
             },
         },

@@ -57,7 +57,8 @@ class MentorControllerMentor extends Controller
      */
     public function edit($id)
     {
-        //
+        $mentor = Mentor::find($id);
+        return view('admin.partes.mentor.edit', compact('mentor'));
     }
 
     /**

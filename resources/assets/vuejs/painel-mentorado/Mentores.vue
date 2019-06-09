@@ -157,7 +157,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
         },
         mounted() {
@@ -179,7 +179,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -196,7 +196,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             modal(indexMentor) {
@@ -227,7 +227,7 @@
                         this.changePage(page)
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar conexão: ', e);
                     });
             },
         },
