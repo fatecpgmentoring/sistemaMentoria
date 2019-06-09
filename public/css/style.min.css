@@ -15768,7 +15768,7 @@ form.default .form-check-input:checked:before {
     background: #fff;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border: 2px solid #00b1b1;
+    border: 2px solid rgba(0, 176, 176, 1);
     padding: 15px;
     position: relative
 }
@@ -15916,7 +15916,7 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box .talking-area::-webkit-scrollbar-thumb:hover {
-    background: #5800a1
+    background: rgba(0, 176, 176, 1);
 }
 
 #chat-frame-box .talking-area .msg .text {

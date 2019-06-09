@@ -73,16 +73,6 @@ class ConexaoControllerMentor extends Controller
         return json_encode("OK");
     }
 
-    public function chamar(Request $request, $id)
-    {
-        $conexao = Conexao::find($id);
-        $mentorado = $conexao->mentorado;
-        $mentor = $conexao->mentor;
-        $assunto = $conexao->assunto;
-        $mensagens = $conexao->mensagens;
-        dd($conexao);
-    }
-
     public function mentoradosAjax(Request $request)
     {
         $mentorados = $this->getConexoes($request);

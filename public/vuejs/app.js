@@ -1875,6 +1875,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [''],
   name: 'chat-mentorado',
@@ -2107,6 +2129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -49372,58 +49395,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-8" }, [
-        _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-          _c("div", { staticClass: "talking-area" }, [
-            _c("div", { staticClass: "msg agent-notme" }, [
-              _c("div", { staticClass: "text" }, [
-                _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-                _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "msg agent-me" }, [
-              _c("div", { staticClass: "text" }, [
-                _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-                _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-text" }, [
-            _c("p", { staticClass: "typing" }, [
-              _vm._v(" paulo está digitando...")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              attrs: { id: "message", placeholder: "Enviar mensagem..." }
-            }),
-            _vm._v(" "),
-            _c("button", [_vm._v("Enviar Mensagem")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c(
-          "div",
-          {
-            staticClass: "done",
-            staticStyle: { height: "565px" },
-            attrs: { id: "chat-frame-box" }
-          },
-          [
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-8" }, [
+          _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
             _c("div", { staticClass: "talking-area" }, [
               _c("div", { staticClass: "msg agent-notme" }, [
                 _c("div", { staticClass: "text" }, [
                   _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
                   _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
+                    "\n                            Mensagem\n                        "
                   )
                 ])
               ]),
@@ -49432,13 +49413,144 @@ var staticRenderFns = [
                 _c("div", { staticClass: "text" }, [
                   _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
                   _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
+                    "\n                            Mensagem\n                        "
                   )
                 ])
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "panel-text" }, [
+              _c("p", { staticClass: "typing" }, [
+                _vm._v(" paulo está digitando...")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                attrs: { id: "message", placeholder: "Enviar mensagem..." }
+              }),
+              _vm._v(" "),
+              _c("button", [_vm._v("Enviar Mensagem")])
             ])
-          ]
-        )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c(
+            "div",
+            {
+              staticClass: "done",
+              staticStyle: { height: "565px" },
+              attrs: { id: "chat-frame-box" }
+            },
+            [
+              _c("div", [
+                _c("ul", [
+                  _c("li", { staticClass: "contact" }, [
+                    _c("div", { staticClass: "wrap" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row",
+                          staticStyle: { "margin-bottom": "1%" }
+                        },
+                        [
+                          _c("div", { staticClass: "col-4" }, [
+                            _c("span", {
+                              staticClass: "contact-status online"
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "55px",
+                                width: "55px",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                src:
+                                  "http://emilcarlsson.se/assets/louislitt.png",
+                                alt: ""
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "name",
+                                staticStyle: {
+                                  "font-weight": "600",
+                                  "margin-top": "10%",
+                                  "padding-right": "5%",
+                                  "margin-left": "0",
+                                  "margin-right": "0",
+                                  color: "rgba(0, 176, 176, 1)"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Bolonha Maria"
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "row",
+                          staticStyle: { "background-color": "#037a7a" }
+                        },
+                        [
+                          _c("div", { staticClass: "col-4" }, [
+                            _c("span", {
+                              staticClass: "contact-status online"
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticStyle: {
+                                height: "55px",
+                                width: "55px",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                src:
+                                  "http://emilcarlsson.se/assets/rachelzane.png",
+                                alt: ""
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "name",
+                                staticStyle: {
+                                  "font-weight": "600",
+                                  "margin-top": "10%",
+                                  "padding-right": "5%",
+                                  "margin-left": "0",
+                                  "margin-right": "0"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Najila Trindade"
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
       ])
     ])
   }
@@ -49827,164 +49939,172 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c(
+          "div",
+          {
+            staticClass: "done",
+            staticStyle: { height: "565px", "box-sizing": "content-box" },
+            attrs: { id: "chat-frame-box" }
+          },
+          [
+            _c("div", { staticClass: "mentores-area" }, [
+              _c("ul", [
+                _c("li", { staticClass: "contact" }, [
+                  _c(
+                    "div",
+                    { staticClass: "wrap" },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _vm._l(10, function(n) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass: "row",
+                            staticStyle: { "margin-bottom": "1%" }
+                          },
+                          [_vm._m(2, true), _vm._v(" "), _vm._m(3, true)]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-8" }, [
-          _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-            _c("div", { staticClass: "talking-area" }, [
-              _c("div", { staticClass: "msg agent-notme" }, [
-                _c("div", { staticClass: "text" }, [
-                  _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-                  _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "msg agent-me" }, [
-                _c("div", { staticClass: "text" }, [
-                  _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-                  _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-text" }, [
-              _c("p", { staticClass: "typing" }, [
-                _vm._v(" paulo está digitando...")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                attrs: { id: "message", placeholder: "Enviar mensagem..." }
-              }),
-              _vm._v(" "),
-              _c("button", [_vm._v("Enviar Mensagem")])
+    return _c("div", { staticClass: "col-sm-8" }, [
+      _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
+        _c("div", { staticClass: "talking-area" }, [
+          _c("div", { staticClass: "msg agent-notme" }, [
+            _c("div", { staticClass: "text" }, [
+              _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
+              _vm._v(
+                "\n                            Mensagem\n                        "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "msg agent-me" }, [
+            _c("div", { staticClass: "text" }, [
+              _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
+              _vm._v(
+                "\n                            Mensagem\n                        "
+              )
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c(
-            "div",
-            {
-              staticClass: "done",
-              staticStyle: { height: "565px" },
-              attrs: { id: "chat-frame-box" }
-            },
-            [
-              _c("div", [
-                _c("ul", [
-                  _c("li", { staticClass: "contact" }, [
-                    _c("div", { staticClass: "wrap" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "row",
-                          staticStyle: {
-                            "background-color": "#037a7a",
-                            "margin-bottom": "1%"
-                          }
-                        },
-                        [
-                          _c("div", { staticClass: "col-4" }, [
-                            _c("span", {
-                              staticClass: "contact-status online"
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticStyle: {
-                                height: "55px",
-                                width: "55px",
-                                "border-radius": "50%"
-                              },
-                              attrs: {
-                                src:
-                                  "http://emilcarlsson.se/assets/louislitt.png",
-                                alt: ""
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-8" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass: "name",
-                                staticStyle: {
-                                  "font-weight": "600",
-                                  "margin-top": "10%",
-                                  "padding-right": "5%",
-                                  "margin-left": "0",
-                                  "margin-right": "0"
-                                }
-                              },
-                              [_vm._v("Bolonha Maria")]
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "row",
-                          staticStyle: { "background-color": "#037a7a" }
-                        },
-                        [
-                          _c("div", { staticClass: "col-4" }, [
-                            _c("span", {
-                              staticClass: "contact-status online"
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticStyle: {
-                                height: "55px",
-                                width: "55px",
-                                "border-radius": "50%"
-                              },
-                              attrs: {
-                                src:
-                                  "http://emilcarlsson.se/assets/rachelzane.png",
-                                alt: ""
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-8" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass: "name",
-                                staticStyle: {
-                                  "font-weight": "600",
-                                  "margin-top": "10%",
-                                  "padding-right": "5%",
-                                  "margin-left": "0",
-                                  "margin-right": "0"
-                                }
-                              },
-                              [_vm._v("Najila Trindade")]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ]
-          )
+        _c("div", { staticClass: "panel-text" }, [
+          _c("p", { staticClass: "typing" }, [
+            _vm._v(" paulo está digitando...")
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            attrs: { id: "message", placeholder: "Enviar mensagem..." }
+          }),
+          _vm._v(" "),
+          _c("button", [_vm._v("Enviar Mensagem")])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row", staticStyle: { "margin-bottom": "1%" } },
+      [
+        _c("div", { staticClass: "col-4" }, [
+          _c("span", { staticClass: "contact-status online" }),
+          _vm._v(" "),
+          _c("img", {
+            staticStyle: {
+              height: "55px",
+              width: "55px",
+              "border-radius": "50%"
+            },
+            attrs: {
+              src: "http://emilcarlsson.se/assets/louislitt.png",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-8" }, [
+          _c(
+            "p",
+            {
+              staticClass: "name",
+              staticStyle: {
+                "font-weight": "600",
+                "margin-top": "10%",
+                "padding-right": "5%",
+                "margin-left": "0",
+                "margin-right": "0",
+                color: "rgba(0, 176, 176, 1)"
+              }
+            },
+            [_vm._v(" Bolonha Maria")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("span", { staticClass: "contact-status online" }),
+      _vm._v(" "),
+      _c("img", {
+        staticStyle: { height: "55px", width: "55px", "border-radius": "50%" },
+        attrs: { src: "http://emilcarlsson.se/assets/rachelzane.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-8" }, [
+      _c(
+        "p",
+        {
+          staticClass: "name",
+          staticStyle: {
+            "font-weight": "600",
+            "margin-top": "10%",
+            "padding-right": "5%",
+            "margin-left": "0",
+            "margin-right": "0",
+            color: "rgba(0, 176, 176, 1)"
+          }
+        },
+        [
+          _vm._v(
+            "\n                                            Najila Trindade"
+          )
+        ]
+      )
     ])
   }
 ]
@@ -52229,7 +52349,7 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(this.dic[_vm.mentor.nv_conhecimento - 1]) +
-                  "\r\n                        "
+                  "\n                        "
               ),
               _vm.contatos.length > 0
                 ? _c(
@@ -66812,7 +66932,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sistemaMentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
+module.exports = __webpack_require__(/*! C:\Users\leona\Desktop\Mentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
 
 
 /***/ })
