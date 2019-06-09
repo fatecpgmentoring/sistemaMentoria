@@ -16325,7 +16325,7 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active {
-    /*margin-right: 45px;*/
+    margin-right: 45px;
 }
 
 #aside-nav.active > .wrap-item {
@@ -16416,7 +16416,7 @@ form.default .form-check-input:checked:before {
     right: 5px;
     top: 43px;
     z-index: 1;
-    background: #00f0ff;
+    background: #00b1b1;
     color: #fff;
     font-size: 14px;
     border: 1px solid #fff;
@@ -16464,7 +16464,7 @@ form.default .form-check-input:checked:before {
     }
 
     #aside-nav.active {
-        display: none;
+/*        display: none;*/
     }
 
     #aside-nav.active{
