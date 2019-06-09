@@ -1882,7 +1882,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  }
 });
 
 /***/ }),
@@ -2024,6 +2027,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Erro ao carregar mentorados: ', e);
     });
   },
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  },
   methods: {
     changePage: function changePage(data) {
       var _this2 = this;
@@ -2133,7 +2140,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  }
 });
 
 /***/ }),
@@ -2276,6 +2286,10 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (e) {
       console.log('Erro ao carregar mentores: ', e);
     });
+  },
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
   },
   methods: {
     changePage: function changePage(data) {
@@ -2947,6 +2961,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Erro ao carregar mentores: ', e);
     });
   },
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  },
   methods: {
     changePage: function changePage(data) {
       var _this2 = this;
@@ -3064,6 +3082,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência']
     };
+  },
+  mounted: function mounted() {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
   }
 });
 
@@ -3114,6 +3136,8 @@ __webpack_require__.r(__webpack_exports__);
     var x = document.getElementsByName("fb");
     console.log();
     x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
   }
 });
 
@@ -3204,6 +3228,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var x = document.getElementsByName("fb");
     x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
   }
 });
 

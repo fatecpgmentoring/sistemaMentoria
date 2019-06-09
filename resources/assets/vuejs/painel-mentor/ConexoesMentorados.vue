@@ -133,6 +133,10 @@
                     console.log('Erro ao carregar mentorados: ', e);
                 });
         },
+        mounted() {
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+        },
         methods: {
             changePage(data) {
                 event.preventDefault();
