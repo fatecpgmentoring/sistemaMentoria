@@ -118,6 +118,7 @@ class ConexaoController extends Controller
         $mentorado = Mentorado::find($mentorado->id_mentorado);
         $mentores = array();
         $conexoes = $mentorado->conexoes()->join('tb_mentores', 'mentor_id_mentor', '=', 'id_mentor')->where('ds_status', '<', 3)->join('tb_assuntos', 'assunto_id_assunto', '=', 'id_assunto')->where('nm_mentor', 'like', '%' . $request->search . '%')->orderBy('id_conexao', 'desc');
+        $count = $conexoes->count();
         $page = $request->page != null ? $request->page : 1;
         $mentores = $conexoes->limit(6)->offset(($page - 1) * 6)->get()->toArray();
         return array('dados' => $mentores, 'qtd' => ceil($count / 6));

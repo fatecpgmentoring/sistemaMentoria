@@ -7,8 +7,13 @@
 import "@babel/polyfill";
 
 require('./bootstrap');
-window.CreateConnectionSocket = io(WS_URL);
+
+window.VueSocketio = require('vue-socket.io');
 window.Vue = require('vue');
+window.CreateConnectionSocket = io(WS_URL, {
+    secure: true
+});
+
 /*
 window.VueSocketio = require('vue-socket.io');
 */
