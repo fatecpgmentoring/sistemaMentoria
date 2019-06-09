@@ -19,6 +19,9 @@
             </div>
             <div class="col pl-0 user-box">
                 <div class="user-info">
+                    <a class="hamburger-nav">
+                       <i></i>
+                    </a>
                     <h5 class="name">Olá, {{$usuario->nm_mentorado}}
                     </h5>
                     <div class="user-photo">

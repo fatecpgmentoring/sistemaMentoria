@@ -16448,7 +16448,24 @@ form.default .form-check-input:checked:before {
     position: relative;
 }
 
+.hamburger-nav {
+    display: none;
+}
+
+
 @media (max-width:767px) {
+
+    #aside-nav.active .h2-title{
+        margin-top: 20px;
+    }
+
+    .user-info .name {
+        display: none;
+    }
+
+    #aside-nav.active {
+        display: none;
+    }
 
     #aside-nav.active{
         margin-left: auto;
