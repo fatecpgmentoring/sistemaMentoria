@@ -17,9 +17,7 @@
 @section('content')
 
 <div id="consultants">
-    <conexoes-mentores></conexoes-mentores>
-
-    {{-- :mentores="{{ json_encode($mentores['dados']) }}" :quantidade="{{ json_encode($mentores['qtd']) }}" --}}
+    <conexoes-mentores :mentores="{{ json_encode($mentores['dados']) }}" :quantidade="{{ json_encode($mentores['qtd']) }}"></conexoes-mentores>
 </div>
 
 @endsection

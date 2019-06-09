@@ -2245,15 +2245,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['mentores'],
+  props: ['mentores', 'quantidade'],
   name: 'conexoes-mentores',
   data: function data() {
     return {
       page: 1,
       qtd: this.quantidade,
       search: "",
-      filteredMentores: this.mentores
+      filteredMentores: this.mentores,
+      status: ['Pendente', 'Ativa', 'Encerrada', 'Cancelada', 'Recusada']
     };
   },
   created: function created() {
@@ -2311,6 +2322,20 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (data) {
         _this4.changePage(_this4.page);
+      })["catch"](function (e) {
+        console.log('Erro ao carregar mentores: ', e);
+      });
+    },
+    solicitarAgain: function solicitarAgain(idConexao) {
+      var _this5 = this;
+
+      event.preventDefault();
+      axios.get('/mentorado/conexao/resolicitar', {
+        params: {
+          conexao: idConexao
+        }
+      }).then(function (data) {
+        _this5.changePage(_this5.page);
       })["catch"](function (e) {
         console.log('Erro ao carregar mentores: ', e);
       });
@@ -49289,7 +49314,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "text" }, [
                 _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
                 _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
+                  "\n                        Mensagem\n                    "
                 )
               ])
             ]),
@@ -49298,7 +49323,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "text" }, [
                 _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
                 _vm._v(
-                  "\r\n                        Mensagem\r\n                    "
+                  "\n                        Mensagem\n                    "
                 )
               ])
             ])
@@ -49332,7 +49357,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "text" }, [
                   _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
                   _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
+                    "\n                        Mensagem\n                    "
                   )
                 ])
               ]),
@@ -49341,7 +49366,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "text" }, [
                   _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
                   _vm._v(
-                    "\r\n                        Mensagem\r\n                    "
+                    "\n                        Mensagem\n                    "
                   )
                 ])
               ])
@@ -49750,14 +49775,14 @@ var staticRenderFns = [
         _c("div", { staticClass: "msg agent-notme" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "msg agent-me" }, [
           _c("div", { staticClass: "text" }, [
             _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-            _vm._v("\r\n                    Mensagem\r\n                ")
+            _vm._v("\n                    Mensagem\n                ")
           ])
         ])
       ]),
@@ -49935,7 +49960,8 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "btn-aceitar",
+                              staticClass: "btn",
+                              staticStyle: { "background-color": "#FFD700" },
                               attrs: { href: "" },
                               on: {
                                 click: function($event) {
@@ -49944,12 +49970,47 @@ var render = function() {
                               }
                             },
                             [
-                              _c("span", { staticClass: "btn btn-warning" }),
-                              _vm._v("  aceitar\n                        ")
+                              _c("span", { staticClass: "fa fa-times fa-lg" }),
+                              _vm._v("  cancelar\n                        ")
                             ]
                           )
                         ])
-                      : _vm._e()
+                      : mentor.ds_status == 1
+                      ? _c("div", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn",
+                              attrs: {
+                                href: "/mentorado/chat/" + mentor.id_conexao
+                              }
+                            },
+                            [
+                              _c("span", {
+                                staticClass: "fa fa-comments fa-lg"
+                              }),
+                              _vm._v("  chamar\n                        ")
+                            ]
+                          )
+                        ])
+                      : _c("div", [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.solicitarAgain(mentor.id_conexao)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "fa fa-reply fa-lg" }),
+                              _vm._v("  resolicitar\n                        ")
+                            ]
+                          )
+                        ])
                   ])
                 ])
               ]
@@ -50455,131 +50516,133 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { attrs: { id: "paginator" } }, [
-      _c(
-        "ul",
-        [
-          _vm.page == 1
-            ? _c("div", [
-                _c("li", { staticClass: "prev disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page - 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Anterior")]
-                  )
-                ])
-              ])
-            : _c("div", [
-                _c("li", { staticClass: "prev" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page - 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Anterior")]
-                  )
-                ])
-              ]),
-          _vm._v("\n                   \n                "),
-          _vm._l(_vm.qtd, function(n) {
-            return _c("div", [
-              _vm.page == n
+    _vm.filteredMentores.length > 0
+      ? _c("div", { attrs: { id: "paginator" } }, [
+          _c(
+            "ul",
+            [
+              _vm.page == 1
                 ? _c("div", [
-                    _c("li", { staticClass: "active" }, [
+                    _c("li", { staticClass: "prev disabled" }, [
                       _c(
                         "a",
                         {
                           attrs: { href: "" },
                           on: {
                             click: function($event) {
-                              return _vm.changePage(n)
+                              return _vm.changePage(_vm.page - 1)
                             }
                           }
                         },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(n) +
-                              "\n                            "
-                          )
-                        ]
+                        [_vm._v("Anterior")]
                       )
                     ])
                   ])
                 : _c("div", [
-                    _c("li", [
+                    _c("li", { staticClass: "prev" }, [
                       _c(
                         "a",
                         {
                           attrs: { href: "" },
                           on: {
                             click: function($event) {
-                              return _vm.changePage(n)
+                              return _vm.changePage(_vm.page - 1)
                             }
                           }
                         },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(n) +
-                              "\n                            "
+                        [_vm._v("Anterior")]
+                      )
+                    ])
+                  ]),
+              _vm._v("\n                   \n                "),
+              _vm._l(_vm.qtd, function(n) {
+                return _c("div", [
+                  _vm.page == n
+                    ? _c("div", [
+                        _c("li", { staticClass: "active" }, [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(n) +
+                                  "\n                            "
+                              )
+                            ]
                           )
-                        ]
+                        ])
+                      ])
+                    : _c("div", [
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(n) +
+                                  "\n                            "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                ])
+              }),
+              _vm._v("\n                   \n                "),
+              _vm.page == _vm.qtd
+                ? _c("div", [
+                    _c("li", { staticClass: "next disabled" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
                       )
                     ])
                   ])
-            ])
-          }),
-          _vm._v("\n                   \n                "),
-          _vm.page == _vm.qtd
-            ? _c("div", [
-                _c("li", { staticClass: "next disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page + 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Proximo")]
-                  )
-                ])
-              ])
-            : _c("div", [
-                _c("li", { staticClass: "next" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          return _vm.changePage(_vm.page + 1)
-                        }
-                      }
-                    },
-                    [_vm._v("Proximo")]
-                  )
-                ])
-              ])
-        ],
-        2
-      )
-    ]),
+                : _c("div", [
+                    _c("li", { staticClass: "next" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
+                      )
+                    ])
+                  ])
+            ],
+            2
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _vm.filteredMentores.length == 0
       ? _c("div", [
@@ -51979,7 +52042,7 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(this.dic[_vm.mentor.nv_conhecimento - 1]) +
-                  "\r\n                        "
+                  "\n                        "
               ),
               _vm.contatos.length > 0
                 ? _c(
@@ -66562,7 +66625,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sistemaMentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
+module.exports = __webpack_require__(/*! C:\Users\leona\Desktop\Mentoria\resources\assets\vuejs\app.js */"./resources/assets/vuejs/app.js");
 
 
 /***/ })

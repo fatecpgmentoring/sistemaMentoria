@@ -67,7 +67,7 @@
                 </div>
             </li>
         </ul>
-        <div id="paginator">
+        <div id="paginator" v-if="filteredMentores.length > 0">
             <ul>
                 <div v-if="page == 1">
                     <li class="prev disabled"><a href="" @click="changePage(page-1)">Anterior</a></li>

@@ -16,9 +16,9 @@ class MentoradoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mentores = $this->getMentores();
+        $mentores = $this->getMentores($request);
         return view('painel-mentorado.dashboard-mentorado', compact('mentores'));
     }
 
@@ -48,13 +48,14 @@ class MentoradoController extends Controller
         return $mentoresArray;
     }
 
-    public function getMentores()
+    public function getMentores(Request $request)
     {
         $assuntos = array();
         foreach (Auth::user()->assuntos as $assunto) {
             $assuntos[] = $assunto->id_assunto;
         }
-        $mentores = Mentor::orderBy('vl_nota', 'desc')->get();
+        $mentores = Mentor::orderBy('vl_nota', 'desc');
+        $mentores = $mentores->whereNotIn('id_mentor', $this->getConexoes($request))->get();
         $mentores = $this->selecionaMentores($mentores, $assuntos);
         return $mentores;
     }
@@ -79,69 +80,14 @@ class MentoradoController extends Controller
         return json_encode(array('dados' => $mentoresAExibir, 'qtd' => ceil($count/6)));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getConexoes(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $conexoesArray = array();
+        $mentoradoSessao = $request->session()->get('usuario.0');
+        $mentorado = Mentorado::find($mentoradoSessao->id_mentorado);
+        foreach ($mentorado->conexoes as $conexao) {
+            $conexoesArray[] = $conexao->mentor_id_mentor;
+        }
+        return $conexoesArray;
     }
 }

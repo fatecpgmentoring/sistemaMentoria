@@ -46,8 +46,18 @@
                      <p class="description text-justify p-3 text-center" v-else></p>
                     <div class="cfooter">
                         <div v-if="mentor.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
-                            <a href="" @click="cancelarMentor(mentor.id_conexao)" class="btn-aceitar">
-                                <span class="btn btn-warning"></span>&nbsp aceitar
+                            <a href="" @click="cancelarMentor(mentor.id_conexao)" class="btn" style="background-color: #FFD700">
+                                <span class="fa fa-times fa-lg"></span>&nbsp cancelar
+                            </a>
+                        </div>
+                        <div v-else-if="mentor.ds_status == 1"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
+                            <a :href="'/mentorado/chat/'+mentor.id_conexao" class="btn">
+                                <span class="fa fa-comments fa-lg"></span>&nbsp chamar
+                            </a>
+                        </div>
+                        <div v-else> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
+                            <a href="" @click="solicitarAgain(mentor.id_conexao)" class="btn">
+                                <span class="fa fa-reply fa-lg"></span>&nbsp resolicitar
                             </a>
                         </div>
                     </div>
@@ -98,7 +108,7 @@
 
 <script>
     export default {
-        props: ['mentores'],
+        props: ['mentores', 'quantidade'],
         name: 'conexoes-mentores',
         data() {
             return {
@@ -106,6 +116,13 @@
                 qtd: this.quantidade,
                 search: "",
                 filteredMentores: this.mentores,
+                status: [
+                    'Pendente',
+                    'Ativa',
+                    'Encerrada',
+                    'Cancelada',
+                    'Recusada'
+                ],
             }
         },
         created() {
@@ -156,6 +173,21 @@
             cancelarMentor(idConexao){
                 event.preventDefault();
                   axios.get('/mentorado/conexao/cancelar', {
+                        params: {
+                            conexao: idConexao,
+                        }
+                    })
+                    .then((data) => {
+                        this.changePage(this.page);
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores: ', e);
+                    });
+            },
+            solicitarAgain(idConexao)
+            {
+                event.preventDefault();
+                  axios.get('/mentorado/conexao/resolicitar', {
                         params: {
                             conexao: idConexao,
                         }
