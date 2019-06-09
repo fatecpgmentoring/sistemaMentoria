@@ -31,7 +31,7 @@
                 <div class="breadcrumb-wrapper">
                     @yield('breadcrumb')
                     <div class="link" id="dropdown-nav">
-                        <a href="#">Opções</a>
+                        <a class="option-nav">Opções</a>
                     </div>
                     <div class="dropdown-nav">
                          <ul>

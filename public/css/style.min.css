@@ -16405,6 +16405,10 @@ form.default .form-check-input:checked:before {
     background: #00f0ff;
 }
 
+.option-nav {
+    cursor: pointer;
+}
+
 .dropdown-nav {
     position: absolute;
     width: 120px;
