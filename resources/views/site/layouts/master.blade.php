@@ -30,11 +30,6 @@
     @endif
     --}}
 
-    <!-- WS URL && Socket Lib -->
-    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-    {{-- <script src="{{ asset('js/socket.io.js') }}"></script> --}}
-
-
     <!-- VUEJS -->
     <script type="text/javascript" src="/vuejs/app.js"></script>
 

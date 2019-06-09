@@ -1877,36 +1877,121 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [''],
+  props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
   name: 'chat-mentorado',
   // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
   data: function data() {
-    return {};
+    return {
+      socket: CreateConnectionSocket,
+      to: this.mentor.id_mentor,
+      from: this.mentorado.id_mentorado,
+      toName: this.mentor.nm_mentor,
+      fromName: this.mentorado.nm_mentorado,
+      typing: false,
+      message: '',
+      messages: []
+    };
+  },
+  created: function created() {// this.socket.emit("join", {
+    //     user_id: this.to,
+    //     name: this.toName
+    // });
   },
   mounted: function mounted() {
+    this.socket.on('receiveMessage', this.receiveMessage);
+    this.socket.on('istyping', this.someoneIsTyping);
+    this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+
+    for (var i = 0; i < Object.keys(this.conversa).lenght; i++) {
+      if (this.conversa[i].id_flag == 1) {
+        this.messages.push({
+          fromUserId: this.from,
+          toUserId: this.to,
+          message: this.conversa[i].ds_mensagem
+        });
+      }
+    }
+  },
+  destroyed: function destroyed() {
+    this.socket.emit('disconnect', this.to);
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      if (this.message.trim().length > 0) {
+        var messagePackage = this.createMsgObj(this.message);
+        this.socket.emit('sendMessage', messagePackage);
+        this.socket.emit("typing", {
+          toUserId: this.from,
+          name: this.toName,
+          typing: false
+        });
+        this.socket.emit('response', {
+          toUserId: this.from
+        });
+        this.messages.push(messagePackage);
+        this.storeMessage();
+        this.message = "";
+        this.scrollToBottom();
+      } else {
+        alert("Digite algo antes de enviar :)");
+      }
+    },
+    receiveMessage: function receiveMessage(msg) {
+      this.messages.push(msg);
+      this.scrollToBottom();
+    },
+    onTyping: function onTyping() {
+      if (this.message.length == 1 || this.message.length % 100 == 0 && this.message.length > 0) {
+        this.socket.emit("typing", {
+          toUserId: this.from,
+          name: this.toName,
+          typing: true
+        });
+        this.socket.emit('response', {
+          toUserId: this.from
+        });
+      }
+    },
+    stopTyping: function stopTyping() {
+      if (this.message.length == 0) {
+        this.socket.emit("typing", {
+          toUserId: this.from,
+          name: this.toName,
+          typing: false
+        });
+        this.socket.emit('response', {
+          toUserId: this.from
+        });
+      }
+    },
+    someoneIsTyping: function someoneIsTyping(data) {
+      this.typing = true;
+    },
+    finishIsTyping: function finishIsTyping(data) {
+      this.typing = false;
+    },
+    createMsgObj: function createMsgObj() {
+      return {
+        fromUserId: this.to,
+        toUserId: this.from,
+        message: this.message
+      };
+    },
+    scrollToBottom: function scrollToBottom() {
+      setTimeout(function () {
+        document.querySelector('.talking-area').scrollTop = document.querySelector('.talking-area').scrollHeight;
+      }, 300);
+    },
+    storeMessage: function storeMessage() {
+      axios.post('/mentor/mensagem', {
+        conexao: this.conexao.id_conexao,
+        mensagem: this.message,
+        msgpor: 1
+      });
+    }
   }
 });
 
@@ -2197,11 +2282,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [''],
+  props: ['mentorado', 'mentor'],
   name: 'chat-mentorado',
-  // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
   data: function data() {
-    return {};
+    return {
+      socket: CreateConnectionSocket,
+      to: mentorado.id_mentorado,
+      from: mentor.id_mentor,
+      toName: mentorado.nm_mentorado,
+      fromName: mentor.nm_mentor
+    };
   },
   mounted: function mounted() {
     var token = document.head.querySelector('meta[name="csrf-token"]');
@@ -49388,67 +49478,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-8" }, [
-          _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-            _c("div", { staticClass: "talking-area" }, [
-              _c("div", { staticClass: "msg agent-notme" }, [
-                _c("div", { staticClass: "text" }, [
-                  _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-                  _vm._v(
-                    "\n                            Mensagem\n                        "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "msg agent-me" }, [
-                _c("div", { staticClass: "text" }, [
-                  _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-                  _vm._v(
-                    "\n                            Mensagem\n                        "
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-text" }, [
-              _c("p", { staticClass: "typing" }, [
-                _vm._v(" paulo está digitando...")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                attrs: { id: "message", placeholder: "Enviar mensagem..." }
-              }),
-              _vm._v(" "),
-              _c("button", [_vm._v("Enviar Mensagem")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
           _c(
             "div",
-            {
-              staticClass: "done",
-              staticStyle: { height: "565px" },
-              attrs: { id: "chat-frame-box" }
-            },
-            [
-              _c("div", [
-                _c("ul", [
-                  _c("li", { staticClass: "contact" }, [
-                    _c("div", { staticClass: "wrap" }, [
-                      _c(
+            { staticClass: "talking-area" },
+            _vm._l(_vm.messages, function(item, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  class:
+                    item.fromUserId == _vm.from
+                      ? "msg agent-me"
+                      : "msg agent-notme"
+                },
+                [
+                  _c("div", { staticClass: "text" }, [
+                    _c("span", { staticClass: "name" }, [
+                      _vm._v(
+                        " " +
+                          _vm._s(
+                            item.fromUserId == _vm.from
+                              ? _vm.fromName
+                              : _vm.toName
+                          ) +
+                          " "
+                      )
+                    ]),
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(item.message) +
+                        "\n                        "
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-text" }, [
+            _vm.typing
+              ? _c("p", { staticClass: "typing" }, [
+                  _vm._v(_vm._s(_vm.toName) + " está digitando...")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.message,
+                  expression: "message"
+                }
+              ],
+              attrs: { id: "message", placeholder: "Enviar mensagem..." },
+              domProps: { value: _vm.message },
+              on: {
+                keyup: [
+                  function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.sendMessage($event)
+                  },
+                  function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "delete", [8, 46], $event.key, [
+                        "Backspace",
+                        "Delete",
+                        "Del"
+                      ])
+                    ) {
+                      return null
+                    }
+                    return _vm.stopTyping($event)
+                  }
+                ],
+                keypress: _vm.onTyping,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.message = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.sendMessage } }, [
+              _vm._v("Enviar Mensagem")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c(
+          "div",
+          {
+            staticClass: "done",
+            staticStyle: { height: "565px" },
+            attrs: { id: "chat-frame-box" }
+          },
+          [
+            _c("div", [
+              _c("ul", [
+                _c("li", { staticClass: "contact" }, [
+                  _c(
+                    "div",
+                    { staticClass: "wrap" },
+                    _vm._l(_vm.conexoes, function(listMentorado, index) {
+                      return _c(
                         "div",
                         {
+                          key: index,
                           staticClass: "row",
                           staticStyle: { "margin-bottom": "1%" }
                         },
@@ -49465,8 +49616,7 @@ var staticRenderFns = [
                                 "border-radius": "50%"
                               },
                               attrs: {
-                                src:
-                                  "http://emilcarlsson.se/assets/louislitt.png",
+                                src: "/" + listMentorado.ds_foto,
                                 alt: ""
                               }
                             })
@@ -49488,73 +49638,27 @@ var staticRenderFns = [
                               },
                               [
                                 _vm._v(
-                                  "\n                                            Bolonha Maria"
-                                )
-                              ]
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "row",
-                          staticStyle: { "background-color": "#037a7a" }
-                        },
-                        [
-                          _c("div", { staticClass: "col-4" }, [
-                            _c("span", {
-                              staticClass: "contact-status online"
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticStyle: {
-                                height: "55px",
-                                width: "55px",
-                                "border-radius": "50%"
-                              },
-                              attrs: {
-                                src:
-                                  "http://emilcarlsson.se/assets/rachelzane.png",
-                                alt: ""
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-8" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass: "name",
-                                staticStyle: {
-                                  "font-weight": "600",
-                                  "margin-top": "10%",
-                                  "padding-right": "5%",
-                                  "margin-left": "0",
-                                  "margin-right": "0"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                            Najila Trindade"
+                                  "\n                                            " +
+                                    _vm._s(listMentorado.nm_mentorado)
                                 )
                               ]
                             )
                           ])
                         ]
                       )
-                    ])
-                  ])
+                    }),
+                    0
+                  )
                 ])
               ])
-            ]
-          )
-        ])
+            ])
+          ]
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -66096,11 +66200,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/vuejs/bootstrap.js");
-/*
+
 window.CreateConnectionSocket = io(WS_URL);
-*/
-
-
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /*
 window.VueSocketio = require('vue-socket.io');

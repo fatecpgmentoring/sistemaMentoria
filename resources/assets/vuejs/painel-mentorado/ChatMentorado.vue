@@ -67,11 +67,15 @@
 
 <script>
     export default {
-        props: [''],
-        name: 'chat-mentorado', // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
+        props: ['mentorado', 'mentor'],
+        name: 'chat-mentorado', 
         data() {
             return {
-
+                socket: CreateConnectionSocket,
+                to: mentorado.id_mentorado,
+                from: mentor.id_mentor,
+                toName: mentorado.nm_mentorado,
+                fromName: mentor.nm_mentor 
             }
         },
         mounted() {
