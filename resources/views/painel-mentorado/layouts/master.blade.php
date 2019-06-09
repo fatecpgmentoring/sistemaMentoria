@@ -30,9 +30,16 @@
 
                 <div class="breadcrumb-wrapper">
                     @yield('breadcrumb')
-                    <div class="link">
-                        <a href="/">Voltar ao site</a>
+                    <div class="link" id="dropdown-nav">
+                        <a href="#">Opções</a>
                     </div>
+                    <div class="dropdown-nav">
+                         <ul>
+                             <li><a href="#">Alterar Dados</a></li>
+                             <li><a href="#">Alterar Senha</a></li>
+                             <li><a href="#">Sair</a></li>
+                         </ul>  
+                    </div>    
                 </div>
 
             </div>
@@ -86,6 +93,17 @@
         $(document).ready(function()
         {
             $('.select2').select2();
+
+            $('#dropdown-nav').click(function(){
+                $('.dropdown-nav').toggleClass('active', 500);
+            });
+
+           $(document).click(function(e) {
+                $('#dropdown-nav')
+                .not($('#dropdown-nav').has($(e.target)))
+                    .children('.dropdown-nav').removeClass('active');    
+           });
+
         });
     </script>
     @yield('js')
