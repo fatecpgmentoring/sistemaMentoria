@@ -151,23 +151,21 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
    Route::get('/relatorio-creditos-e-transferencias', function(){return view('painel-mentorado.relatorio-creditos-e-transferencias');});
    Route::get('/minha-conta/alterar-senha', function(){return view('painel-mentorado.login.alterar-senha');});
    Route::get('/minha-conta/alterar-cadastro', function(){return view('painel-mentorado.login.alterar-cadastro');});
-
+   Route::get('/mentoresConectados', 'ConexaoController@mentoresAjax')->name('mentores.conexao.ajax');
    Route::get('/cadastrar-assuntos', 'AssuntoMentoradoController@cadastrarAssunto')->name('cadastra.assunto.mentorado');
    Route::get('/listar-conteudo', function(){return view('painel-mentorado.minha-conta.listar-conteudo');});
-   Route::get('/conexoes', function(){return view('painel-mentorado.minha-conta.conexões-mentores');});
+   Route::get('/conexoes', 'ConexaoController@conexoes')->name('conexoes.mentores');
    Route::get('/mentores', function(){return view('painel-mentorado.minha-conta.mentores');});
    Route::get('/chat', function(){return view('painel-mentorado.chat.chat-mentorado');});
-  
    Route::get('/conexao/cancelar/', 'ConexaoController@destroy')->name('cancelar.mentor');
-
    Route::post('/carregaAssunto', 'AssuntoMentoradoController@carregaAssunto')->name('carrega.assuntos.mentorado');
    Route::post('/carregaCarreira', 'CarreiraController@carregaCarreira')->name('carrega.carreira.mentorado');
-
    Route::post('/salvarAssunto', 'AssuntoMentoradoController@salvarAssunto')->name('salva.assunto.mentorado');
    Route::post('/removerAssunto', 'AssuntoMentoradoController@removerAssunto')->name('remove.assunto.mentorado');
    Route::post('/carregaMeusAssuntos', 'AssuntoMentoradoController@carregaMeusAssuntos')->name('carrega.assuntos.meus.mentorado');
    Route::post('/cadastrar-assunto-mentorado', 'AssuntoMentoradoController@cadastrarAssuntoMentorado')->name('cadastrar.assunto.mentorado');
    Route::post('/solicita-conexao', 'ConexaoController@store')->name('salva.conexao.mentorado');
+   Route::post('/resolicita-conexao', 'ConexaoController@update')->name('resalva.conexao.mentorado');
 });
 Route::group(['prefix' => 'chat', 'namespace' => 'Chat'], function () {
 

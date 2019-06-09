@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Conexao;
 use function GuzzleHttp\json_encode;
+use App\Mentorado;
 
 class ConexaoController extends Controller
 {
@@ -98,23 +99,28 @@ class ConexaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $conexao = Conexao::find($request->params['conexao']);
+        $conexao->ds_status = 0;
+        $conexao->dt_inicio = null;
+        $conexao->dt_fim = null;
+        $conexao->update();
+        return json_encode($conexao);
     }
 
     public function conexoes(Request $request)
     {
-        $mentorados = $this->getConexoes($request);
-        return view('painel-mentor.minha-conta.conexões-mentorados', compact('mentorados'));
+        $mentores = $this->getConexoes($request);
+        return view('painel-mentorado.minha-conta.conexões-mentores', compact('mentores'));
     }
 
     public function getConexoes(Request $request)
     {
-        $mentor = $request->session()->get('usuario.0');
-        $mentor = Mentor::find($mentor->id_mentor);
-        $mentorados = array();
-        $conexoes = $mentor->conexoes()->join('tb_mentorados', 'mentorado_id_mentorado', '=', 'id_mentorado')->where('ds_status', '<', 3)->where('nm_mentorado', 'like', '%'.$request->search.'%' )->orderBy('id_conexao', 'desc');
+        $mentorado = $request->session()->get('usuario.0');
+        $mentorado = Mentorado::find($mentorado->id_mentorado);
+        $mentores = array();
+        $conexoes = $mentorado->conexoes()->join('tb_mentores', 'mentor_id_mentor', '=', 'id_mentor')->where('ds_status', '<', 3)->where('nm_mentor', 'like', '%'.$request->search.'%' )->orderBy('id_conexao', 'desc');
         $count = $conexoes->get()->count();
         if($count > 0)
         {
@@ -125,23 +131,23 @@ class ConexaoController extends Controller
                 $subArray['dt_inicio'] = $conexao->dt_inicio != null ? date('d/m/Y h:i:s', strtotime($conexao->dt_inicio)) : null;
                 $subArray['ds_status'] = $conexao->ds_status;
                 $subArray['id_conexao'] = $conexao->id_conexao;
-                $subArray['id_mentorado'] = $conexao->mentorado->id_mentorado;
-                $subArray['nm_mentorado'] = $conexao->mentorado->nm_mentorado;
-                $subArray['ds_foto'] = $conexao->mentorado->ds_foto;
+                $subArray['id_mentor'] = $conexao->mentor->id_mentor;
+                $subArray['nm_mentor'] = $conexao->mentor->nm_mentor;
+                $subArray['ds_foto'] = $conexao->mentor->ds_foto;
                 $subArray['id_assunto'] = $conexao->assunto->id_assunto;
                 $subArray['nm_assunto'] = $conexao->assunto->nm_assunto;
                 $subArray['nm_carreira'] = $conexao->assunto->carreira->nm_carreira;
                 $subArray['nm_profissao'] = $conexao->assunto->carreira->profissao->nm_profissao;
-                $mentorados[] = $subArray;
+                $mentores[] = $subArray;
             }
         }
 
-        return array('dados' => $mentorados, 'qtd' => $count);
+        return array('dados' => $mentores, 'qtd' => $count);
     }
 
-    public function mentoradosAjax(Request $request)
+    public function mentoresAjax(Request $request)
     {
-        $mentorados = $this->getConexoes($request);
-        return json_encode($mentorados);
+        $mentores = $this->getConexoes($request);
+        return json_encode($mentores);
     }
 }

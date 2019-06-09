@@ -42,15 +42,21 @@
     <div id="main-panel-wrap" class="active">
         @include('painel-mentorado.includes.aside-nav')
 
-        <!-- CONTENT -->
-        <main id="main-box">
-            <div class="container-fluid mt-4">
+           <main id="main-box">
+            <div class="container-fluid">
                 <div id="vue-app">
                     @yield('content')
                 </div>
             </div>
         </main>
+        
     </div>
+
+        <!-- CONTENT -->
+      
+     
+      
+    
 
 
     <!-- This Global Component Listen For Notification

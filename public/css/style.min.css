@@ -510,6 +510,7 @@ kbd kbd {
     margin-right: auto;
     margin-left: auto;
     width: 100%
+
 }
 
 .btn,.btn-link,.custom-select,.dropdown-item,.form-control,.input-group-text {
@@ -14168,6 +14169,7 @@ form.default .form-check-input:checked:before {
     background-position-y: 0;
     background-position-x: center;
     min-height: 500px
+
 }
 
 #consultants.inside {
@@ -14182,6 +14184,7 @@ form.default .form-check-input:checked:before {
 
 #consultants .search-wrap {
     text-align: right
+
 }
 
 #consultants .search-wrap form .wrap-input {
@@ -15756,11 +15759,11 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box {
-    margin-top: 50px;
+    margin-top: 25px;
     background: #fff;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border: 2px solid #00cb94;
+    border: 2px solid #00b1b1;
     padding: 15px;
     position: relative
 }
@@ -15931,11 +15934,11 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box .talking-area .msg.agent-me .text {
-    background: #feefd8
+    background: #f4e8ff
 }
 
 #chat-frame-box .talking-area .msg.agent-me .text span {
-    color: #f89801
+    color: #00b1b1
 }
 
 #chat-frame-box .talking-area .msg.agent-notme {
@@ -15943,12 +15946,12 @@ form.default .form-check-input:checked:before {
 }
 
 #chat-frame-box .talking-area .msg.agent-notme .text {
-    background: #f4e8ff;
-    color: rgba(0, 176, 176, 1)
+    background: #feefd8;
+    /*color: #f89801;*/
 }
 
 #chat-frame-box .talking-area .msg.agent-notme .text span {
-    color: rgba(0, 176, 176, 1)
+    color: #f89801;
 }
 
 #chat-frame-box .panel-text {
@@ -16317,7 +16320,7 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active {
-    margin-right: 45px;
+    /*margin-right: 45px;*/
 }
 
 #aside-nav.active > .wrap-item {
@@ -16339,7 +16342,8 @@ form.default .form-check-input:checked:before {
 
 #aside-nav.active .icon-list{
     background: #00b1b1;
-    height: 100%;
+    height:100%;
+    display:block;
 }
 
 #aside-nav.active .icon-list li{
@@ -16360,7 +16364,7 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active .icon-list li:hover a{
-    color: #00cb94;
+    color: #00b1b1;
 }
 
 #main-panel-wrap {
@@ -16378,11 +16382,12 @@ form.default .form-check-input:checked:before {
 #main-panel-wrap.active #main-box {
     width: -webkit-calc(100% - 281px);
     width: calc(100% - 281px);
-    padding: 15px 15px 15px 35px;
+    padding: 0px 10px 10px 10px;
 }
 
 .assuntos-cad {
     margin-bottom: 25px;
+    margin-top:25px;
 }
 
 .assuntos-sel {

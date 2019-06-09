@@ -1,7 +1,6 @@
 <!-- Limitar a 6 por pagina -->
 <template>
-    <div>
-        <div class="search-wrap">
+          <div class="search-wrap">
             <form>
                 <div class="wrap-input">
                     <input type="text" id="search" v-model="search" placeholder="Buscar" name="termo">
@@ -10,7 +9,7 @@
                     </button>
                 </div>
             </form>
-        </div>
+        
         <ul class="row consultant-list" v-if="this.filteredMentorados.length > 0">
             <li class="col-lg-4 col-md-6 item" v-for="(mentorado, index) in filteredMentorados" :key="index">
                 <div class="wrap-card">
@@ -132,6 +131,10 @@
                 .catch((e) => {
                     console.log('Erro ao carregar mentorados: ', e);
                 });
+        },
+        mounted() {
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
         },
         methods: {
             changePage(data) {
