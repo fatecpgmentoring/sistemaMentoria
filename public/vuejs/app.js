@@ -2384,7 +2384,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this5 = this;
 
       event.preventDefault();
-      axios.get('/mentorado/conexao/resolicitar', {
+      axios.get('/mentorado/resolicitar', {
         params: {
           conexao: idConexao
         }
