@@ -102,6 +102,7 @@ $(document).ready(function() {
             {
                 console.log(data);
                 if(data.length > 0) {
+                    $('#carreira').prop('disabled', false);
                     $('#carreira').empty();
                     $('#carreira').append('<option value="" selected>Filtrar...</option>');
                     $.each(data, function(i, obj)
@@ -133,6 +134,7 @@ $(document).ready(function() {
     }
     $('#profissao').change(function()
     {
+        $('#carreira').prop('disabled', true);
         carregarCarreiras();
     });
     $('#searchAssunto').click(function()

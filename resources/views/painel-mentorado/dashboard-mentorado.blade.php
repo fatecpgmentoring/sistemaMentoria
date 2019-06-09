@@ -15,7 +15,7 @@
 
 @section('content')
 <section id="consultants" class="mt-3">
-    <mentores :mentores="{{json_encode($mentores)}}"></mentores>
+    <mentores :mentores="{{json_encode($mentores)}}" :quantidade="{{$qtd}}"></mentores>
 </section>
 @endsection
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->

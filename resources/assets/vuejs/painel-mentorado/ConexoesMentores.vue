@@ -43,7 +43,9 @@
                     <p class="description text-justify p-3 text-center" v-if="mentor.dt_fim != null">
                         Ate: {{mentor.dt_fim}}
                     </p>
-                     <p class="description text-justify p-3 text-center" v-else></p>
+                     <p class="description text-justify p-3 text-center" v-else>
+                        Fim da mentoria a definir
+                     </p>
                     <div class="cfooter">
                         <div v-if="mentor.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
                             <a href="" @click="cancelarMentor(mentor.id_conexao)" class="btn" style="background-color: #FFD700">
@@ -132,7 +134,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
         },
         mounted() {
@@ -154,7 +156,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -171,7 +173,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             cancelarMentor(idConexao){
@@ -185,7 +187,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao cancelar solicitação: ', e);
                     });
             },
             solicitarAgain(idConexao)
@@ -200,7 +202,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar novamente conexão: ', e);
                     });
             }
         },

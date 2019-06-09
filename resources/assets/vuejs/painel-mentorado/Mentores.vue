@@ -126,7 +126,7 @@
 <script>
     import StackModal from './Modal.vue'
     export default {
-        props: ['mentores'],
+        props: ['mentores', 'quantidade'],
         name: 'all-mentores',
         components: { StackModal },
         data() {
@@ -136,7 +136,7 @@
                 show_second: false,
                 show_third: false,
                 page: 1,
-                qtd: 0,
+                qtd: this.quantidade,
                 search: "",
                 filteredMentores: this.mentores,
                 assuntosFiltereds: [],
@@ -157,7 +157,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
         },
         mounted() {
@@ -179,7 +179,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -196,7 +196,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             modal(indexMentor) {
@@ -209,7 +209,7 @@
                 }
                 else
                 {
-
+                    this.salvar();
                 }
             },
             salvar()
@@ -227,7 +227,7 @@
                         this.changePage(page)
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar conexão: ', e);
                     });
             },
         },
