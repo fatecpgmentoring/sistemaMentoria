@@ -121,6 +121,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => Check
     });
 });
 Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => CheckMentor::class], function () {
+    Route::get('/getContatos', 'ContatoControllerMentor@getAjax')->name('contatos.ajax');
+    Route::get('/getAllContatos', 'ContatoControllerMentor@getAllAjax')->name('contatos.all.ajax');
+    Route::post('/salvarContato', 'ContatoControllerMentor@store')->name('salvar.contato');
     Route::post('/mensagem', 'MensagemControllerMentor@store')->name('mensagem.mentor.salvar');
     Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
     Route::get('/conexao/aceitar/', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
