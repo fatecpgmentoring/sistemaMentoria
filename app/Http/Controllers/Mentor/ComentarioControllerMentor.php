@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Mentor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mentor;
+use App\Comentario;
+use function GuzzleHttp\json_encode;
 
 class ComentarioControllerMentor extends Controller
 {
@@ -17,13 +19,12 @@ class ComentarioControllerMentor extends Controller
     {
         $mentor = $request->session()->get('usuario.0');
         $mentor = Mentor::find($mentor->id_mentor);
-        $count =  ceil($mentor->comentarios->count()/6);
+        $count =  ceil($mentor->comentarios->count() / 6);
         $comentarios = $mentor->comentarios()->limit(6)->get();;
-        foreach($comentarios as $comentario)
-        {
+        foreach ($comentarios as $comentario) {
             $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
             $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
-            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime("-3 hours",  strtotime($comentario->updated_at)));
         }
         return view('painel-mentor.minha-conta.listar-comentarios', compact('comentarios', 'count'));
     }
@@ -33,7 +34,7 @@ class ComentarioControllerMentor extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -42,9 +43,7 @@ class ComentarioControllerMentor extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+    { }
 
     /**
      * Display the specified resource.

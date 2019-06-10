@@ -101,8 +101,6 @@
         other: '/images/icones/outro.png',
     }
 
-<<<<<<< HEAD
-=======
     function mostraLogo(valor) {
         document.getElementById("logo-contato").src = dicionarioDeImagens[valor];
     }
@@ -162,6 +160,5 @@
         });
     }
 
->>>>>>> faca355a12e97e464b1e1266a7a7dcc5097a4059
 </script>
 @endsection

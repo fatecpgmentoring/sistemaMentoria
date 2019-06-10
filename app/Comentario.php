@@ -9,6 +9,7 @@ class Comentario extends Model
     protected $table = 'tb_comentarios';
     protected $primaryKey = 'id_comentario';
     protected $fillable = [
+        'vl_nota',
         'ds_comentario',
         'mentor_id_mentor',
         'mentorado_id_mentorado'

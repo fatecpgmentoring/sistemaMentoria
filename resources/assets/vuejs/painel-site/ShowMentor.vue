@@ -33,7 +33,7 @@
                         <label for="cm_star-4"><i class="fa"></i></label>
                         <input type="radio" id="cm_star-4" name="fb" value="4" disabled/>
                         <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" value="6" disabled/>
+                        <input type="radio" id="cm_star-5" name="fb" value="5" disabled/>
                         <label for="cm_star-6"><i class="fa"></i></label>
                         <input type="radio" id="cm_star-6" name="fb" value="6" disabled/>
                         <label for="cm_star-7"><i class="fa"></i></label>
