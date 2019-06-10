@@ -14120,7 +14120,7 @@ form.default .form-check-input:checked:before {
     background-size: contain;
     left: -30px;
     top: -72px;
-    z-index: 0
+    z-index: 1;
 }
 
 @media (max-width:992px) {
@@ -16480,6 +16480,10 @@ form.default .form-check-input:checked:before {
         color: #ffff !important;
     }
 
+    .rot{
+        transform: rotate(90deg);
+    }
+
     #consultants div.h2-title{
         margin-top: 20px;
     }
@@ -16488,7 +16492,12 @@ form.default .form-check-input:checked:before {
     }
 
     #aside-nav.active {
-/*        display: none;*/
+        display: block;
+        transition: 0.2s;
+    }
+
+    .open {
+        display: none;
     }
 
     #aside-nav.active{
