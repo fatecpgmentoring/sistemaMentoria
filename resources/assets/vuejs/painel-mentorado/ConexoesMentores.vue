@@ -12,7 +12,7 @@
             </form>
         </div>
         <ul class="row consultant-list" v-if="this.filteredMentores.length > 0">
-            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in mentores" :key="index">
+            <li class="col-lg-4 col-md-6 item" v-for="(mentor, index) in filteredMentores" :key="index">
                 <div class="wrap-card">
                     <div class="cheader">
                         <h2 class="name">{{mentor.nm_mentor}}</h2>
@@ -43,7 +43,9 @@
                     <p class="description text-justify p-3 text-center" v-if="mentor.dt_fim != null">
                         Ate: {{mentor.dt_fim}}
                     </p>
-                     <p class="description text-justify p-3 text-center" v-else></p>
+                     <p class="description text-justify p-3 text-center" v-else>
+                        Fim da mentoria a definir
+                     </p>
                     <div class="cfooter">
                         <div v-if="mentor.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
                             <a href="" @click="cancelarMentor(mentor.id_conexao)" class="btn" style="background-color: #FFD700">
@@ -126,13 +128,13 @@
             }
         },
         created() {
-            axios.get('/mentoresConectados')
+            axios.get('/mentorado/mentoresConectados')
                 .then((data) => {
                     this.filteredMentores = data.data.dados;
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
         },
         mounted() {
@@ -143,7 +145,7 @@
             changePage(data) {
                 event.preventDefault();
                 this.page = data;
-                axios.get('/mentoresConectados', {
+                axios.get('/mentorado/mentoresConectados', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -154,13 +156,13 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
                 event.preventDefault();
                 this.search = data;
-                axios.get('/mentoresConectados', {
+                axios.get('/mentorado/mentoresConectados', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -171,7 +173,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             cancelarMentor(idConexao){
@@ -185,13 +187,13 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao cancelar solicitação: ', e);
                     });
             },
             solicitarAgain(idConexao)
             {
                 event.preventDefault();
-                  axios.get('/mentorado/resolicitar', {
+                  axios.post('/mentorado/resolicitar', {
                         params: {
                             conexao: idConexao,
                         }
@@ -200,7 +202,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar novamente conexão: ', e);
                     });
             }
         },

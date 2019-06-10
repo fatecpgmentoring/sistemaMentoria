@@ -126,7 +126,7 @@
 <script>
     import StackModal from './Modal.vue'
     export default {
-        props: ['mentores'],
+        props: ['mentores', 'quantidade'],
         name: 'all-mentores',
         components: { StackModal },
         data() {
@@ -136,7 +136,7 @@
                 show_second: false,
                 show_third: false,
                 page: 1,
-                qtd: 0,
+                qtd: this.quantidade,
                 search: "",
                 filteredMentores: this.mentores,
                 assuntosFiltereds: [],
@@ -151,24 +151,22 @@
             }
         },
         created() {
-            axios.get('/mentoresListagemMentor')
+            var token = document.head.querySelector('meta[name="csrf-token"]');
+            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+            axios.post('/mentorado/mentoresListagemMentor')
                 .then((data) => {
                     this.filteredMentores = data.data.dados;
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentores: ', e);
+                    console.log('Erro ao carregar mentores created: ', e);
                 });
-        },
-        mounted() {
-            var token = document.head.querySelector('meta[name="csrf-token"]');
-            window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
         },
         methods: {
             changePage(data) {
                 event.preventDefault();
                 this.page = data;
-                axios.get('/mentoresListagemMentor', {
+                axios.post('/mentorado/mentoresListagemMentor', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -179,13 +177,13 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores changePage: ', e);
                     });
             },
             fsearch(data) {
                 event.preventDefault();
                 this.search = data;
-                axios.get('/mentoresListagemMentor', {
+                axios.post('/mentorado/mentoresListagemMentor', {
                         params: {
                             page: this.page,
                             search: this.search
@@ -196,7 +194,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao carregar mentores fsearch: ', e);
                     });
             },
             modal(indexMentor) {
@@ -209,7 +207,7 @@
                 }
                 else
                 {
-
+                    this.salvarOne();
                 }
             },
             salvar()
@@ -224,10 +222,28 @@
                     })
                     .then((data) => {
                         this.show = false;
-                        this.changePage(page)
+                        this.changePage(this.page)
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentores: ', e);
+                        console.log('Erro ao solicitar conexão: ', e);
+                    });
+            },
+            salvarOne()
+            {
+                var idMentor = this.mentorEscolhido.id_mentor;
+                var idAssunto = this.mentorEscolhido.assuntosSeparados[0];
+                axios.post('/mentorado/solicita-conexao', {
+                        params: {
+                            mentor: idMentor,
+                            assunto: idAssunto
+                        }
+                    })
+                    .then((data) => {
+                        this.show = false;
+                        this.changePage(this.page)
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao solicitar conexão: ', e);
                     });
             },
         },

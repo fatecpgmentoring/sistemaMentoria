@@ -42,7 +42,9 @@
                     <p class="description text-justify p-3 text-center" v-if="mentorado.dt_fim != null">
                         Ate: {{mentorado.dt_fim}}
                     </p>
-                    <p class="description text-justify p-3 text-center" v-else></p>
+                    <p class="description text-justify p-3 text-center" v-else>
+                        Fim da mentoria a definir
+                    </p>
                     <div class="cfooter">
                         <div v-if="mentorado.ds_status == 0"> <!-- Ter um v-if para ver se é chamar no chat ou, cancelar solicitação -->
                             <a href="" @click="aceitarMentorado(mentorado.id_conexao)" class="btn-aceitar">
@@ -129,7 +131,7 @@
                     this.qtd = data.data.qtd;
                 })
                 .catch((e) => {
-                    console.log('Erro ao carregar mentorados: ', e);
+                    console.log('Erro ao carregar mentorados created: ', e);
                 });
         },
         mounted() {
@@ -151,7 +153,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao carregar mentorados changePage: ', e);
                     });
             },
             fsearch(data) {
@@ -168,7 +170,7 @@
                         this.qtd = data.data.qtd;
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao carregar mentorados fsearch: ', e);
                     });
             },
             aceitarMentorado(idConexao){
@@ -182,7 +184,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao aceitar mentoria: ', e);
                     });
             },
             recusarMentorado(idConexao){
@@ -196,7 +198,7 @@
                         this.changePage(this.page);
                     })
                     .catch((e) => {
-                        console.log('Erro ao carregar mentorados: ', e);
+                        console.log('Erro ao recusar mentoria: ', e);
                     });
             },
         },

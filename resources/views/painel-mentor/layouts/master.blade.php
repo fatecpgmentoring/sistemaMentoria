@@ -37,8 +37,8 @@
                          <ul>
                              <li><a href="#">Alterar Dados</a></li>
                              <li><a href="#">Alterar Senha</a></li>
-                             <li><a href="#">Sair</a></li>
-                         </ul>  
+                             <li><a href="/logout">Sair</a></li>
+                         </ul>
                     </div>
                 </div>
 
@@ -67,11 +67,8 @@
 
 
     <!-- WS URL && Socket Lib -->
-    {{--
-    <script>window.WS_URL = "@php echo env('WS_URL', ''); @endphp"</script>
-
+    <script>window.WS_URL = "http://chat-mentoring-com.umbler.net"</script>
     <script src="{{ asset('js/socket.io.js') }}"></script>
-    --}}
 
     <script type="text/javascript" src="/vuejs/app.js"></script>
     <!--
@@ -101,7 +98,7 @@
            $(document).click(function(e) {
                 $('#dropdown-nav')
                 .not($('#dropdown-nav').has($(e.target)))
-                    .children('.dropdown-nav').removeClass('active');    
+                    .children('.dropdown-nav').removeClass('active');
            });
         });
     </script>

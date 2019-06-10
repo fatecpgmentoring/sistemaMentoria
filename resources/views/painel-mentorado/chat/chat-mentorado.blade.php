@@ -14,6 +14,7 @@
 </ul>
 @endsection
 @section('content')
-<chat-mentorado></chat-mentorado>
+
+<chat-mentorado :mentor="{{$mentor}}" :mentorado="{{$mentorado}}" :conexao="{{$conexao}}" :conversa="{{json_encode($mensagens)}}" :conexoes="{{json_encode($conexoes)}}"></chat-mentorado>
 
 @endsection
