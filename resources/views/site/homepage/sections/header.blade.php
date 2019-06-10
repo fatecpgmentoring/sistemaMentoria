@@ -9,6 +9,6 @@
                     </div>
                    </a>
               </div>
-              <div id="go-down" title="rolar para baixo"><span class="spriting sprite-arrow-down"></span></div>
+              <div id="go-down" title="rolar para baixo"><img src="/images/icones/setabaixo.png" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:auto; margin-top:auto;"></div>
          </div>
 </header>

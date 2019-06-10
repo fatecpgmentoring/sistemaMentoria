@@ -28,11 +28,11 @@
                             @csrf
                             <div class="form-group">
                                 <label for="nomeusuario">E-mail</label>
-                                <input type="text" name="email" id="nomeusuario" class="form-control" value="" required>
+                                <input type="text" name="email" id="nomeusuario" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                 <label for="pwduser">Senha</label>
-                                <input type="password" name="password" id="pwduser" class="form-control" value="" required>
+                                <input type="password" name="password" id="pwduser" class="form-control" value="">
                             </div>
                             <div class="forgot">
                                 <p>Esqueceu sua senha? <a href="/recuperar-senha">Clique aqui</a></p>
@@ -53,27 +53,27 @@
                             @csrf
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" name="nome" id="nome" class="form-control" value="" required>
+                                <input type="text" name="nome" id="nome" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                     <label for="email">E-mail <span>(Será usado como login)</span></label>
-                                    <input type="email" name="email" id="email" class="form-control" value="" required>
+                                    <input type="email" name="email" id="email" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                 <label for="foto">Foto<span></span></label>
-                                <input type="file" name="foto" id="foto" class="form-control" value="" required>
+                                <input type="file" name="foto" id="foto" class="form-control" value="">
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="pwdcad">Senha</label>
-                                        <input type="password" name="senha" id="pwdcad" class="form-control" value="" required>
+                                        <input type="password" name="senha" id="pwdcad" class="form-control" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="pwdcad">Senha <span>(Confirmar)</span></label>
-                                        <input type="password" name="senha_confirmation" id="pwdcad" class="form-control" value="" required>
+                                        <input type="password" name="senha_confirmation" id="pwdcad" class="form-control" value="">
                                     </div>
                                 </div>
                             </div>
@@ -103,14 +103,18 @@
                             </div>
                             <input type="hidden" value="1" name="telaComprar"/>
                             <div class="text-center mt">
-                                <button type="submit">cadastrar</button>
+                                <button type="submit">cadastrar</button> 
                             </div>
                     </form>
                     </div>
+                       <?php dd($errors) ?>
                 </div>
+                
             </div>
         </div>
     </section>
+
+
 
 @endsection
 

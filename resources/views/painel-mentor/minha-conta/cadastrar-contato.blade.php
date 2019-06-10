@@ -95,13 +95,6 @@
           }
     }
 
-
-
-
-
-  
-
-
 </script>
 @endsection
 
