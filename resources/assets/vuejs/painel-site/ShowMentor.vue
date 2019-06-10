@@ -47,12 +47,20 @@
                         <strong style="font-weight: bold">Assuntos:</strong> {{assuntos}} <br>
                         <strong style="font-weight: bold">Conhecimento:</strong> {{this.dic[mentor.nv_conhecimento-1]}}
                         <table v-if="contatos.length > 0">
-                            <tr>
-                                <td><strong style="font-weight: bold">Contatos</strong></td>
-                            </tr>
-                            <tr v-for="(contato, index) in contatos" :key="index">
-                                <td>{{contato.ds_contato}}</td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center">Contatos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyContatos">
+                                <tr v-for="(contato, index) in contatos" :key="index">
+                                    <td style="text-align: center">
+                                        <a :href="contato.link">
+                                            <img :src="contato.imagem" style="height: 34px;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -77,6 +85,17 @@ export default {
                 'entre 10 e 15 anos de experiência',
                 'entre 15 e 20 anos de experiência',
                 'mais de 20 anos de experiência'],
+             dicionarioDeImagens: {
+                link: "/images/icones/linkedin.png",
+                whats: '/images/icones/zap.png',
+                face: '/images/icones/fb.png',
+                telegram: '/images/icones/teleg.png',
+                insta: '/images/icones/insta.png',
+                tel: '/images/icones/tele.png',
+                cel: '/images/icones/cel.png',
+                email: '/images/icones/mail.png',
+                other: '/images/icones/outro.png'
+            }
         }
     },
     mounted()

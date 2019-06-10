@@ -31,8 +31,8 @@
             else $assuntos.=", ".$c->nm_assunto;
             $cont++;
         }
-        @endphp
-    <show-mentor :mentor="{{ $mentor }}" assuntos="{{$assuntos}}" contatos="{{$mentor->contatos}}"></show-mentor>
+    @endphp
+    <show-mentor :mentor="{{ $mentor }}" assuntos="{{$assuntos}}" :contatos="{{json_encode($contatos)}}"></show-mentor>
 </section>
 <listar-comentarios :comentarios="{{json_encode($comentarios)}}" :quantidade="{{$count}}"></listar-comentarios>
 @endsection

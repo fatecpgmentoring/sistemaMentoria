@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mentorado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Carreira;
 
 class CarreiraController extends Controller
 {
@@ -14,7 +15,7 @@ class CarreiraController extends Controller
 
     public function carregaCarreira(Request $request)
     {
-        if($request->prof != null && $request->prof != '') $carreiras = Carreira::where('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
+        if ($request->prof != null && $request->prof != '') $carreiras = Carreira::where('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
         else $carreiras = Carreira::where('ds_active_carreira', '=', 1)->get();
         return json_encode($carreiras);
     }

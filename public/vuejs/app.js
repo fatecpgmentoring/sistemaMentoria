@@ -3557,13 +3557,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentor', 'assuntos', 'contatos'],
   mode: 'production',
   name: 'show-mentor',
   data: function data() {
     return {
-      dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência']
+      dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência'],
+      dicionarioDeImagens: {
+        link: "/images/icones/linkedin.png",
+        whats: '/images/icones/zap.png',
+        face: '/images/icones/fb.png',
+        telegram: '/images/icones/teleg.png',
+        insta: '/images/icones/insta.png',
+        tel: '/images/icones/tele.png',
+        cel: '/images/icones/cel.png',
+        email: '/images/icones/mail.png',
+        other: '/images/icones/outro.png'
+      }
     };
   },
   mounted: function mounted() {
@@ -52972,19 +52991,31 @@ var render = function() {
                   "\n                        "
               ),
               _vm.contatos.length > 0
-                ? _c(
-                    "table",
-                    [
-                      _vm._m(11),
-                      _vm._v(" "),
+                ? _c("table", [
+                    _vm._m(11),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      { attrs: { id: "bodyContatos" } },
                       _vm._l(_vm.contatos, function(contato, index) {
                         return _c("tr", { key: index }, [
-                          _c("td", [_vm._v(_vm._s(contato.ds_contato))])
+                          _c(
+                            "td",
+                            { staticStyle: { "text-align": "center" } },
+                            [
+                              _c("a", { attrs: { href: contato.link } }, [
+                                _c("img", {
+                                  staticStyle: { height: "34px" },
+                                  attrs: { src: contato.imagem }
+                                })
+                              ])
+                            ]
+                          )
                         ])
-                      })
-                    ],
-                    2
-                  )
+                      }),
+                      0
+                    )
+                  ])
                 : _vm._e()
             ])
           ])
@@ -53095,9 +53126,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [
-        _c("strong", { staticStyle: { "font-weight": "bold" } }, [
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticStyle: { "text-align": "center" } }, [
           _vm._v("Contatos")
         ])
       ])
