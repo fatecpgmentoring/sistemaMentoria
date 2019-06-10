@@ -13075,7 +13075,7 @@ p {
         transition: .3s;
         /*background: #7400a4;
         background: rgba(0, 176, 176, 1); */
-        background: #7400a4;
+        background: #008787;
         /*  -webkit-box-shadow: 0 7px 7px 1px rgba(117,0,212,.3);
         box-shadow: 0 7px 7px 1px rgba(117,0,212,.3); */
     }
@@ -16492,12 +16492,12 @@ form.default .form-check-input:checked:before {
     }
 
     #aside-nav.active {
-        display: block;
-        transition: 0.2s;
+        clip-path: circle(0px at top right);
+        transition: all ease-in-out 500ms;
     }
 
     .open {
-        display: none;
+        clip-path: circle(100%);
     }
 
     #aside-nav.active{

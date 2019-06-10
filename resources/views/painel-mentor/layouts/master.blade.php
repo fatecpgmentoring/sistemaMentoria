@@ -19,6 +19,9 @@
             </div>
             <div class="col pl-0 user-box">
                 <div class="user-info">
+                    <a class="hamburger-nav">
+                       <i class="fa fa-bars"></i>
+                    </a>
                     <h5 class="name">Olá, {{$usuario->nm_mentor}}
                     </h5>
                     <div class="user-photo">
@@ -93,6 +96,11 @@
 
             $('#dropdown-nav').click(function(){
                 $('.dropdown-nav').toggleClass('active', 500);
+            });
+
+            $('.hamburger-nav').click(function(){
+                $('.hamburger-nav').toggleClass('rot');
+                $('#aside-nav').toggleClass('open');
             });
 
            $(document).click(function(e) {
