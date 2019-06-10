@@ -15998,9 +15998,9 @@ form.default .form-check-input:checked:before {
     box-shadow: 0 5px 8px 2px rgba(0,203,148,.14)
 }
 
-@media (max-width:767px) {
+@media (max-width:1142px) {
     #chat-frame-box .panel-text button {
-        width: 100%;
+        width: 50%;
         padding: .5em
     }
 }

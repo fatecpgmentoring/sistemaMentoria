@@ -1879,24 +1879,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
-  name: 'chat-mentorado',
+  name: 'chat-mentor',
   // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
   data: function data() {
     return {
       socket: CreateConnectionSocket,
-      to: this.mentor.id_mentor,
-      from: this.mentorado.id_mentorado,
-      toName: this.mentor.nm_mentor,
-      fromName: this.mentorado.nm_mentorado,
+      from: this.mentor.id_mentor,
+      to: this.mentorado.id_mentorado,
+      fromName: this.mentor.nm_mentor,
+      toName: this.mentorado.nm_mentorado,
       typing: false,
       message: '',
-      messages: []
+      messages: this.conversa
     };
   },
-  created: function created() {// this.socket.emit("join", {
-    //     user_id: this.to,
-    //     name: this.toName
-    // });
+  created: function created() {
+    this.socket.emit("join", {
+      user_id: this.from,
+      name: this.toName
+    });
   },
   mounted: function mounted() {
     this.socket.on('receiveMessage', this.receiveMessage);
@@ -1904,32 +1905,22 @@ __webpack_require__.r(__webpack_exports__);
     this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-
-    for (var i = 0; i < Object.keys(this.conversa).lenght; i++) {
-      if (this.conversa[i].id_flag == 1) {
-        this.messages.push({
-          fromUserId: this.from,
-          toUserId: this.to,
-          message: this.conversa[i].ds_mensagem
-        });
-      }
-    }
   },
   destroyed: function destroyed() {
-    this.socket.emit('disconnect', this.to);
+    this.socket.emit('disconnect', this.from);
   },
   methods: {
     sendMessage: function sendMessage() {
       if (this.message.trim().length > 0) {
         var messagePackage = this.createMsgObj(this.message);
-        this.socket.emit('sendMessage', messagePackage);
-        this.socket.emit("typing", {
-          toUserId: this.from,
-          name: this.toName,
-          typing: false
+        this.socket.emit('sendMessage', {
+          mensagem: this.message,
+          to: this.to
         });
-        this.socket.emit('response', {
-          toUserId: this.from
+        this.socket.emit("typing", {
+          to: this.to,
+          name: this.fromName,
+          typing: false
         });
         this.messages.push(messagePackage);
         this.storeMessage();
@@ -1940,30 +1931,27 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     receiveMessage: function receiveMessage(msg) {
-      this.messages.push(msg);
+      this.messages.push({
+        message: msg,
+        quem: 1
+      });
       this.scrollToBottom();
     },
     onTyping: function onTyping() {
       if (this.message.length == 1 || this.message.length % 100 == 0 && this.message.length > 0) {
         this.socket.emit("typing", {
-          toUserId: this.from,
-          name: this.toName,
+          to: this.to,
+          name: this.fromName,
           typing: true
-        });
-        this.socket.emit('response', {
-          toUserId: this.from
         });
       }
     },
     stopTyping: function stopTyping() {
       if (this.message.length == 0) {
         this.socket.emit("typing", {
-          toUserId: this.from,
-          name: this.toName,
+          to: this.to,
+          name: this.fromName,
           typing: false
-        });
-        this.socket.emit('response', {
-          toUserId: this.from
         });
       }
     },
@@ -1975,8 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     createMsgObj: function createMsgObj() {
       return {
-        fromUserId: this.to,
-        toUserId: this.from,
+        quem: 1,
         message: this.message
       };
     },
@@ -2132,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.filteredMentorados = data.data.dados;
       _this.qtd = data.data.qtd;
     })["catch"](function (e) {
-      console.log('Erro ao carregar mentorados: ', e);
+      console.log('Erro ao carregar mentorados created: ', e);
     });
   },
   mounted: function mounted() {
@@ -2154,7 +2141,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.filteredMentorados = data.data.dados;
         _this2.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentorados: ', e);
+        console.log('Erro ao carregar mentorados changePage: ', e);
       });
     },
     fsearch: function fsearch(data) {
@@ -2171,7 +2158,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.filteredMentorados = data.data.dados;
         _this3.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentorados: ', e);
+        console.log('Erro ao carregar mentorados fsearch: ', e);
       });
     },
     aceitarMentorado: function aceitarMentorado(idConexao) {
@@ -2185,7 +2172,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this4.changePage(_this4.page);
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentorados: ', e);
+        console.log('Erro ao aceitar mentoria: ', e);
       });
     },
     recusarMentorado: function recusarMentorado(idConexao) {
@@ -2199,7 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this5.changePage(_this5.page);
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentorados: ', e);
+        console.log('Erro ao recusar mentoria: ', e);
       });
     }
   }
@@ -2270,34 +2257,118 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['mentorado', 'mentor'],
+  props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
   name: 'chat-mentorado',
+  // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
   data: function data() {
     return {
       socket: CreateConnectionSocket,
-      to: mentorado.id_mentorado,
-      from: mentor.id_mentor,
-      toName: mentorado.nm_mentorado,
-      fromName: mentor.nm_mentor
+      to: this.mentor.id_mentor,
+      from: this.mentorado.id_mentorado,
+      toName: this.mentor.nm_mentor,
+      fromName: this.mentorado.nm_mentorado,
+      typing: false,
+      message: '',
+      messages: this.conversa
     };
   },
+  created: function created() {
+    this.socket.emit("join", {
+      user_id: this.from,
+      name: this.fromName
+    });
+  },
   mounted: function mounted() {
+    this.socket.on('receiveMessage', this.receiveMessage);
+    this.socket.on('istyping', this.someoneIsTyping);
+    this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  },
+  destroyed: function destroyed() {
+    this.socket.emit('disconnect', this.from);
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      if (this.message.trim().length > 0) {
+        var messagePackage = this.createMsgObj(this.message);
+        this.socket.emit('sendMessage', {
+          mensagem: this.message,
+          to: this.to
+        });
+        this.socket.emit("typing", {
+          to: this.to,
+          name: this.fromName,
+          typing: false
+        });
+        this.messages.push(messagePackage);
+        this.storeMessage();
+        this.message = "";
+        this.scrollToBottom();
+      } else {
+        alert("Digite algo antes de enviar :)");
+      }
+    },
+    receiveMessage: function receiveMessage(msg) {
+      this.messages.push({
+        message: msg,
+        quem: 1
+      });
+      this.scrollToBottom();
+    },
+    onTyping: function onTyping() {
+      if (this.message.length == 1 || this.message.length % 100 == 0 && this.message.length > 0) {
+        this.socket.emit("typing", {
+          to: this.to,
+          name: this.fromName,
+          typing: true
+        });
+      }
+    },
+    stopTyping: function stopTyping() {
+      if (this.message.length == 0) {
+        this.socket.emit("typing", {
+          to: this.to,
+          name: this.fromName,
+          typing: false
+        });
+      }
+    },
+    someoneIsTyping: function someoneIsTyping(data) {
+      this.typing = true;
+    },
+    finishIsTyping: function finishIsTyping(data) {
+      this.typing = false;
+    },
+    createMsgObj: function createMsgObj() {
+      return {
+        quem: 0,
+        message: this.message
+      };
+    },
+    scrollToBottom: function scrollToBottom() {
+      setTimeout(function () {
+        document.querySelector('.talking-area').scrollTop = document.querySelector('.talking-area').scrollHeight;
+      }, 300);
+    },
+    storeMessage: function storeMessage() {
+      axios.post('/mentorado/mensagem', {
+        conexao: this.conexao.id_conexao,
+        mensagem: this.message,
+        msgpor: 0
+      });
+    },
+    encerrarMentoria: function encerrarMentoria() {
+      axios.post('/mentorado/encerrar', {
+        conexao: this.conexao.id_conexao
+      }).then(function (data) {
+        window.location = '/mentorado/conexoes';
+      })["catch"](function (e) {
+        console.log('Erro ao carregar mentores created: ', e);
+      });
+      ;
+    }
   }
 });
 
@@ -2437,11 +2508,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('/mentoresConectados').then(function (data) {
+    axios.get('/mentorado/mentoresConectados').then(function (data) {
       _this.filteredMentores = data.data.dados;
       _this.qtd = data.data.qtd;
     })["catch"](function (e) {
-      console.log('Erro ao carregar mentores: ', e);
+      console.log('Erro ao carregar mentores created: ', e);
     });
   },
   mounted: function mounted() {
@@ -2454,7 +2525,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.page = data;
-      axios.get('/mentoresConectados', {
+      axios.get('/mentorado/mentoresConectados', {
         params: {
           page: this.page,
           search: this.search
@@ -2463,7 +2534,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.filteredMentores = data.data.dados;
         _this2.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao carregar mentores changePage: ', e);
       });
     },
     fsearch: function fsearch(data) {
@@ -2471,7 +2542,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.search = data;
-      axios.get('/mentoresConectados', {
+      axios.get('/mentorado/mentoresConectados', {
         params: {
           page: this.page,
           search: this.search
@@ -2480,7 +2551,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.filteredMentores = data.data.dados;
         _this3.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao carregar mentores fsearch: ', e);
       });
     },
     cancelarMentor: function cancelarMentor(idConexao) {
@@ -2494,21 +2565,21 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this4.changePage(_this4.page);
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao cancelar solicitação: ', e);
       });
     },
     solicitarAgain: function solicitarAgain(idConexao) {
       var _this5 = this;
 
       event.preventDefault();
-      axios.get('/mentorado/resolicitar', {
+      axios.post('/mentorado/resolicitar', {
         params: {
           conexao: idConexao
         }
       }).then(function (data) {
         _this5.changePage(_this5.page);
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao solicitar novamente conexão: ', e);
       });
     }
   }
@@ -2675,16 +2746,14 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('/mentoresListagemMentor').then(function (data) {
+    var token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    axios.post('/mentorado/mentoresListagemMentor').then(function (data) {
       _this.filteredMentores = data.data.dados;
       _this.qtd = data.data.qtd;
     })["catch"](function (e) {
-      console.log('Erro ao carregar mentores: ', e);
+      console.log('Erro ao carregar mentores created: ', e);
     });
-  },
-  mounted: function mounted() {
-    var token = document.head.querySelector('meta[name="csrf-token"]');
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
   },
   methods: {
     changePage: function changePage(data) {
@@ -2692,7 +2761,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.page = data;
-      axios.get('/mentoresListagemMentor', {
+      axios.post('/mentorado/mentoresListagemMentor', {
         params: {
           page: this.page,
           search: this.search
@@ -2701,7 +2770,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.filteredMentores = data.data.dados;
         _this2.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao carregar mentores changePage: ', e);
       });
     },
     fsearch: function fsearch(data) {
@@ -2709,7 +2778,7 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.search = data;
-      axios.get('/mentoresListagemMentor', {
+      axios.post('/mentorado/mentoresListagemMentor', {
         params: {
           page: this.page,
           search: this.search
@@ -2718,7 +2787,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.filteredMentores = data.data.dados;
         _this3.qtd = data.data.qtd;
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao carregar mentores fsearch: ', e);
       });
     },
     modal: function modal(indexMentor) {
@@ -2728,7 +2797,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.mentorEscolhido.assuntosSeparados.length > 1) {
         this.assuntosFiltereds = this.mentorEscolhido.assuntosSeparados;
         this.show = true;
-      } else {}
+      } else {
+        this.salvarOne();
+      }
     },
     salvar: function salvar() {
       var _this4 = this;
@@ -2743,9 +2814,27 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this4.show = false;
 
-        _this4.changePage(page);
+        _this4.changePage(_this4.page);
       })["catch"](function (e) {
-        console.log('Erro ao carregar mentores: ', e);
+        console.log('Erro ao solicitar conexão: ', e);
+      });
+    },
+    salvarOne: function salvarOne() {
+      var _this5 = this;
+
+      var idMentor = this.mentorEscolhido.id_mentor;
+      var idAssunto = this.mentorEscolhido.assuntosSeparados[0];
+      axios.post('/mentorado/solicita-conexao', {
+        params: {
+          mentor: idMentor,
+          assunto: idAssunto
+        }
+      }).then(function (data) {
+        _this5.show = false;
+
+        _this5.changePage(_this5.page);
+      })["catch"](function (e) {
+        console.log('Erro ao solicitar conexão: ', e);
       });
     }
   }
@@ -49494,21 +49583,14 @@ var render = function() {
                 "div",
                 {
                   key: index,
-                  class:
-                    item.fromUserId == _vm.from
-                      ? "msg agent-me"
-                      : "msg agent-notme"
+                  class: item.quem == 0 ? "msg agent-me" : "msg agent-notme"
                 },
                 [
                   _c("div", { staticClass: "text" }, [
                     _c("span", { staticClass: "name" }, [
                       _vm._v(
                         " " +
-                          _vm._s(
-                            item.fromUserId == _vm.from
-                              ? _vm.fromName
-                              : _vm.toName
-                          ) +
+                          _vm._s(item.quem == 0 ? _vm.toName : _vm.fromName) +
                           " "
                       )
                     ]),
@@ -49608,46 +49690,68 @@ var render = function() {
                           staticStyle: { "margin-bottom": "1%" }
                         },
                         [
-                          _c("div", { staticClass: "col-4" }, [
-                            _c("span", {
-                              staticClass: "contact-status online"
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticStyle: {
-                                height: "55px",
-                                width: "55px",
-                                "border-radius": "50%"
-                              },
-                              attrs: {
-                                src: "/" + listMentorado.ds_foto,
-                                alt: ""
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-8" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass: "name",
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-4",
+                              style:
+                                listMentorado.id_conexao ===
+                                _vm.conexao.id_conexao
+                                  ? "background-color: rgba(0, 176, 176, 0.2)"
+                                  : ""
+                            },
+                            [
+                              _c("span", {
+                                staticClass: "contact-status online"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
                                 staticStyle: {
-                                  "font-weight": "600",
-                                  "margin-top": "10%",
-                                  "padding-right": "5%",
-                                  "margin-left": "0",
-                                  "margin-right": "0",
-                                  color: "rgba(0, 176, 176, 1)"
+                                  height: "55px",
+                                  width: "55px",
+                                  "border-radius": "50%"
+                                },
+                                attrs: {
+                                  src: "/" + listMentorado.ds_foto,
+                                  alt: ""
                                 }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(listMentorado.nm_mentorado)
-                                )
-                              ]
-                            )
-                          ])
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-8",
+                              style:
+                                listMentorado.id_conexao ===
+                                _vm.conexao.id_conexao
+                                  ? "background-color: rgba(0, 176, 176, 0.2)"
+                                  : ""
+                            },
+                            [
+                              _c(
+                                "p",
+                                {
+                                  staticClass: "name",
+                                  staticStyle: {
+                                    "font-weight": "600",
+                                    "margin-top": "10%",
+                                    "padding-right": "5%",
+                                    "margin-left": "0",
+                                    "margin-right": "0",
+                                    color: "rgba(0, 176, 176, 1)"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                            " +
+                                      _vm._s(listMentorado.nm_mentorado)
+                                  )
+                                ]
+                              )
+                            ]
+                          )
                         ]
                       )
                     }),
@@ -50058,38 +50162,221 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
+          _c(
+            "div",
+            { staticClass: "talking-area" },
+            _vm._l(_vm.messages, function(item, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  class: item.quem == 1 ? "msg agent-me" : "msg agent-notme"
+                },
+                [
+                  _c("div", { staticClass: "text" }, [
+                    _c("span", { staticClass: "name" }, [
+                      _vm._v(
+                        " " +
+                          _vm._s(item.quem == 1 ? _vm.toName : _vm.fromName) +
+                          " "
+                      )
+                    ]),
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(item.message) +
+                        "\n                        "
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-text" }, [
+            _vm.typing
+              ? _c("p", { staticClass: "typing" }, [
+                  _vm._v(_vm._s(_vm.toName) + " está digitando...")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.message,
+                  expression: "message"
+                }
+              ],
+              attrs: { id: "message", placeholder: "Enviar mensagem..." },
+              domProps: { value: _vm.message },
+              on: {
+                keyup: [
+                  function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.sendMessage($event)
+                  },
+                  function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "delete", [8, 46], $event.key, [
+                        "Backspace",
+                        "Delete",
+                        "Del"
+                      ])
+                    ) {
+                      return null
+                    }
+                    return _vm.stopTyping($event)
+                  }
+                ],
+                keypress: _vm.onTyping,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.message = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.sendMessage } }, [
+              _vm._v("Enviar Mensagem")
+            ]),
+            _c(
+              "button",
+              {
+                staticStyle: { "background-color": "red", float: "right" },
+                on: { click: _vm.encerrarMentoria }
+              },
+              [_vm._v("Encerrar Mentoria")]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-4" }, [
         _c(
           "div",
           {
             staticClass: "done",
-            staticStyle: { height: "565px", "box-sizing": "content-box" },
+            staticStyle: { height: "565px" },
             attrs: { id: "chat-frame-box" }
           },
           [
-            _c("div", { staticClass: "mentores-area" }, [
+            _c("div", [
               _c("ul", [
                 _c("li", { staticClass: "contact" }, [
                   _c(
                     "div",
                     { staticClass: "wrap" },
-                    [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _vm._l(10, function(n) {
-                        return _c(
-                          "div",
-                          {
-                            staticClass: "row",
-                            staticStyle: { "margin-bottom": "1%" }
-                          },
-                          [_vm._m(2, true), _vm._v(" "), _vm._m(3, true)]
-                        )
-                      })
-                    ],
-                    2
+                    _vm._l(_vm.conexoes, function(listMentores, index) {
+                      return _c(
+                        "div",
+                        {
+                          key: index,
+                          staticClass: "row",
+                          style: "margin-bottom:1%;"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-4",
+                              style:
+                                listMentores.id_conexao ===
+                                _vm.conexao.id_conexao
+                                  ? "background-color: rgba(0, 176, 176, 0.2)"
+                                  : ""
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/mentorado/chat/" +
+                                      listMentores.id_conexao
+                                  }
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "contact-status online"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticStyle: {
+                                      height: "55px",
+                                      width: "55px",
+                                      "border-radius": "50%"
+                                    },
+                                    attrs: {
+                                      src: "/" + listMentores.ds_foto,
+                                      alt: ""
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-8",
+                              style:
+                                listMentores.id_conexao ===
+                                _vm.conexao.id_conexao
+                                  ? "background-color: rgba(0, 176, 176, 0.2)"
+                                  : ""
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/mentorado/chat/" +
+                                      listMentores.id_conexao
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "name",
+                                      staticStyle: {
+                                        "font-weight": "600",
+                                        "margin-top": "10%",
+                                        "padding-right": "5%",
+                                        "margin-left": "0",
+                                        "margin-right": "0",
+                                        color: "rgba(0, 176, 176, 1)"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                                " +
+                                          _vm._s(listMentores.nm_mentor)
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   )
                 ])
               ])
@@ -50100,131 +50387,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-8" }, [
-      _c("div", { staticClass: "done", attrs: { id: "chat-frame-box" } }, [
-        _c("div", { staticClass: "talking-area" }, [
-          _c("div", { staticClass: "msg agent-notme" }, [
-            _c("div", { staticClass: "text" }, [
-              _c("span", { staticClass: "name" }, [_vm._v(" André ")]),
-              _vm._v(
-                "\n                            Mensagem\n                        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "msg agent-me" }, [
-            _c("div", { staticClass: "text" }, [
-              _c("span", { staticClass: "name" }, [_vm._v(" Paulo ")]),
-              _vm._v(
-                "\n                            Mensagem\n                        "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-text" }, [
-          _c("p", { staticClass: "typing" }, [
-            _vm._v(" paulo está digitando...")
-          ]),
-          _vm._v(" "),
-          _c("textarea", {
-            attrs: { id: "message", placeholder: "Enviar mensagem..." }
-          }),
-          _vm._v(" "),
-          _c("button", [_vm._v("Enviar Mensagem")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row", staticStyle: { "margin-bottom": "1%" } },
-      [
-        _c("div", { staticClass: "col-4" }, [
-          _c("span", { staticClass: "contact-status online" }),
-          _vm._v(" "),
-          _c("img", {
-            staticStyle: {
-              height: "55px",
-              width: "55px",
-              "border-radius": "50%"
-            },
-            attrs: {
-              src: "http://emilcarlsson.se/assets/louislitt.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-8" }, [
-          _c(
-            "p",
-            {
-              staticClass: "name",
-              staticStyle: {
-                "font-weight": "600",
-                "margin-top": "10%",
-                "padding-right": "5%",
-                "margin-left": "0",
-                "margin-right": "0",
-                color: "rgba(0, 176, 176, 1)"
-              }
-            },
-            [_vm._v(" Bolonha Maria")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
-      _c("span", { staticClass: "contact-status online" }),
-      _vm._v(" "),
-      _c("img", {
-        staticStyle: { height: "55px", width: "55px", "border-radius": "50%" },
-        attrs: { src: "http://emilcarlsson.se/assets/rachelzane.png", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-8" }, [
-      _c(
-        "p",
-        {
-          staticClass: "name",
-          staticStyle: {
-            "font-weight": "600",
-            "margin-top": "10%",
-            "padding-right": "5%",
-            "margin-left": "0",
-            "margin-right": "0",
-            color: "rgba(0, 176, 176, 1)"
-          }
-        },
-        [
-          _vm._v(
-            "\n                                            Najila Trindade"
-          )
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50301,7 +50464,7 @@ var render = function() {
       ? _c(
           "ul",
           { staticClass: "row consultant-list" },
-          _vm._l(_vm.mentores, function(mentor, index) {
+          _vm._l(_vm.filteredMentores, function(mentor, index) {
             return _c(
               "li",
               { key: index, staticClass: "col-lg-4 col-md-6 item" },
