@@ -1036,9 +1036,9 @@ body>div>a {
   }
 }
 
-/*****************************************NAVI-CONS****************************************************/
+/*****************************************NAV-ICONS****************************************************/
 
-#navlist-mentorado {
+#navlist-mentorado #navlist-mentor {
     margin: 0;    
     list-style-type: none;
 }
@@ -1070,3 +1070,36 @@ body>div>a {
 #navlist-mentorado #dados-list {     
      background: url(../images/icones/dados.png) no-repeat 0 50%;
 }
+
+
+/****MENTOR*****/
+#navlist-mentor #home-list {     
+     background: url(../images/icones/home.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #mconexoes-list {     
+     background: url(../images/icones/link.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #chat-list {     
+     background: url(../images/icones/chat.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #cadastrar-assuntos-list {     
+     background: url(../images/icones/cadastrar.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #sair-list {     
+     background: url(../images/icones/sair.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #cadastrar-contato-list {     
+     background: url(../images/icones/contato.png) no-repeat 0 50%;
+}
+
+#navlist-mentor #comentarios-list {     
+     background: url(../images/icones/listar.png) no-repeat 0 50%;
+}
+
+
+/********************************************************************************/
