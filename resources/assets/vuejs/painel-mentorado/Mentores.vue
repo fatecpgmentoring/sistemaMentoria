@@ -108,7 +108,7 @@
         </div>
          <div class="py-4">
             <stack-modal :show="show" title="Solicitar Mentoria" @close="show=false" @save="salvar()">
-                <select name="assuntoEscolher" id="assuntosEscolher">
+                <select name="assuntoEscolher" id="assuntosEscolher" class="form-control">
                     <option value="">Selecione...</option>
                     <option v-for="(assunto, indexAssunto) in assuntosFiltereds" :key="indexAssunto" :value="assunto.id_assunto">
                         {{assunto.nm_assunto}}

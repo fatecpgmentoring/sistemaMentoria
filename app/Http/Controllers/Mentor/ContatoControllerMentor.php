@@ -111,7 +111,7 @@ class ContatoControllerMentor extends Controller
             $contato = Contato::find($request->alterar);
             $contato->tipo_contato = $request->tipo;
             if ($contato->tipo_contato == 'telegram' || $contato->tipo_contato == 'cel' || $contato->tipo_contato ==  'tel' || $contato->tipo_contato ==  'whats')
-                $contato->ds_contato = str_replace('-', '', str_replace('(', '', tr_replace(')', '', $request->contato)));
+                $contato->ds_contato = str_replace('-', '', str_replace('(', '', str_replace(')', '', $request->contato)));
             else $contato->ds_contato = $request->contato;
             $contato->update();
             return json_encode($contato->toArray());

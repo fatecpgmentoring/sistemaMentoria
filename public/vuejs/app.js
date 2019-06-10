@@ -1905,6 +1905,7 @@ __webpack_require__.r(__webpack_exports__);
     this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    this.scrollToBottom();
   },
   destroyed: function destroyed() {
     this.socket.emit('disconnect', this.from);
@@ -1933,7 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
     receiveMessage: function receiveMessage(msg) {
       this.messages.push({
         message: msg,
-        quem: 1
+        quem: 0
       });
       this.scrollToBottom();
     },
@@ -2285,6 +2286,7 @@ __webpack_require__.r(__webpack_exports__);
     this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    this.scrollToBottom();
   },
   destroyed: function destroyed() {
     this.socket.emit('disconnect', this.from);
@@ -51359,7 +51361,10 @@ var render = function() {
           [
             _c(
               "select",
-              { attrs: { name: "assuntoEscolher", id: "assuntosEscolher" } },
+              {
+                staticClass: "form-control",
+                attrs: { name: "assuntoEscolher", id: "assuntosEscolher" }
+              },
               [
                 _c("option", { attrs: { value: "" } }, [
                   _vm._v("Selecione...")

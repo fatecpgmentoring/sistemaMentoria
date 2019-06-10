@@ -26,7 +26,7 @@ class MensagemControllerMentor extends Controller
             $subconexao = array();
             $subconexao['id_conexao'] = $conexaoOne->id_conexao;
             $subconexao['ds_foto'] = $conexaoOne->mentorado->ds_foto;
-            $subconexao['nm_mentorado'] = $conexaoOne->mentorado->nm_mentor;
+            $subconexao['nm_mentorado'] = $conexaoOne->mentorado->nm_mentorado;
             $conexoes[] = $subconexao;
         }
         return view('painel-mentor.chat.chat-mentor', compact('conexao', 'mentorado', 'mentor', 'mensagens', 'conexoes'));

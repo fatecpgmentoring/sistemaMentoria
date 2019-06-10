@@ -109,7 +109,7 @@ class ConexaoController extends Controller
     public function conexoes(Request $request)
     {
         $mentores = $this->getConexoes($request);
-        return view('painel-mentorado.minha-conta.conexões-mentores', compact('mentores'));
+        return view('painel-mentorado.minha-conta.conexoes-mentores', compact('mentores'));
     }
 
     public function getConexoes(Request $request)

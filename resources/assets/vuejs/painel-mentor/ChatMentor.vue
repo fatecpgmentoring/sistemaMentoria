@@ -78,6 +78,7 @@
             this.socket.on('notyping', this.finishIsTyping);
             var token = document.head.querySelector('meta[name="csrf-token"]');
             window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+            this.scrollToBottom()
         },
         destroyed() {
             this.socket.emit('disconnect', this.from)
@@ -98,7 +99,7 @@
                 }
             },
             receiveMessage(msg) {
-                this.messages.push({message: msg, quem: 1});
+                this.messages.push({message: msg, quem: 0});
                 this.scrollToBottom();
             },
             onTyping() {
