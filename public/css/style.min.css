@@ -16453,6 +16453,9 @@ form.default .form-check-input:checked:before {
     display: none;
 }
 
+table.mentor {
+    padding: 10px;
+}
 
 @media (max-width:767px) {
 

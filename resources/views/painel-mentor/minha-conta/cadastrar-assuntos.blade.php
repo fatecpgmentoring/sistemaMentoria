@@ -48,7 +48,7 @@
 		</select>
 	</div>
 	<div class="col-xl-2">
-		<button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto.">Adicionar</a></i></button>
+		<button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto."><a>Adicionar</a></i></button>
 		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring" data-toggle="tooltip" title="Adicionar a sua lista de assuntos"></i></button>
 		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring" data-toggle="tooltip" title="Remover da sua lista de assuntos"></i></button>
 	</div>

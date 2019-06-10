@@ -43,7 +43,7 @@
 		</div>	
 
       <div class="col-sm-6">
-        <table class="table">
+        <table class="table mentor">
     <thead>
       <tr>
         <th></th>
