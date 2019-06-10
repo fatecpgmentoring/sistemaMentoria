@@ -139,6 +139,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
     Route::get('/alterar-cadastro', function () {
         return view('painel-mentor.login.alterar-cadastro');
     });
+    Route::get('/cadastrar-contato', "ContatoControllerMentor@index");
     Route::post('/carregaAssunto', 'AssuntoControllerMentor@carregaAssunto')->name('carrega.assuntos');
     Route::post('/carregaMeusAssuntos', 'AssuntoControllerMentor@carregaMeusAssuntos')->name('carrega.assuntos.meus');
     Route::post('/carregaCarreira', 'CarreiraControllerMentor@carregaCarreira')->name('carrega.carreira');
