@@ -14120,7 +14120,7 @@ form.default .form-check-input:checked:before {
     background-size: contain;
     left: -30px;
     top: -72px;
-    z-index: 0
+    z-index: 1;
 }
 
 @media (max-width:992px) {
