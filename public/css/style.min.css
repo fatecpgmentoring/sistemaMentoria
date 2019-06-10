@@ -16492,16 +16492,12 @@ form.default .form-check-input:checked:before {
     }
 
     #aside-nav.active {
-<<<<<<< HEAD
         display: block;
         transition: 0.2s;
     }
 
     .open {
         display: none;
-=======
-/*        display: none;*/
->>>>>>> b875025dacd017cdc6aac7950b181e387c5b003a
     }
 
     #aside-nav.active{
