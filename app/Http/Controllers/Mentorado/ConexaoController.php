@@ -58,7 +58,7 @@ class ConexaoController extends Controller
      */
     public function destroy(Request $request)
     {
-        $conexao = Conexao::find(intval($request->params['conexao']));
+        $conexao = Conexao::find(intval($request->conexao));
         try {
             $conexao->delete();
             return json_encode('Ok');
@@ -128,5 +128,13 @@ class ConexaoController extends Controller
     {
         $mentores = $this->getConexoes($request);
         return json_encode($mentores);
+    }
+
+    public function encerrar(Request $request)
+    {
+        $conexao = Conexao::find($request->conexao);
+        $conexao->ds_status = 2;
+        $conexao->update();
+        return json_encode($conexao->toArray());
     }
 }

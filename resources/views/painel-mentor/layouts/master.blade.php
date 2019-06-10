@@ -38,7 +38,7 @@
                              <li><a href="#">Alterar Dados</a></li>
                              <li><a href="#">Alterar Senha</a></li>
                              <li><a href="/logout">Sair</a></li>
-                         </ul>  
+                         </ul>
                     </div>
                 </div>
 
@@ -98,7 +98,7 @@
            $(document).click(function(e) {
                 $('#dropdown-nav')
                 .not($('#dropdown-nav').has($(e.target)))
-                    .children('.dropdown-nav').removeClass('active');    
+                    .children('.dropdown-nav').removeClass('active');
            });
         });
     </script>

@@ -23,12 +23,14 @@ class MentoradoController extends Controller
         return view('painel-mentorado.dashboard-mentorado', compact('mentores', 'qtd'));
     }
 
-    public function selecionaMentores($mentores, $assuntos)
+    public function selecionaMentores($mentores, $assuntos, Request $request)
     {
         $mentoresArray = array();
+        $page = $request->params['page'] != null ? $request->page : 1;
+        $mentores = $mentores->limit(6)->offset(($page - 1) * 6)->get();
         foreach ($mentores as $mentor) {
             $count = $mentor->usuario->assuntos()->whereIn('id_assunto', $assuntos)->count();
-            if ($count > 0  && count($mentoresArray) < 6) {
+            if ($count > 0) {
                 $cont = 0;
                 $assuntosText = "";
                 $assuntoArray = array();
@@ -53,19 +55,17 @@ class MentoradoController extends Controller
         foreach (Auth::user()->assuntos as $assunto) {
             $assuntos[] = $assunto->id_assunto;
         }
-        $mentores = Mentor::orderBy('vl_nota', 'desc');
-        $mentores = $mentores->whereNotIn('id_mentor', $this->getConexoes($request))->get();
-        $mentores = $this->selecionaMentores($mentores, $assuntos);
+        $mentores = Mentor::orderBy('vl_nota', 'desc')->where('nm_mentor', 'like', '%' . $request->params['search'] . '%');
+        $mentores = $mentores->whereNotIn('id_mentor', $this->getConexoes($request));
+        $mentores = $this->selecionaMentores($mentores, $assuntos, $request);
         return $mentores;
     }
 
 
     public function mentorListagem(Request $request)
     {
-        $mentores = new Mentor;
-        $mentores = $mentores->join('tb_usuarios', 'usuario_id_usuario', '=', 'id_usuario')->where('cd_role', '=', 2)->where('cd_status', '=', 1)->where('nm_mentor', 'like', '%' . $request->search . '%')->orderBy('vl_nota', 'desc');
-        $count = $mentores->count();
-        $mentores = $mentores->limit(6)->offset(($request->page - 1) * 6)->get()->toArray();
+        $mentores = $this->getMentores($request);
+        $count = count($mentores);
         return json_encode(array('dados' => $mentores, 'qtd' => ceil($count / 6)));
     }
 
