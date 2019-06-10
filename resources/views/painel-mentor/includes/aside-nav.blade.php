@@ -26,11 +26,6 @@
             </div>
         </li>
         <li>
-            <div class="wrap-item" id="chat-list">
-                <a href="/mentor/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
-            </div>
-        </li>
-        <li>
             <div class="wrap-item" id="sair-list">
                 <a href="/logout"><span class="spriting sprite-nav-dashboard"></span>Sair</a>
             </div>

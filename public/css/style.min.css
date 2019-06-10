@@ -14657,7 +14657,7 @@ form.default .form-check-input:checked:before {
 
 @media (min-width:767px) {
     #consultants-show .evaluation-content:before {
-        content: "\f10d";
+        content: "";
         font-family: FontAwesome;
         color: #e9e8e8;
         font-size: 2em;

@@ -20,6 +20,7 @@ Route::get('/logout', 'SiteController@logout');
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
+Route::post('/comentarioAray', 'SiteController@comentarioAray')->name('comentario.array');
 Route::post('admin/logar', 'Admin\UsuarioControllerAdmin@logIn')->name('login.admin');
 Route::post('logar', 'SiteController@logIn')->name('login');
 Route::post('/cadastrar-site', 'SiteController@cadastro')->name('cadastrar.site');
@@ -150,9 +151,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
         return view('painel-mentor.minha-conta.cadastrar-conteudo');
     });
     Route::get('/conexoes', 'ConexaoControllerMentor@conexoes')->name('conexoes.mentor');
-    Route::get('/listar-comentarios', function () {
-        return view('painel-mentor.minha-conta.listar-comentarios');
-    });
+    Route::get('/listar-comentarios', 'ComentarioControllerMentor@index');
     Route::get('/listar-conteudo', function () {
         return view('painel-mentor.minha-conta.listar-conteudo');
     });

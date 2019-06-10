@@ -3377,18 +3377,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [''],
+  props: ['comentarios', 'quantidade'],
   name: 'listar-comentarios',
   data: function data() {
-    return {};
+    return {
+      qtd: this.quantidade,
+      page: 1,
+      filteredComentarios: this.comentarios
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.post('/comentarioAray', {
+      params: {
+        page: this.page
+      }
+    }).then(function (data) {
+      _this.filteredComentarios = data.data.dados;
+      _this.qtd = data.data.qtd;
+    })["catch"](function (e) {
+      console.log('Erro ao carregar comentarios: ', e);
+    });
   },
   mounted: function mounted() {
-    var x = document.getElementsByName("fb");
-    console.log();
-    x[parseInt(this.mentor.vl_nota.toFixed(0))].checked = true;
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  },
+  methods: {
+    changePage: function changePage(data) {
+      var _this2 = this;
+
+      event.preventDefault();
+      this.page = data;
+      axios.post('/comentarioAray', {
+        params: {
+          page: this.page
+        }
+      }).then(function (data) {
+        _this2.filteredComentarios = data.data.dados;
+        _this2.qtd = data.data.qtd;
+      })["catch"](function (e) {
+        console.log('Erro ao carregar comentarios: ', e);
+      });
+    }
   }
 });
 
@@ -52275,56 +52359,379 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "consultants-show" } }, [
-      _c("div", { staticClass: "evaluation-content" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("h2", [_vm._v("O que disseram de você")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "rate-list" }, [
-            _c("li", [
-              _c("div", { staticClass: "wrap-rating" }, [
-                _vm._v(
-                  "\n                        estrelas\n                    "
-                )
+  return _c("div", { attrs: { id: "consultants-show" } }, [
+    _c("div", { staticClass: "evaluation-content" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h2", [_vm._v("O que disseram")]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "rate-list" },
+          _vm._l(_vm.filteredComentarios, function(comentario, index) {
+            return _c("li", { key: index }, [
+              _c("div", { staticClass: "wrap-rating estrelas" }, [
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-empty-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 0
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-1-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-1-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "1",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 1
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-2-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-2-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "2",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 2
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-3-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-3-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "3",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 3
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-4-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-4-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "4",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 4
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-5-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-5-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "5",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 5
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-6-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-6-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "6",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 6
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-7-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-7-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "7",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 7
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-8-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-8-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "8",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 8
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-9-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-9-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "9",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 9
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: "cm_star-10-" + comentario.id_comentario } },
+                  [_c("i", { staticClass: "fa" })]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    id: "cm_star-10-" + comentario.id_comentario,
+                    name: "fb-" + comentario.id_comentario,
+                    value: "10",
+                    disabled: ""
+                  },
+                  domProps: {
+                    checked: parseInt(comentario.vl_nota.toFixed(0)) == 10
+                  }
+                })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "title-wrap" }, [
                 _c("img", {
+                  staticStyle: { "padding-right": "4px" },
                   attrs: {
-                    src: "/images/logos/icone-azul.png",
+                    src: "/" + comentario.ds_foto,
                     height: "50",
                     width: "50"
                   }
                 }),
                 _vm._v(" "),
-                _c("h3", [_vm._v("Manoo")]),
+                _c("h3", [_vm._v(_vm._s(comentario.nm_mentorado))]),
                 _vm._v(" "),
-                _c("span", { staticClass: "date" }, [_vm._v("20/05/2001")])
+                _c("span", { staticClass: "date" }, [
+                  _vm._v(_vm._s(comentario.criado_em))
+                ])
               ]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n                        depoimentos\n                    "
+                  "\n                        " +
+                    _vm._s(comentario.ds_comentario) +
+                    "\n                    "
                 )
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "paginator" } }, [
-            _vm._v("\n                paginação\n            ")
-          ])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "paginator" } }, [
+          _c(
+            "ul",
+            [
+              _vm.page == 1
+                ? _c("div", [
+                    _c("li", { staticClass: "prev disabled" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page - 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Anterior")]
+                      )
+                    ])
+                  ])
+                : _c("div", [
+                    _c("li", { staticClass: "prev" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page - 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Anterior")]
+                      )
+                    ])
+                  ]),
+              _vm._v("\n               \n            "),
+              _vm._l(_vm.qtd, function(n) {
+                return _c("div", [
+                  _vm.page == n
+                    ? _c("div", [
+                        _c("li", { staticClass: "active" }, [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(n) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    : _c("div", [
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changePage(n)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(n) +
+                                  "\n                        "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                ])
+              }),
+              _vm._v("\n               \n            "),
+              _vm.page == _vm.qtd
+                ? _c("div", [
+                    _c("li", { staticClass: "next disabled" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
+                      )
+                    ])
+                  ])
+                : _c("div", [
+                    _c("li", { staticClass: "next" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.changePage(_vm.page + 1)
+                            }
+                          }
+                        },
+                        [_vm._v("Proximo")]
+                      )
+                    ])
+                  ])
+            ],
+            2
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

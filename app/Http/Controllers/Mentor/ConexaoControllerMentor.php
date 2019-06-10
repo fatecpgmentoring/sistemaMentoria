@@ -41,6 +41,7 @@ class ConexaoControllerMentor extends Controller
     public function aceitar(Request $request)
     {
         $conexao = Conexao::find($request->conexao);
+        date_default_timezone_set('America/Sao_Paulo');
         $conexao->ds_status = 1;
         $data = date('Y-m-d h:i:s');
         $conexao->dt_inicio = $data;

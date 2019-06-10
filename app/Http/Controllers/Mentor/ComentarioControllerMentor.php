@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mentor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mentor;
 
 class ComentarioControllerMentor extends Controller
 {
@@ -12,9 +13,19 @@ class ComentarioControllerMentor extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $mentor = $request->session()->get('usuario.0');
+        $mentor = Mentor::find($mentor->id_mentor);
+        $count =  ceil($mentor->comentarios->count()/6);
+        $comentarios = $mentor->comentarios()->limit(6)->get();;
+        foreach($comentarios as $comentario)
+        {
+            $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
+            $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+        }
+        return view('painel-mentor.minha-conta.listar-comentarios', compact('comentarios', 'count'));
     }
 
     /**
@@ -22,10 +33,7 @@ class ComentarioControllerMentor extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
