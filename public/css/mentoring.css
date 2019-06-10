@@ -1035,3 +1035,38 @@ body>div>a {
     display: none;
   }
 }
+
+/*****************************************NAVI-CONS****************************************************/
+
+#navlist-mentorado {
+    margin: 0;    
+    list-style-type: none;
+}
+
+#navlist-mentorado #home-list {     
+     background: url(../images/icones/home.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #mconexoes-list {     
+     background: url(../images/icones/link.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #chat-list {     
+     background: url(../images/icones/chat.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #cadastrar-assuntos-list {     
+     background: url(../images/icones/cadastrar.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #perfil-list {     
+     background: url(../images/icones/perfil.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #sair-list {     
+     background: url(../images/icones/sair.png) no-repeat 0 50%;
+}
+
+#navlist-mentorado #dados-list {     
+     background: url(../images/icones/dados.png) no-repeat 0 50%;
+}
