@@ -34,6 +34,7 @@
         @endphp
     <show-mentor :mentor="{{ $mentor }}" assuntos="{{$assuntos}}" contatos="{{$mentor->contatos}}"></show-mentor>
 </section>
+<listar-comentarios :comentarios="{{json_encode($comentarios)}}" :quantidade="{{$count}}"></listar-comentarios>
 @endsection
 
 @section('js')

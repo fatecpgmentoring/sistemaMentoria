@@ -11,11 +11,6 @@
             </div>
         </li>
         <li>
-            <div class="wrap-item" id="chat-list">
-                <a href="/mentorado/chat"><span class="spriting sprite-nav-dashboard"></span>Chat</a>
-            </div>
-        </li>
-        <li>
             <div class="wrap-item" id="cadastrar-assuntos-list">
                 <a href="/mentorado/cadastrar-assuntos"><span class="spriting sprite-nav-dashboard"></span>Cadastrar Assuntos</a>
             </div>

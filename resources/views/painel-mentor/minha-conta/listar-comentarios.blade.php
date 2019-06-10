@@ -16,6 +16,6 @@
 
 @section('content')
 
-<listar-comentarios></listar-comentarios>
+<listar-comentarios :comentarios="{{json_encode($comentarios)}}" :quantidade="{{$count}}"></listar-comentarios>
 
 @endsection

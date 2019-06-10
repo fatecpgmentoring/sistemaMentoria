@@ -148,7 +148,31 @@ class SiteController extends Controller
     public function showMentor($id)
     {
         $mentor = Mentor::find($id);
-        return view('site.showMentor', compact('mentor'));
+        $count =  ceil($mentor->comentarios->count()/6);
+        $comentarios = $mentor->comentarios()->limit(6)->get();;
+        foreach($comentarios as $comentario)
+        {
+            $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
+            $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+        }
+        return view('site.showMentor', compact('mentor', 'comentarios', 'count'));
+    }
+
+    public function comentarioAray(Request $request)
+    {
+        $mentor = $request->session()->get('usuario.0');
+        $mentor = Mentor::find($mentor->id_mentor);
+        $count =  ceil($mentor->comentarios->count()/6);
+        $page = $request->page != null ? $request->page : 1;
+        $comentarios = $mentor->comentarios()->limit(6)->offset(($page-1)*6)->get();;
+        foreach($comentarios as $comentario)
+        {
+            $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
+            $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+        }
+        return json_encode(array('dados' => $comentarios->toArray(), 'qtd' => $count));
     }
 
     public function mentoresAll()
