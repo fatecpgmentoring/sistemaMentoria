@@ -1877,6 +1877,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
   name: 'chat-mentor',
@@ -49792,21 +49796,32 @@ var render = function() {
                                   : ""
                             },
                             [
-                              _c("span", {
-                                staticClass: "contact-status online"
-                              }),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticStyle: {
-                                  height: "55px",
-                                  width: "55px",
-                                  "border-radius": "50%"
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/mentor/chat/" + listMentorado.id_conexao
+                                  }
                                 },
-                                attrs: {
-                                  src: "/" + listMentorado.ds_foto,
-                                  alt: ""
-                                }
-                              })
+                                [
+                                  _c("span", {
+                                    staticClass: "contact-status online"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticStyle: {
+                                      height: "55px",
+                                      width: "55px",
+                                      "border-radius": "50%"
+                                    },
+                                    attrs: {
+                                      src: "/" + listMentorado.ds_foto,
+                                      alt: ""
+                                    }
+                                  })
+                                ]
+                              )
                             ]
                           ),
                           _vm._v(" "),
@@ -49822,22 +49837,33 @@ var render = function() {
                             },
                             [
                               _c(
-                                "p",
+                                "a",
                                 {
-                                  staticClass: "name",
-                                  staticStyle: {
-                                    "font-weight": "600",
-                                    "margin-top": "10%",
-                                    "padding-right": "5%",
-                                    "margin-left": "0",
-                                    "margin-right": "0",
-                                    color: "rgba(0, 176, 176, 1)"
+                                  attrs: {
+                                    href:
+                                      "/mentor/chat/" + listMentorado.id_conexao
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                            " +
-                                      _vm._s(listMentorado.nm_mentorado)
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "name",
+                                      staticStyle: {
+                                        "font-weight": "600",
+                                        "margin-top": "10%",
+                                        "padding-right": "5%",
+                                        "margin-left": "0",
+                                        "margin-right": "0",
+                                        color: "rgba(0, 176, 176, 1)"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(listMentorado.nm_mentorado)
+                                      )
+                                    ]
                                   )
                                 ]
                               )

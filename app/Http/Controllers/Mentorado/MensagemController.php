@@ -33,11 +33,13 @@ class MensagemController extends Controller
         }
         $conexoes = array();
         foreach ($conexao->mentorado->conexoes as $conexaoOne) {
-            $subconexao = array();
-            $subconexao['id_conexao'] = $conexaoOne->id_conexao;
-            $subconexao['ds_foto'] = $conexaoOne->mentor->ds_foto;
-            $subconexao['nm_mentor'] = $conexaoOne->mentor->nm_mentor;
-            $conexoes[] = $subconexao;
+            if ($conexaoOne->ds_status == 1) {
+                $subconexao = array();
+                $subconexao['id_conexao'] = $conexaoOne->id_conexao;
+                $subconexao['ds_foto'] = $conexaoOne->mentor->ds_foto;
+                $subconexao['nm_mentor'] = $conexaoOne->mentor->nm_mentor;
+                $conexoes[] = $subconexao;
+            }
         }
         return view('painel-mentorado.chat.chat-mentorado', compact('conexao', 'mentorado', 'mentor', 'mensagens', 'conexoes'));
     }

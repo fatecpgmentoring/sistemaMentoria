@@ -26,14 +26,18 @@
                                 <div class="wrap">
                                     <div class="row" style="margin-bottom:1%" v-for="(listMentorado, index) in conexoes" :key="index">
                                         <div class="col-4" :style="listMentorado.id_conexao === conexao.id_conexao ? 'background-color: rgba(0, 176, 176, 0.2)' : '' ">
-                                            <span class="contact-status online"></span>
-                                            <img :src="'/' + listMentorado.ds_foto" alt=""
+                                           <a :href="'/mentor/chat/' + listMentorado.id_conexao">
+                                                <span class="contact-status online"></span>
+                                                <img :src="'/' + listMentorado.ds_foto" alt=""
                                                 style="height:55px; width:55px; border-radius:50%; " />
+                                            </a>
                                         </div>
                                         <div class="col-8" :style="listMentorado.id_conexao === conexao.id_conexao ? 'background-color: rgba(0, 176, 176, 0.2)' : '' ">
-                                            <p class="name"
+                                             <a :href="'/mentor/chat/' + listMentorado.id_conexao">
+                                                <p class="name"
                                                 style="font-weight:600; margin-top:10%; padding-right:5%; margin-left:0; margin-right:0; color: rgba(0, 176, 176, 1); ">
                                                 {{listMentorado.nm_mentorado}}</p>
+                                            </a>
                                         </div>
 
                                     </div>
