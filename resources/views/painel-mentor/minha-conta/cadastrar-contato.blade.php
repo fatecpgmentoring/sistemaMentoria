@@ -16,4 +16,30 @@
 
 @section('content')
 
+<div class="container">
+	<div class="row">    
+    <div class="col-sm-3">
+      <form>
+    <div class="form-group">
+      <label for="tipo-contato">Tipo de Contato</label>
+      <select class="form-control" id="tipo-contato" name="tipo-contato">
+             <option></option>
+             <option></option>
+           </select>
+          </div>
+        </div>
+
+		<div class="col-sm-3">			
+  				<div class="form-group">
+    			<label for="Nome">Nome</label>
+    			<input type="text" class="form-control" id="nome-contato" placeholder="Nome">
+  				</div>  			
+		</div>	
+		
+      	</form>
+      </div>    
+    </div>    
+   
+
 @endsection
+
