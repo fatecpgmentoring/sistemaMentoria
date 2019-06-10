@@ -16369,7 +16369,8 @@ form.default .form-check-input:checked:before {
 }
 
 #aside-nav.active .icon-list li:hover a{
-    color: #00b1b1;
+   /* color: #00b1b1; */
+   color: #fff;
 }
 
 #main-panel-wrap {
