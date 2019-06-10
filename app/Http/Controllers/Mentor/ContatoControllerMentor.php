@@ -14,7 +14,7 @@ class ContatoControllerMentor extends Controller
      */
     public function index()
     {
-        //
+        return view('painel-mentor.minha-conta.cadastrar-contato');
     }
 
     /**

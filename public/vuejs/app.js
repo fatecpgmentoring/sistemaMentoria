@@ -3372,6 +3372,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [''],
   name: 'listar-comentarios',
@@ -52277,158 +52282,46 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "estrelas" }, [
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-empty",
-          name: "fb",
-          value: "",
-          checked: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-1" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-1",
-          name: "fb",
-          value: "1",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-2" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-2",
-          name: "fb",
-          value: "2",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-3" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-3",
-          name: "fb",
-          value: "3",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-4" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-4",
-          name: "fb",
-          value: "4",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-5" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-5",
-          name: "fb",
-          value: "6",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-6" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-6",
-          name: "fb",
-          value: "6",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-7" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-7",
-          name: "fb",
-          value: "7",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-8" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-8",
-          name: "fb",
-          value: "8",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-9" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-9",
-          name: "fb",
-          value: "9",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "cm_star-10" } }, [
-        _c("i", { staticClass: "fa" })
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "cm_star-10",
-          name: "fb",
-          value: "10",
-          disabled: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("br")
+    return _c("div", { attrs: { id: "consultants-show" } }, [
+      _c("div", { staticClass: "evaluation-content" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("h2", [_vm._v("O que disseram de você")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "rate-list" }, [
+            _c("li", [
+              _c("div", { staticClass: "wrap-rating" }, [
+                _vm._v(
+                  "\n                        estrelas\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: "/images/logos/icone-azul.png",
+                    height: "50",
+                    width: "50"
+                  }
+                }),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Manoo")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "date" }, [_vm._v("20/05/2001")])
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                        depoimentos\n                    "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "paginator" } }, [
+            _vm._v("\n                paginação\n            ")
+          ])
+        ])
+      ])
     ])
   }
 ]
