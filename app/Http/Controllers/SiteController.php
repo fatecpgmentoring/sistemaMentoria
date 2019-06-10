@@ -161,7 +161,7 @@ class SiteController extends Controller
         foreach ($comentarios as $comentario) {
             $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
             $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
-            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime("-3 hours",  strtotime($comentario->updated_at)));
         }
         $contatos = $mentor->contatos;
         foreach ($contatos as $contato) {
@@ -193,10 +193,11 @@ class SiteController extends Controller
         $count =  ceil($mentor->comentarios->count() / 6);
         $page = $request->page != null ? $request->page : 1;
         $comentarios = $mentor->comentarios()->limit(6)->offset(($page - 1) * 6)->get();;
+        date_default_timezone_set('America/Sao_Paulo');
         foreach ($comentarios as $comentario) {
             $comentario['ds_foto'] = $comentario->mentorado->ds_foto;
             $comentario['nm_mentorado'] = $comentario->mentorado->nm_mentorado;
-            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime($comentario->created_at));
+            $comentario['criado_em'] = date('d/m/Y H:i:s', strtotime("-3 hours",  strtotime($comentario->updated_at)));
         }
         return json_encode(array('dados' => $comentarios->toArray(), 'qtd' => $count));
     }

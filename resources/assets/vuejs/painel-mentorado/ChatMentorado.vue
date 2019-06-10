@@ -49,13 +49,49 @@
                 </div>
             </div>
         </div>
+         <div class="py-4">
+            <stack-modal :show="show" title="Avaliar" @close="show=false" @save="salvar()">
+                <div class="form-group">
+                    <label class="control-label">Nota: </label>
+                    <div class="estrelas">
+                        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+                        <label for="cm_star-1"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-1" name="fb" value="1"/>
+                        <label for="cm_star-2"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-2" name="fb" value="2" >
+                        <label for="cm_star-3"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-3" name="fb" value="3"/>
+                        <label for="cm_star-4"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-4" name="fb" value="4"/>
+                        <label for="cm_star-5"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-5" name="fb" value="5"/>
+                        <label for="cm_star-6"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-6" name="fb" value="6"/>
+                        <label for="cm_star-7"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-7" name="fb" value="7"/>
+                        <label for="cm_star-8"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-8" name="fb" value="8"/>
+                        <label for="cm_star-9"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-9" name="fb" value="9"/>
+                        <label for="cm_star-10"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-10" name="fb" value="10"/> <br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="10" style="resize: none" id="textArea"></textarea>
+                </div>
+            </stack-modal>
+
+        </div>
     </div>
 </template>
 
 <script>
+    import StackModal from './ModalEncerrar.vue'
     export default {
         props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
         name: 'chat-mentorado', // Esse é o nome da tag html que vai conter o template : <chat-mentorado></chat-mentorado>
+        components: { StackModal },
         data()
         {
             return {
@@ -67,6 +103,7 @@
                 typing: false,
                 message: '',
                 messages: this.conversa,
+                show: false,
             }
         },
         created()
@@ -140,14 +177,35 @@
             },
             encerrarMentoria()
             {
-                axios.post('/mentorado/encerrar', {conexao: this.conexao.id_conexao})
+                event.preventDefault();
+                this.show = true;
+
+            },
+            salvar()
+            {
+                var descricao = document.getElementById('textArea').value;
+                var escolha = null;
+                var els = document.getElementsByName('fb');
+                for (var i=0;i<els.length;i++){
+                    if ( els[i].checked ) {
+                        escolha = els[i].value;
+                    }
+                }
+                axios.post('/mentorado/avaliar', {nota: escolha, comentario: descricao, mentor: this.to, mentorado: this.from})
                 .then((data) => {
-                    window.location = '/mentorado/conexoes';
+                    this.show = false;
+                    axios.post('/mentorado/encerrar', {conexao: this.conexao.id_conexao})
+                    .then((data) => {
+                        window.location = '/mentorado/conexoes';
+                    })
+                    .catch((e) => {
+                        console.log('Erro ao carregar mentores created: ', e);
+                    });
                 })
                 .catch((e) => {
                     console.log('Erro ao carregar mentores created: ', e);
-                });;
-            }
+                });
+            },
         }
     }
 </script>

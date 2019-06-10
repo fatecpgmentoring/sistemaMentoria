@@ -125,7 +125,7 @@ Route::group(['prefix' => 'mentor', 'namespace' => 'Mentor', 'middleware' => Che
     Route::get('/getAllContatos', 'ContatoControllerMentor@getAllAjax')->name('contatos.all.ajax');
     Route::post('/salvarContato', 'ContatoControllerMentor@store')->name('salvar.contato');
     Route::post('/mensagem', 'MensagemControllerMentor@store')->name('mensagem.mentor.salvar');
-    Route::get('/', 'MentorControllerMentor@index')->name('index.mentor');
+    Route::get('/', 'ConexaoControllerMentor@conexoes')->name('index.mentor');
     Route::get('/conexao/aceitar/', 'ConexaoControllerMentor@aceitar')->name('aceitar.mentorado');
     Route::get('/conexao/recusar/', 'ConexaoControllerMentor@recusar')->name('recusar.mentorado');
     Route::get('/conexao/mentorados', 'ConexaoControllerMentor@mentoradosAjax')->name('conxoes.ajax');
@@ -165,6 +165,7 @@ Route::group(['prefix' => 'mentorado', 'namespace' => 'Mentorado', 'middleware' 
     Route::get('/atendimento/relatorios', function () {
         return view('painel-mentorado.atendimento.relatorio');
     });
+    Route::post('/avaliar', 'ComentarioController@store')->name('avaliacao.mentorado');
     Route::post('/mentoresListagemMentor', 'MentoradoController@mentorListagem')->name('mentores.mentorados');
     Route::get('/relatorio-creditos-e-transferencias', function () {
         return view('painel-mentorado.relatorio-creditos-e-transferencias');
