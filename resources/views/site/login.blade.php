@@ -107,7 +107,7 @@
                             </div>
                     </form>
                     </div>
-                       <?php dd($errors) ?>
+                       
                 </div>
                 
             </div>

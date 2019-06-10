@@ -1877,6 +1877,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentor', 'mentorado', 'conexao', 'conversa', 'conexoes'],
   name: 'chat-mentor',
@@ -1905,6 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
     this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    this.scrollToBottom();
   },
   destroyed: function destroyed() {
     this.socket.emit('disconnect', this.from);
@@ -1933,7 +1938,7 @@ __webpack_require__.r(__webpack_exports__);
     receiveMessage: function receiveMessage(msg) {
       this.messages.push({
         message: msg,
-        quem: 1
+        quem: 0
       });
       this.scrollToBottom();
     },
@@ -2285,6 +2290,7 @@ __webpack_require__.r(__webpack_exports__);
     this.socket.on('notyping', this.finishIsTyping);
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    this.scrollToBottom();
   },
   destroyed: function destroyed() {
     this.socket.emit('disconnect', this.from);
@@ -3551,13 +3557,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['mentor', 'assuntos', 'contatos'],
   mode: 'production',
   name: 'show-mentor',
   data: function data() {
     return {
-      dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência']
+      dic: ['menos de 1 ano de experiência', 'entre 1 e 3 anos de experiência', 'entre 3 e 6 anos de experiência', 'entre 6 e 10 anos de experiência', 'entre 10 e 15 anos de experiência', 'entre 15 e 20 anos de experiência', 'mais de 20 anos de experiência'],
+      dicionarioDeImagens: {
+        link: "/images/icones/linkedin.png",
+        whats: '/images/icones/zap.png',
+        face: '/images/icones/fb.png',
+        telegram: '/images/icones/teleg.png',
+        insta: '/images/icones/insta.png',
+        tel: '/images/icones/tele.png',
+        cel: '/images/icones/cel.png',
+        email: '/images/icones/mail.png',
+        other: '/images/icones/outro.png'
+      }
     };
   },
   mounted: function mounted() {
@@ -49790,21 +49815,32 @@ var render = function() {
                                   : ""
                             },
                             [
-                              _c("span", {
-                                staticClass: "contact-status online"
-                              }),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticStyle: {
-                                  height: "55px",
-                                  width: "55px",
-                                  "border-radius": "50%"
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/mentor/chat/" + listMentorado.id_conexao
+                                  }
                                 },
-                                attrs: {
-                                  src: "/" + listMentorado.ds_foto,
-                                  alt: ""
-                                }
-                              })
+                                [
+                                  _c("span", {
+                                    staticClass: "contact-status online"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticStyle: {
+                                      height: "55px",
+                                      width: "55px",
+                                      "border-radius": "50%"
+                                    },
+                                    attrs: {
+                                      src: "/" + listMentorado.ds_foto,
+                                      alt: ""
+                                    }
+                                  })
+                                ]
+                              )
                             ]
                           ),
                           _vm._v(" "),
@@ -49820,22 +49856,33 @@ var render = function() {
                             },
                             [
                               _c(
-                                "p",
+                                "a",
                                 {
-                                  staticClass: "name",
-                                  staticStyle: {
-                                    "font-weight": "600",
-                                    "margin-top": "10%",
-                                    "padding-right": "5%",
-                                    "margin-left": "0",
-                                    "margin-right": "0",
-                                    color: "rgba(0, 176, 176, 1)"
+                                  attrs: {
+                                    href:
+                                      "/mentor/chat/" + listMentorado.id_conexao
                                   }
                                 },
                                 [
-                                  _vm._v(
-                                    "\n                                            " +
-                                      _vm._s(listMentorado.nm_mentorado)
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "name",
+                                      staticStyle: {
+                                        "font-weight": "600",
+                                        "margin-top": "10%",
+                                        "padding-right": "5%",
+                                        "margin-left": "0",
+                                        "margin-right": "0",
+                                        color: "rgba(0, 176, 176, 1)"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(listMentorado.nm_mentorado)
+                                      )
+                                    ]
                                   )
                                 ]
                               )
@@ -51359,7 +51406,10 @@ var render = function() {
           [
             _c(
               "select",
-              { attrs: { name: "assuntoEscolher", id: "assuntosEscolher" } },
+              {
+                staticClass: "form-control",
+                attrs: { name: "assuntoEscolher", id: "assuntosEscolher" }
+              },
               [
                 _c("option", { attrs: { value: "" } }, [
                   _vm._v("Selecione...")
@@ -52941,19 +52991,31 @@ var render = function() {
                   "\n                        "
               ),
               _vm.contatos.length > 0
-                ? _c(
-                    "table",
-                    [
-                      _vm._m(11),
-                      _vm._v(" "),
+                ? _c("table", [
+                    _vm._m(11),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      { attrs: { id: "bodyContatos" } },
                       _vm._l(_vm.contatos, function(contato, index) {
                         return _c("tr", { key: index }, [
-                          _c("td", [_vm._v(_vm._s(contato.ds_contato))])
+                          _c(
+                            "td",
+                            { staticStyle: { "text-align": "center" } },
+                            [
+                              _c("a", { attrs: { href: contato.link } }, [
+                                _c("img", {
+                                  staticStyle: { height: "34px" },
+                                  attrs: { src: contato.imagem }
+                                })
+                              ])
+                            ]
+                          )
                         ])
-                      })
-                    ],
-                    2
-                  )
+                      }),
+                      0
+                    )
+                  ])
                 : _vm._e()
             ])
           ])
@@ -53064,9 +53126,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [
-        _c("strong", { staticStyle: { "font-weight": "bold" } }, [
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticStyle: { "text-align": "center" } }, [
           _vm._v("Contatos")
         ])
       ])
