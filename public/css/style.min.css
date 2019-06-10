@@ -16457,8 +16457,8 @@ form.default .form-check-input:checked:before {
 
     .hamburger-nav {
         display: block;
-        position: relative;
-        right: 100px;
+        position: absolute;
+        left: 10px;
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -16467,6 +16467,7 @@ form.default .form-check-input:checked:before {
         color: #00f0ff !important;
         border: 2px solid #008787;
         cursor: pointer;
+        transition: 0.5s;
     }
 
     .hamburger-nav i{
@@ -16492,12 +16493,12 @@ form.default .form-check-input:checked:before {
     }
 
     #aside-nav.active {
-        clip-path: circle(0px at top right);
+        display: none;
         transition: all ease-in-out 500ms;
     }
 
     .open {
-        clip-path: circle(100%);
+        display: block;
     }
 
     #aside-nav.active{
