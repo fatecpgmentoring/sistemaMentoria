@@ -101,6 +101,11 @@
                 $('.dropdown-nav').toggleClass('active', 500);
             });
 
+            $('.hamburger-nav').click(function(){
+                $('.hamburger-nav').toggleClass('rot');
+                $('#aside-nav').toggleClass('open');
+            });
+
            $(document).click(function(e) {
                 $('#dropdown-nav')
                 .not($('#dropdown-nav').has($(e.target)))
