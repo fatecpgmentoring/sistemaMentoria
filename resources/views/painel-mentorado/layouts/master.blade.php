@@ -33,8 +33,8 @@
 
                 <div class="breadcrumb-wrapper">
                     @yield('breadcrumb')
-                    <div class="link" id="dropdown-nav">
-                        <a class="option-nav">Opções</a>
+                    <div class="link">
+                        <a id="dropdown-nav" class="option-nav" >Opções</a>
                     </div>
                     <div class="dropdown-nav">
                          <ul>
@@ -106,10 +106,10 @@
                 $('#aside-nav').toggleClass('open');
             });
 
-           $(document).click(function(e) {
-                $('#dropdown-nav')
-                .not($('#dropdown-nav').has($(e.target)))
-                    .children('.dropdown-nav').removeClass('active');
+           $(document).click(function(e) {                
+             if($(e.target.id)!='dropdown-nav'){
+                $('.dropdown-nav').removeClass('active');
+             }             
            });
 
         });
