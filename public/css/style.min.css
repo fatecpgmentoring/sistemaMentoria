@@ -16498,7 +16498,7 @@ form.default .form-check-input:checked:before {
     }
 
     .open {
-        display: block;
+        display: block !important;
     }
 
     #aside-nav.active{
