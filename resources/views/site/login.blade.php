@@ -14,7 +14,7 @@
         </ul>
       </div>
     </section>
-
+    @include('site.includes.validacao')
     <section id="login">
         <div class="container">
             <div class="row">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-2">
-                    <div class="wrap">
+                    <div class="wrap">                       
                         <h2>Primeira Vez?</h2>
                         <p>Realize seu cadastro</p>
 
@@ -108,6 +108,8 @@
                     </form>
                     </div>
                        
+
+                    
                 </div>
                 
             </div>

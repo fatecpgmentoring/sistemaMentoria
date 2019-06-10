@@ -15241,7 +15241,7 @@ form.default .form-check-input:checked:before {
 }
 
 #login {
-    background: url(../images/bg-especialistas.png) no-repeat;
+       background: url(../images/bg-especialistas.png) no-repeat;
     background-position-y: 6%;
     background-position-x: center;
     -webkit-background-size: cover;
