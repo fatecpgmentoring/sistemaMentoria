@@ -65,11 +65,9 @@
                     Mentorar?
                 </h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                    maecenas accumsan lacus vel facilisis. 
-                </p>
+                   O processo de compartilhar conhecimento agrega valor a experiência do mentorado quanto a do mentor.
+                   Conhecimento nunca é demais e quanto mais propagamos o que conhecemos, aprendemos ainda mais.
+                   Seja um <span>Mentor</span>.
             </div>
         </div>
     </div>
