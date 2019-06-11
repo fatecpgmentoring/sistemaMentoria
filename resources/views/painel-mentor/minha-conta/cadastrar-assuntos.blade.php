@@ -15,53 +15,12 @@
 @endsection
 
 @section('content')
-
-@csrf
-<div class="assuntos-cad row">
-    <div class="col-xl-2">
-        <select name="profissao" id="profissao" class="form-control assuntos-sel">
-            <option value="">Filtrar...</option>
-            @foreach ($profissoes as $profissao)
-                <option value="{{$profissao->id_profissao}}">{{$profissao->nm_profissao}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col-xl-2">
-        <select name="carreira" id="carreira" class="form-control assuntos-sel">
-            <option value="">Filtrar...</option>
-            @foreach ($carreiras as $carreira)
-                <option value="{{$carreira->id_carreira}}">{{$carreira->nm_carreira}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col-xl-2">
-        <button class="btn btn-mentoring-circule btn-lg" id="searchAssunto"><i class="fa fa-search fa-lg"></i></button>
-    </div>
-</div>
-<div class="row">
-	<div class="col-xl-5">
-        <div style="text-align:center;">Assuntos Existentes</div>
-		<select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
-            @foreach ($assuntos as $assunto)
-                <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
-            @endforeach
-		</select>
-	</div>
-	<div class="col-xl-2">
-		<button data-toggle="modal" data-target="#exampleModal" id="addAssunto" class="btn btn-mentoring btn-block"><i class="fa fa-plus fa-lg fa-mentoring" data-toggle="tooltip" title="Não encontrou o que deseja? Adicione um novo assunto."><a>Adicionar</a></i></button>
-		<button type="button" id="multiselect1_rightSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-right fa-lg fa-mentoring" data-toggle="tooltip" title="Adicionar a sua lista de assuntos"></i></button>
-		<button type="button" id="multiselect1_leftSelected" class="btn btn-mentoring btn-block"><i class="fa fa-long-arrow-left fa-lg fa-mentoring" data-toggle="tooltip" title="Remover da sua lista de assuntos"></i></button>
-	</div>
-
-	<div class="col-xl-5">
-        <div style="text-align:center;">Meus Assuntos</div>
-        <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
-            @foreach (Auth::user()->assuntos as $assunto)
-                <option value="{{$assunto->id_assunto}}">{{$assunto->nm_assunto}}</option>
-            @endforeach
-        </select>
-	</div>
-</div>
+<adicionar-assuntos
+    :meus="{{Auth::user()->assuntos}}"
+    :assuntos="{{$assuntos}}"
+    :profissoes="{{$profissoes}}"
+    :carreiras="{{$carreiras}}"
+></adicionar-assuntos>
 @endsection
 
 @section('js')
@@ -141,38 +100,6 @@ $(document).ready(function() {
     {
         carregarAssuntos();
         carregarMeusAssuntos();
-    });
-    $("#multiselect1_rightSelected").click(function()
-    {
-        var assuntos = $('#multiselect1').val()
-        $.ajax({
-            url: "{{route('salva.assunto.mentor')}}",
-            method: 'post',
-            data: {assuntos: assuntos, _token: $("input[name=_token]").val()},
-            dataType: 'json',
-            success: function(data)
-            {
-                $('#multiselect1_to').append($('#multiselect1 option:selected'));
-                $('#multiselect1 option:selected').remove();
-                $('#multiselect1_to option:selected').prop('selected', false);
-            }
-        });
-    });
-    $("#multiselect1_leftSelected").click(function()
-    {
-        var assuntos = $('#multiselect1_to').val();
-        $.ajax({
-            url: "{{route('remove.assunto.mentor')}}",
-            method: 'post',
-            data: {assuntos: assuntos, _token: $("input[name=_token]").val()},
-            dataType: 'json',
-            success: function(data)
-            {
-                $('#multiselect1').append($('#multiselect1_to option:selected'));
-                $('#multiselect1_to option:selected').remove();
-                $('#multiselect1 option:selected').prop('selected', false);
-            }
-        });
     });
     $("#btnSalvaSugestaoAssunto").click(function()
     {

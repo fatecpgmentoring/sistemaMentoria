@@ -1910,7 +1910,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['assuntosMeus', 'assuntosGerais', 'carreiras', 'profissoes'],
+  props: ['meus', 'assuntos', 'carreiras', 'profissoes'],
   name: 'adicionar-assuntos',
   components: {
     StackModal: _ModalAssuntos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -1919,14 +1919,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       carreirasFiltered: this.carreiras,
       assuntosAdicionar: [],
-      modelCarreira: '',
-      modelProfissao: '',
+      modelCarreira: 0,
+      modelProfissao: 0,
       profissoesFiltered: this.profissoes,
-      assuntosFiltered: this.assuntosGerais,
-      assuntosMeusFiltered: this.assuntosMeus,
-      assuntosMeusRemover: [],
+      assuntosFiltered: this.assuntos,
+      assuntosMeusFiltered: this.meus,
+      assuntosRemover: [],
       assuntoNovo: '',
-      carreiraNovo: '',
+      carreiraNovo: 0,
       show: false
     };
   },
@@ -1936,9 +1936,38 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     buscarAssuntos: function buscarAssuntos() {},
     buscaCarreiras: function buscaCarreiras() {},
-    abrirModal: function abrirModal() {},
-    adicionarAssuntos: function adicionarAssuntos() {},
-    removerAssuntos: function removerAssuntos() {},
+    abrirModal: function abrirModal() {
+      event.preventDefault();
+      this.show = true;
+    },
+    adicionarAssuntos: function adicionarAssuntos() {
+      var _this = this;
+
+      axios.post('/mentor/salvarAssunto', {
+        assuntos: this.assuntosAdicionar
+      }).then(function (data) {
+        _this.assuntosFiltered = data.data.assuntos;
+        _this.assuntosRemover = [];
+        _this.assuntosAdicionar = [];
+        _this.assuntosMeusFiltered = data.data.meus;
+      })["catch"](function (e) {
+        console.log('Erro ao salvar assunto: ', e);
+      });
+    },
+    removerAssuntos: function removerAssuntos() {
+      var _this2 = this;
+
+      axios.post('/mentor/removerAssunto', {
+        assuntos: this.assuntosAdicionar
+      }).then(function (data) {
+        _this2.assuntosFiltered = data.data.assuntos;
+        _this2.assuntosRemover = [];
+        _this2.assuntosAdicionar = [];
+        _this2.assuntosMeusFiltered = data.data.meus;
+      })["catch"](function (e) {
+        console.log('Erro ao salvar assunto: ', e);
+      });
+    },
     salvar: function salvar() {}
   }
 });
@@ -50601,7 +50630,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "assuntos-cad row" }, [
-      _c("div", { staticClass: "col-xl-2" }, [
+      _c("div", { staticClass: "col-xl-5" }, [
         _c(
           "select",
           {
@@ -50613,7 +50642,7 @@ var render = function() {
                 expression: "modelProfissao"
               }
             ],
-            staticClass: "form-control assuntos-sel",
+            staticClass: "form-control",
             attrs: { name: "profissao", id: "profissao" },
             on: {
               change: [
@@ -50655,7 +50684,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-xl-2" }, [
+      _c("div", { staticClass: "col-xl-5" }, [
         _c(
           "select",
           {
@@ -50667,7 +50696,7 @@ var render = function() {
                 expression: "modelCarreira"
               }
             ],
-            staticClass: "form-control assuntos-sel",
+            staticClass: "form-control",
             attrs: { name: "carreira", id: "carreira" },
             on: {
               change: function($event) {
@@ -50711,6 +50740,7 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-mentoring-circule btn-lg",
+            staticStyle: { float: "right" },
             attrs: { id: "searchAssunto" },
             on: { click: _vm.buscarAssuntos }
           },
@@ -50835,8 +50865,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.assuntosMeusRemover,
-                expression: "assuntosMeusRemover"
+                value: _vm.assuntosRemover,
+                expression: "assuntosRemover"
               }
             ],
             staticClass: "form-control",
@@ -50856,7 +50886,7 @@ var render = function() {
                     var val = "_value" in o ? o._value : o.value
                     return val
                   })
-                _vm.assuntosMeusRemover = $event.target.multiple
+                _vm.assuntosRemover = $event.target.multiple
                   ? $$selectedVal
                   : $$selectedVal[0]
               }

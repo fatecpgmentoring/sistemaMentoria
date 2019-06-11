@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="assuntos-cad row">
-            <div class="col-xl-2">
+            <div class="col-xl-5">
                 <select name="profissao" id="profissao" @change="buscaCarreiras" v-model="modelProfissao"
-                    class="form-control assuntos-sel">
+                    class="form-control">
                     <option value="">Filtrar...</option>
                     <option v-for="(profissao, index) in profissoesFiltered" :key="index"
                         :value="profissao.id_profissao">
@@ -11,16 +11,16 @@
                     </option>
                 </select>
             </div>
-            <div class="col-xl-2">
-                <select name="carreira" id="carreira" v-model="modelCarreira" class="form-control assuntos-sel">
+            <div class="col-xl-5">
+                <select name="carreira" id="carreira" v-model="modelCarreira" class="form-control">
                     <option value="">Filtrar...</option>
                     <option v-for="(carreira, index) in carreirasFiltered" :key="index" :value="carreira.id_carreira">
                         {{carreira.nm_carreira}}
                     </option>
                 </select>
             </div>
-            <div class="col-xl-2">
-                <button class="btn btn-mentoring-circule btn-lg" @click="buscarAssuntos" id="searchAssunto"><i
+            <div class="col-xl-2" >
+                <button class="btn btn-mentoring-circule btn-lg" @click="buscarAssuntos" id="searchAssunto" style="float: right;"><i
                         class="fa fa-search fa-lg"></i></button>
             </div>
         </div>
@@ -48,7 +48,7 @@
 
             <div class="col-xl-5">
                 <div style="text-align:center;">Meus Assuntos</div>
-                <select name="to[]" id="multiselect1_to" class="form-control" v-model="assuntosMeusRemover" size="8"
+                <select name="to[]" id="multiselect1_to" class="form-control" v-model="assuntosRemover" size="8"
                     multiple="multiple">
                     <option v-for="(assunto, index) in assuntosMeusFiltered" :key="index" :value="assunto.id_assunto">
                         {{assunto.nm_assunto}}
@@ -81,7 +81,7 @@
 <script>
     import StackModal from './ModalAssuntos.vue'
     export default {
-        props: ['assuntosMeus', 'assuntosGerais', 'carreiras', 'profissoes'],
+        props: ['meus', 'assuntos', 'carreiras', 'profissoes'],
         name: 'adicionar-assuntos',
         components: {
             StackModal
@@ -90,14 +90,14 @@
             return {
                 carreirasFiltered: this.carreiras,
                 assuntosAdicionar: [],
-                modelCarreira: '',
-                modelProfissao: '',
+                modelCarreira: 0,
+                modelProfissao: 0,
                 profissoesFiltered: this.profissoes,
-                assuntosFiltered: this.assuntosGerais,
-                assuntosMeusFiltered: this.assuntosMeus,
-                assuntosMeusRemover: [],
+                assuntosFiltered: this.assuntos,
+                assuntosMeusFiltered: this.meus,
+                assuntosRemover: [],
                 assuntoNovo: '',
-                carreiraNovo: '',
+                carreiraNovo: 0,
                 show: false,
             }
         },
@@ -112,13 +112,30 @@
 
             },
             abrirModal() {
-
+                event.preventDefault();
+                this.show = true;
             },
             adicionarAssuntos() {
-
+               axios.post('/mentor/salvarAssunto', {assuntos: this.assuntosAdicionar})
+                .then((data) => {
+                    this.assuntosFiltered = data.data.assuntos;
+                    this.assuntosRemover = [];
+                    this.assuntosAdicionar = [];
+                    this.assuntosMeusFiltered = data.data.meus;
+                }).catch((e) => {
+                    console.log('Erro ao salvar assunto: ', e);
+                });
             },
             removerAssuntos() {
-
+                axios.post('/mentor/removerAssunto', {assuntos: this.assuntosAdicionar})
+                .then((data) => {
+                    this.assuntosFiltered = data.data.assuntos;
+                    this.assuntosRemover = [];
+                    this.assuntosAdicionar = [];
+                    this.assuntosMeusFiltered = data.data.meus;
+                }).catch((e) => {
+                    console.log('Erro ao salvar assunto: ', e);
+                });
             },
             salvar() {
 
