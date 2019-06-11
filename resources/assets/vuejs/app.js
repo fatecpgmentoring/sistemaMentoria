@@ -1,9 +1,3 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 import "@babel/polyfill";
 
 require('./bootstrap');
@@ -14,13 +8,12 @@ window.CreateConnectionSocket = io(WS_URL, {
     secure: true
 });
 
-/*
-window.VueSocketio = require('vue-socket.io');
-*/
-import Snotify from 'vue-snotify';
-Vue.use(Snotify);
+//Gerais
 
-// Painel Site
+import AdicionarAssuntos from './components-gerais/AdicionarAssuntos.vue';
+Vue.component('adicionar-assuntos', AdicionarAssuntos);
+import LoginCadastro from './components-gerais/LoginCadastro.vue';
+Vue.component('login-cadastro', LoginCadastro);
 import BestGradesMentores from './painel-site/BestGradesMentores.vue';
 Vue.component('best-grades-mentores', BestGradesMentores);
 import ShowMentor from './painel-site/ShowMentor.vue';
@@ -35,6 +28,8 @@ import ConexoesMentorados from './painel-mentor/ConexoesMentorados.vue';
 Vue.component('conexoes-mentorados', ConexoesMentorados);
 import ChatMentor from './painel-mentor/ChatMentor.vue';
 Vue.component('chat-mentor', ChatMentor);
+import Contato from './painel-mentor/Contato.vue';
+Vue.component('contato', Contato);
 
 // Painel Mentorado
 import ConexoesMentores from './painel-mentorado/ConexoesMentores.vue';
@@ -43,15 +38,7 @@ import ChatMentorado from './painel-mentorado/ChatMentorado.vue';
 Vue.component('chat-mentorado', ChatMentorado);
 import Mentores from './painel-mentorado/Mentores.vue';
 Vue.component('mentores', Mentores);
-import Modal from './painel-mentorado/Modal.vue';
-Vue.component('modal', Modal);
 
 const app = new Vue({
     el: '#vue-app'
 });
-
-const notifier = new Vue({
-    el: '#global-notifier'
-})
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
