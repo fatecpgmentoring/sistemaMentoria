@@ -1908,9 +1908,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['meus', 'assuntos', 'carreiras', 'profissoes'],
+  props: ['meus', 'assuntos', 'carreiras', 'profissoes', 'user'],
   name: 'adicionar-assuntos',
   components: {
     StackModal: _ModalAssuntos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -1919,56 +1923,86 @@ __webpack_require__.r(__webpack_exports__);
     return {
       carreirasFiltered: this.carreiras,
       assuntosAdicionar: [],
-      modelCarreira: 0,
-      modelProfissao: 0,
+      modelCarreira: '',
+      modelProfissao: '',
       profissoesFiltered: this.profissoes,
       assuntosFiltered: this.assuntos,
       assuntosMeusFiltered: this.meus,
       assuntosRemover: [],
       assuntoNovo: '',
-      carreiraNovo: 0,
-      show: false
+      carreiraNovo: '',
+      show: false,
+      role: this.user.cd_role == 2 ? 'mentor' : 'mentorado'
     };
   },
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   methods: {
-    buscarAssuntos: function buscarAssuntos() {},
-    buscaCarreiras: function buscaCarreiras() {},
+    buscarAssuntos: function buscarAssuntos() {
+      var _this = this;
+
+      axios.post('/' + this.role + '/carregaAssunto', {
+        prof: this.modelProfissao,
+        car: this.modelCarreira
+      }).then(function (data) {
+        _this.assuntosFiltered = data.data.assuntos;
+      })["catch"](function (data) {});
+    },
+    buscaCarreiras: function buscaCarreiras() {
+      var _this2 = this;
+
+      this.modelCarreira = '';
+      axios.post('/' + this.role + '/carregaCarreira', {
+        prof: this.modelProfissao
+      }).then(function (data) {
+        _this2.carreirasFiltered = data.data.carreiras;
+      })["catch"](function (data) {});
+    },
     abrirModal: function abrirModal() {
       event.preventDefault();
       this.show = true;
     },
     adicionarAssuntos: function adicionarAssuntos() {
-      var _this = this;
-
-      axios.post('/mentor/salvarAssunto', {
+      axios.post('/' + this.role + '/salvarAssunto', {
         assuntos: this.assuntosAdicionar
-      }).then(function (data) {
-        _this.assuntosFiltered = data.data.assuntos;
-        _this.assuntosRemover = [];
-        _this.assuntosAdicionar = [];
-        _this.assuntosMeusFiltered = data.data.meus;
-      })["catch"](function (e) {
-        console.log('Erro ao salvar assunto: ', e);
       });
+
+      for (var i = 0; i < this.assuntosFiltered.length; i++) {
+        for (var j = 0; j < this.assuntosAdicionar.length; j++) {
+          if (this.assuntosFiltered[i].id_assunto == this.assuntosAdicionar[j]) {
+            this.assuntosMeusFiltered.push(this.assuntosFiltered[i]);
+            this.assuntosFiltered.splice(i, 1);
+          }
+        }
+      }
     },
     removerAssuntos: function removerAssuntos() {
-      var _this2 = this;
-
-      axios.post('/mentor/removerAssunto', {
+      axios.post('/' + this.role + '/removerAssunto', {
         assuntos: this.assuntosAdicionar
-      }).then(function (data) {
-        _this2.assuntosFiltered = data.data.assuntos;
-        _this2.assuntosRemover = [];
-        _this2.assuntosAdicionar = [];
-        _this2.assuntosMeusFiltered = data.data.meus;
-      })["catch"](function (e) {
-        console.log('Erro ao salvar assunto: ', e);
       });
+
+      for (var i = 0; i < this.assuntosMeusFiltered.length; i++) {
+        for (var j = 0; j < this.assuntosRemover.length; j++) {
+          if (this.assuntosMeusFiltered[i].id_assunto == this.assuntosRemover[j]) {
+            this.assuntosFiltered.push(this.assuntosMeusFiltered[i]);
+            this.assuntosMeusFiltered.splice(i, 1);
+          }
+        }
+      }
     },
-    salvar: function salvar() {}
+    salvar: function salvar() {
+      var _this3 = this;
+
+      axios.post('/' + this.role + '/cadastrar-assunto-mentor', {
+        assunto: this.assuntoNovo,
+        carreira: this.carreiraNovo
+      }).then(function (data) {
+        _this3.carreiraNovo = '';
+        _this3.assuntoNovo = '';
+      })["catch"](function (data) {});
+      ;
+    }
   }
 });
 
@@ -50637,9 +50671,10 @@ var render = function() {
             directives: [
               {
                 name: "model",
-                rawName: "v-model",
+                rawName: "v-model.number",
                 value: _vm.modelProfissao,
-                expression: "modelProfissao"
+                expression: "modelProfissao",
+                modifiers: { number: true }
               }
             ],
             staticClass: "form-control",
@@ -50653,7 +50688,7 @@ var render = function() {
                     })
                     .map(function(o) {
                       var val = "_value" in o ? o._value : o.value
-                      return val
+                      return _vm._n(val)
                     })
                   _vm.modelProfissao = $event.target.multiple
                     ? $$selectedVal
@@ -50669,7 +50704,12 @@ var render = function() {
             _vm._l(_vm.profissoesFiltered, function(profissao, index) {
               return _c(
                 "option",
-                { key: index, domProps: { value: profissao.id_profissao } },
+                {
+                  key: index,
+                  ref: "profissoesFiltered",
+                  refInFor: true,
+                  domProps: { value: profissao.id_profissao }
+                },
                 [
                   _vm._v(
                     "\n                    " +
@@ -50691,9 +50731,10 @@ var render = function() {
             directives: [
               {
                 name: "model",
-                rawName: "v-model",
+                rawName: "v-model.number",
                 value: _vm.modelCarreira,
-                expression: "modelCarreira"
+                expression: "modelCarreira",
+                modifiers: { number: true }
               }
             ],
             staticClass: "form-control",
@@ -50706,7 +50747,7 @@ var render = function() {
                   })
                   .map(function(o) {
                     var val = "_value" in o ? o._value : o.value
-                    return val
+                    return _vm._n(val)
                   })
                 _vm.modelCarreira = $event.target.multiple
                   ? $$selectedVal
@@ -50720,7 +50761,12 @@ var render = function() {
             _vm._l(_vm.carreirasFiltered, function(carreira, index) {
               return _c(
                 "option",
-                { key: index, domProps: { value: carreira.id_carreira } },
+                {
+                  key: index,
+                  ref: "carreirasFiltered",
+                  refInFor: true,
+                  domProps: { value: carreira.id_carreira }
+                },
                 [
                   _vm._v(
                     "\n                    " +
@@ -50792,7 +50838,12 @@ var render = function() {
           _vm._l(_vm.assuntosFiltered, function(assunto, index) {
             return _c(
               "option",
-              { key: index, domProps: { value: assunto.id_assunto } },
+              {
+                key: index,
+                ref: "assuntosFiltered",
+                refInFor: true,
+                domProps: { value: assunto.id_assunto }
+              },
               [
                 _vm._v(
                   "\n                    " +
@@ -50895,7 +50946,12 @@ var render = function() {
           _vm._l(_vm.assuntosMeusFiltered, function(assunto, index) {
             return _c(
               "option",
-              { key: index, domProps: { value: assunto.id_assunto } },
+              {
+                key: index,
+                ref: "assuntosMeusFiltered",
+                refInFor: true,
+                domProps: { value: assunto.id_assunto }
+              },
               [
                 _vm._v(
                   "\n                    " +
@@ -50971,9 +51027,10 @@ var render = function() {
                     directives: [
                       {
                         name: "model",
-                        rawName: "v-model",
+                        rawName: "v-model.number",
                         value: _vm.carreiraNovo,
-                        expression: "carreiraNovo"
+                        expression: "carreiraNovo",
+                        modifiers: { number: true }
                       }
                     ],
                     staticClass: "form-control",
@@ -50986,7 +51043,7 @@ var render = function() {
                           })
                           .map(function(o) {
                             var val = "_value" in o ? o._value : o.value
-                            return val
+                            return _vm._n(val)
                           })
                         _vm.carreiraNovo = $event.target.multiple
                           ? $$selectedVal

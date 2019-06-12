@@ -2,19 +2,23 @@
     <div>
         <div class="assuntos-cad row">
             <div class="col-xl-5">
-                <select name="profissao" id="profissao" @change="buscaCarreiras" v-model="modelProfissao"
+                <select name="profissao" id="profissao" @change="buscaCarreiras" v-model.number="modelProfissao"
                     class="form-control">
                     <option value="">Filtrar...</option>
-                    <option v-for="(profissao, index) in profissoesFiltered" :key="index"
-                        :value="profissao.id_profissao">
+                    <option v-for="(profissao, index) in profissoesFiltered"
+                            :key="index"
+                            v-bind:value="profissao.id_profissao" ref="profissoesFiltered">
                         {{profissao.nm_profissao}}
                     </option>
                 </select>
             </div>
             <div class="col-xl-5">
-                <select name="carreira" id="carreira" v-model="modelCarreira" class="form-control">
+                <select name="carreira" id="carreira" v-model.number="modelCarreira" class="form-control">
                     <option value="">Filtrar...</option>
-                    <option v-for="(carreira, index) in carreirasFiltered" :key="index" :value="carreira.id_carreira">
+                    <option v-for="(carreira, index) in carreirasFiltered"
+                            :key="index"
+                            v-bind:value="carreira.id_carreira"
+                            ref="carreirasFiltered">
                         {{carreira.nm_carreira}}
                     </option>
                 </select>
@@ -29,7 +33,7 @@
                 <div style="text-align:center;">Assuntos Existentes</div>
                 <select name="from[]" id="multiselect1" class="form-control" v-model="assuntosAdicionar" size="8"
                     multiple="multiple">
-                    <option v-for="(assunto, index) in assuntosFiltered" :key="index" :value="assunto.id_assunto">
+                    <option v-for="(assunto, index) in assuntosFiltered" :key="index" v-bind:value="assunto.id_assunto" ref="assuntosFiltered">
                         {{assunto.nm_assunto}}
                     </option>
                 </select>
@@ -50,7 +54,7 @@
                 <div style="text-align:center;">Meus Assuntos</div>
                 <select name="to[]" id="multiselect1_to" class="form-control" v-model="assuntosRemover" size="8"
                     multiple="multiple">
-                    <option v-for="(assunto, index) in assuntosMeusFiltered" :key="index" :value="assunto.id_assunto">
+                    <option v-for="(assunto, index) in assuntosMeusFiltered" :key="index" v-bind:value="assunto.id_assunto" ref="assuntosMeusFiltered">
                         {{assunto.nm_assunto}}
                     </option>
                 </select>
@@ -64,10 +68,10 @@
                     </div>
                     <div class="form-group">
                         <label for="carreiraAssunto">Carreira: </label>
-                        <select name="carreiraAssunto" id="carreiraAssunto" v-model="carreiraNovo" class="form-control">
+                        <select name="carreiraAssunto" id="carreiraAssunto" v-model.number="carreiraNovo" class="form-control">
                             <option value="">Digite uma carreira...</option>
                             <option v-for="(carreira, index) in carreirasFiltered" :key="index"
-                                :value="carreira.id_carreira">
+                                v-bind:value="carreira.id_carreira">
                                 {{carreira.nm_carreira}}
                             </option>
                         </select>
@@ -81,7 +85,7 @@
 <script>
     import StackModal from './ModalAssuntos.vue'
     export default {
-        props: ['meus', 'assuntos', 'carreiras', 'profissoes'],
+        props: ['meus', 'assuntos', 'carreiras', 'profissoes', 'user'],
         name: 'adicionar-assuntos',
         components: {
             StackModal
@@ -90,15 +94,16 @@
             return {
                 carreirasFiltered: this.carreiras,
                 assuntosAdicionar: [],
-                modelCarreira: 0,
-                modelProfissao: 0,
+                modelCarreira: '',
+                modelProfissao: '',
                 profissoesFiltered: this.profissoes,
                 assuntosFiltered: this.assuntos,
                 assuntosMeusFiltered: this.meus,
                 assuntosRemover: [],
                 assuntoNovo: '',
-                carreiraNovo: 0,
+                carreiraNovo: '',
                 show: false,
+                role: this.user.cd_role == 2 ? 'mentor' : 'mentorado'
             }
         },
         mounted() {
@@ -106,39 +111,64 @@
         },
         methods: {
             buscarAssuntos() {
+                axios.post('/'+this.role+'/carregaAssunto', {prof: this.modelProfissao, car: this.modelCarreira})
+                    .then((data) => {
+                        this.assuntosFiltered = data.data.assuntos;
+                    }).catch((data) => {
 
+                    });
             },
             buscaCarreiras() {
+                this.modelCarreira = '';
+                axios.post('/'+this.role+'/carregaCarreira', {prof: this.modelProfissao})
+                    .then((data) => {
+                        this.carreirasFiltered = data.data.carreiras;
+                    }).catch((data) => {
 
+                    });
             },
             abrirModal() {
                 event.preventDefault();
                 this.show = true;
             },
             adicionarAssuntos() {
-               axios.post('/mentor/salvarAssunto', {assuntos: this.assuntosAdicionar})
-                .then((data) => {
-                    this.assuntosFiltered = data.data.assuntos;
-                    this.assuntosRemover = [];
-                    this.assuntosAdicionar = [];
-                    this.assuntosMeusFiltered = data.data.meus;
-                }).catch((e) => {
-                    console.log('Erro ao salvar assunto: ', e);
-                });
+                axios.post('/'+this.role+'/salvarAssunto', {assuntos: this.assuntosAdicionar});
+                for(var i = 0; i < this.assuntosFiltered.length; i++)
+                {
+                    for(var j = 0; j < this.assuntosAdicionar.length; j++)
+                    {
+                        if(this.assuntosFiltered[i].id_assunto == this.assuntosAdicionar[j])
+                        {
+                            this.assuntosMeusFiltered.push(this.assuntosFiltered[i]);
+                            this.assuntosFiltered.splice(i, 1);
+                        }
+                    }
+
+                }
             },
             removerAssuntos() {
-                axios.post('/mentor/removerAssunto', {assuntos: this.assuntosAdicionar})
-                .then((data) => {
-                    this.assuntosFiltered = data.data.assuntos;
-                    this.assuntosRemover = [];
-                    this.assuntosAdicionar = [];
-                    this.assuntosMeusFiltered = data.data.meus;
-                }).catch((e) => {
-                    console.log('Erro ao salvar assunto: ', e);
-                });
+                axios.post('/'+this.role+'/removerAssunto', {assuntos: this.assuntosAdicionar});
+                 for(var i = 0; i < this.assuntosMeusFiltered.length; i++)
+                {
+                    for(var j = 0; j < this.assuntosRemover.length; j++)
+                    {
+                        if(this.assuntosMeusFiltered[i].id_assunto == this.assuntosRemover[j])
+                        {
+                            this.assuntosFiltered.push(this.assuntosMeusFiltered[i]);
+                            this.assuntosMeusFiltered.splice(i, 1);
+                        }
+                    }
+
+                }
             },
             salvar() {
+                axios.post('/'+this.role+'/cadastrar-assunto-mentor', { assunto: this.assuntoNovo, carreira: this.carreiraNovo})
+                 .then((data) => {
+                        this.carreiraNovo = '';
+                        this.assuntoNovo = '';
+                    }).catch((data) => {
 
+                    });;
             }
         },
     }

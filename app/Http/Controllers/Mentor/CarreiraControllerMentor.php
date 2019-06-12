@@ -21,9 +21,9 @@ class CarreiraControllerMentor extends Controller
 
     public function carregaCarreira(Request $request)
     {
-        if($request->prof != null && $request->prof != '') $carreiras = Carreira::where('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
+        if ($request->prof != null && $request->prof != '') $carreiras = Carreira::where('ds_active_carreira', '=', 1)->where('profissao_id_profissao', '=', $request->prof)->get();
         else $carreiras = Carreira::where('ds_active_carreira', '=', 1)->get();
-        return json_encode($carreiras);
+        return json_encode(array('carreiras' => $carreiras->toArray()));
     }
     /**
      * Show the form for creating a new resource.

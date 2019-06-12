@@ -16,30 +16,23 @@ class AssuntoControllerMentor extends Controller
     public function carregaAssunto(Request $request)
     {
         $assuntos = Assunto::where('ds_active_assunto', '=', 1);
-        if($request->prof != null)
+        if ($request->prof != null)
             $assuntos->join('tb_carreiras', 'id_carreira', '=', 'carreira_id_carreira')->where('profissao_id_profissao', '=', $request->prof);
-        if($request->car != null)
+        if ($request->car != null)
             $assuntos = $assuntos->where('carreira_id_carreira', '=', $request->car);
         $assuntosArray = array();
-        foreach(Auth::user()->assuntos as $assunto)
-        {
+        foreach (Auth::user()->assuntos as $assunto) {
             $assuntosArray[] = $assunto->id_assunto;
         }
         $assuntos = $assuntos->whereNotIn('id_assunto', $assuntosArray)->get();
-        return json_encode($assuntos);
-    }
-
-    public function carregaMeusAssuntos(Request $request)
-    {
-        return json_encode(Auth::user()->assuntos);
+        return json_encode(array('assuntos' => $assuntos->toArray()));
     }
 
     public function salvarAssunto(Request $request)
     {
         $assuntos = $request->input('assuntos');
         $usuario = Usuario::find(Auth::user()->id_usuario);
-        foreach($assuntos as $assunto)
-        {
+        foreach ($assuntos as $assunto) {
             $usuario->assuntos()->attach(intval($assunto));
         }
         return json_encode("OK");
@@ -49,8 +42,7 @@ class AssuntoControllerMentor extends Controller
     {
         $assuntos = $request->input('assuntos');
         $usuario = Usuario::find(Auth::user()->id_usuario);
-        foreach($assuntos as $assunto)
-        {
+        foreach ($assuntos as $assunto) {
             $usuario->assuntos()->detach($assunto);
         }
         return json_encode("OK");
@@ -61,8 +53,7 @@ class AssuntoControllerMentor extends Controller
         $carreiras = Carreira::where('ds_active_carreira', '=', 1)->get();
         $profissoes = Profissao::where('ds_active_profissao', '=', 1)->get();
         $assuntosArray = array();
-        foreach(Auth::user()->assuntos as $assunto)
-        {
+        foreach (Auth::user()->assuntos as $assunto) {
             $assuntosArray[] = $assunto->id_assunto;
         }
         $assuntos = Assunto::where('ds_active_assunto', '=', 1)->whereNotIn('id_assunto', $assuntosArray)->get();
@@ -71,22 +62,19 @@ class AssuntoControllerMentor extends Controller
 
     function cadastrarAssuntoMentor(Request $request)
     {
-        $assunto = $request->dados["assunto"];
-        $carreira = intval($request->dados["carreira"]);
+        $assunto = $request->assunto;
+        $carreira = intval($request->carreira);
         $mentor = $request->session()->get('usuario.0');
         $assunto = new Assunto([
             'nm_assunto' => $assunto,
             'carreira_id_carreira' => $carreira,
             'ds_active_assunto' => 0,
-            'assunto_log' => 'Cadatrado por '.$mentor->nm_mentor.' (ID='.$mentor->id_mentor.')'
+            'assunto_log' => 'Cadatrado por ' . $mentor->nm_mentor . ' (ID=' . $mentor->id_mentor . ')'
         ]);
-        try
-        {
+        try {
             $assunto->save();
             return json_encode(array('status' => 'success', 'dados' => $assunto));
-        }
-        catch(QueryException $ex)
-        {
+        } catch (QueryException $ex) {
             return json_encode(array('status' => 'failure', 'dados' => $assunto));
         }
     }
