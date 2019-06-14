@@ -111,7 +111,7 @@
         },
         methods: {
             buscarAssuntos() {
-                axios.post('/'+this.role+'/carregaAssunto', {prof: this.modelProfissao, car: this.modelCarreira})
+                axios.post('/carregaAssunto', {prof: this.modelProfissao, car: this.modelCarreira})
                     .then((data) => {
                         this.assuntosFiltered = data.data.assuntos;
                     }).catch((data) => {
@@ -120,7 +120,7 @@
             },
             buscaCarreiras() {
                 this.modelCarreira = '';
-                axios.post('/'+this.role+'/carregaCarreira', {prof: this.modelProfissao})
+                axios.post('/carregaCarreira', {prof: this.modelProfissao})
                     .then((data) => {
                         this.carreirasFiltered = data.data.carreiras;
                     }).catch((data) => {
@@ -132,7 +132,7 @@
                 this.show = true;
             },
             adicionarAssuntos() {
-                axios.post('/'+this.role+'/salvarAssunto', {assuntos: this.assuntosAdicionar});
+                axios.post('/salvarAssunto', {assuntos: this.assuntosAdicionar, user: this.user});
                 for(var i = 0; i < this.assuntosFiltered.length; i++)
                 {
                     for(var j = 0; j < this.assuntosAdicionar.length; j++)
@@ -147,7 +147,7 @@
                 }
             },
             removerAssuntos() {
-                axios.post('/'+this.role+'/removerAssunto', {assuntos: this.assuntosAdicionar});
+                axios.post('/removerAssunto', {assuntos: this.assuntosAdicionar, user: this.user});
                  for(var i = 0; i < this.assuntosMeusFiltered.length; i++)
                 {
                     for(var j = 0; j < this.assuntosRemover.length; j++)
@@ -162,7 +162,7 @@
                 }
             },
             salvar() {
-                axios.post('/'+this.role+'/cadastrar-assunto-mentor', { assunto: this.assuntoNovo, carreira: this.carreiraNovo})
+                axios.post('/cadastrar-assunto', { assunto: this.assuntoNovo, carreira: this.carreiraNovo, user: this.user})
                  .then((data) => {
                         this.carreiraNovo = '';
                         this.assuntoNovo = '';

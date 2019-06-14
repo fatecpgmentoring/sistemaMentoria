@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckOnline
 {
@@ -15,10 +16,9 @@ class CheckOnline
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             return $next($request);
-        }
-        else {
+        } else {
             return \redirect('/login');
         }
     }

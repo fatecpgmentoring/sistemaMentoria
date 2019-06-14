@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Mentor;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Assunto;
-use App\Carreira;
 use App\Profissao;
+use App\Carreira;
 use Illuminate\Support\Facades\Auth;
-use function GuzzleHttp\json_encode;
-use App\Usuario;
+use App\Assunto;
+use Illuminate\Database\QueryException;
 
-class AssuntoControllerMentor extends Controller
+class AssuntoController extends Controller
 {
     public function carregaAssunto(Request $request)
     {
@@ -57,19 +55,22 @@ class AssuntoControllerMentor extends Controller
             $assuntosArray[] = $assunto->id_assunto;
         }
         $assuntos = Assunto::where('ds_active_assunto', '=', 1)->whereNotIn('id_assunto', $assuntosArray)->get();
-        return view('painel-mentor.minha-conta.cadastrar-assuntos', compact('profissoes', 'carreiras', 'assuntos'));
+        if (Auth::user()->cd_role == 2)
+            return view('painel-mentor.minha-conta.cadastrar-assuntos', compact('profissoes', 'carreiras', 'assuntos'));
+        else
+            return view('painel-mentorado.minha-conta.cadastrar-assuntos', compact('profissoes', 'carreiras', 'assuntos'));
     }
 
     function cadastrarAssuntoMentor(Request $request)
     {
         $assunto = $request->assunto;
         $carreira = intval($request->carreira);
-        $mentor = $request->session()->get('usuario.0');
+        $user = $request->session()->get('usuario.0');
         $assunto = new Assunto([
             'nm_assunto' => $assunto,
             'carreira_id_carreira' => $carreira,
             'ds_active_assunto' => 0,
-            'assunto_log' => 'Cadatrado por ' . $mentor->nm_mentor . ' (ID=' . $mentor->id_mentor . ')'
+            'assunto_log' => 'Cadatrado por ' . (Auth::user()->cd_role == 2 ? $user->nm_mentor : $user->nm_mentorado) . ' (ID=' . (Auth::user()->cd_role == 2 ? $user->id_mentor : $user->id_mentorado) . ')'
         ]);
         try {
             $assunto->save();

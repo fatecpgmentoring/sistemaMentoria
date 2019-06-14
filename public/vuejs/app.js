@@ -1942,7 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
     buscarAssuntos: function buscarAssuntos() {
       var _this = this;
 
-      axios.post('/' + this.role + '/carregaAssunto', {
+      axios.post('/carregaAssunto', {
         prof: this.modelProfissao,
         car: this.modelCarreira
       }).then(function (data) {
@@ -1953,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.modelCarreira = '';
-      axios.post('/' + this.role + '/carregaCarreira', {
+      axios.post('/carregaCarreira', {
         prof: this.modelProfissao
       }).then(function (data) {
         _this2.carreirasFiltered = data.data.carreiras;
@@ -1964,8 +1964,9 @@ __webpack_require__.r(__webpack_exports__);
       this.show = true;
     },
     adicionarAssuntos: function adicionarAssuntos() {
-      axios.post('/' + this.role + '/salvarAssunto', {
-        assuntos: this.assuntosAdicionar
+      axios.post('/salvarAssunto', {
+        assuntos: this.assuntosAdicionar,
+        user: this.user
       });
 
       for (var i = 0; i < this.assuntosFiltered.length; i++) {
@@ -1978,8 +1979,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     removerAssuntos: function removerAssuntos() {
-      axios.post('/' + this.role + '/removerAssunto', {
-        assuntos: this.assuntosAdicionar
+      axios.post('/removerAssunto', {
+        assuntos: this.assuntosAdicionar,
+        user: this.user
       });
 
       for (var i = 0; i < this.assuntosMeusFiltered.length; i++) {
@@ -1994,9 +1996,10 @@ __webpack_require__.r(__webpack_exports__);
     salvar: function salvar() {
       var _this3 = this;
 
-      axios.post('/' + this.role + '/cadastrar-assunto-mentor', {
+      axios.post('/cadastrar-assunto', {
         assunto: this.assuntoNovo,
-        carreira: this.carreiraNovo
+        carreira: this.carreiraNovo,
+        user: this.user
       }).then(function (data) {
         _this3.carreiraNovo = '';
         _this3.assuntoNovo = '';
